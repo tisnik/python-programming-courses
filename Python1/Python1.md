@@ -12,3 +12,99 @@
 * Třídy – použitá terminologie, definování, objekty, dědičnost
 * Úprava příkazového řádku – vytvoření, argumenty, klávesové zkratky
 
+---
+
+## Úvod
+
+* Základní informace o jazyku Python
+* Proč a k čemu používat jazyk Python
+* Srovnání s ostatními programovacími jazyky
+* Implementace Pythonu
+
+---
+
+### Základní informace o jazyku Python
+
+* Interpret
+* Objektově orientovaný jazyk
+* Dostupný na mnoho platforem
+* Používaný pro CLI aplikace, na serverech, pro GUI atd.
+
+---
+
+### Interpretery vs překladače
+
+* Interpret
+    - Python, Perl, JavaScript, Ruby, TCL, shelly
+    - typicky dynamicky typované jazyky (rychlejší vývoj)
+    - snadněji použitelné (jednodušší syntaxe a sémantika)
+    - kompaktnější kód
+    - obecně pomalejší běh programů
+    - lepší podpora tzv. introspekce
+* Překladač
+    - Java, C, C++, C#, Fortran
+    - nutnost překladu (a slinkování)
+    - pomalejší cyklus vývoje: editace-překlad-slinkování-spuštění
+    - výsledné aplikace rychlejší (1:10 apod.)
+
+---
+
+### Proč a k čemu používat jazyk Python
+
+* Moderní způsoby využití
+    - AI
+    - Machine Learning (Deep Learning)
+    - Big data
+
+---
+
+### Srovnání s ostatními programovacími jazyky
+
+---
+
+### Implementace Pythonu
+
+---
+
+## Základy jazyka
+
+* Ukázkový příklad
+* Čísla
+* Pravdivostní hodnoty
+* Řetězce (raw, Unicode)
+* Seznamy (pole)
+* Slovníky
+* Množiny
+* N-tice
+
+---
+
+### Ukázkový příklad
+
+---
+
+### Čísla
+
+---
+
+### Pravdivostní hodnoty
+
+---
+
+### Řetězce (raw, Unicode)
+
+---
+
+### Seznamy (pole)
+
+---
+
+### Slovníky
+
+---
+
+### Množiny
+
+---
+
+### N-tice
