@@ -153,6 +153,25 @@ def       for       lambda    try
 
 ---
 
+### Funkce print
+
+
+* Existuje ve formě příkazu v Pythonu 2.x:
+
+```python
+print "Hello"
+```
+
+* V Pythonu 3 jde o funkci:
+
+```python
+print("Hello")
+```
+
+* Použijeme ji v navazujících slajdech
+
+---
+
 ### Datové typy
 
 * čísla (tři typy)
@@ -200,6 +219,14 @@ def       for       lambda    try
     - int / long (Python 2.x / Python 3.x)
     - float
     - complex
+
+```python
+print(42)
+print(3.1415)
+print(2+3j)
+```
+
+* pozor na:
 
 ---
 
@@ -264,9 +291,61 @@ def       for       lambda    try
 
 * Základní pojmy
 * Příklady použití
+* Rekurznivní funkce
 * Definice funkcí
 * Oblast platnosti proměnných
 * Použití globálních proměnných
+
+---
+
+### Základní pojmy
+
+---
+
+### Příklady použití
+
+---
+
+### Rekurznivní funkce
+
+```python
+def factorial(n):
+    return 1 if n <= 1 else n * factorial(n - 1)
+
+
+print(factorial(10))
+
+for n in range(1, 11):
+    print(n, factorial(n))
+```
+
+```python
+calls = 0
+
+def ackermann(m, n):
+    global calls
+    calls += 1
+    if m == 0:
+        return n + 1
+    elif n == 0:
+        return ackermann(m - 1, 1)
+    else:
+        return ackermann(m - 1, ackermann(m, n - 1))
+
+print(ackermann(3,4))
+```
+
+---
+
+### Definice funkcí
+
+---
+
+### Oblast platnosti proměnných
+
+---
+
+### Použití globálních proměnných
 
 ---
 
