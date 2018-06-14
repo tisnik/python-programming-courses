@@ -12,6 +12,7 @@
 * Chyby a výjimky – přehled, vyvolání, obsluha, syntaktické chyby, složitější použití
 * Třídy – použitá terminologie, definování, objekty, dědičnost
 * Úprava příkazového řádku – vytvoření, argumenty, klávesové zkratky
+* Použití debuggeru
 
 ---
 
@@ -28,9 +29,16 @@
 ### Základní informace o jazyku Python
 
 * Interpret
+    - s generováním bajtkódu
 * Objektově orientovaný jazyk
+* Dynamicky typovaný
+* Používá odsazení pro deklaraci bloků
 * Dostupný pro mnoho platforem
 * Používaný pro CLI aplikace, na serverech, pro GUI atd.
+* "Batteries included"
+    - rozsáhlá základní knihovna
+    - nápověda
+    - nástroje (tools)
 
 ---
 
@@ -94,6 +102,8 @@
 
 ## Základy jazyka
 
+* Python jako skript
+* Vstupně/výstupní funkce
 * Ukázkový příklad
 * Rezervovaná klíčová slova
 * Datové typy
@@ -107,10 +117,78 @@
 
 ---
 
-### Ukázkový příklad
+### Python jako skript
 
 ```python
 # Body Mass Index calculator
+
+print("Mass (kg): ")
+mass = int(input())
+
+print("Height (cm): ")
+height = int(input())
+
+height = height / 100.0
+
+bmi = mass / (height * height)
+print("BMI = ", bmi)
+```
+
+---
+
+### Vstupně/výstupní funkce
+
+* print()
+    - tisk jakékoli hodnoty
+    - viz další slajd
+* input()
+    - se zpracováním vstupu
+* input("zprava")
+    - zobrazí zprávu
+
+---
+
+### Funkce print
+
+* Existuje ve formě příkazu v Pythonu 2.x:
+
+```python
+print "Hello"
+```
+
+* V Pythonu 3 jde o funkci:
+
+```python
+print("Hello")
+```
+
+* Použijeme ji v navazujících slajdech
+
+---
+
+### Základní struktura kódu
+
+```python
+#!/usr/bin/env python
+# encoding=utf-8
+
+"""Dokumentační řetězec"""
+
+# importy
+# třídy
+# funkce
+
+if __name__ == "__main__":
+    # vstupní bod
+```
+
+### Ukázkový příklad
+
+```python
+#!/usr/bin/env python
+# encoding=utf-8
+
+"""Body Mass Index calculator."""
 
 import sys
 
@@ -153,25 +231,6 @@ def       for       lambda    try
 
 ---
 
-### Funkce print
-
-
-* Existuje ve formě příkazu v Pythonu 2.x:
-
-```python
-print "Hello"
-```
-
-* V Pythonu 3 jde o funkci:
-
-```python
-print("Hello")
-```
-
-* Použijeme ji v navazujících slajdech
-
----
-
 ### Datové typy
 
 * čísla (tři typy)
@@ -187,8 +246,8 @@ print("Hello")
 * sekvence bajtů (bytes)
 * pole bajtů (bytearray)
 * frozenset
+* NoneType
 * objekt
-    - None
 
 ---
 
@@ -210,11 +269,14 @@ print("Hello")
     - n-tice
     - frozenset
     - sekvence bajtů
+    - NoneType
 
 ---
 
 ### Čísla
 
+* měnitelnost
+    - neměnitelné
 * ve skutečnosti tři typy
     - int / long (Python 2.x / Python 3.x)
     - float
@@ -232,25 +294,76 @@ print(2+3j)
 
 ### Pravdivostní hodnoty
 
+* měnitelnost
+    - neměnitelné
+* datový typ
+    - bool
+* hodnoty
+    - True
+    - False
+
 ---
 
 ### Řetězce (raw, Unicode)
+
+* měnitelnost
+    - neměnitelné
+* sekvence znaků
+* původně sekvence bajtů
+    - rozdíl - Unicode
+
+```python
+# běžný řetězec
+print("Hello")
+
+# bytové pole
+print(b"abcdef")
+
+# podpora pro Unicode
+print(u"příliš žluťoučký kůň")
+
+# řídicí znaky
+print("abc\ndef")
+
+# 'raw' řetězce
+print(r"abc\ndef")
+
+# víceřádkový řetězec
+print("""A
+B
+C
+D
+E
+F""")
+```
 
 ---
 
 ### Seznamy (pole)
 
+* měnitelnost
+    - měnitelné
+
 ---
 
 ### Slovníky
+
+* měnitelnost
+    - měnitelné
 
 ---
 
 ### Množiny
 
+* měnitelnost
+    - měnitelné
+
 ---
 
 ### N-tice
+
+* měnitelnost
+    - neměnitelné
 
 ---
 
@@ -472,4 +585,36 @@ print(employee2)
 * Klávesové zkratky
 
 ---
+
+---
+
+## Použití debuggeru
+
+```
+python -m pdb test.py
+pdb.set_trace()
+```
+
+## Post mortem debug
+
+```
+try:
+    raise Exception()
+except:
+    import pdb
+    pdb.post_mortem()
+```
+
+---
+
+## Užitečné odkazy
+
+* Python Quick Reference: http://rgruet.free.fr/#QuickRef
+* Python docs: http://www.python.org/doc/
+* PEP 8: http://www.python.org/dev/peps/pep-0008/
+* pep8.py: http://pypi.python.org/pypi/pep8/
+* pylint: http://www.logilab.org/project/pylint
+* Epydoc: http://epydoc.sourceforge.net/
+* Sphinx: http://sphinx-doc.org/
+* Python in Python: http://pypy.org/
 
