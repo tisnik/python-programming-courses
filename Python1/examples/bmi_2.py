@@ -1,4 +1,7 @@
-# Body Mass Index calculator
+#!/usr/bin/env python
+# encoding=utf-8
+
+"""Body Mass Index calculator."""
 
 import sys
 
