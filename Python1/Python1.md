@@ -74,6 +74,16 @@
 
 ### Srovnání s ostatními programovacími jazyky
 
+* Skriptovací jazyk
+    - Perl
+    - Ruby
+* Dynamicky typovaný jazyk
+    - Ruby, Perl
+* Objektově orientovaný jazyk
+    - Java
+    - C++
+    - C#
+
 ---
 
 ### Implementace Pythonu
@@ -97,6 +107,36 @@
 ---
 
 ### Python 2.x vs Python 3.x
+
+* Tyto dvě větve nejsou plně kompatibilní
+* Skript `2to3` pro automatický převod
+    - nutno ručně zkontrolovat
+* Nejdůležitější rozdíly
+    - `print`: příkaz vs funkce
+    - celočíselné dělení
+    - Unicode řetězce: nyní tři typy (str, byte, bytearray)
+    - striktnější pravidla při porovnávání hodnot různých typů
+    - xrange(): nyní se range() chová jako xrange()
+    - argument při vyhazování výjimek musí být v závorkách
+    - `except TypVýjimky, e:` versus `except TypVýjimky as e:`
+    - generátory nemají metodu `next()`, namísto ní se používá funkce `next()`
+    - range() vrací iterátor, ne seznam
+    - některé funkce typu apply() byly přesunuty do zvlástního modulu
+
+```python
+n = 10000
+
+def test_range(n):
+    for i in range(n):
+        pass
+
+def test_xrange(n):
+    for i in xrange(n):
+        pass
+
+test_range(n)
+test_xrange(n)
+```
 
 ---
 
@@ -138,12 +178,17 @@ print("BMI = ", bmi)
 
 ### Vstupně/výstupní funkce
 
-* print()
+* `print()`
     - tisk jakékoli hodnoty
     - viz další slajd
-* input()
+* `input()`
     - se zpracováním vstupu
-* input("zprava")
+    - v Pythonu 2 se odvozoval typ hodnoty
+    - v Pythonu 3 se vždy vrací řetězec
+* `raw_input()`
+    - v Pythonu 2
+    - vždy vrací řetězec
+* `input("zprava")`
     - zobrazí zprávu
 
 ---
@@ -343,6 +388,17 @@ F""")
 
 * měnitelnost
     - měnitelné
+* homogenní datový typ
+    - ne
+* základní vlastnosti
+    - do seznamu je možné přidávat nové prvky
+    - prvky je možné i odstraňovat
+    - k prvkům se přistupuje pomocí celočíselného indexu
+    - lze získat i podseznam (výsek seznamu)
+
+
+```python
+```
 
 ---
 
@@ -351,12 +407,20 @@ F""")
 * měnitelnost
     - měnitelné
 
+
+```python
+```
+
 ---
 
 ### Množiny
 
 * měnitelnost
     - měnitelné
+
+
+```python
+```
 
 ---
 
@@ -365,13 +429,123 @@ F""")
 * měnitelnost
     - neměnitelné
 
+
+```python
+```
+
 ---
 
 ### Proměnné
 
+
+```python
+```
+
 ---
 
 ### Výrazy, operátory
+
+* aritmetické operátory
+    - `+`
+    - `*`
+    - `/`
+    - `//`
+    - `%`
+    - `**`
+* porovnávání
+    - `==`
+    - `!=`
+    - `<>`
+    - `>`
+    - `<`
+    - `>=`
+    - `<=`
+* logické operátory
+    - `and`
+    - `or
+    - `not`
+* bitové operátory
+    - `&`
+    - `|`
+    - `^`
+    - `~`
+    - `<<`
+    - `>>`
+* přiřazení
+    - `=`
+    - `+=`
+    - `-=`
+    - `\*=`
+    - `/=`
+    - `%=`
+    - `\*\*=`
+    - `//=`
+* další operátory
+    - `in`
+    - `not in`
+    - `is`
+    - `is not`
+
+---
+
+### Výrazy, operátory: ukázky použití
+
+```python
+```
+
+---
+
+### Priority operátorů
+
+```
+1       **
+2       ~ + -
+3       * / % //
+4       + -
+5       >> <<
+6       &
+7       ^ |
+8       <= < > >=
+9       <> == !=
+10      = %= /= //= -= += *= **=
+11      is   is not
+12      in   not in
+13      not or and
+```
+
+---
+
+### Celočíselné dělení
+
+* Nekompatibilita mezi Pythonem 2.x a Pythonem 3.x
+
+```python
+print '3 / 2 =', 3 / 2
+print '3 // 2 =', 3 // 2
+print '3 / 2.0 =', 3 / 2.0
+print '3 // 2.0 =', 3 // 2.0
+```
+
+```
+3 / 2 = 1
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0
+```
+
+```python
+print('3 / 2 =', 3 / 2)
+print('3 // 2 =', 3 // 2)
+print('3 / 2.0 =', 3 / 2.0)
+print('3 // 2.0 =', 3 // 2.0)
+```
+
+```
+3 / 2 = 1.5
+3 // 2 = 1
+3 / 2.0 = 1.5
+3 // 2.0 = 1.0
+```
 
 ---
 
@@ -390,13 +564,130 @@ F""")
 
 ### Větvení (rozhodovací konstrukce)
 
+
+```python
+if condition1:
+    pass
+```
+
 ---
 
 ### Složitější formy větvení
 
+```python
+if condition1:
+    pass
+elif condition2:
+    pass
+elif condition3:
+    pass
+else:
+    pass
+```
+
+---
+
+### Složitější formy větvení
+
+```python
+```
+
 ---
 
 ### Programové smyčky
+
+---
+
+### Programová smyčka `while`
+
+```python
+x = 1
+
+while x < 2000:
+    print(x)
+    x *= 2
+```
+
+```
+1
+2
+4
+8
+16
+32
+64
+128
+256
+512
+1024
+```
+
+---
+
+### Programová smyčka `for`
+
+```python
+list = ["one", "two", "three", "four"]
+
+for item in list:
+    print(item)
+```
+
+```
+one
+two
+three
+four
+```
+
+
+```python
+for i in range(10):
+    print(i)
+```
+
+```
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
+
+```python
+for i in range(4, 11, 2):
+    print(i)
+```
+
+```
+4
+6
+8
+10
+```
+
+```python
+for i in range(10, 0, -1):
+    print(i)
+```
+
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+```
 
 ---
 
@@ -617,4 +908,7 @@ except:
 * Epydoc: http://epydoc.sourceforge.net/
 * Sphinx: http://sphinx-doc.org/
 * Python in Python: http://pypy.org/
-
+* The key differences between Python 2.7.x and Python 3.x with examples: http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+* Language differences and workarounds: http://python3porting.com/differences.html
+* Everything you did not want to know about Unicode in Python 3: http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/
+* Unicode (Wikipedia): https://en.wikipedia.org/wiki/Unicode
