@@ -10,7 +10,8 @@
 * Moduly – přehled, vyhledávání, pravidla, funkce, balíčky
 * Vstup a výstup – práce se soubory, souborové objekty, formátování výstupu
 * Chyby a výjimky – přehled, vyvolání, obsluha, syntaktické chyby, složitější použití
-* Třídy – použitá terminologie, definování, objekty, dědičnost
+* Třídy – použitá terminologie, definování, objekty, dědičnost, speciální metody
+* Iterátory, generátory
 * Úprava příkazového řádku – vytvoření, argumenty, klávesové zkratky
 * Použití debuggeru
 
@@ -59,12 +60,16 @@
 
 ---
 
-### Proč a k čemu používat jazyk Python
+### Proč a k čemu používat programovací jazyk Python
 
 * Nástroje a utility ovládané z příkazového řádku
 * Aplikace s grafickým uživatelským rozhraním
 * Client-server
-    - serverová část (Flash, ...)
+    - serverová část (Flask, Django, ...)
+* Numerické výpočty, symbolické výpočty
+    - Numpy
+    - SciPy
+    - Matplotlib
 * Moderní způsoby využití Pythonu
     - AI
     - Machine Learning (Deep Learning)
@@ -194,8 +199,9 @@ python3 bmi.py
 
 ---
 
-### Vstupně/výstupní funkce
+### Základní vstupně/výstupní funkce
 
+* Koncept input stream/output stream
 * `print()`
     - tisk jakékoli hodnoty
     - viz další slajd
@@ -204,10 +210,10 @@ python3 bmi.py
     - v Pythonu 2 se odvozoval typ hodnoty
     - v Pythonu 3 se vždy vrací řetězec
 * `raw_input()`
-    - v Pythonu 2
-    - vždy vrací řetězec
+    - existuje v Pythonu 2
+    - vždy vrací řetězec (vs `input()`)
 * `input("zprava")`
-    - zobrazí zprávu
+    - zobrazí navíc zprávu (výzvu) uživateli
 
 ---
 
@@ -230,10 +236,11 @@ print("Hello")
 * Výhody `print` jako funkce
     - lze použít v lambda výrazech
     - není nutná speciální syntaxe
+    - řešení tisku prázdných řádků
 
 ---
 
-### Základní struktura kódu
+### Základní struktura kódu v Pythonu
 
 ```python
 #!/usr/bin/env python
@@ -321,6 +328,48 @@ continue  finally   is        return
 def       for       lambda    try
 ```
 
+* Nelze je použít jako běžné identifikátory
+    - jména proměnných
+    - jména funkcí
+    - názvy tříd a metod
+
+---
+
+### Proměnné
+
+* Dynamicky typované
+    - typ proměnné = typ hodnoty do proměnné uložené
+    - může se v rámci jednoho programu měnit
+    - viditelnost proměnných (viz další slajdy)
+
+```python
+x = 42
+y = "Python"
+z = 3e27
+
+print(x)
+print(y)
+print(z)
+
+x = None
+print(x)
+
+x = 10
+print(x)
+
+x = "něco jiného"
+print(x)
+```
+
+```
+42
+Python
+3e+27
+None
+10
+něco jiného
+```
+
 ---
 
 ### Datové typy
@@ -336,7 +385,9 @@ def       for       lambda    try
 * množiny
 * n-tice
 * sekvence bajtů (bytes)
+    - v praxi většinou není příliš důležitý
 * pole bajtů (bytearray)
+    - v praxi většinou není příliš důležitý
 * frozenset
 * NoneType
 * objekt
@@ -362,6 +413,18 @@ def       for       lambda    try
     - frozenset
     - sekvence bajtů
     - NoneType
+
+---
+
+### Homogenost
+
+* všechny prvky uložené v tzv. kontejneru mají shodný typ
+* význam v některých jazycích, které například vyžadují homogenní pole
+* v Pythonu jsou kontejnery obecně nehomogenní
+    - seznamy
+    - n-tice
+    - slovníky
+    - množiny
 
 ---
 
@@ -401,6 +464,17 @@ print(2+3j)
     - `and`
     - `or`
     - `not`
+* jsou výsledkem aplikace dalších operátorů
+    - `==`
+    - `!=`
+    - `<`
+    - `<=`
+    - `>`
+    - `>=`
+    - `is`
+    - `is not`
+    - `in`
+    - `not in`
 
 ---
 
@@ -596,6 +670,8 @@ Eda
 
 * měnitelnost
     - měnitelné
+* homogenní datový typ
+    - ne
 * základní vlastnosti
     - každý prvek je unikátní
     - prvky by neměly být měnitelné (jinak nelze zaručit unikátnost)
@@ -777,7 +853,7 @@ s.symmetric_difference(t)
 
 * měnitelnost
     - neměnitelné
-* homogenní
+* homogenní datový typ
     - ne
 * částečně se podobají seznamům
     - ovšem kvůli neměnitelnosti mají jiné použití
@@ -857,14 +933,6 @@ False
 
 ---
 
-### Proměnné
-
-
-```python
-```
-
----
-
 ### Výrazy, operátory
 
 * aritmetické operátory
@@ -877,7 +945,7 @@ False
 * porovnávání
     - `==`
     - `!=`
-    - `<>`
+    - `<>` (jen v Pythonu 2.x, nyní již není podporován)
     - `>`
     - `<`
     - `>=`
@@ -912,7 +980,87 @@ False
 
 ### Výrazy, operátory: ukázky použití
 
+* Celočíselné operace
+
 ```python
+x = 10
+y = 3
+
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+print(x // y)
+print(x % y)
+print(x ** y)
+```
+
+* Python 2.x
+
+```
+13
+7
+30
+3
+3
+1
+1000
+
+```
+
+* Python 3.x
+
+```
+13
+7
+30
+3.3333333333333335
+3
+1
+1000
+```
+
+---
+
+### Výrazy, operátory: ukázky použití
+
+* Operace s typem `double`
+
+```python
+x = 10.0
+y = 3
+
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+print(x // y)
+print(x % y)
+print(x ** y)
+```
+
+* Python 2.x
+
+```
+13.0
+7.0
+30.0
+3.33333333333
+3.0
+1.0
+1000.0
+```
+
+* Python 3.x
+
+```
+13.0
+7.0
+30.0
+3.3333333333333335
+3.0
+1.0
+1000.0
 ```
 
 ---
@@ -1226,6 +1374,37 @@ print(ackermann(3,4))
 * Metody
 * Objekty
 * Dědičnost
+* Speciální metody
+
+---
+
+### Použitá terminologie
+
+---
+
+### Definice třídy
+
+---
+
+### Atributy
+
+---
+
+### Metody
+
+---
+
+### Objekty
+
+---
+
+### Dědičnost
+
+---
+
+### Speciální metody
+
+* Seznam speciálních metod
 
 ---
 
@@ -1334,3 +1513,5 @@ except:
 * Language differences and workarounds: http://python3porting.com/differences.html
 * Everything you did not want to know about Unicode in Python 3: http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/
 * Unicode (Wikipedia): https://en.wikipedia.org/wiki/Unicode
+* Dive Into Python: http://www.diveintopython.net/
+* Dive into Python 3: http://www.diveintopython3.net/
