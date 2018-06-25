@@ -2,24 +2,60 @@
 
 ## Obsah kurzu
 
-* Úvod – proč a k čemu používat Python, srovnání s ostatními programovacími jazyky
-* Základy jazyka - čísla a řetězce, řetězce Unicode, seznamy (pole), práce se slovníky
-* Řízení toku programu - konstrukce, funkce, příkazy, větvení
-* Procedury a funkce – použití, definice, platnost proměnných
-* Funkcionální prvky jazyka
-* Moduly – přehled, vyhledávání, pravidla, funkce, balíčky
-* Vstup a výstup – práce se soubory, souborové objekty, formátování výstupu
-* Chyby a výjimky – přehled, vyvolání, obsluha, syntaktické chyby, složitější použití
-* Třídy – použitá terminologie, definování, objekty, dědičnost, speciální metody
+* Úvod
+    - proč a k čemu používat Python
+    - srovnání s ostatními programovacími jazyky
+* Základy jazyka
+    - čísla a řetězce
+    - řetězce Unicode
+    - seznamy (pole)
+    - n-tice
+    - práce se slovníky
+* Řízení toku programu
+    - základní konstrukce
+    - funkce
+    - příkazy
+    - větvení
+    - programové smyčky
+* Procedury a funkce
+    – použití
+    - definice funkcí
+    - platnost proměnných
+* Funkcionální prvky jazyka Python
+    - lambda výrazy
+* Moduly
+    – přehled
+    - vyhledávání
+    - pravidla
+    - funkce, balíčky
+* Vstup a výstup
+    – práce se soubory
+    - souborové objekty
+    - formátování výstupu
+* Chyby a výjimky
+    – přehled
+    - vyvolání výjimky
+    - obsluha výjimek
+    - syntaktické chyby
+    - složitější použití
+* Třídy
+    – použitá terminologie
+    - definování
+    - objekty
+    - dědičnost
+    - speciální metody
 * Iterátory, generátory
-* Úprava příkazového řádku – vytvoření, argumenty, klávesové zkratky
+* Úprava příkazového řádku
+    – vytvoření
+    - argumenty
+    - klávesové zkratky
 * Použití debuggeru
 
 ---
 
 ## Úvod
 
-* Základní informace o jazyku Python
+* Základní informace o programovacím jazyku Python
 * Proč a k čemu používat jazyk Python
 * Srovnání s ostatními programovacími jazyky
 * Implementace Pythonu
@@ -35,15 +71,19 @@
 * Dynamicky typovaný
 * Používá odsazení pro deklaraci bloků
 * Dostupný pro mnoho platforem
+    - MS Windows
+    - Linux
+    - Apple
+    - jednodeskové mikropočítače
 * Používaný pro CLI aplikace, na serverech, pro GUI atd.
 * "Batteries included"
     - rozsáhlá základní knihovna
     - nápověda
-    - nástroje (tools)
+    - dostupné nástroje (tools)
 
 ---
 
-### Interpretery vs překladače
+### Interpretry vs překladače
 
 * Interpret
     - Python, Perl, JavaScript, Ruby, TCL, shelly
@@ -74,6 +114,7 @@
     - AI
     - Machine Learning (Deep Learning)
     - Big data
+* Tzv. "glue" jazyk
 
 ---
 
@@ -85,7 +126,7 @@
 * Dynamicky typovaný jazyk
     - Ruby, Perl
 * Automatická správa paměti (garbage collector)
-    - většina moderních jazyků
+    - obsahuje většina moderních jazyků
 * Objektově orientovaný jazyk
     - Java
     - C++
@@ -105,11 +146,11 @@
     - Psyco
     - Stackles Python
     - MicroPython
-    - Numba
 
 * Speciální implementace
     - Cython
     - RPython
+    - Numba
 
 ---
 
@@ -120,15 +161,19 @@
     - nutno ručně zkontrolovat
 * Nejdůležitější rozdíly
     - `print`: příkaz vs funkce
-    - celočíselné dělení
+    - celočíselné dělení (operátory / a //)
     - Unicode řetězce: nyní tři typy (str, byte, bytearray)
     - striktnější pravidla při porovnávání hodnot různých typů
-    - xrange(): nyní se range() chová jako xrange()
+    - `xrange()`: nyní se `range()` chová jako `xrange()`
     - argument při vyhazování výjimek musí být v závorkách
     - `except TypVýjimky, e:` versus `except TypVýjimky as e:`
     - generátory nemají metodu `next()`, namísto ní se používá funkce `next()`
-    - range() vrací iterátor, ne seznam
-    - některé funkce typu apply() byly přesunuty do zvlástního modulu
+    - `range()` vrací iterátor, ne seznam
+    - některé funkce typu `apply()` byly přesunuty do zvláštního modulu
+
+---
+
+### Python 2.x vs Python 3.x: range/xrange
 
 ```python
 n = 10000
@@ -147,7 +192,7 @@ test_xrange(n)
 
 ---
 
-## Základy jazyka Python
+## Základy programovacího jazyka Python
 
 * Python jako skriptovací jazyk
 * Vstupně/výstupní funkce
@@ -201,7 +246,10 @@ python3 bmi.py
 
 ### Základní vstupně/výstupní funkce
 
-* Koncept input stream/output stream
+* Koncept tzv. proudů
+    - input stream
+    - output stream
+    - error stream
 * `print()`
     - tisk jakékoli hodnoty
     - viz další slajd
@@ -237,6 +285,7 @@ print("Hello")
     - lze použít v lambda výrazech
     - není nutná speciální syntaxe
     - řešení tisku prázdných řádků
+    - (uvidíme dále)
 
 ---
 
@@ -253,10 +302,10 @@ print("Hello")
 # funkce
 
 if __name__ == "__main__":
-    # vstupní bod
+    # vstupní bod programu
 ```
 
-### Ukázkový příklad
+### Ukázkový příklad - úprava kalkulátoru BMI
 
 ```python
 #!/usr/bin/env python
@@ -294,6 +343,7 @@ print("BMI = ", compute_bmi(mass, height))
 ### Ukázkový příklad (pokračování)
 
 * Příklad spuštění:
+    - Linux, BSD, další Unixy
 
 ```
 chmod u+x bmi.py
@@ -316,7 +366,7 @@ python3 bmi.py
 
 ---
 
-### Rezervovaná klíčová slova
+### Rezervovaná klíčová slova Pythonu
 
 ```
 and       del       from      not       while
@@ -337,10 +387,18 @@ def       for       lambda    try
 
 ### Proměnné
 
+* Udržují informaci o stavu aplikace
+
 * Dynamicky typované
     - typ proměnné = typ hodnoty do proměnné uložené
     - může se v rámci jednoho programu měnit
     - viditelnost proměnných (viz další slajdy)
+
+* Různá oblast platnosti/viditelnosti
+
+---
+
+### Příklad použití proměnných
 
 ```python
 x = 42
@@ -361,6 +419,8 @@ x = "něco jiného"
 print(x)
 ```
 
+* Příklad výstupu
+
 ```
 42
 Python
@@ -378,12 +438,12 @@ něco jiného
     - int / long
     - float
     - complex
-* pravdivostní hodnoty
-* řetězce
-* seznamy
-* slovníky
-* množiny
-* n-tice
+* pravdivostní hodnoty (Boolean, bool)
+* řetězce (string)
+* seznamy (list)
+* slovníky (dictionary, dict)
+* množiny (set)
+* n-tice (tuple)
 * sekvence bajtů (bytes)
     - v praxi většinou není příliš důležitý
 * pole bajtů (bytearray)
@@ -394,7 +454,7 @@ něco jiného
 
 ---
 
-### Měnitelnost
+### Měnitelnost/neměnitelnost
 
 * mutability/immutability
 * význam ve funkcionálních i imperativních jazycích
@@ -416,11 +476,11 @@ něco jiného
 
 ---
 
-### Homogenost
+### Homogennost
 
 * všechny prvky uložené v tzv. kontejneru mají shodný typ
-* význam v některých jazycích, které například vyžadují homogenní pole
-* v Pythonu jsou kontejnery obecně nehomogenní
+* význam v některých programovacích jazycích, které například vyžadují homogenní pole
+* v Pythonu jsou kontejnery obecně *nehomogenní*
     - seznamy
     - n-tice
     - slovníky
@@ -433,9 +493,9 @@ něco jiného
 * měnitelnost
     - neměnitelné
 * ve skutečnosti existují tři typy číselných hodnot
-    - int / long (Python 2.x / Python 3.x)
-    - float
-    - complex
+    - `int` / `long` (Python 2.x / Python 3.x)
+    - `float`
+    - `complex`
 
 ```python
 print(42)
@@ -446,7 +506,7 @@ print(2+3j)
 * pozor na:
     - operátory se odlišují podle použitého typu
     - zápis komplexního čísla s "j" a nikoli s "i"
-    - nekompatibilita u operátoru / (viz další slajdy s popisem operátorů)
+    - nekompatibilita u operátoru `/` (viz další slajdy s popisem operátorů)
 
 ---
 
@@ -455,10 +515,10 @@ print(2+3j)
 * měnitelnost
     - neměnitelné
 * datový typ
-    - bool
+    - `bool`
 * hodnoty
-    - True
-    - False
+    - `True`
+    - `False`
 * použito především u větvení popř. u programových smyček
 * podporované operátory
     - `and`
@@ -485,6 +545,7 @@ print(2+3j)
 * sekvence znaků
 * původně sekvence bajtů
     - rozdíl - Unicode
+* tzv. "raw" řetězce
 
 ```python
 # běžný řetězec
@@ -515,6 +576,7 @@ F""")
 
 ### Seznamy (pole)
 
+* základní složený datový typ Pythonu
 * měnitelnost
     - měnitelné
 * homogenní datový typ
@@ -524,7 +586,7 @@ F""")
     - prvky je možné i odstraňovat
     - k prvkům se přistupuje pomocí celočíselného indexu
     - záporný index - výběr prvků od konce seznamu
-    - lze získat i podseznam (výsek seznamu)
+    - lze získat i podseznam (tzv. výsek seznamu)
 
 ---
 
@@ -550,6 +612,8 @@ del seznam[-1]
 print(seznam)
 ```
 
+* Výstup skriptu
+
 ```
 1
 2
@@ -558,6 +622,42 @@ print(seznam)
 [1, 2, 3, 4, 5, 6]
 [2, 3, 4, 5, 6]
 [2, 3, 4, 5]
+```
+
+---
+
+### Operace spojení seznamů
+
+```python
+seznam1 = [1, 2, 3]
+seznam2 = [4, 5, 6]
+
+seznam3 = seznam1 + seznam2
+
+print(seznam3)
+```
+
+* Výstup skriptu
+
+```
+[1, 2, 3, 4, 5, 6]
+```
+
+---
+
+### Operace opakování seznamu
+
+```python
+seznam1 = [1, 2, 3]
+
+seznam2 = seznam1 * 3
+print(seznam2)
+```
+
+* Výstup skriptu
+
+```
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
 ```
 
 ---
@@ -583,7 +683,7 @@ print(seznam)
 print(seznam2)
 ```
 
-* Výstup
+* Výstup skriptu
 
 ```
 [5, 4, 1, 3, 4, 100, -1]
@@ -612,6 +712,8 @@ print(seznam[:4])
 print(seznam[:])
 ```
 
+* Výstup skriptu
+
 ```
 [3, 4]
 [1, 3, 5]
@@ -626,6 +728,7 @@ print(seznam[:])
 
 ### Slovníky
 
+* základní složený datový typ Pythonu
 * měnitelnost
     - měnitelné
 * základní vlastnosti
@@ -656,6 +759,8 @@ del d["id"]
 
 print(d)
 ```
+
+* Výstup skriptu
 
 ```
 {'id': 1, 'name': 'Eda', 'surname': 'Wasserfall'}
@@ -697,6 +802,8 @@ s3.update([3, 4, 5])
 print(s3)
 ```
 
+* Výstup skriptu
+
 ```
 {1, 2, 3, 4}
 {0, 'hello', 'world', '!'}
@@ -725,6 +832,8 @@ print(s1)
 s1.remove(1000)
 print(s1)
 ```
+
+* Výstup skriptu
 
 ```
 {1, 2, 3, 4}
@@ -802,7 +911,25 @@ False
 
 ---
 
-### Množinové operace - příklad použití (přímo z dokumentace Pythonu)
+### Zápis množinových operací metodami
+
+* Shodný význam s příslušnými operátory
+    - (dodržení štábní kultury)
+
+```python
+s.issubset(t)
+s.issuperset(t)
+s.union(t)
+s.intersection(t)
+s.difference(t)
+s.symmetric_difference(t)
+```
+
+---
+
+### Množinové operace - příklad použití
+
+* (převzato přímo z dokumentace Pythonu)
 
 ```python
 engineers = {'John', 'Jane', 'Jack', 'Janice'}
@@ -834,29 +961,16 @@ print(fulltime_management)
 
 ---
 
-### Zápis množinových operací metodami
-
-* Shodný význam s příslušnými operátory
-
-```python
-s.issubset(t)
-s.issuperset(t)
-s.union(t)
-s.intersection(t)
-s.difference(t)
-s.symmetric_difference(t)
-```
-
----
-
 ### N-tice
 
+* další základní složený datový typ Pythonu
 * měnitelnost
     - neměnitelné
 * homogenní datový typ
     - ne
 * částečně se podobají seznamům
     - ovšem kvůli neměnitelnosti mají jiné použití
+    - paměťová efektivita
 
 
 ```python
@@ -894,7 +1008,7 @@ print(t5)
 
 ---
 
-### Spojení n-tic
+### Spojení n-tic operátorem `+`
 
 ```python
 x = (1, 2, 3)
@@ -904,7 +1018,7 @@ print(x + y)
 print(y + x)
 ```
 
-* Výsledek
+* Výsledek skriptu
 
 ```
 (1, 2, 3, 3, 4, 5)
@@ -924,6 +1038,8 @@ print(1 in z)
 print(10 in z)
 print("foobar" in z)
 ```
+
+* Výsledek skriptu
 
 ```
 True
@@ -995,7 +1111,7 @@ print(x % y)
 print(x ** y)
 ```
 
-* Python 2.x
+* Výsledky pro Python 2.x
 
 ```
 13
@@ -1008,7 +1124,7 @@ print(x ** y)
 
 ```
 
-* Python 3.x
+* Výsledky pro Python 3.x
 
 ```
 13
@@ -1024,7 +1140,7 @@ print(x ** y)
 
 ### Výrazy, operátory: ukázky použití
 
-* Operace s typem `double`
+* Operace s typem `float/double`
 
 ```python
 x = 10.0
@@ -1039,7 +1155,7 @@ print(x % y)
 print(x ** y)
 ```
 
-* Python 2.x
+* Výsledky pro Python 2.x
 
 ```
 13.0
@@ -1051,7 +1167,7 @@ print(x ** y)
 1000.0
 ```
 
-* Python 3.x
+* Výsledky pro Python 3.x
 
 ```
 13.0
@@ -1066,6 +1182,9 @@ print(x ** y)
 ---
 
 ### Priority operátorů
+
+* Tabulka se třinácti prioritami
+    - není nutné si pamatovat, lze používat závorky
 
 ```
 1       **
@@ -1096,6 +1215,8 @@ print '3 / 2.0 =', 3 / 2.0
 print '3 // 2.0 =', 3 // 2.0
 ```
 
+* Výsledky pro Python 2:
+
 ```
 3 / 2 = 1
 3 // 2 = 1
@@ -1109,6 +1230,8 @@ print('3 // 2 =', 3 // 2)
 print('3 / 2.0 =', 3 / 2.0)
 print('3 // 2.0 =', 3 // 2.0)
 ```
+
+* Výsledky pro Python 3:
 
 ```
 3 / 2 = 1.5
@@ -1130,19 +1253,54 @@ print('3 // 2.0 =', 3 // 2.0)
 
 ### Základní pojmy
 
+* Řídicí struktura
+    - též strukturovaný příkaz
+    - control flow statement
+* Tři druhy struktur programu:
+    - prostá posloupnost příkazů
+    - větvení (podmíněný příkaz)
+    - cyklus (programová smyčka)
+
 ---
 
 ### Větvení (rozhodovací konstrukce)
 
+* Základní forma:
 
 ```python
 if condition1:
     pass
 ```
 
+* Viz příklad s výpočtem BMI
+
+```python
+print("Mass (kg): ")
+mass = int(input())
+
+if mass < 0:
+    print("Invalid input")
+    sys.exit(1)
+```
+
 ---
 
 ### Složitější formy větvení
+
+* Tzv. plné větvení
+
+```python
+if condition1:
+    pass
+else:
+    pass
+```
+
+---
+
+### Složitější formy větvení
+
+* Nahrazuje konstrukci typu `switch-case`
 
 ```python
 if condition1:
@@ -1157,14 +1315,20 @@ else:
 
 ---
 
-### Složitější formy větvení
-
-```python
-```
-
----
-
 ### Programové smyčky
+
+* Existují tyto druhy cyklů
+    - nekonečný cyklus
+    - cyklus `while-do` – cyklus s podmínkou na začátku
+    - cyklus `do-while` – cyklus s podmínkou na konci
+    - cyklus s podmínkou uprostřed
+    - cyklus `for` - unifikované `while-do`
+    - cyklus `for-each` - průchod sekvencemi
+
+* V Pythonu
+    - cyklus `while-do` – (zahrnuje i nekonečný cyklus)
+    - cyklus `for-each` - průchod sekvencemi
+    - příkazy `break` a `continue` pro další varianty
 
 ---
 
@@ -1177,6 +1341,8 @@ while x < 2000:
     print(x)
     x *= 2
 ```
+
+* Výstup skriptu
 
 ```
 1
@@ -1203,6 +1369,8 @@ for item in list:
     print(item)
 ```
 
+* Výstup skriptu
+
 ```
 one
 two
@@ -1210,11 +1378,18 @@ three
 four
 ```
 
+---
+
+### Typická podoba `for`
+
+* Náhrada smyčky s počitadlem známá z jiných programovacích jazyků
 
 ```python
 for i in range(10):
     print(i)
 ```
+
+* Výstup skriptu
 
 ```
 0
@@ -1229,10 +1404,14 @@ for i in range(10):
 9
 ```
 
+* Použití kroku
+
 ```python
 for i in range(4, 11, 2):
     print(i)
 ```
+
+* Výstup skriptu
 
 ```
 4
@@ -1241,10 +1420,14 @@ for i in range(4, 11, 2):
 10
 ```
 
+* Počítání směrem dolů
+
 ```python
 for i in range(10, 0, -1):
     print(i)
 ```
+
+* Výstup skriptu
 
 ```
 10
@@ -1261,11 +1444,42 @@ for i in range(10, 0, -1):
 
 ---
 
+### Konstrukce `break`
+
+```python
+x = 1
+
+while True:
+    print(x)
+    if x > 1000:
+        break
+    x *= 2
+```
+
+---
+
+### Konstrukce `continue`
+
+```python
+x = 1
+
+while True:
+    if x > 1000:
+        break
+    x *= 2
+    if x < 100:
+        continue
+    print(x)
+
+```
+
+---
+
 ## Procedury a funkce
 
 * Základní pojmy
 * Příklady použití
-* Rekurznivní funkce
+* Rekurzivní funkce
 * Definice funkcí
 * Oblast platnosti proměnných
 * Použití globálních proměnných
@@ -1274,13 +1488,38 @@ for i in range(10, 0, -1):
 
 ### Základní pojmy
 
+* Čisté funkce
+    - referenční transparentnost
+* Funkce s vedlejším efektem
+    - imperativní funkce
+* Funkce vyššího řádu
+* Anonymní funkce
+* Rekurze
+
 ---
 
 ### Příklady použití
 
+* Dělení programu na menší izolované celky
+    - koncept "rozděl a panuj"
+    - snadnější ladění
+    - snadnější testování
+    - zmenšení cyklomatické komplexity
+
 ---
 
-### Rekurznivní funkce
+### Běžná funkce
+
+```python
+def compute_bmi(mass, height):
+    height = height / 100.0
+    bmi = mass / (height * height)
+    return bmi
+```
+
+---
+
+### Rekurzivní funkce
 
 ```python
 def factorial(n):
@@ -1292,6 +1531,10 @@ print(factorial(10))
 for n in range(1, 11):
     print(n, factorial(n))
 ```
+
+---
+
+### Složitější rekurzivní funkce
 
 ```python
 calls = 0
@@ -1313,13 +1556,118 @@ print(ackermann(3,4))
 
 ### Definice funkcí
 
+* Běžné poziční parametry
+
+```python
+def fn1(arg1, arg2, arg3):
+    pass
+```
+
+* Parametry s výchozí hodnotou
+
+```python
+def fn2(arg1, arg2, arg3=True):
+    pass
+```
+
+* Parametry se jménem specifikovaným při volání funkce
+
+```python
+def fn2(arg1, arg2, **kwargs):
+    pass
+```
+
 ---
 
 ### Oblast platnosti proměnných
 
+* Globální proměnné
+* Uvnitř funkcí
+    - čtení vs. přiřazení (zápis)
+    - klíčové slovo `global`
+    - klíčové slovo `nonlocal`
+
+```python
+x = 1
+
+def fn1():
+    pass
+
+
+def fn2():
+    x = 2
+
+
+def fn3():
+    global x
+    x = 3
+
+
+print(x)
+fn1()
+print(x)
+fn2()
+print(x)
+fn3()
+print(x)
+```
+
 ---
 
-### Použití globálních proměnných
+### Význam global/nonlocal
+
+```python
+x = 0
+
+def fn1():
+    x = 1
+    def fn2():
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+```python
+x = 0
+
+def fn1():
+    x = 1
+    def fn2():
+        nonlocal x
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+```python
+x = 0
+
+def fn1():
+    x = 1
+    def fn2():
+        global x
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
 
 ---
 
@@ -1363,6 +1711,26 @@ print(ackermann(3,4))
 * Obsluha výjimky
 * Syntaktické chyby
 * Další možnosti použití
+
+---
+
+### Přehled
+
+---
+
+### Vyvolání výjimky
+
+---
+
+### Obsluha výjimky
+
+---
+
+### Syntaktické chyby
+
+---
+
+### Další možnosti použití
 
 ---
 
