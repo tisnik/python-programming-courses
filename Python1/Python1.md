@@ -1,6 +1,13 @@
 # Jazyk Python - základy programování
 
-## Obsah kurzu
+* Pavel Tišnovský
+    - `ptisnovs@redhat.com`
+* Slajdy a demonstrační příklady:
+    - `https://github.com/tisnik/python-programming-courses`
+
+---
+
+## Obsah kurzu (1/3)
 
 * Úvod
     - proč a k čemu používat Python
@@ -17,6 +24,11 @@
     - příkazy
     - větvení
     - programové smyčky
+
+---
+
+## Obsah kurzu (2/3)
+
 * Procedury a funkce
     – použití
     - definice funkcí
@@ -32,6 +44,11 @@
     – práce se soubory
     - souborové objekty
     - formátování výstupu
+
+---
+
+## Obsah kurzu (3/3)
+
 * Chyby a výjimky
     – přehled
     - vyvolání výjimky
@@ -226,6 +243,10 @@ bmi = mass / (height * height)
 print("BMI = ", bmi)
 ```
 
+---
+
+### Python jako skriptovací jazyk
+
 * Spuštění
     - nepřímo z příkazové řádky
     - přes interpret
@@ -281,6 +302,9 @@ print("Hello")
 
 * Použijeme ji v navazujících slajdech
 
+---
+
+### Funkce print
 * Výhody `print` jako funkce
     - lze použít v lambda výrazech
     - není nutná speciální syntaxe
@@ -304,6 +328,8 @@ print("Hello")
 if __name__ == "__main__":
     # vstupní bod programu
 ```
+
+---
 
 ### Ukázkový příklad - úprava kalkulátoru BMI
 
@@ -419,7 +445,7 @@ x = "něco jiného"
 print(x)
 ```
 
-* Příklad výstupu
+* Výstup
 
 ```
 42
@@ -458,7 +484,6 @@ něco jiného
 
 * mutability/immutability
 * význam ve funkcionálních i imperativních jazycích
-
 * Měnitelné typy
     - seznamy
     - slovníky
@@ -524,6 +549,11 @@ print(2+3j)
     - `and`
     - `or`
     - `not`
+
+---
+
+### Pravdivostní hodnoty
+
 * jsou výsledkem aplikace dalších operátorů
     - `==`
     - `!=`
@@ -546,6 +576,10 @@ print(2+3j)
 * původně sekvence bajtů
     - rozdíl - Unicode
 * tzv. "raw" řetězce
+
+---
+
+### Řetězce (raw, Unicode)
 
 ```python
 # běžný řetězec
@@ -783,6 +817,9 @@ Eda
     - do množiny je možné prvky přidávat
     - prvky lze i odstraňovat
 
+---
+
+### Množiny
 
 ```python
 s = {1, 2, 3, 4}
@@ -852,25 +889,18 @@ KeyError: 1000
 
 * `x in s`
     -test na existenci prvku v množině
-
 * `x not in s`
     - opačný test
-
 * `s <= t`
     - test na relaci "je podmnožinou"
-
 * `s >= t`
     - test na relaci "je nadmnožinou"
-
 * `s | t`
     - sjednocení množin
-
 * `s & t`
     - průnik množin
-
 * `s - t`
     - rozdíl množin
-
 * `s ^ t`
     - symetrická diference
 
@@ -972,6 +1002,8 @@ print(fulltime_management)
     - ovšem kvůli neměnitelnosti mají jiné použití
     - paměťová efektivita
 
+---
+
 
 ```python
 # tříprvková n-tice
@@ -1058,6 +1090,11 @@ False
     - `//`
     - `%`
     - `**`
+
+---
+
+### Výrazy, operátory
+
 * porovnávání
     - `==`
     - `!=`
@@ -1066,10 +1103,20 @@ False
     - `<`
     - `>=`
     - `<=`
+
+---
+
+### Výrazy, operátory
+
 * logické operátory
     - `and`
     - `or
     - `not`
+
+---
+
+### Výrazy, operátory
+
 * bitové operátory
     - `&`
     - `|`
@@ -1077,6 +1124,11 @@ False
     - `~`
     - `<<`
     - `>>`
+
+---
+
+### Výrazy, operátory
+
 * přiřazení
     - `=`
     - `+=`
@@ -1086,6 +1138,11 @@ False
     - `%=`
     - `\*\*=`
     - `//=`
+
+---
+
+### Výrazy, operátory
+
 * další operátory
     - `in`
     - `not in`
@@ -1110,6 +1167,8 @@ print(x // y)
 print(x % y)
 print(x ** y)
 ```
+
+---
 
 * Výsledky pro Python 2.x
 
@@ -1154,6 +1213,8 @@ print(x // y)
 print(x % y)
 print(x ** y)
 ```
+
+---
 
 * Výsledky pro Python 2.x
 
@@ -1404,6 +1465,8 @@ for i in range(10):
 9
 ```
 
+---
+
 * Použití kroku
 
 ```python
@@ -1419,6 +1482,8 @@ for i in range(4, 11, 2):
 8
 10
 ```
+
+---
 
 * Počítání směrem dolů
 
@@ -1536,6 +1601,8 @@ for n in range(1, 11):
 
 ### Složitější rekurzivní funkce
 
+* Příkaz `return` může být v kódu umístěn kdekoli
+
 ```python
 calls = 0
 
@@ -1633,6 +1700,8 @@ fn1()
 print(x)
 ```
 
+---
+
 ```python
 x = 0
 
@@ -1650,6 +1719,8 @@ print(x)
 fn1()
 print(x)
 ```
+
+---
 
 ```python
 x = 0
@@ -1675,14 +1746,71 @@ print(x)
 
 * Lambda výrazy
 * Generátorová notace seznamu
+* Funkce vyššího řádu
 
 ---
 
 ### Lambda výrazy
 
+```python
+f = lambda x, y : x + y
+print(f(1,2))
+```
+
 ---
 
 ### Generátorová notace seznamu
+
+* List comprehension
+
+```python
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+seznam2 = [item*2 for item in seznam]
+
+seznam3 = [item for item in seznam if item % 3 == 0]
+
+print(seznam)
+print(seznam2)
+print(seznam3)
+```
+
+---
+
+### Funkce vyššího řádu
+
+* Funkce `map`
+
+```python
+x = range(10)
+
+print(x)
+
+y=map(lambda value: value*2, x)
+print(list(y))
+```
+
+* Funkce `filter`
+
+```python
+x = range(20)
+
+print(x)
+
+y = filter(lambda value: value % 3 == 0, x)
+print(list(y))
+```
+
+* Funkce `reduce`
+
+```python
+x = range(1, 11)
+
+print(x)
+
+y = reduce(lambda a, b: a*b, x)
+print(y)
+```
 
 ---
 
@@ -1704,33 +1832,207 @@ print(x)
 
 ---
 
+### Práce se soubory
+
+* Základní funkce
+    - `open`
+    - `close`
+    - `read`
+    - `write`
+    - `append`
+
+---
+
+### Souborové objekty
+
+* Přečtení celého souboru
+
+```python
+fin = open("test.txt","r")
+print(fin.read())
+```
+
+* Čtení po řádcích
+
+```python
+fin = open("test.txt", "r")
+print(fin.readline())
+```
+
+* Přečtení všech řádků do seznamu
+
+```python
+fin = open("test.txt.", "r")
+print(fin.readlines())
+```
+
+* Zápis do souboru
+
+```python
+fout = open("hello.txt", "w")
+fout.write("Hello World")
+fout.close()
+```
+
+---
+
+### Použití bloku `with`
+
+```python
+with open("test.txt") as fin:
+    print(fin.readline())
+```
+
+---
+
+### Formátování výstupu
+
+* Metoda string.format()
+
+* Příklad použiti
+
+```python
+print("hodnota: {value:5d}".format(value=42))
+print("hodnota: {value:05d}".format(value=42))
+```
+
+* Formátování tabulky na výstupu
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:2d} = {y:5.3f}".format(x=x, y=y))
+```
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:02d} = {y:5.3f}".format(x=x, y=y))
+```
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:<2d} = {y:5.3f}".format(x=x, y=y))
+```
+
+---
+
 ## Chyby a výjimky
 
 * Přehled
 * Vyvolání výjimky
 * Obsluha výjimky
 * Syntaktické chyby
-* Další možnosti použití
+* Blok `finally`
 
 ---
 
-### Přehled
+### Důvody vedoucí k zavedení výjimek
+
+* Při běhu programu může dojít k různým chybovým (nebo jen neobvyklým)
+    - ty je zapotřebí zpracovat
+* Řešení v procedurálních jazycích
+    - návratové kódy s číslem chyby (C standard library)
+    - nastavení chybové proměnné (`errno`)
+    - nověji se jedná o makro kvůli možnosti běhu vícevláknových aplikací
+
+---
+
+### Důvody vedoucí k zavedení výjimek
+
+* Nevýhody využití návratových kódů
+    - vlastní algoritmus je doplněn o množství nových podmínek
+    - některé funkce musí vracet skutečné návratové hodnoty nepřímo - referencí
+* Nevýhody využití proměnné errno
+    - změna hodnoty proměnné při každém volání systémové funkce
+    - taktéž vede k nutnosti použití množství nových podmínek v programu
+* Výjimky
+    - oddělení vlastního algoritmu od zpracování chybových stavů
+    - standardizovaný postup
+
+---
+
+### Zachycení výjimky
+
+```python
+#!/usr/bin/python
+
+try:
+    file = open("testfile", "w")
+    file.write("test")
+except IOError:
+    print("soubor nelze otevrit pro zapis")
+else:
+    print("zapis uspesne proveden")
+    file.close()
+```
 
 ---
 
 ### Vyvolání výjimky
 
+```python
+def function(level):
+    if level < 1:
+        raise ValueError("Invalid level!", level)
+    print("ok - function was called with parameter level set to {level}".format(level=level))
+
+
+try:
+    for i in range(10, -10, -1):
+        function(i)
+except ValueError as value:
+    print("Exception in function(): {value}".format(value=value))
+else:
+    print("Everything is OK")
+```
+
 ---
 
-### Obsluha výjimky
+### Vlastní výjimky
+
+```python
+class B(Exception):
+    pass
+
+class C(B):
+    pass
+
+class D(C):
+    pass
+
+for cls in [B, C, D]:
+    try:
+        raise cls()
+    except D:
+        print("D")
+    except C:
+        print("C")
+    except B:
+        print("B")
+```
 
 ---
 
-### Syntaktické chyby
+### Blok `finally`
 
----
+* Provede se vždy
+    - typicky uvolnění prostředků atd.
 
-### Další možnosti použití
+```python
+#!/usr/bin/python
+
+try:
+    file = open("testfile", "w")
+    file.write("test")
+except IOError:
+    print("soubor nelze otevrit pro zapis")
+else:
+    print("zapis uspesne proveden")
+finally:
+    file.close()
+```
 
 ---
 
@@ -1748,31 +2050,177 @@ print(x)
 
 ### Použitá terminologie
 
+* Třída
+    - data+funkce+(zapouzdření)
+* Předek, potomek
+* Objekt
+    - instance třídy
+* Metoda
+* Atribut
+    - objektu
+    - třídní
+* Konstruktor
+
 ---
 
 ### Definice třídy
 
----
+```python
+class Employee:
+    pass
 
-### Atributy
-
----
-
-### Metody
+e = Employee()
+```
 
 ---
 
 ### Objekty
 
+```python
+class Employee:
+    pass
+
+e1 = Employee()
+e2 = Employee()
+```
+
+---
+
+### Atributy
+
+* Datové položky
+* Vytvářené explicitně pro každou instanci třídy
+    - typicky v konstruktoru
+* Přístup k atributům
+    - interně přes `self`
+    - externě pomocí "tečkové notace"
+* Třídní/statický atribut
+    - deklarován přímo ve třídě
+    - sdílený všemi instancemi
+    - přístup přes `JménoTřídy.jménoAtributu`
+    - mohou být pojmenovány stejně jako atributy objektu
+
+```python
+class CLS:
+    x = 10
+
+c1 = CLS()
+print(CLS.x)
+print(c1.x)
+
+c1.x = 20
+print(CLS.x)
+print(c1.x)
+```
+
+---
+
+### Konstruktor
+
+* Zavolán při konstrukci objektu
+
+```python
+class Employee:
+
+    def __init__(self, first_name, surname, salary):
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+
+e = Employee()
+```
+
+---
+
+### Metody
+
+* Funkce, které mají přístup k datovým položkám
+    - přístup přes `self`
+    - zavolání pomocí "tečkové notace"
+
+```python
+    def display_employee(self):
+        print("Full name: ", self._first_name, self._surname, "   Salary: ", self._salary)
+```
+
 ---
 
 ### Dědičnost
+
+```python
+class A:
+    pass
+
+class B(A):
+    pass
+```
 
 ---
 
 ### Speciální metody
 
 * Seznam speciálních metod
+
+```
+__init__
+__str__
+__repr__
+__hash__
+__call__
+__iter__
+__getattr__
+__getattribute__
+__setattr__
+__delattr__
+
+__eq__  x, y    x == y
+__ne__  x, y    x != y
+__lt__  x, y    x < y
+__gt__  x, y    x > y
+__le__  x, y    x <= y
+__ge__  x, y    x >= y
+```
+
+---
+
+```
+__add__         binární + operátor
+__sub__         binární - operátor
+__mul__         * operátor
+__div__         / operátor
+__floordiv__    // operátor (P2)
+__truediv__     / operátor (P3)
+__mod__         % operátor
+__pow__         ** operátor or pow(x, y, z)
+__neg__         unární - operátor
+__pos__         unární + operátor
+__abs__         absolutní hodnota
+__nonzero__     konverze na Boolean
+__invert__      ~ operátor
+__lshift__      << operátor
+__rshift__      >> operátor
+__and__         & operátor
+__or__  x, y    | operátor
+__xor__         ^ operátor
+```
+
+---
+
+```
+__iadd__        += operátor
+__isub__        -= operátor
+__imul__        *= operátor
+__idiv__        /= operátor (P2)
+__ifloordiv__   //= operátor
+__itruediv__    /= operátor (P3)
+__imod__        %= operátor
+__ipow__        **= operátor
+__ilshift__     <<= operátor
+__irshift__     >>= operátor
+__iand__        &= operátor
+__ior__         |= operátor
+__ixor__        ^= operátor
+```
 
 ---
 
@@ -1789,6 +2237,10 @@ class Employee:
     def display_employee(self):
         print("Full name: ", self._first_name, self._surname, "   Salary: ", self._salary)
 ```
+
+---
+
+* Konstrukce objektů, zavolání metod
 
 ```python
 class Employee:
@@ -1843,8 +2295,6 @@ print(employee2)
 * Vytvoření
 * Argumenty
 * Klávesové zkratky
-
----
 
 ---
 
