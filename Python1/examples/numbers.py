@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding=utf-8
+
 # int/long
 print(42)
 print(100000000000000000000000000000000000000000000000000000)
