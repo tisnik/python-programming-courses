@@ -3,7 +3,8 @@
 
 x = 1
 
-# smyčka typu while
-while x < 2000:
+while True:
     print(x)
+    if x > 1000:
+        break
     x *= 2
