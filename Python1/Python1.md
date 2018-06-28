@@ -67,6 +67,7 @@
     - argumenty
     - klávesové zkratky
 * Použití debuggeru
+* MicroPython
 
 ---
 
@@ -1648,10 +1649,23 @@ def fn2(arg1, arg2, arg3=True):
     pass
 ```
 
-* Parametry se jménem specifikovaným při volání funkce
+---
+
+### Definice funkcí
+
+* Proměnný počet parametrů
+    - uloží se do n-tice
 
 ```python
-def fn2(arg1, arg2, **kwargs):
+def fn3(arg1, arg2, *args):
+    pass
+```
+
+* Parametry se jménem specifikovaným při volání funkce
+    - uloží se do slovníku
+
+```python
+def fn4(arg1, arg2, **kwargs):
     pass
 ```
 
@@ -1737,6 +1751,27 @@ print(x)
 x = 0
 
 def fn1():
+    x = 1
+    def fn2():
+        global x
+        x = 2
+        print(x)
+    fn2()
+    print(x)
+
+
+print(x)
+fn1()
+print(x)
+```
+
+---
+
+```python
+x = 0
+
+def fn1():
+    global x
     x = 1
     def fn2():
         global x
@@ -2325,6 +2360,32 @@ except:
     import pdb
     pdb.post_mortem()
 ```
+
+---
+
+## MicroPython
+
+* 2013, mikrořadič pyboard
+* Dnes dostupný na více jednodeskových mikropočítačů
+    - Micro Bit
+    - Arduino
+    - ESP32
+    - ESP8255
+    - PIC16...
+* Typické omezení
+    - 256 kB ROM
+    - 16 kB RAM
+* Dva možné režimy činnosti
+    - interpret přímo na CPU/MCU
+    - překlad do hex/objektového kódu
+* Repositář
+    - https://github.com/micropython/micropython
+    - překlad pro každý CPU/MCU zvlášť
+* MicroPython pro MicroBit
+    - http://microbit.org/guide/python/
+    - Online editor: http://python.microbit.org/v/1
+    - převod zdrojového kódu do Intel hex formátu
+    - upload v Intel hex formátu
 
 ---
 
