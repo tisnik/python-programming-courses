@@ -2372,6 +2372,11 @@ except:
     - ESP32
     - ESP8255
     - PIC16...
+
+---
+
+## MicroPython
+
 * Typické omezení
     - 256 kB ROM
     - 16 kB RAM
@@ -2381,6 +2386,30 @@ except:
 * Repositář
     - https://github.com/micropython/micropython
     - překlad pro každý CPU/MCU zvlášť
+
+---
+
+## Rozdíly CPython vs MicroPython
+
+* Chybí některé standardní knihovny
+* Navíc přístup k hardware
+
+```python
+from machine import Pin
+pin = Pin(0, Pin.IN)
+print(pin.value())
+```
+
+```python
+from machine import Pin
+pin = Pin(14, Pin.OUT)
+pin.value(1)
+```
+
+---
+
+## MicroPython pro MicroBit
+
 * MicroPython pro MicroBit
     - http://microbit.org/guide/python/
     - Online editor: http://python.microbit.org/v/1
