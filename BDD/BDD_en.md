@@ -1,4 +1,4 @@
-# Behavior Driven Testing (BDT)
+# Behavior-driven development (BDD) & Behavior-driven testing (BDT)
 
 * Pavel Tišnovský
     - `ptisnovs@redhat.com`
@@ -9,37 +9,46 @@
 
 ## TOC
 
-* Úvod
-    - "pyramida" s různými typy testů
+* Why BDD?
+    - Test pyramid
     - BDD: behavior-driven development
-* Jazyk Gherkin
-    - Klauzule when/then
-    - Parametry v popisech testů
-    - Tabulky
-    - Tabulky použité pro specifikaci několika běhů testů
-* Praktická část
-    - Knihovna Behave
-    - Struktura projektu s BDD testy
-    - Testování nativních funkcí/knihoven
-    - Testování REST API
+    - Simple DSL
+* Gherkin language
+    - Given/when/then
+    - Variable parameters in tests
+    - Tables as data source
+    - Tables for multiple test runs
+* Practical part
+    - Python & Behave library
+    - Project structure
+    - Native functions/libraries testing
+    - REST API testing
 
 ---
 
-## Úvod
+## Why BDD?
 
-* Problematika testování stále složitějších aplikací a systémů
-* CI/CD
-* Základní problém
-    - čím později je chyba odhalena, tím dražší je její oprava
-    - z jiného oboru:
-        - triviální úprava ventilu při návrhu motoru
-        - vs svolávání aut do servisu
-        - vs případné žaloby v případě, že chyba způsobí nehody
-* Další časté problémy dnešních aplikací
-    - velký vývojářský tým
-    - používá se větší množství jazyků (jak se domluvit?)
-    - zákazník a jeho role při vývoji
-    - někdy nejasné role (vývojář či tester?)
+* Today IT systems are usually very complex
+    - it is quite hard to get the overall picture
+* Basic problem
+    - bug fixes are very expensive in the later stages of the development
+    - customers don't like features^Wbugs
+    - it is vital to verify and validate application behaviour during development
+* Other problems
+    - large devel teams
+    - more programming languages
+    - customer might be part of development
+    - not well-defined roles in some cases (devel? QA? devops?)
+
+---
+
+## BDD focuses
+
+* Where to start in the process
+* What to test and what not to test
+* How much to test in one go
+* What to call the tests
+* How to understand why a test fails
 
 ---
 
@@ -57,6 +66,8 @@
     - and of course Unit tests
 * Other tests
     - Benchmarks
+    - Performance tests
+    - Security tests
 
 ---
 
@@ -66,11 +77,30 @@
     - integration tests
     - API tests
     - acceptance tests
-* Popis očekávaného chování systému z pohledu zákazníka/uživatele
-    - samotný systém je z pohledu BDD většinou černá skříňka
-* Lze použít pro backend i pro frontend
-* Testovací scénáře může psát i poučený zákazník
-* Mají i dokumentační funkci
+* Should be part of verification and validation processes!
+* Describe the behaviour of the system, usually from customer perspective
+    - from the BDD point of view, the system is handled as a black box
+* Can be used for front end and for back end as well
+
+---
+
+### Who should be author of BDD tests?
+
+* There is not a role like "BDD test writer"
+    - it is different from unit tests for example
+* BDD is based on cooperation
+    - customer
+    - architect
+    - devel
+    - QA
+* Sometimes the term "multiple-stakeholder" is used
+
+---
+
+### When to create BDD tests?
+
+* Part of system description
+* Also part of acceptance testing
 
 ---
 
@@ -87,6 +117,18 @@
 
 ---
 
+### Given-When-Then
+
+* Semi-structured way to write down test cases
+* Three clauses
+    - Given
+    - When
+    - Then
+* The same clause on more consecutive lines?
+    - And
+
+---
+
 ### Gherkin language - an example
 
 ```gherkin
@@ -100,11 +142,11 @@ Test scenario parts:
 
 * Keywords Given, And, When, Then
 * The rest is written in "plain English"
-* Variable parts: 100, 75, 25
+* Contain variable parts: 100, 75, 25
 
 ---
 
-### Víceřádkový text
+### Multiline text
 
 ```gherkin
 Feature: Count words function test
@@ -112,7 +154,7 @@ Feature: Count words function test
   Scenario: Check the function count_words()
     Given a sample text
        """
-       Velmi kratka veta.
+       Some sentence..
        """
     When I count all words in text
     Then I should get 3 as a result
@@ -129,7 +171,14 @@ Feature: Count words function test
 
 ---
 
-### Tabulky
+### Tables
+
+* Tables has two functions in Gherkin
+    - specify list of values used later in tests
+    - specify multiple tests with the same sentences,
+      but with different parameters/variables.
+
+### Tables
 
 ```gherkin
 Feature: Sum function test 1
@@ -147,7 +196,7 @@ Feature: Sum function test 1
 
 ---
 
-### Tabulky (druhý příklad)
+### Tables (second example)
 
 ```
   Scenario: Check the exchange rate calculation
@@ -572,9 +621,11 @@ def check_company(context, company):
 
 ---
 
-## Užitečné odkazy
+## Useful links
 
-* Knihovna behave 1.2.6: https://pypi.org/project/behave/
+* Why is software testing necessary? http://tryqa.com/why-is-testing-necessary/
+* Why do we Test? What is the Purpose of Software Testing?: https://www.testingexcellence.com/why-do-we-test-what-is-the-purpose-of-software-testing/
+* behave 1.2.6: https://pypi.org/project/behave/
 * Welcome to behave!: https://behave.readthedocs.io/en/latest/
 * Getting Started with Behavior Testing in Python with Behave https://semaphoreci.com/community/tutorials/getting-started-with-behavior-testing-in-python-with-behave
 * What is Gherkin – BDD Language? http://toolsqa.com/cucumber/gherkin/
@@ -592,3 +643,4 @@ def check_company(context, company):
 * Unicode (Wikipedia): https://en.wikipedia.org/wiki/Unicode
 * Dive Into Python: http://www.diveintopython.net/
 * Dive into Python 3: http://www.diveintopython3.net/
+* Given-When-Then: https://en.wikipedia.org/wiki/Given-When-Then
