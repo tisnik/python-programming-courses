@@ -16,6 +16,7 @@
     - BDD: behavior-driven development
     - Simple DSL
 * Gherkin language
+    - Feature/Scenario/Scenario Outline
     - Given/when/then
     - Variable parameters in tests
     - Tables as data source
@@ -34,7 +35,7 @@
 * Today IT systems are usually very complex
     - quite hard to get the overall picture
     - overall function vs implementation details
-* Basic problem
+* Basic/typical problems
     - bug fixes are very expensive in the later stages of the development
     - customers don't like features^W bugs
     - it is vital to verify and validate application behaviour during development
@@ -72,6 +73,7 @@
     - Benchmarks
     - Performance tests
     - Security tests
+    - ...
 
 ---
 
@@ -82,10 +84,10 @@
     - API tests
     - acceptance tests
 * Should be part of verification and validation processes!
-* Describe the behaviour of the system, usually from customer perspective
+* Describe the behavior of the system, usually from customer perspective
     - from the BDD point of view, the system is handled as a black box
 * Can be used for front end and for back end as well
-* "Weird test scenario" ➝ probably the system has improper behaviour
+* "Weird test scenario" ➝ probably the system has improper behavior
     - (water machines in RH)
     - button instead of switch
     - ...
@@ -153,7 +155,7 @@ Test scenario parts:
 * Keywords/clauses
     - Given, And, When, Then
 * The rest is written in "plain English"
-* Contain variable parts
+* Contains variable parts as well
     - 100, 75, 25
 
 ---
@@ -213,6 +215,8 @@ Feature: Sum function test 1
 ### Tables (second example)
 
 ```gherkin
+Feature: Interface to bank backend
+
   Scenario: Check the exchange rate calculation
     Given the following exchange rate table
       | currency |  rate  |
@@ -358,6 +362,8 @@ run_tests.sh	                 helper script to run Behave
 
 ### Tested module
 
+* The enterprise-level production-ready multi-purpose `add` implementation :-)
+
 ```python
 def add(x, y):
     return x + y
@@ -381,6 +387,7 @@ Feature: Adder test
 ### Implementation of test steps
 
 * Very important: *context* parameter.
+* Decorators `@given`, `@when`, `@then`
 
 ```python
 from behave import given, then, when
@@ -594,8 +601,14 @@ def before_all(context):
     """Perform setup before the first event."""
     context.is_accessible = _is_accessible
     context.api_url = "https://api.github.com"
+```
 
 
+---
+
+#### Test environment
+
+```python
 @capture
 def before_scenario(context, scenario):
     """Perform setup before each scenario is run."""
@@ -646,8 +659,13 @@ def access_endpoint(context, url):
 def search_for_user(context, nick):
     url = urljoin(urljoin(context.api_url, "users/"), nick)
     context.response = requests.get(url)
+```
 
+---
 
+#### Implementation of test steps (cont.)
+
+```python
 @then('I should receive {status:d} status code')
 def check_status_code(context, status):
     """Check the HTTP status code returned by the REST API."""
@@ -693,6 +711,11 @@ def check_company(context, company):
 * pep8.py: http://pypi.python.org/pypi/pep8/
 * pylint: http://www.logilab.org/project/pylint
 * Epydoc: http://epydoc.sourceforge.net/
+
+---
+
+## Useful links (cont.)
+
 * Sphinx: http://sphinx-doc.org/
 * Python in Python: http://pypy.org/
 * The key differences between Python 2.7.x and Python 3.x with examples: http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
@@ -702,3 +725,8 @@ def check_company(context, company):
 * Dive Into Python: http://www.diveintopython.net/
 * Dive into Python 3: http://www.diveintopython3.net/
 * Given-When-Then: https://en.wikipedia.org/wiki/Given-When-Then
+
+---
+
+## Thank you so much!
+
