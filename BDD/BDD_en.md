@@ -2,8 +2,10 @@
 
 * Pavel Tišnovský
     - `ptisnovs@redhat.com`
-* Slides and examples:
+* Slides:
     - `https://github.com/tisnik/python-programming-courses`
+* Examples:
+    - `https://github.com/tisnik/python-behave-demos`
 
 ---
 
@@ -17,10 +19,11 @@
     - Given/when/then
     - Variable parameters in tests
     - Tables as data source
-    - Tables for multiple test runs
+    - Tables for multiple test runs with variable parameters
 * Practical part
     - Python & Behave library
     - Project structure
+    - Python modules testing
     - Native functions/libraries testing
     - REST API testing
 
@@ -29,15 +32,16 @@
 ## Why BDD?
 
 * Today IT systems are usually very complex
-    - it is quite hard to get the overall picture
+    - quite hard to get the overall picture
+    - overall function vs implementation details
 * Basic problem
     - bug fixes are very expensive in the later stages of the development
-    - customers don't like features^Wbugs
+    - customers don't like features^W bugs
     - it is vital to verify and validate application behaviour during development
 * Other problems
-    - large devel teams
-    - more programming languages
-    - customer might be part of development
+    - large development teams
+    - more programming languages (back end, front end, microservices...)
+    - customer might like to be part of development process
     - not well-defined roles in some cases (devel? QA? devops?)
 
 ---
@@ -81,13 +85,17 @@
 * Describe the behaviour of the system, usually from customer perspective
     - from the BDD point of view, the system is handled as a black box
 * Can be used for front end and for back end as well
+* "Weird test scenario" ➝ probably the system has improper behaviour
+    - (water machines in RH)
+    - button instead of switch
+    - ...
 
 ---
 
 ### Who should be author of BDD tests?
 
-* There is not a role like "BDD test writer"
-    - it is different from unit tests for example
+* There does not exist a role like "BDD test writer"
+    - it is different from unit tests, for example
 * BDD is based on cooperation
     - customer
     - architect
@@ -107,13 +115,15 @@
 ## Gherkin language
 
 * Based on natural language + a few keywords
-    - English
+    - usually English is used
     - translated into other languages as well
-* It is quite similar to Python
+* It is quite similar to Python, AsciiDoc etc.
     - indentation
     - based on keywords, not on special characters
+    - tables "drawn" in ASCII
 * It is not tightly bound with any real programming language
-* -> it can be used by non-developers
+* ➝ it can be used by non-developers
+    - (but don't tell user that he/she is writing source code... :-)
 
 ---
 
@@ -140,13 +150,15 @@ Given the customer has logged into their current account
 
 Test scenario parts:
 
-* Keywords Given, And, When, Then
+* Keywords/clauses
+    - Given, And, When, Then
 * The rest is written in "plain English"
-* Contain variable parts: 100, 75, 25
+* Contain variable parts
+    - 100, 75, 25
 
 ---
 
-### Multiline text
+### Multi line text
 
 ```gherkin
 Feature: Count words function test
@@ -173,10 +185,12 @@ Feature: Count words function test
 
 ### Tables
 
-* Tables has two functions in Gherkin
+* Tables has two purposes in Gherkin language
     - specify list of values used later in tests
     - specify multiple tests with the same sentences,
       but with different parameters/variables.
+
+---
 
 ### Tables
 
@@ -198,7 +212,7 @@ Feature: Sum function test 1
 
 ### Tables (second example)
 
-```
+```gherkin
   Scenario: Check the exchange rate calculation
     Given the following exchange rate table
       | currency |  rate  |
@@ -210,7 +224,9 @@ Feature: Sum function test 1
     Then I should receive 161.72 CZK
 ```
 
-### Tabulky použité pro specifikaci několika běhů testů
+---
+
+### Tables for specifying multiple test runs
 
 ```gherkin
   Scenario Outline: Check the user search feature, perform the search for more users
@@ -228,7 +244,9 @@ Feature: Sum function test 1
      |tisnik|Pavel Tišnovský|Red Hat, Inc.|
 ```
 
-### Tabulky použité pro specifikaci několika běhů testů
+---
+
+### Combination of two tables with different purposes
 
 ```gherkin
   Scenario Outline: Check the exchange rate calculation
@@ -252,20 +270,21 @@ Feature: Sum function test 1
 
 ---
 
-## Praktická část
+## Practical part
 
-* Knihovna Behave
-* Struktura projektu s BDD testy
-    - testovaný modul
-    - testovací scénář
-    - implementace testovacího scénáře
-    - specifikace prostředí testů
+* Behave library
+* Structure of project with BDD tests
+    - tested module
+    - the scenario
+    - scenario implementation
+    - test environment specification
 
 ---
 
-### Repositář s demonstračními příklady
+### Repository with examples
 
 * https://github.com/tisnik/python-behave-demos
+    - (well I still trust GitHub a bit :-)
 
 ```
 git clone https://github.com/tisnik/python-behave-demos
@@ -273,18 +292,44 @@ git clone https://github.com/tisnik/python-behave-demos
 
 ---
 
-### Knihovna Behave
+### Behave library
 
-* Knihovna Behave
-    - určena pro Python 2.x i Python 3.x
-    - implementuje většinu funkcionality jazyka Gherkin
-    - snadné napojení popisu testů na jejich implementaci
-    - používají se dekorátory
-    - automatické odvození parametrů z textu dekorátoru
+* Behave library
+    - for Python 2.x and Python 3.x as well
+    - most of Gherkin language is implemented
+    - binding: test description <-> test implementation
+    - decorators
+    - test parameters are "deduced" from decorators
 
 ---
 
-### Struktura projektu s BDD testy
+### Context
+
+* An object
+    - automatically created/recreated
+    - manipulated in test steps and in tests environment
+
+```python
+@capture
+def before_all(context):
+    """Perform setup before the first event."""
+
+@capture
+def before_scenario(context, scenario):
+    """Perform setup before each scenario is run."""
+
+@capture
+def after_scenario(context, scenario):
+    """Perform cleanup after each scenario is run."""
+
+@capture
+def after_all(context):
+    """Perform cleanup after the last event."""
+```
+
+---
+
+### Structure of project with BDD tests
 
 ```
 ├── feature_list.txt
@@ -299,19 +344,19 @@ git clone https://github.com/tisnik/python-behave-demos
     └── adder.py
 ```
 
-Význam souborů v projektu:
+### Structure of project with BDD tests
 
 ```
-src/adder.py                     vlastní modul, který budeme chtít otestovat
-requirements.in/requirements.txt soubory pro pip (instalátor balíčků)
-feature_list.txt                 seznam testovacích scénářů, které se mají spustit
-features/                        adresář obsahující testovací scénáře i implementaci jednotlivých kroků testů
-run_tests.sh	                 pomocný skript pro spuštění testovacích scénářů
+src/adder.py                     tested module
+requirements.in/requirements.txt used by PIP
+feature_list.txt                 list of test scenarios
+features/                        test scenario(s) + implementation of test steps
+run_tests.sh	                 helper script to run Behave
 ```
 
 ---
 
-### Testovaný modul
+### Tested module
 
 ```python
 def add(x, y):
@@ -320,7 +365,7 @@ def add(x, y):
 
 ---
 
-### Popis testovacího scénáře
+### Test scenario
 
 ```gherkin
 Feature: Adder test
@@ -333,9 +378,9 @@ Feature: Adder test
 
 ---
 
-### Implementace jednotlivých kroků testu
+### Implementation of test steps
 
-* Povšimněte si použití argumentu *context*.
+* Very important: *context* parameter.
 
 ```python
 from behave import given, then, when
@@ -360,11 +405,11 @@ def check_integer_result(context, expected):
 
 ---
 
-### Prostředí testů
+### Test environment
 
-* Příklad implementace prostředí ve chvíli, kdy se testuje nativní knihovna
+* *environment.py*
 
-```
+```python
 from behave.log_capture import capture
 import ctypes
 
@@ -382,7 +427,7 @@ def before_all(context):
 
 ---
 
-### Skript pro spuštění testů
+### Script to start Behave
 
 ```shell
 #!/bin/bash -ex
@@ -399,7 +444,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 `which behave` --tags=-skip -D dump_errors=tru
 
 ---
 
-### Vlastní spuštění textu
+### Behave in action (live)
 
 ```
 Feature: Adder test # features/adder.feature:1
@@ -417,11 +462,13 @@ Took 0m0.000s
 
 ---
 
-### Testování nativních funkcí/knihoven
+### Native libraries
 
-* Použití knihovny *ctypes*
+* Usually we can use *ctypes* or *CFFI*
 
-#### Testovací scénář
+---
+
+#### Test scenario
 
 ```gherkin
   @smoketest
@@ -450,7 +497,9 @@ Took 0m0.000s
      |-2147483648|-1| 2147483647|
 ```
 
-#### Prostředí testů
+---
+
+#### Tests environment
 
 ```python
 from behave.log_capture import capture
@@ -468,7 +517,9 @@ def before_all(context):
     context.load_library = _load_library
 ```
 
-#### Implementace kroků testu
+---
+
+#### Test steps implementation
 
 ```python
 from behave import given, then, when
@@ -491,13 +542,16 @@ def check_integer_result(context, result):
 
 ---
 
-### Testování REST API
+### REST API testing
 
-* Použití knihovny *requests*
+* *requests* library
+* *Beautiful soup* for working with HTMLs, XMLs etc.
 
-#### Testovací scénář
+---
 
-```
+#### Test scenario
+
+```gherkin
   @smoketest
   Scenario: Check the GitHub API entry point
     Given GitHub is accessible
@@ -513,7 +567,9 @@ def check_integer_result(context, result):
      And I should find that the user works for company Linux Foundation
 ```
 
-#### Prostředí testů
+---
+
+#### Test environment
 
 ```python
 import json
@@ -558,7 +614,9 @@ def after_all(context):
     pass
 ```
 
-#### Implementace kroků testu
+---
+
+#### Implementation of test steps
 
 ```python
 import json
