@@ -2,6 +2,7 @@ x = 0
 
 def fn1():
     x = 1
+
     def fn2():
         nonlocal x
         x = 2
