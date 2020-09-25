@@ -1,7 +1,10 @@
 # Knihovna Numpy
 #
-# konstrukce jednorozměrného pole konstruktorem numpy.array()
+# Konstrukce jednorozměrného pole konstruktorem numpy.array()
+#
+# vytvoření pole s deseti prvky
 
+# import hlavního balíčku knihovny Numpy
 import numpy
 
 # konstrukce pole
