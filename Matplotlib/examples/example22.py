@@ -44,4 +44,3 @@ plt.clabel(CS, inline=1, fontsize=10)
 
 # zobrazení grafu
 plt.show()
-
