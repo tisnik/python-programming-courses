@@ -32,7 +32,7 @@ Z = np.sin(R)/R
 
 # zobrazení 3D grafu formou plochy
 ax.plot_surface(X, Y, Z, rstride=2, cstride=2, cmap=cm.coolwarm,
-                       linewidth=0, antialiased=False)
+                linewidth=0, antialiased=False)
 
 # zobrazení grafu
 plt.show()
