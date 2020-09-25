@@ -34,4 +34,3 @@ ax.plot_wireframe(X, Y, Z, rstride=7, cstride=7)
 
 # zobrazení grafu
 plt.show()
-
