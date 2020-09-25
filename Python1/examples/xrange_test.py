@@ -1,5 +1,6 @@
 n = 10000
 
+
 def test_range(n):
     for i in range(n):
         pass
