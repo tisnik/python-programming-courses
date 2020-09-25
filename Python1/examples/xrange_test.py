@@ -4,6 +4,7 @@ def test_range(n):
     for i in range(n):
         pass
 
+
 def test_xrange(n):
     for i in xrange(n):
         pass
