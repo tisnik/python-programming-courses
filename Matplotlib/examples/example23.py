@@ -22,7 +22,7 @@ x = np.arange(-10.0, 10.0, delta)
 # průběh nezávislé proměnné y
 y = np.arange(-10.0, 10.0, delta)
 
-# vytvoření dvou polí se souřadnicemi [x,y] 
+# vytvoření dvou polí se souřadnicemi [x,y]
 X, Y = np.meshgrid(x, y)
 
 # vzdálenost od bodu [0,0]
