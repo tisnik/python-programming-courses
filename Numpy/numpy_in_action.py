@@ -113,5 +113,94 @@
 #╚════════════╧═══════════════════════════╧═══════════════════════════════╝
 # ```
 
+# ## Kódy skalárních datových typů
+# - jednoznakové kódy je možné použít namísto jména typu
+# ```
+# ╔════════════╤══════╗
+# ║  Formát    │ Kód  ║
+# ╟────────────┼──────╢
+# ║ formát     │ kód  ║
+# ║ bool       │ '?'  ║
+# ║ int8       │ 'b'  ║
+# ║ int16      │ 'h'  ║
+# ║ int32      │ 'i'  ║
+# ║ int64      │ 'l'  ║
+# ║ uint8      │ 'B'  ║
+# ║ uint16     │ 'H'  ║
+# ║ uint32     │ 'I'  ║
+# ║ uint64     │ 'L'  ║
+# ║ float16    │ 'e'  ║
+# ║ float32    │ 'f'  ║
+# ║ float64    │ 'd'  ║
+# ║ complex64  │ 'F'  ║
+# ║ complex128 │ 'D'  ║
+# ╚════════════╧══════╝
+# ```
+
+# ## Datový typ single
+# ```
+# Celkový počet bitů (bytů):   32 (4)
+# Bitů pro znaménko:            1
+# Bitů pro exponent:            8
+# Bitů pro mantisu:            23
+# ```
+
+# ## Datový typ double
+# ```
+# Celkový počet bitů (bytů):   64 (8)
+# Bitů pro znaménko:            1
+# Bitů pro exponent:           11
+# Bitů pro mantisu:            52
+# ```
+
+# ## Datový typ float16
+# ```
+# Celkový počet bitů (bytů):   16 (2)
+# Bitů pro znaménko:            1
+# Bitů pro exponent:            5
+# Bitů pro mantisu:            10
+# BIAS (offset exponentu):     15
+# Přesnost:                    5-6 číslic
+# Maximální hodnota:           65504
+# Minimální hodnota:          -65504
+# Nejmenší kladná nenulová hodnota:      5,960×10⁻⁸
+# Nejmenší kladná normalizovaná hodnota: 6,104×10⁻⁵
+# ```
+
+# ## N-dimenzionální pole
 # ![numpy_arrays.png](numpy_arrays.png)
 
+# ## Datová struktura ndarray
+# - Představuje obecné n-dimenzionální pole
+# - Interní způsob uložení dat zcela odlišný od Pythonovských seznamů či n-tic
+#     - „pohled“ na kontinuální blok hodnot
+# - Homogenní datová struktura
+#     - menší flexibilita
+#     - menší paměťové nároky
+#     - vyšší výpočetní rychlost díky použití nativního kódu
+#     - obecně lepší využití cache a rychlejší přístup k prvkům
+# - Základní strukturovaný datový typ knihovny NumPy
+# - Volitelný počet dimenzí
+#     - vektory
+#     - matice
+#     - pole s větším počtem dimenzí
+# - Volitelný typ prvků
+# - Volitelné uspořádání prvků
+#     - podle zvyklostí jazyka Fortran
+#     - podle zvyklostí jazyka C
+
+# --------------------------------------------
+
+# ## Praktická část
+
+# Nejprve je nutné naimportovat všechny potřebné funkce a konstanty z balíčku `numpy`
+
+# Používají se následující varianty importu
+#
+# `import numpy`
+# 
+# `import numpy as np`
+# 
+# `from numpy import *`
+# 
+# `from numpy import array, linspace`
