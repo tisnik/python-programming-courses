@@ -3,7 +3,7 @@ layout: default
 ---
 # Kurzy programovacího jazyka Python
 
-# ![python.png](python.png)
+![python.png](python.png)
 
 ## Odkazy na texty kurzů
 
