@@ -20,13 +20,13 @@
 #     - numpy.linspace
 #     - numpy.geomspace
 #     - numpy.logspace
-# 1. Základní operace s n-dimenzionálními poli 
+# 1. Základní operace s n-dimenzionálními poli
 #     - přetypování prvků v poli
 #     - zjištění tvaru pole
 #     - změna tvaru pole
 #     - výběr prvků v poli
 #     - slicing
-# 1. Další operace s n-dimenzionálními poli 
+# 1. Další operace s n-dimenzionálními poli
 #     - operátory
 #     - násobení matic
 #     - determinant
@@ -88,29 +88,29 @@
 # ## Skalární datové typy
 # - <https://docs.scipy.org/doc/numpy/user/basics.types.html>
 # ```
-#╔════════════╤═══════════════════════════╤═══════════════════════════════╗
-#║ Formát     │ Popis                     │ Rozsah                        ║
-#╟────────────┼───────────────────────────┼───────────────────────────────╢
-#║ bool       │ uloženo po bajtech        │  True/False                   ║
-#╟────────────┼───────────────────────────┼───────────────────────────────╢
-#║ int8       │ celočíselný se znaménkem  │ -128..127                     ║
-#║ int16      │ celočíselný se znaménkem  │ -32768..32767                 ║
-#║ int32      │ celočíselný se znaménkem  │ -2147483648..2147483647       ║
-#║ int64      │ celočíselný se znaménkem  │ -9223372036854775808..        ║
-#║            │                           │  9223372036854775807          ║
-#╟────────────┼───────────────────────────┼───────────────────────────────╢
-#║ uint8      │ celočíselný bez znaménka  │  0..255                       ║
-#║ uint16     │ celočíselný bez znaménka  │  0..65535                     ║
-#║ uint32     │ celočíselný bez znaménka  │  0..4294967295                ║
-#║ uint64     │ celočíselný bez znaménka  │  0..18446744073709551615      ║
-#╟────────────┼───────────────────────────┼───────────────────────────────╢
-#║ float16    │ plovoucí řádová čárka     │  poloviční přesnost (half)    ║
-#║ float32    │ plovoucí řádová čárka     │  jednoduchá přesnost (single) ║
-#║ float64    │ plovoucí řádová čárka     │  dvojitá přesnost (double)    ║
-#╟────────────┼───────────────────────────┼───────────────────────────────╢
-#║ complex64  │ komplexní číslo (dvojice) │  2×float32                    ║
-#║ complex128 │ komplexní číslo (dvojice) │  2×float64                    ║
-#╚════════════╧═══════════════════════════╧═══════════════════════════════╝
+# ╔════════════╤═══════════════════════════╤═══════════════════════════════╗
+# ║ Formát     │ Popis                     │ Rozsah                        ║
+# ╟────────────┼───────────────────────────┼───────────────────────────────╢
+# ║ bool       │ uloženo po bajtech        │  True/False                   ║
+# ╟────────────┼───────────────────────────┼───────────────────────────────╢
+# ║ int8       │ celočíselný se znaménkem  │ -128..127                     ║
+# ║ int16      │ celočíselný se znaménkem  │ -32768..32767                 ║
+# ║ int32      │ celočíselný se znaménkem  │ -2147483648..2147483647       ║
+# ║ int64      │ celočíselný se znaménkem  │ -9223372036854775808..        ║
+# ║            │                           │  9223372036854775807          ║
+# ╟────────────┼───────────────────────────┼───────────────────────────────╢
+# ║ uint8      │ celočíselný bez znaménka  │  0..255                       ║
+# ║ uint16     │ celočíselný bez znaménka  │  0..65535                     ║
+# ║ uint32     │ celočíselný bez znaménka  │  0..4294967295                ║
+# ║ uint64     │ celočíselný bez znaménka  │  0..18446744073709551615      ║
+# ╟────────────┼───────────────────────────┼───────────────────────────────╢
+# ║ float16    │ plovoucí řádová čárka     │  poloviční přesnost (half)    ║
+# ║ float32    │ plovoucí řádová čárka     │  jednoduchá přesnost (single) ║
+# ║ float64    │ plovoucí řádová čárka     │  dvojitá přesnost (double)    ║
+# ╟────────────┼───────────────────────────┼───────────────────────────────╢
+# ║ complex64  │ komplexní číslo (dvojice) │  2×float32                    ║
+# ║ complex128 │ komplexní číslo (dvojice) │  2×float64                    ║
+# ╚════════════╧═══════════════════════════╧═══════════════════════════════╝
 # ```
 
 # ## Kódy skalárních datových typů
@@ -189,6 +189,60 @@
 #     - podle zvyklostí jazyka Fortran
 #     - podle zvyklostí jazyka C
 
+# ## Tvar (shape) n-dimenzionálního pole
+# - Popisuje organizaci a uspořádání prvků v poli
+#     - n-tice obsahující rozměry pole v jednotlivých dimenzích
+# - Příklady tvarů
+#     - `(10,)` - vektor s deseti prvky
+#     - `(2, 3)` - dvourozměrná matice se dvěma řádky a třemi sloupci
+#     - `(2, 3, 4)` - trojrozměrné pole
+# - Tvar je možné zjistit
+#     - atribut „shape“
+#     - funkce `numpy.shape()`
+# - Tvar je možné změnit
+#     - funkce `numpy.reshape()`
+
+# ## Konstrukce n-dimenzionálních polí
+# - Několik typů konstruktorů
+#     - `numpy.array()`
+#     - `numpy.zeros()`
+#     - `numpy.ones()`
+#     - `numpy.eye()`
+#     - `numpy.arange()`
+#     - `numpy.linspace()`
+#     - `numpy.geomspace()`
+#     - `numpy.logspace()`
+# - Konverzní funkce
+
+# ## Konstruktor numpy.array
+# - parametry
+# `array(object, dtype=None, copy=True, order=None, subok=False, ndmin=0)`
+
+# ## Order
+# ```
+# ╔═════════╤═══════════════════════════════════════════════════════════╗
+# ║ Hodnota │ Význam                                                    ║
+# ╟─────────┼───────────────────────────────────────────────────────────╢
+# ║ 'C'     │ prvky jsou interně uspořádány jako v jazyku C             ║
+# ║ 'F'     │ prvky jsou interně uspořádány jako v jazyku Fortran       ║
+# ║ 'A'     │ ponecháme na implementaci, který způsob uspořádání zvolit ║
+# ╚═════════╧═══════════════════════════════════════════════════════════╝
+# ```
+
+# ## Order - rozdíl v uspořádání
+# - 2D matice tak, jak ji vidí uživatel (logická struktura)
+# ```
+# | 1 2 3 |
+# | 4 5 6 |
+# | 7 8 9 |
+# ```
+
+# - Uložení v operační paměti
+# ```
+# 1 2 3 4 5 6 7 8 9 - 'C'
+# 1 4 7 2 5 8 3 6 9 - 'F'
+# ```
+
 # --------------------------------------------
 
 # ## Praktická část
@@ -198,9 +252,55 @@
 # Používají se následující varianty importu
 #
 # `import numpy`
-# 
+#
 # `import numpy as np`
-# 
+#
 # `from numpy import *`
-# 
+#
 # `from numpy import array, linspace`
+
+# Pro potřeby prezentace naimportujeme všechny funkce a konstanty přímo do našeho jmenného prostoru
+from numpy import *
+
+# Základní kontrola, jestli se import podařil
+import sys
+if "numpy" not in sys.modules:
+    raise Exception("Modul numpy nebyl naimportován")
+
+# ## Příklady použití funkce `numpy.array()`
+
+# ### Vytvoření pole ze seznamu
+a = array([1,2,3,4])
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Vytvoření pole z generátoru `range`
+
+# konstrukce pole
+a = array(range(10))
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní specifikace typu všech prvků pole
+# (interně se provádí přetypování)
+
+# konstrukce pole
+a = array(range(10), dtype=float)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní specifikace uspořádání prvků pole
+# (nemá velký význam pro 1D pole=vektory)
+
+# konstrukce pole
+a = array(range(10), order='C')
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
