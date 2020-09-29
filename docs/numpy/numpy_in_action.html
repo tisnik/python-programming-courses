@@ -2,14 +2,14 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
-  <title>numpy_in_action_________.py</title>
+  <title>numpy_in_action______________.py</title>
   <link rel="stylesheet" href="pycco.css">
 </head>
 <body>
 <div id='container'>
   <div id="background"></div>
   <div class='section'>
-    <div class='docs'><h1>numpy_in_action_________.py</h1></div>
+    <div class='docs'><h1>numpy_in_action______________.py</h1></div>
   </div>
   <div class='clearall'>
   <div class='section' id='section-0'>
@@ -2463,7 +2463,7 @@ vektor má mít padesát prvků</p>
       <p>konstrukce běžného seznamu</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></pre></div>
+      <div class="highlight"><pre><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -2475,7 +2475,7 @@ vektor má mít padesát prvků</p>
       <p>přetypování (konstrukce pole daného typu)</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">int64</span><span class="p">(</span><span class="n">l</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">int64</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -2512,7 +2512,7 @@ vektor má mít padesát prvků</p>
       <p>konstrukce běžného seznamu</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></pre></div>
+      <div class="highlight"><pre><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -2524,7 +2524,7 @@ vektor má mít padesát prvků</p>
       <p>přetypování (konstrukce pole daného typu)</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">float16</span><span class="p">(</span><span class="n">l</span><span class="p">)</span></pre></div>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">float16</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -2691,7 +2691,7 @@ vektor má mít padesát prvků</p>
       <p>jednorozměrný vektor</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span></pre></div>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -3031,7 +3031,7 @@ vektor má mít padesát prvků</p>
       <p>změna tvaru matice na 3x2 prvky</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span></pre></div>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -3092,7 +3092,7 @@ vektor má mít padesát prvků</p>
       <p>změna tvaru matice na 3x2 prvky</p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span></pre></div>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>
@@ -3125,6 +3125,126 @@ vektor má mít padesát prvků</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-218'>#</a>
       </div>
+      <h3>Změna tvaru pole - vytvoření matice s jediným řádkem</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-219'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-219'>#</a>
+      </div>
+      <p>běžná matice se dvěma řádky a třemi sloupci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-220'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-220'>#</a>
+      </div>
+      <p>změna tvaru matice na jediný řádek</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-221'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-221'>#</a>
+      </div>
+      <p>tisk původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-222'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-222'>#</a>
+      </div>
+      <p>tisk nové matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-223'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-223'>#</a>
+      </div>
+      <h3>Změna tvaru pole - vytvoření matice s jediným sloupcem</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-224'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-224'>#</a>
+      </div>
+      <p>běžná matice se dvěma řádky a třemi sloupci</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-225'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-225'>#</a>
+      </div>
+      <p>změna tvaru matice na jediný sloupec</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-226'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-226'>#</a>
+      </div>
+      <p>tisk původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-227'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-227'>#</a>
+      </div>
+      <p>tisk nové matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-228'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-228'>#</a>
+      </div>
       <h2>Vliv parametru order na (zdánlivou) změnu tvaru pole</h2>
 <ul>
 <li>Parametr „order“ použit u konstruktoru <code>numpy.array()</code></li>
@@ -3140,10 +3260,95 @@ vektor má mít padesát prvků</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-219'>
+  <div class='section' id='section-229'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-219'>#</a>
+        <a class='octothorpe' href='#section-229'>#</a>
+      </div>
+      <h3>Vliv parametru order na (zdánlivou) změnu tvaru pole</h3>
+<p>vyzkoušíme význam nepovinného parametru order</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-230'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-230'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-231'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-231'>#</a>
+      </div>
+      <p>tisk původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-232'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-232'>#</a>
+      </div>
+      <p>původní matice s uspořádáním dle jazyka C</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-233'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-233'>#</a>
+      </div>
+      <p>tisk původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-234'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-234'>#</a>
+      </div>
+      <p>původní matice s uspořádáním dle Fortranu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-235'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-235'>#</a>
+      </div>
+      <p>tisk původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-236'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-236'>#</a>
       </div>
       <h2>Výběr prvků v poli</h2>
     </div>
@@ -3152,10 +3357,352 @@ vektor má mít padesát prvků</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-220'>
+  <div class='section' id='section-237'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-220'>#</a>
+        <a class='octothorpe' href='#section-237'>#</a>
+      </div>
+      <p>jednorozměrná pole - vektory</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-238'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-238'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-239'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-239'>#</a>
+      </div>
+      <p>indexování prvků od nuly</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-240'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-240'>#</a>
+      </div>
+      <p>indexování prvků od nuly</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-241'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-241'>#</a>
+      </div>
+      <p>indexovat lze i od konce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-242'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-242'>#</a>
+      </div>
+      <p>indexovat lze i od konce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-243'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-243'>#</a>
+      </div>
+      <h2>Výběr prvků v poli</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-244'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-244'>#</a>
+      </div>
+      <p>dvourozměrná pole - matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-245'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-245'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-246'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-246'>#</a>
+      </div>
+      <p>přístup k prvkům: řádek/sloupec</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-247'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-247'>#</a>
+      </div>
+      <p>přístup k prvkům: řádek/sloupec</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-248'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-248'>#</a>
+      </div>
+      <h2>Výběr prvků pomocí indexů uložených v jiném poli</h2>
+<p>(kladné indexy)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-249'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-249'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-250'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-250'>#</a>
+      </div>
+      <p>pole indexů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-251'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-251'>#</a>
+      </div>
+      <p>výběr celým polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-252'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-252'>#</a>
+      </div>
+      <h2>Výběr prvků pomocí indexů uložených v jiném poli</h2>
+<p>(záporné indexy)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-253'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-253'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-254'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-254'>#</a>
+      </div>
+      <p>pole indexů</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-255'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-255'>#</a>
+      </div>
+      <p>výběr celým polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-256'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-256'>#</a>
+      </div>
+      <h2>Výběr řádku pole</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-257'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-257'>#</a>
+      </div>
+      <p>dvourozměrné pole - matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-258'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-258'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-259'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-259'>#</a>
+      </div>
+      <p>první řádek pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-260'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-260'>#</a>
+      </div>
+      <p>druhý řádek pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-261'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-261'>#</a>
+      </div>
+      <p>poslední řádek pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-262'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-262'>#</a>
+      </div>
+      <h2>Výběr prvků pomocí indexů uložených v jiném poli</h2>
+<p>dtto ale s dvourozměrným polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-263'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-263'>#</a>
+      </div>
+      <p>pro nové pole s prohozenými řádky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-264'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-264'>#</a>
+      </div>
+      <p>tisk pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">b</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-265'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-265'>#</a>
       </div>
       <h2>Slicing - vynechání indexu/indexů</h2>
     </div>
@@ -3164,15 +3711,509 @@ vektor má mít padesát prvků</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-221'>
+  <div class='section' id='section-266'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-221'>#</a>
+        <a class='octothorpe' href='#section-266'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-267'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-267'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-268'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-268'>#</a>
+      </div>
+      <p>slicing</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-269'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-269'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-270'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-270'>#</a>
+      </div>
+      <h2>Slicing - vynechání indexu/indexů</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-271'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-271'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-272'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-272'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-273'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-273'>#</a>
+      </div>
+      <p>slicing</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-274'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-274'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-275'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-275'>#</a>
+      </div>
+      <p>slicing</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-276'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-276'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-277'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-277'>#</a>
+      </div>
+      <p>slicing</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-278'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-278'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-279'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-279'>#</a>
+      </div>
+      <h2>Prázdný řez polem</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-280'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-280'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-281'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-281'>#</a>
+      </div>
+      <p>provedení řezu polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-282'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-282'>#</a>
+      </div>
+      <h2>Řezy a záporné indexy</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-283'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-283'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-284'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-284'>#</a>
+      </div>
+      <p>provedení prvního řezu polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-285'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-285'>#</a>
+      </div>
+      <p>provedení druhého řezu polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-286'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-286'>#</a>
+      </div>
+      <p>provedení třetího řezu polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-287'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-287'>#</a>
+      </div>
+      <h2>Řezy vícerozměrných polí</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-288'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-288'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-289'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-289'>#</a>
+      </div>
+      <p>řez dvojrozměrným polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-290'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-290'>#</a>
+      </div>
+      <p>další řez dvojrozměrným polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-291'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-291'>#</a>
+      </div>
+      <p>třetí řez dvojrozměrným polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-292'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-292'>#</a>
+      </div>
+      <p>čtvrtý řez dvojrozměrným polem</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-293'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-293'>#</a>
+      </div>
+      <h2>Specifikace kroku při provádění řezů - vektory</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-294'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-294'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-295'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-295'>#</a>
+      </div>
+      <p>první řez polem: krok=1</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-296'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-296'>#</a>
+      </div>
+      <p>druhý řez polem: krok=2</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-297'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-297'>#</a>
+      </div>
+      <p>třetí řez polem: krok=3</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-298'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-298'>#</a>
+      </div>
+      <p>čtvrtý řez polem - pouze uvedení kroku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-299'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-299'>#</a>
+      </div>
+      <h2>Specifikace kroku při provádění řezů - matice</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-300'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-300'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-301'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-301'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-302'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-302'>#</a>
+      </div>
+      <p>řez s uvedením kroku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-303'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-303'>#</a>
+      </div>
+      <h2>Sudé sloupce, sudé řádky</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-304'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-304'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-305'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-305'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-306'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-306'>#</a>
+      </div>
+      <p>řez s uvedením kroku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-307'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-307'>#</a>
       </div>
       <h2>Operátory</h2>
 <ul>
 <li>Základní operátory jsou přetížené</li>
 <li>Prvky matice + skalár</li>
+<li>Prvky dvou matic</li>
 </ul>
     </div>
     <div class='code'>
@@ -3180,10 +4221,1558 @@ vektor má mít padesát prvků</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-222'>
+  <div class='section' id='section-308'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-222'>#</a>
+        <a class='octothorpe' href='#section-308'>#</a>
+      </div>
+      <h3>Přičtení hodnoty ke všem prvkům matice</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-309'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-309'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-310'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-310'>#</a>
+      </div>
+      <p>provedení operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">100</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-311'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-311'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-312'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-312'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-313'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-313'>#</a>
+      </div>
+      <h3>Vynásobení prvků matice dvěma</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-314'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-314'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-315'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-315'>#</a>
+      </div>
+      <p>provedení operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-316'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-316'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-317'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-317'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-318'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-318'>#</a>
+      </div>
+      <h3>Podíl prvek po prvku</h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-319'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-319'>#</a>
+      </div>
+      <p>konstrukce pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-320'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-320'>#</a>
+      </div>
+      <p>provedení operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-321'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-321'>#</a>
+      </div>
+      <p>tisk původního pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-322'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-322'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-323'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-323'>#</a>
+      </div>
+      <h2>Operátory</h2>
+<p>pole op pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-324'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-324'>#</a>
+      </div>
+      <p>první pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-325'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-325'>#</a>
+      </div>
+      <p>druhé pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a2</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-326'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-326'>#</a>
+      </div>
+      <p>součet prvek po prvku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-327'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-327'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-328'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-328'>#</a>
+      </div>
+      <h2>Operátory</h2>
+<ul>
+<li>různé kombinace</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-329'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-329'>#</a>
+      </div>
+      <p>první pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-330'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-330'>#</a>
+      </div>
+      <p>druhé pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a2</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-331'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-331'>#</a>
+      </div>
+      <p>operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">a2</span> <span class="o">*</span> <span class="mi">20</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-332'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-332'>#</a>
+      </div>
+      <p>tisk nového pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-333'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-333'>#</a>
+      </div>
+      <h2>Modifikace matice s využitím operátorů += atd.</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-334'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-334'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-335'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-335'>#</a>
+      </div>
+      <p>tisk matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-336'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-336'>#</a>
+      </div>
+      <p>provedení operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span> <span class="o">+=</span> <span class="mi">100</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-337'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-337'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-338'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-338'>#</a>
+      </div>
+      <h2>Násobení matic</h2>
+<ul>
+<li>Operátor @, nikoli *</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-339'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-339'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-340'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-340'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a2</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-341'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-341'>#</a>
+      </div>
+      <ul>
+<li>Násobení prvek po prvku</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-342'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-342'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-343'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-343'>#</a>
+      </div>
+      <h2>Násobení matic</h2>
+<ul>
+<li>Maticový součin</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-344'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-344'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-345'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-345'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a2</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-346'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-346'>#</a>
+      </div>
+      <p>maticový součin</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">a1</span> <span class="err">@</span> <span class="n">a2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-347'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-347'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-348'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-348'>#</a>
+      </div>
+      <h2>Násobení matic</h2>
+<ul>
+<li>Maticový součin</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-349'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-349'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-350'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-350'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a2</span> <span class="o">=</span> <span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-351'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-351'>#</a>
+      </div>
+      <ul>
+<li>Změna prvku původně jednotkové matice</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-352'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-352'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="nd">@a2</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-353'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-353'>#</a>
+      </div>
+      <p>maticový součin</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">a1</span> <span class="err">@</span> <span class="n">a2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-354'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-354'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-355'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-355'>#</a>
+      </div>
+      <h2>Další operace s maticemi</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-356'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-356'>#</a>
+      </div>
+      <h2>Výpočet determinantu</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy.linalg</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-357'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-357'>#</a>
+      </div>
+      <p>matice 3x3 prvky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">m</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-358'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-358'>#</a>
+      </div>
+      <p>výpočet determinantu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">det</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-359'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-359'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">det</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-360'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-360'>#</a>
+      </div>
+      <h2>Výpočet inverzní matice</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-361'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-361'>#</a>
+      </div>
+      <p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-362'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-362'>#</a>
+      </div>
+      <p>výpočet inverzní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">inv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">m</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-363'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-363'>#</a>
+      </div>
+      <p>tisk výsledku</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-364'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-364'>#</a>
+      </div>
+      <h2>Otestování - výsledkem musí být jednotková matice</h2>
+<p>původní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-365'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-365'>#</a>
+      </div>
+      <p>výpočet inverzní matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">inverse</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-366'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-366'>#</a>
+      </div>
+      <p>zpětný výpočet</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">inverse</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-367'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-367'>#</a>
+      </div>
+      <h2>Relační operátory: pole vs skalární hodnota</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-368'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-368'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-369'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-369'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-370'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-370'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-371'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-371'>#</a>
+      </div>
+      <h2>Relační operátory: pole vs pole</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-372'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-372'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-373'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-373'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span><span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-374'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-374'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-375'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-375'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-376'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-376'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-377'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-377'>#</a>
+      </div>
+      <h2>Dtto pro matice</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-378'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-378'>#</a>
+      </div>
+      <p>původní vektor</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-379'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-379'>#</a>
+      </div>
+      <p>konstrukce matice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-380'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-380'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-381'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-381'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-382'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-382'>#</a>
+      </div>
+      <h2>Výběr prvků na základě podmínky - filtrace</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-383'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-383'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-384'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-384'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-385'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-385'>#</a>
+      </div>
+      <p>filtrace (selekce)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-386'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-386'>#</a>
+      </div>
+      <p>filtrace (selekce)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-387'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-387'>#</a>
+      </div>
+      <h2>Ovšem pozor u vícerozměrných polí</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-388'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-388'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="n">reshape</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">125</span><span class="p">),(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-389'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-389'>#</a>
+      </div>
+      <p>filtrací zíkáme jednorozměrný vektor</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-390'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-390'>#</a>
+      </div>
+      <h2>Další užitečné funkce - min, max, sum</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-391'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-391'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-392'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-392'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-393'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-393'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">min</span><span class="p">())</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-394'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-394'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-395'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-395'>#</a>
+      </div>
+      <h2>Výběr osy ve funkcích min, max a sum</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-396'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-396'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-397'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-397'>#</a>
+      </div>
+      <p>sloupce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-398'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-398'>#</a>
+      </div>
+      <p>sloupce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-399'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-399'>#</a>
+      </div>
+      <p>řádky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-400'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-400'>#</a>
+      </div>
+      <p>řádky</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a1</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-401'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-401'>#</a>
+      </div>
+      <h2>Univerzální funkce a operátory</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-402'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-402'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-403'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-403'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-404'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-404'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-405'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-405'>#</a>
+      </div>
+      <h2>Univerzální funkce a operátory</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-406'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-406'>#</a>
+      </div>
+      <p>Padesát hodnot v zadaném intervalu</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-407'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-407'>#</a>
+      </div>
+      <h1>Výpočet sinů těchto hodnot</h1>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-408'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-408'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-409'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-409'>#</a>
+      </div>
+      <h2>Funkce vyššího řádu apply_along_axis</h2>
+<ul>
+<li>(Anonymní) funkce, které se předává řádek/sloupec/matice n-1 dimenze</li>
+<li>Opět se specifikuje osa</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-410'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-410'>#</a>
+      </div>
+      <p>původní pole</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a1</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-411'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-411'>#</a>
+      </div>
+      <p>aplikace anonymní funkce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-412'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-412'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-413'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-413'>#</a>
+      </div>
+      <p>aplikace anonymní funkce</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">apply_along_axis</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a1</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-414'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-414'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-415'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-415'>#</a>
+      </div>
+      <h2>Vyřešení systému lineárních rovnic</h2>
+<ul>
+<li>Triviální příklad - jedna rovnice o jedné neznámé</li>
+<li>Rovnice 2x = 10</li>
+<li>Maticově<ul>
+<li>levá strana rovnice</li>
+<li>pravá strana rovnice</li>
+</ul>
+</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-416'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-416'>#</a>
+      </div>
+      <ul>
+<li>Řešení lze získat následovně
+levá strana rovnice (koeficienty)</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-417'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-417'>#</a>
+      </div>
+      <p>pravá strana rovnice</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-418'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-418'>#</a>
+      </div>
+      <p>řešení</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-419'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-419'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-420'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-420'>#</a>
+      </div>
+      <h2>Vyřešení systému lineárních rovnic</h2>
+<ul>
+<li>Dvě rovnice o dvou neznámých
+      x + y = 2
+      x - y = 0</li>
+<li>Maticově<ul>
+<li>levé strany rovnic</li>
+<li>pravé strany rovnic</li>
+</ul>
+</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-421'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-421'>#</a>
+      </div>
+      <ul>
+<li>Řešení lze získat následovně
+matice koeficientů původních rovnic
+[1,1] znamená 1<em>x + 1</em>y</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-422'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-422'>#</a>
+      </div>
+      <p>matice pravých stran rovnic</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-423'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-423'>#</a>
+      </div>
+      <p>výpočet</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-424'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-424'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-425'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-425'>#</a>
+      </div>
+      <p>což znamená:
+x=1
+y=1</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-426'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-426'>#</a>
+      </div>
+      <h2>Poněkud složitější příklad</h2>
+<ul>
+<li>Zadání
+   2x₁ + 3x₂ + 7x₃ = 47
+   3x₁ + 8x₂ +  x₃ = 50
+         3x₂ + 3x₃ = 27</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-427'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-427'>#</a>
+      </div>
+      <ul>
+<li>Řešení</li>
+</ul>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-428'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-428'>#</a>
+      </div>
+      <p>matice koeficientů původních rovnic</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-429'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-429'>#</a>
+      </div>
+      <p>matice pravých stran rovnic</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">47</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">27</span><span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-430'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-430'>#</a>
+      </div>
+      <p>výpočet</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">c</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-431'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-431'>#</a>
+      </div>
+      <p>tisk výsledku operace</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-432'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-432'>#</a>
       </div>
       <h2>Další podbalíčky, které nalezneme v knihovně NumPy</h2>
 <pre><code>╔════════════╤═════════════════════════════════════╗
@@ -3222,10 +5811,10 @@ vektor má mít padesát prvků</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-223'>
+  <div class='section' id='section-433'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-223'>#</a>
+        <a class='octothorpe' href='#section-433'>#</a>
       </div>
       <h2>Odkazy na další informační zdroje</h2>
 <ol>
@@ -3254,10 +5843,10 @@ vektor má mít padesát prvků</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-224'>
+  <div class='section' id='section-434'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-224'>#</a>
+        <a class='octothorpe' href='#section-434'>#</a>
       </div>
       <h2>Seznam demonstračních příkladů</h2>
     </div>
