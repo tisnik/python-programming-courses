@@ -207,12 +207,14 @@
 #     - `numpy.array()`
 #     - `numpy.zeros()`
 #     - `numpy.ones()`
+#     - `numpy.full()`
 #     - `numpy.eye()`
 #     - `numpy.arange()`
 #     - `numpy.linspace()`
 #     - `numpy.geomspace()`
 #     - `numpy.logspace()`
 # - Konverzní funkce
+#     - `numpy.matrix()`
 
 # ## Konstruktor numpy.array
 # - parametry
@@ -220,13 +222,18 @@
 
 # ## Order
 # ```
-# ╔═════════╤═══════════════════════════════════════════════════════════╗
-# ║ Hodnota │ Význam                                                    ║
-# ╟─────────┼───────────────────────────────────────────────────────────╢
-# ║ 'C'     │ prvky jsou interně uspořádány jako v jazyku C             ║
-# ║ 'F'     │ prvky jsou interně uspořádány jako v jazyku Fortran       ║
-# ║ 'A'     │ ponecháme na implementaci, který způsob uspořádání zvolit ║
-# ╚═════════╧═══════════════════════════════════════════════════════════╝
+# ╔═════════╤════════════════════════════════════╗
+# ║ Hodnota │ Význam                             ║
+# ╟─────────┼────────────────────────────────────╢
+# ║ 'C'     │ prvky jsou interně uspořádány jako ║
+# ║         │ v programovacím jazyku C           ║
+# ║         │                                    ║
+# ║ 'F'     │ prvky jsou interně uspořádány jako ║
+# ║         │ v programovacím jazyku Fortran     ║
+# ║         │                                    ║
+# ║ 'A'     │ ponecháme na implementaci, který   ║
+# ║         │ způsob uspořádání interně zvolit   ║
+# ╚═════════╧════════════════════════════════════╝
 # ```
 
 # ## Order - rozdíl v uspořádání
@@ -300,6 +307,101 @@ print(a)
 
 # konstrukce pole
 a = array(range(10), order='C')
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní specifikace uspořádání prvků pole
+# (nemá velký význam pro 1D pole=vektory)
+
+# konstrukce pole
+a = array(range(10), order='F')
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Vytvoření dvourozměrné matice
+# konstrukce pole
+a = array([[1,2,3],[4,5,6]])
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Konstruktor numpy.zeros
+# - Vektor nebo matice s nulovými prvky
+# - Poměrně častý požadavek v praxi
+#     - opět lze zvolit interní uspořádání prvků
+# ### Volání konstruktoru numpy.zeros
+# `zeros(shape, dtype=float, order='C')`
+
+# ## Jednorozměrný vektor s jediným prvkem
+
+# konstrukce pole
+a = zeros(1)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Jednorozměrný vektor s deseti prvky
+
+# konstrukce pole
+a = zeros(10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Matice o velikosti 5x5 prvků, každý prvek je typu float
+
+# konstrukce pole
+a = zeros((5,5))
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Matice o velikosti 5x5 prvků, každý prvek je typu int
+
+# konstrukce pole
+a = zeros((5,5),dtype=int)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Použití komplexních čísel
+
+# konstrukce pole
+a = zeros((2,2),dtype=complex)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Konstruktor numpy.ones
+# - Vektor či matice s prvky nastavenými na jedničku
+# - (nejedná se o jednotkovou matici!)
+#     - viz konstruktor numpy.eye
+# ### Volání konstruktoru numpy.ones
+# `ones(shape, dtype=None, order='C')`
+
+# ### Jednorozměrný vektor s deseti prvky
+
+# konstrukce pole
+a = ones(10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Matice se třemi řádky a čtyřmi sloupci
+
+# konstrukce pole
+a = ones((3,4))
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
