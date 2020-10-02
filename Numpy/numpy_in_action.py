@@ -1,5 +1,7 @@
 # coding: utf-8
 
+"""Ukázky použití knihovny NumPy."""
+
 # # Knihovna NumPy
 # ![numpy_logo.png](numpy_logo.png)
 # ### Autor Pavel Tišnovský, Red Hat
@@ -276,8 +278,14 @@ if "numpy" not in sys.modules:
 
 # ## Příklady použití funkce `numpy.array()`
 
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `array` volatelná
+if "array" not in globals():
+    raise Exception("Symbol array neexistuje")
+if not callable(array):
+    raise Exception("Nelze volat funkci array")
+
 # ### Vytvoření pole ze seznamu
-a = array([1,2,3,4])
+a = array([1, 2, 3, 4])
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -324,20 +332,28 @@ print(a)
 
 # ### Vytvoření dvourozměrné matice
 # konstrukce pole
-a = array([[1,2,3],[4,5,6]])
+a = array([[1, 2, 3], [4, 5, 6]])
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
 
-# ## Konstruktor numpy.zeros
+# ## Konstruktor `numpy.zeros`
 # - Vektor nebo matice s nulovými prvky
 # - Poměrně častý požadavek v praxi
 #     - opět lze zvolit interní uspořádání prvků
 # ### Volání konstruktoru numpy.zeros
 # `zeros(shape, dtype=float, order='C')`
 
-# ## Jednorozměrný vektor s jediným prvkem
+# ## Příklady použití funkce `numpy.zeros()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `zeros` volatelná
+if "zeros" not in globals():
+    raise Exception("Symbol zeros neexistuje")
+if not callable(zeros):
+    raise Exception("Nelze volat funkci zeros")
+
+# ### Jednorozměrný vektor s jediným prvkem
 
 # konstrukce pole
 a = zeros(1)
@@ -346,7 +362,7 @@ a = zeros(1)
 print(type(a))
 print(a)
 
-# ## Jednorozměrný vektor s deseti prvky
+# ### Jednorozměrný vektor s deseti prvky
 
 # konstrukce pole
 a = zeros(10)
@@ -355,39 +371,47 @@ a = zeros(10)
 print(type(a))
 print(a)
 
-# ## Matice o velikosti 5x5 prvků, každý prvek je typu float
+# ### Matice o velikosti 5x5 prvků, každý prvek je typu float
 
 # konstrukce pole
-a = zeros((5,5))
+a = zeros((5, 5))
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
 
-# ## Matice o velikosti 5x5 prvků, každý prvek je typu int
+# ### Matice o velikosti 5x5 prvků, každý prvek je typu int
 
 # konstrukce pole
-a = zeros((5,5),dtype=int)
+a = zeros((5, 5), dtype=int)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
 
-# ## Použití komplexních čísel
+# ### Použití komplexních čísel
 
 # konstrukce pole
-a = zeros((2,2),dtype=complex)
+a = zeros((2, 2), dtype=complex)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
 
-# ## Konstruktor numpy.ones
+# ## Konstruktor `numpy.ones`
 # - Vektor či matice s prvky nastavenými na jedničku
 # - (nejedná se o jednotkovou matici!)
 #     - viz konstruktor numpy.eye
 # ### Volání konstruktoru numpy.ones
 # `ones(shape, dtype=None, order='C')`
+
+# ## Příklady použití funkce `numpy.ones()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `ones` volatelná
+if "ones" not in globals():
+    raise Exception("Symbol ones neexistuje")
+if not callable(zeros):
+    raise Exception("Nelze volat funkci ones")
 
 # ### Jednorozměrný vektor s deseti prvky
 
@@ -401,7 +425,75 @@ print(a)
 # ### Matice se třemi řádky a čtyřmi sloupci
 
 # konstrukce pole
-a = ones((3,4))
+a = ones((3, 4))
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Matice se třemi řádky a čtyřmi sloupci s explicitní specifikací typu prvků
+
+# konstrukce pole
+a = ones((3, 4), dtype=int)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Trojrozměrné pole s prvky typu `int`
+
+# konstrukce pole
+a = ones((3, 4, 5), dtype=int)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Trojrozměrné pole s prvky typu `int`
+
+# konstrukce pole
+a = ones((5, 4, 3), dtype=int)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Komplexní jednotka
+# zde může být použití typu komplexní číslo možná poněkud překvapující ovšem stále platí, že 1=1+0j
+
+# konstrukce pole
+a = ones((3, 2), dtype=complex)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Konstruktor numpy.eye
+# - Vytvoří se jednotková matice
+# - Uvádí se její velikost
+# - Lze ovšem vytvořit i nečtvercovou matici
+
+# ## Příklady použití funkce `numpy.eye()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `eye` volatelná
+if "eye" not in globals():
+    raise Exception("Symbol eye neexistuje")
+if not callable(eye):
+    raise Exception("Nelze volat funkci eye")
+
+# ### Matice 1x1 prvek
+
+# konstrukce pole
+a = eye(1)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Matice 5x5 prvků
+
+# konstrukce pole
+a = eye(5)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
