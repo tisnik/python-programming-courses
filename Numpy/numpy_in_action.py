@@ -498,3 +498,108 @@ a = eye(5)
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
+
+# ### Matice 2x10 prvků
+
+# konstrukce pole
+a = eye(2, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Funkce numpy.arange
+# - Array+range
+# - Podobné jako xrange/range
+#     - ovšem návratovou hodnotou je ndarray
+
+# ## Příklady použití funkce `numpy.arange()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `arange` volatelná
+if "arange" not in globals():
+    raise Exception("Symbol arange neexistuje")
+if not callable(arange):
+    raise Exception("Nelze volat funkci arange")
+
+# ### Zavolání s jediným parametrem
+# při použití jednoho parametru má tento parametr význam hodnoty „stop“
+# vytvoří se vektor s prvky od 0 do „stop“ (kromě)
+
+# konstrukce pole
+a = arange(10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Specifikace hodnot „start“ (včetně) a „stop“ (kromě)
+
+# konstrukce pole
+a = arange(10, 20)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Třetí nepovinný parametr určuje krok použitý při generování prvků vektoru
+
+# konstrukce pole
+a = arange(10, 20, 2)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+   
+# ### Krok může být samozřejmě záporný
+
+# konstrukce pole
+a = arange(20, 10, -2)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Použití komplexních čísel
+# Nemusíme zůstat pouze u celých čísel, protože pracovat je možné i s hodnotami typu `float` a `complex`
+
+# konstrukce pole
+a = arange(0,5, 0.1)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Použití komplexních čísel
+
+# konstrukce pole
+a = arange(0+0j, 10+10j, 2+0j)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Funkce numpy.linspace()
+# - Při znalosti první a poslední hodnoty ve vektoru
+# - Zadává se
+#     - počáteční hodnota
+#     - koncová hodnota
+#     - počet prvků vektoru (implicitně 50 prvků)
+
+# ## Příklady použití funkce `numpy.linspace()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `linspace` volatelná
+if "linspace" not in globals():
+    raise Exception("Symbol linspace neexistuje")
+if not callable(linspace):
+    raise Exception("Nelze volat funkci linspace")
+
+# ### Implicitní počet prvků
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný
+# vektor má mít padesát prvků
+
+# konstrukce pole
+a = linspace(0, 1)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
