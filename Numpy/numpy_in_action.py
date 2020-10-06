@@ -603,3 +603,98 @@ a = linspace(0, 1)
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
+
+# ### Explicitní určení počtu prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+# (tím, že se začíná od nuly, získáme krok 0.11111111...)
+
+# konstrukce pole
+a = linspace(0, 1, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní určení počtu prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít jedenáct prvků
+
+# konstrukce pole
+a = linspace(0, 1, 11)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Sekvence hodnot samozřejmě může i klesat
+
+# konstrukce pole
+a = linspace(1, 0, 11)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Použít je možné i komplexní čísla
+
+# konstrukce pole
+a = linspace(0+0j, 1+0j, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Použít je možné i komplexní čísla
+
+# konstrukce pole
+a = linspace(0+0j, 0+1j, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Další možnost použití komplexních čísel
+
+# konstrukce pole
+a = linspace(0+0j, 1+1j, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Funkce numpy.geomspace()
+# - Krok mezi prvky není lineární ale tvoří geometrickou posloupnost
+# - Při znalosti první a poslední hodnoty ve vektoru
+# - Zadává se
+#     - počáteční hodnota
+#     - koncová hodnota
+#     - počet prvků vektoru (implicitně 50 prvků)
+
+# ## Příklady použití funkce `numpy.geomspace()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `geomspace` volatelná
+if "geomspace" not in globals():
+    raise Exception("Symbol geomspace neexistuje")
+if not callable(geomspace):
+    raise Exception("Nelze volat funkci geomspace")
+
+# ### Implicitní počet prvků
+
+# ## Funkce numpy.logspace()
+# - Krok mezi prvky není lineární ale tvoří logaritmickou posloupnost
+# - Při znalosti první hodnoty, poslední hodnoty a báze
+# - Nepatrně odlišné od funkce `linspace` a `geomspace`
+# - Zadává se
+#     - počáteční hodnota
+#     - koncová hodnota
+#     - báze (implicitně 10)
+#     - krok je vypočten na základě ln(samples) / ln(base)
+
+# ## Příklady použití funkce `numpy.logspace()`
+
+# ### Nejprve pro jistotu zjistíme, jestli je funkce `logspace` volatelná
+if "logspace" not in globals():
+    raise Exception("Symbol logspace neexistuje")
+if not callable(geomspace):
+    raise Exception("Nelze volat funkci logspace")
+
+# ### Implicitní počet prvků
