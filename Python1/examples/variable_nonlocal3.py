@@ -3,6 +3,7 @@ x = 0
 
 def fn1():
     x = 1
+
     def fn2():
         global x
         x = 2
