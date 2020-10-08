@@ -17,4 +17,3 @@ del seznam[0]
 print(seznam)
 del seznam[-1]
 print(seznam)
-
