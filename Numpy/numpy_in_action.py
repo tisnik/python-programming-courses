@@ -549,7 +549,7 @@ a = arange(10, 20, 2)
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
 print(a)
-   
+
 # ### Krok může být samozřejmě záporný
 
 # konstrukce pole
@@ -560,10 +560,11 @@ print(type(a))
 print(a)
 
 # ### Použití komplexních čísel
-# Nemusíme zůstat pouze u celých čísel, protože pracovat je možné i s hodnotami typu `float` a `complex`
+# Nemusíme zůstat pouze u celých čísel, protože pracovat je možné i s hodnotami
+# typu `float` a `complex`
 
 # konstrukce pole
-a = arange(0,5, 0.1)
+a = arange(0, 5, 0.1)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -678,6 +679,34 @@ if not callable(geomspace):
     raise Exception("Nelze volat funkci geomspace")
 
 # ### Implicitní počet prvků
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný vektor má mít padesát prvků
+
+# konstrukce pole
+a = geomspace(1, 100)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní počet prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+
+# konstrukce pole
+a = geomspace(1, 1000, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní počet prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít šest prvků
+
+# konstrukce pole
+a = geomspace(1, 100000, 6)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
 
 # ## Funkce numpy.logspace()
 # - Krok mezi prvky není lineární ale tvoří logaritmickou posloupnost
@@ -698,3 +727,76 @@ if not callable(geomspace):
     raise Exception("Nelze volat funkci logspace")
 
 # ### Implicitní počet prvků
+# pokud se nespecifikuje počet prvků, bude se předpokládat, že výsledný vektor má mít padesát prvků
+
+# konstrukce pole
+a = logspace(1, 100)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Explicitní počet prvků
+# zde explicitně specifikujeme, že výsledný vektor má mít deset prvků
+
+# konstrukce pole
+a = logspace(1, 10, 10)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ## Přetypování prvků v poli
+# - Dva způsoby
+#     - konverzní funkce
+#         - `numpy.float32()`
+#         - `numpy.int32()`
+#         - `numpy.complex128()`
+#         - ...
+#     - použití metody `astype`
+
+# ## Zjištění počtu dimenzí a tvaru pole
+# - Atribut `ndim`
+# - Atribut `shape`
+# - Funkce `numpy.shape()`
+
+# ## Tisk velkých polí
+
+# ## Změna tvaru pole
+# - Funkce `numpy.reshape()`
+#     - nevytváří nové pole s jiným tvarem
+#     - „pouze“ změna pohledu na pole
+#     - ⇒ nelze měnit počet prvků
+
+# ## Vliv parametru order na (zdánlivou) změnu tvaru pole
+# - Parametr „order“ použit u konstruktoru `numpy.array()`
+# - Lze použít i u `numpy.reshape()`
+#     - opět změna pohledu
+#     - nikoli reorganizace prvků v paměti
+
+# ## Výběr prvků v poli
+
+# ## Slicing - vynechání indexu/indexů
+
+# ## Operátory
+# - Základní operátory jsou přetížené
+# - Prvky matice + skalár
+
+
+
+
+# ## Další podbalíčky, které nalezneme v knihovně ndarray
+╔════════════╤═══════════════════════════════════════════════════════════════════════╗
+║ Podbalíček │ Stručný popis podbalíčku                                              ║
+╟────────────┼───────────────────────────────────────────────────────────────────────╢
+║ doc        │ obsahuje dokumentaci ke knihovně i k základním konstrukcím a operacím ║
+║ lib        │ základní funkce používané i některými dalšími podbalíčky              ║
+║ random     │ funkce pro využití generátorů pseudonáhodných číselných hodnot        ║
+║ linalg     │ funkce z oblasti lineární algebry                                     ║
+║ fft        │ rychlá Fourierova transformace a pomocné funkce                       ║
+║ polynomial │ funkce pro práci s polynomy                                           ║
+║ testing    │ nástroje pro psaní testů                                              ║
+║ f2py       │ (jednosměrné) rozhraní mezi Fortranem a Pythonem                      ║
+║ distutils  │ další pomocné nástroje, které přímo nesouvisí s výpočty               ║
+║            │ nad vektory a maticemi, ale se způsobem balíčkování                   ║
+╚════════════╧═══════════════════════════════════════════════════════════════════════╝
