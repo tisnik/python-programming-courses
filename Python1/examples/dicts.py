@@ -13,4 +13,3 @@ print(d)
 del d["id"]
 
 print(d)
-
