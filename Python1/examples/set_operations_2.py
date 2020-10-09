@@ -12,4 +12,3 @@ print(managers)
 print(employees)
 print(engineering_management)
 print(fulltime_management)
-
