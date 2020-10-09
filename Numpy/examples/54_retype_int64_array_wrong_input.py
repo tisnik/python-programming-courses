@@ -8,10 +8,10 @@
 import numpy
 
 # vytvoření běžného seznamu
-l = [1, "foo", 3, False, None]
+lst = [1, "foo", 3, False, None]
 
 # přetypování (konstrukce pole daného typu)
-a = numpy.int64(l)
+a = numpy.int64(lst)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
