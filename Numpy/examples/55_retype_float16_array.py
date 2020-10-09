@@ -8,10 +8,10 @@
 import numpy
 
 # vytvoření běžného seznamu
-l = [1, 2, 3, 4]
+lst = [1, 2, 3, 4]
 
 # přetypování (konstrukce pole daného typu)
-a = numpy.float16(l)
+a = numpy.float16(lst)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
