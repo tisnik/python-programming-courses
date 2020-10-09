@@ -276,6 +276,19 @@ import sys
 if "numpy" not in sys.modules:
     raise Exception("Modul numpy nebyl naimportován")
 
+# ## Konstruktory polí
+# Postupně si popíšeme následující typy konstruktorů polí typu `ndarray`
+#
+# 1. `numpy.array()`
+# 1. `numpy.zeros()`
+# 1. `numpy.ones()`
+# 1. `numpy.full()`
+# 1. `numpy.eye()`
+# 1. `numpy.arange()`
+# 1. `numpy.linspace()`
+# 1. `numpy.geomspace()`
+# 1. `numpy.logspace()`
+
 # ## Příklady použití funkce `numpy.array()`
 
 # ### Nejprve pro jistotu zjistíme, jestli je funkce `array` volatelná
@@ -755,6 +768,60 @@ print(a)
 #         - ...
 #     - použití metody `astype`
 
+# ### Přetypování na typ `int64`
+
+# konstrukce běžného seznamu
+l = [1, 2, 3, 4]
+
+# přetypování (konstrukce pole daného typu)
+a = int64(l)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Přetypování na typ `float16`
+
+# konstrukce běžného seznamu
+l = [1, 2, 3, 4]
+
+# přetypování (konstrukce pole daného typu)
+a = float16(l)
+
+# tisk typu a obsahu vytvořeného pole
+print(type(a))
+print(a)
+
+# ### Přetypování na vektor celých čísel
+
+# konstrukce pole
+a = linspace(0, 1, 10)
+
+# přetypování na vektor celých čísel (povšimněte si výsledků)
+b = int32(linspace(0, 1, 10))
+
+# tisk typu a obsahu vytvořeného pole
+print(type(b))
+print(b)
+
+# ### Použití metody astype
+
+# konstrukce pole
+a = arange(0, 10)
+
+# konverze
+b = a.astype(complex64)
+
+# tisk typu a obsahu původního pole
+print(type(a))
+print(a.dtype)
+print(a)
+
+# tisk typu a obsahu zkonvertovaného pole
+print(type(b))
+print(b.dtype)
+print(b)
+
 # ## Zjištění počtu dimenzí a tvaru pole
 # - Atribut `ndim`
 # - Atribut `shape`
@@ -785,18 +852,49 @@ print(a)
 
 
 
-# ## Další podbalíčky, které nalezneme v knihovně ndarray
-╔════════════╤═══════════════════════════════════════════════════════════════════════╗
-║ Podbalíček │ Stručný popis podbalíčku                                              ║
-╟────────────┼───────────────────────────────────────────────────────────────────────╢
-║ doc        │ obsahuje dokumentaci ke knihovně i k základním konstrukcím a operacím ║
-║ lib        │ základní funkce používané i některými dalšími podbalíčky              ║
-║ random     │ funkce pro využití generátorů pseudonáhodných číselných hodnot        ║
-║ linalg     │ funkce z oblasti lineární algebry                                     ║
-║ fft        │ rychlá Fourierova transformace a pomocné funkce                       ║
-║ polynomial │ funkce pro práci s polynomy                                           ║
-║ testing    │ nástroje pro psaní testů                                              ║
-║ f2py       │ (jednosměrné) rozhraní mezi Fortranem a Pythonem                      ║
-║ distutils  │ další pomocné nástroje, které přímo nesouvisí s výpočty               ║
-║            │ nad vektory a maticemi, ale se způsobem balíčkování                   ║
-╚════════════╧═══════════════════════════════════════════════════════════════════════╝
+# ## Další podbalíčky, které nalezneme v knihovně NumPy
+# ```
+# ╔════════════╤═════════════════════════════════════╗
+# ║ Podbalíček │ Stručný popis podbalíčku            ║
+# ╟────────────┼─────────────────────────────────────╢
+# ║ doc        │ obsahuje dokumentaci ke knihovně i  ║
+# ║            │ k základním konstrukcím a operacím  ║
+# ║            │                                     ║
+# ║ lib        │ základní knihovní funkce používané  ║
+# ║            │ i některými dalšími podbalíčky      ║
+# ║            │                                     ║
+# ║ random     │ funkce pro využití generátorů       ║
+# ║            │ pseudonáhodných číselných hodnot    ║
+# ║            │                                     ║
+# ║ linalg     │ funkce z oblasti lineární algebry   ║
+# ║            │                                     ║
+# ║ fft        │ rychlá Fourierova transformace a    ║
+# ║            │ pomocné funkce související s FFT    ║
+# ║            │                                     ║
+# ║ polynomial │ funkce pro práci s polynomy         ║
+# ║            │                                     ║
+# ║ testing    │ nástroje pro psaní testů            ║
+# ║            │                                     ║
+# ║ f2py       │ (jednosměrné) rozhraní mezi jazyky  ║
+# ║            │ Fortran a Python                    ║
+# ║            │                                     ║
+# ║ distutils  │ další pomocné nástroje, které přímo ║
+# ║            │ nesouvisí s výpočty nad vektory a   ║
+# ║            │ maticemi, ale se způsobem           ║
+# ║            │ balíčkování modulů                  ║
+# ╚════════════╧═════════════════════════════════════╝
+# ```
+
+# ## Odkazy na další informační zdroje
+# 1. NumPy Home Page
+#     - <http://www.numpy.org/>
+# 1. NumPy na Wikipedii
+#     - <https://en.wikipedia.org/wiki/NumPy>
+# 1. Manuál ke knihovně NumPy
+#     - nyní pro verzi 1.19
+#     - <http://docs.scipy.org/doc/numpy/index.html>
+# 1. Release notes
+#     - nyní pro verzi 1.19
+#     - <https://numpy.org/doc/stable/release.html>
+
+# ## Seznam demonstračních příkladů
