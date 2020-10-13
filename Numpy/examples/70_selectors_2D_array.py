@@ -1,6 +1,6 @@
 # Knihovna Numpy
 #
-# ## Výběr prvků v poli
+# Výběr prvků v poli
 
 # import hlavního balíčku knihovny Numpy
 import numpy
