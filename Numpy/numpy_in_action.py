@@ -827,13 +827,119 @@ print(b)
 # - Atribut `shape`
 # - Funkce `numpy.shape()`
 
+# ### Zjištění počtu dimenzí tvaru 1D pole
+
+# jednorozměrný vektor
+a = array([1,2,3])
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
+
+# ### Zjištění počtu dimenzí tvaru 2D pole
+
+# dvourozměrné pole
+a = eye(5)
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
+
+# ### Zjištění počtu dimenzí tvaru 3D pole
+
+# trojrozměrné pole
+a = ones((3, 4, 5), dtype=int)
+
+# počet dimenzí vektoru
+print(a.ndim)
+
+# tvar vektoru
+print(a.shape)
+
+# typ prvků
+print(a.dtype.name)
+
+# velikost prvků v bajtech
+print(a.itemsize)
+
+# velikost pole (počet prvků)
+print(a.size)
+
 # ## Tisk velkých polí
+
+# konstrukce velkého pole
+a = arange(10000).reshape(100, 100)
+
+# tisk velkého pole
+print(a)
+
+# výsledek by měl vypadat následovně:
+# ```
+# [[   0    1    2 ...   97   98   99]
+#  [ 100  101  102 ...  197  198  199]
+#  [ 200  201  202 ...  297  298  299]
+#  ...
+#  [9700 9701 9702 ... 9797 9798 9799]
+#  [9800 9801 9802 ... 9897 9898 9899]
+#  [9900 9901 9902 ... 9997 9998 9999]]
+# ```
 
 # ## Změna tvaru pole
 # - Funkce `numpy.reshape()`
 #     - nevytváří nové pole s jiným tvarem
 #     - „pouze“ změna pohledu na pole
 #     - ⇒ nelze měnit počet prvků
+
+# ### Změna tvaru pole
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = array([[1, 2, 3], [4, 5, 6]])
+    
+# změna tvaru matice na 3x2 prvky
+b = reshape(b, (3, 2))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+
+# ### Změna tvaru pole
+# zde vlastně dostaneme původní matici
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = array([[1, 2, 3], [4, 5, 6]])
+    
+# změna tvaru matice na 3x2 prvky
+b = reshape(b, (2, 3))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
 
 # ## Vliv parametru order na (zdánlivou) změnu tvaru pole
 # - Parametr „order“ použit u konstruktoru `numpy.array()`
