@@ -63,6 +63,8 @@ if "numpy" not in sys.modules:
 
 # ## Ukázky základních typů grafů
 
+# --------------------------------------------
+
 # ### První demonstrační příklad:
 # - vykreslení průběhu funkce sin
 
@@ -82,6 +84,8 @@ plt.ylabel("sin(x)")
 # zobrazení grafu
 plt.show()
 
+# --------------------------------------------
+
 # ### Druhý demonstrační příklad:
 # - vykreslení a uložení grafu do různých typů souborů
 
@@ -90,6 +94,8 @@ plt.savefig("sinus.pdf")
 plt.savefig("sinus.eps")
 plt.savefig("sinus.ps")
 plt.savefig("sinus.svg")
+
+# --------------------------------------------
 
 # ### Třetí demonstrační příklad:
 # - vykreslení průběhů funkcí sin a cos do jediného grafu
@@ -112,6 +118,8 @@ plt.ylabel("sin(x) a cos(x)")
 
 # zobrazení grafu
 plt.show()
+
+# --------------------------------------------
 
 # ### Čtvrtý demonstrační příklad:
 # - vykreslení průběhů funkcí sin a cos a sinc do jediného grafu
@@ -145,6 +153,8 @@ plt.ylabel("sin(x), cos(x) a sinc(x)")
 # zobrazení grafu
 plt.show()
 
+# --------------------------------------------
+
 # ### Pátý demonstrační příklad:
 # - vykreslení průběhů funkcí sin a sinc do jediného grafu s vyplněním plochy pod průběhu
 
@@ -167,6 +177,8 @@ plt.ylabel("sin(x) a sinc(3x)")
 
 # zobrazení grafu
 plt.show()
+
+# --------------------------------------------
 
 # ### Šestý demonstrační příklad:
 # - vykreslení průběhů čtyř různých funkcí do jediného grafu s vyplněním plochy pod průběhu
@@ -202,6 +214,8 @@ plt.ylabel("sin(x) a sinc(3x)")
 # zobrazení grafu
 plt.show()
 
+# --------------------------------------------
+
 # ### Sedmý demonstrační příklad:
 # - vykreslení průběhů funkcí sin a cos
 # - nastavení mřížky
@@ -236,6 +250,8 @@ plt.ylabel("sin(x) a cos(x)")
 
 # zobrazení grafu
 plt.show()
+
+# --------------------------------------------
 
 # ### Osmý demonstrační příklad:
 # - vykreslení průběhů funkcí sin a cos
@@ -285,11 +301,10 @@ plt.annotate("minimální hodnota cos(x)",
 # zobrazení grafu
 plt.show()
 
+# --------------------------------------------
+
 # ### Devátý demonstrační příklad:
 # - základní polární graf
-
-import numpy as np
-import matplotlib.pyplot as plt
 
 # úhel v polárním grafu
 theta = np.linspace(0.01, 2*np.pi, 150)
@@ -302,6 +317,107 @@ ax = plt.subplot(111, projection="polar")
 # vykreslit průběh funkce
 # v polárním grafu
 ax.plot(theta, radius)
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Desátý demonstrační příklad:
+# - vykreslení průběhů několika funkcí
+# - do polárního grafu
+
+# úhel v polárním grafu
+theta = np.linspace(0.01, 2*np.pi, 150)
+
+# první funkce: vzdálenost od středu
+radius1 = theta
+
+# druhá funkce: vzdálenost od středu
+radius2 = 2*np.abs(theta-np.pi)
+
+# třetí funkce: vzdálenost od středu
+radius3 = 2*np.log(theta)
+
+ax = plt.subplot(111, projection="polar")
+
+# vykreslit průběh první funkce
+# v polárním grafu
+ax.plot(theta, radius1, "r.", label="f1")
+
+# vykreslit průběh druhé funkce
+# v polárním grafu
+ax.plot(theta, radius2, "g", label="f2")
+
+# vykreslit průběh třetí funkce
+# v polárním grafu
+ax.plot(theta, radius3, "b--", label="f3")
+
+# přidání legendy
+plt.legend(loc="lower left")
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Jedenáctý demonstrační příklad:
+# - vykreslení průběhů několika funkcí
+# - do polárního grafu
+
+# úhel v polárním grafu
+theta = np.linspace(0.01, 4*np.pi, 150)
+
+# první funkce: vzdálenost od středu
+radius1 = theta
+
+# druhá funkce: vzdálenost od středu
+radius2 = 3*np.abs(theta-2*np.pi)
+
+ax = plt.subplot(111, projection="polar")
+
+# vykreslit průběh první funkce
+# v polárním grafu
+ax.plot(theta, radius2, "b", label="f1")
+
+# vykreslit průběh druhé funkce
+# v polárním grafu
+ax.fill(theta, radius1, "yellow", alpha=0.3, label="f1")
+
+# přidání legendy
+plt.legend(loc="lower left")
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Dvanáctý demonstrační příklad:
+# - vykreslení průběhu funkce sinc
+# - při vykreslování se jednotlivé body spojí úsečkami
+
+# hodnoty na x-ové ose
+x = np.linspace(0.2, 2*np.pi, 100)
+
+# hodnoty na y-ové ose
+y = np.sin(5*x)/x
+y2 = 1/x
+y3 = -y2
+
+# vykreslit průběh funkce
+plt.plot(x, y2, color='red',  label='obalka sinc')
+plt.plot(x, y3, color='red',  label='obalka sinc')
+plt.plot(x, y,  color='blue', label='sinc(x)')
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# popis os
+plt.xlabel("x")
+plt.ylabel("sinc(x)")
+
+# přidání legendy
+plt.legend(loc="lower right")
 
 # zobrazení grafu
 plt.show()
