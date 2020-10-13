@@ -1,6 +1,6 @@
 # Knihovna Numpy
 #
-# ## Výběr řádku pole
+# Výběr řádku pole
 
 # import hlavního balíčku knihovny Numpy
 import numpy
