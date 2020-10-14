@@ -771,10 +771,10 @@ print(a)
 # ### Přetypování na typ `int64`
 
 # konstrukce běžného seznamu
-l = [1, 2, 3, 4]
+lst = [1, 2, 3, 4]
 
 # přetypování (konstrukce pole daného typu)
-a = int64(l)
+a = int64(lst)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -783,10 +783,10 @@ print(a)
 # ### Přetypování na typ `float16`
 
 # konstrukce běžného seznamu
-l = [1, 2, 3, 4]
+lst = [1, 2, 3, 4]
 
 # přetypování (konstrukce pole daného typu)
-a = float16(l)
+a = float16(lst)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -830,7 +830,7 @@ print(b)
 # ### Zjištění počtu dimenzí tvaru 1D pole
 
 # jednorozměrný vektor
-a = array([1,2,3])
+a = array([1, 2, 3])
 
 # počet dimenzí vektoru
 print(a.ndim)
@@ -916,9 +916,9 @@ print(a)
 
 # běžná matice se dvěma řádky a třemi sloupci
 a = array([[1, 2, 3], [4, 5, 6]])
-    
+
 # změna tvaru matice na 3x2 prvky
-b = reshape(b, (3, 2))
+b = reshape(a, (3, 2))
 
 # tisk původní matice
 print(a)
@@ -931,9 +931,37 @@ print(b)
 
 # běžná matice se dvěma řádky a třemi sloupci
 a = array([[1, 2, 3], [4, 5, 6]])
-    
+
 # změna tvaru matice na 3x2 prvky
-b = reshape(b, (2, 3))
+b = reshape(a, (2, 3))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+
+# ### Změna tvaru pole - vytvoření matice s jediným řádkem
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na jediný řádek
+b = reshape(a, (1, 6))
+
+# tisk původní matice
+print(a)
+
+# tisk nové matice
+print(b)
+
+# ### Změna tvaru pole - vytvoření matice s jediným sloupcem
+
+# běžná matice se dvěma řádky a třemi sloupci
+a = array([[1, 2, 3], [4, 5, 6]])
+
+# změna tvaru matice na jediný sloupec
+b = reshape(a, (6, 1))
 
 # tisk původní matice
 print(a)
@@ -947,16 +975,92 @@ print(b)
 #     - opět změna pohledu
 #     - nikoli reorganizace prvků v paměti
 
+# ### Vliv parametru order na (zdánlivou) změnu tvaru pole
+# vyzkoušíme význam nepovinného parametru order
+
+# původní matice
+a = reshape(arange(0, 24), (6, 4))
+
+# tisk původní matice
+print(a)
+
+# původní matice s uspořádáním dle jazyka C
+c = reshape(arange(0, 24), (6, 4), order="C")
+
+# tisk původní matice
+print(c)
+
+# původní matice s uspořádáním dle Fortranu
+f = reshape(arange(0, 24), (6, 4), order="F")
+
+# tisk původní matice
+print(f)
+
 # ## Výběr prvků v poli
+
+# jednorozměrná pole - vektory
+a = arange(12)
+
+# tisk původního pole
+print(a)
+
+# indexování prvků od nuly
+print(a[0])
+
+# indexování prvků od nuly
+print(a[5])
+
+# indexovat lze i od konce pole
+print(a[-1])
+
+# indexovat lze i od konce pole
+print(a[-5])
+
+# ## Výběr prvků v poli
+
+# dvourozměrná pole - matice
+a = reshape(arange(12), (3, 4))
+
+# tisk původního pole
+print(a)
+
+# přístup k prvkům: řádek/sloupec
+print(a[0][2])
+
+# přístup k prvkům: řádek/sloupec
+print(a[2][0])
+
+# ## Výběr prvků pomocí indexů uložených v jiném poli
+# (kladné indexy)
+a = arange(12)
+
+# tisk původního pole
+print(a)
+
+# pole indexů
+b = array([1, 2, 9, 8, 5])
+
+# výběr celým polem
+print(a[b])
+
+# ## Výběr prvků pomocí indexů uložených v jiném poli
+# (záporné indexy)
+a = arange(12)
+
+# tisk původního pole
+print(a)
+
+# pole indexů
+b = array([-1, -2, -9, -8, -5])
+
+# výběr celým polem
+print(a[b])
 
 # ## Slicing - vynechání indexu/indexů
 
 # ## Operátory
 # - Základní operátory jsou přetížené
 # - Prvky matice + skalár
-
-
-
 
 # ## Další podbalíčky, které nalezneme v knihovně NumPy
 # ```
