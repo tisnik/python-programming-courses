@@ -421,3 +421,104 @@ plt.legend(loc="lower right")
 
 # zobrazení grafu
 plt.show()
+
+# --------------------------------------------
+
+# ### Třináctý demonstrační příklad:
+# - vykreslení průběhu funkce sinc
+# - při vykreslování se použijí "schodky"
+
+# hodnoty na x-ové ose
+x = np.linspace(0.2, 2*np.pi, 100)
+
+# hodnoty na y-ové ose
+y = np.sin(5*x)/x
+y2 = 1/x
+y3 = -y2
+
+# vykreslit průběh funkce
+plt.plot(x, y2, color='red',  label='obalka sinc', drawstyle='default')
+plt.plot(x, y3, color='red',  label='obalka sinc', drawstyle='default')
+plt.plot(x, y,  color='blue', label='sinc(x)',     drawstyle='steps')
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# popis os
+plt.xlabel("x")
+plt.ylabel("sinc(x)")
+
+# přidání legendy
+plt.legend(loc="lower right")
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Čtrnáctý demonstrační příklad:
+# - jednoduchý sloupcový graf
+
+# historické ceny ropy
+cena_ropy = [
+    46.68, 44.68, 46.90, 47.15, 44.59, 44.00, 44.63, 45.92, 44.15, 45.94,
+    46.05, 46.75, 46.25, 45.41, 49.20, 45.22, 42.56, 38.60, 39.31, 38.24,
+    40.45, 41.32, 40.80, 42.62, 41.87, 42.50, 42.23, 43.30, 43.08, 44.96,
+    43.87, 44.66, 45.15, 47.12, 48.52, 48.79, 47.98, 47.39, 48.14, 48.45]
+
+# počet prvků
+N = len(cena_ropy)
+
+# indexy prvků
+indexes = np.arange(N)
+
+# šířka sloupců
+width = 1.00
+
+# sloupcový graf
+plt.bar(indexes, cena_ropy, width, color='yellow', edgecolor='black',
+        label='Cena ropy')
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# přidání legendy
+plt.legend(loc="lower right")
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Patnáctý demonstrační příklad:
+# - sloupcový graf se dvěma skupinami sloupců
+
+# první pole hodnot
+vals1 = [10, 15, 20, 12, 14, 8]
+
+# druhé pole hodnot
+vals2 = [19, 18,  6, 11,  6, 14]
+
+# počet prvků
+N = len(vals1)
+
+# indexy prvků
+indexes = np.arange(N)
+
+# šířka sloupců
+width = 0.30
+
+# sloupcový graf se dvěma skupinami sloupců
+plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1')
+# posunuté sloupce
+plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
+        label='CPU#2')
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# přidání legendy
+plt.legend(loc="lower right")
+
+# zobrazení grafu
+plt.show()
