@@ -1056,7 +1056,97 @@ b = array([-1, -2, -9, -8, -5])
 # výběr celým polem
 print(a[b])
 
+# ## Výběr řádku pole
+
+# dvourozměrné pole - matice
+a = reshape(arange(12), (3, 4))
+
+# tisk původního pole
+print(a)
+
+# první řádek pole
+b = a[0]
+print(b)
+
+# druhý řádek pole
+b = a[1]
+print(b)
+
+# poslední řádek pole
+b = a[-1]
+print(b)
+
+# ## Výběr prvků pomocí indexů uložených v jiném poli
+# dtto ale s dvourozměrným polem
+a = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# pro nové pole s prohozenými řádky
+b = array([0, 2, 1])
+
+# tisk pole
+print(a[b])
+
 # ## Slicing - vynechání indexu/indexů
+
+# původní pole
+a = arange(12)
+
+# tisk původního pole
+print(a)
+
+# slicing
+b = a[3:7]
+
+# tisk nového pole
+print(b)
+
+# ## Slicing - vynechání indexu/indexů
+
+# původní pole
+a = arange(12)
+
+# tisk původního pole
+print(a)
+
+# slicing
+b = a[:7]
+
+# tisk nového pole
+print(b)
+
+# slicing
+c = a[5:]
+
+# tisk nového pole
+print(c)
+
+# slicing
+d = a[:]
+
+# tisk nového pole
+print(d)
+
+# ## Prázdný řez polem
+
+# konstrukce pole
+a = arange(12)
+
+# provedení řezu polem
+print(a[-4:-6])
+
+# ## Řezy a záporné indexy
+
+# konstrukce pole
+a = arange(12)
+
+# provedení prvního řezu polem
+print(a[-6:-4])
+
+# provedení druhého řezu polem
+print(a[-6:])
+
+# provedení třetího řezu polem
+print(a[:-4])
 
 # ## Operátory
 # - Základní operátory jsou přetížené
