@@ -7,7 +7,7 @@ connection.listen(10)
 
 current_connection, address = connection.accept()
 
-data=current_connection.recvfrom(1000)
+data = current_connection.recvfrom(1000)
 print("Received")
 print(data)
 print("Done")
