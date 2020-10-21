@@ -1148,9 +1148,109 @@ print(a[-6:])
 # provedení třetího řezu polem
 print(a[:-4])
 
+# ## Řezy vícerozměrných polí
+
+# konstrukce pole
+a = reshape(arange(25), (5, 5))
+
+# řez dvojrozměrným polem
+print(a[2:4, 3])
+
+# další řez dvojrozměrným polem
+print(a[2:4, 3:5])
+
+# třetí řez dvojrozměrným polem
+print(a[1:4, 1:4])
+
+# čtvrtý řez dvojrozměrným polem
+print(a[-4:-2, -4:-2])
+
+# ## Specifikace kroku při provádění řezů - vektory
+
+# konstrukce pole
+a = arange(1, 11)
+
+# první řez polem: krok=1
+print(a[1:10:1])
+
+# druhý řez polem: krok=2
+print(a[1:10:2])
+
+# třetí řez polem: krok=3
+print(a[1:10:3])
+
+# čtvrtý řez polem - pouze uvedení kroku
+a[::3]
+
+# ## Specifikace kroku při provádění řezů - matice
+
+# konstrukce pole
+a = reshape(arange(0,25), (5,5))
+
+# tisk původního pole
+print(a)
+
+# řez s uvedením kroku
+print(a[0:5:2])
+print(a[1::2])
+
+# ## Sudé sloupce, sudé řádky
+
+# konstrukce pole
+a = reshape(arange(0,25), (5,5))
+
+# tisk původního pole
+print(a)
+
+# řez s uvedením kroku
+print(a[::2,::2])
+
 # ## Operátory
 # - Základní operátory jsou přetížené
 # - Prvky matice + skalár
+# - Prvky dvou matic
+
+# ### Přičtení hodnoty ke všem prvkům matice
+
+# konstrukce pole
+a = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# provedení operace
+b = a + 100
+
+# tisk původního pole
+print(a)
+
+# tisk nového pole
+print(b)
+
+# ### Vynásobení prvků matice dvěma
+
+# konstrukce pole
+a = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# provedení operace
+b = a * 2
+
+# tisk původního pole
+print(a)
+
+# tisk nového pole
+print(b)
+
+# ### Podíl prvek po prvku
+
+# konstrukce pole
+a = reshape(arange(25), (5, 5))
+
+# provedení operace
+b = a % 2
+
+# tisk původního pole
+print(a)
+
+# tisk nového pole
+print(b)
 
 # ## Další podbalíčky, které nalezneme v knihovně NumPy
 # ```
