@@ -17,6 +17,7 @@ class Employee:
         return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
                                                                   surname=self._surname,
                                                                   salary=self._salary)
+
     def __eq__(self, other):
         if other is None:
             return False
