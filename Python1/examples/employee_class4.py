@@ -21,7 +21,7 @@ class Employee:
         if other is None:
             return False
         return self._first_name == other._first_name and \
-               self._surname == other._surname and \
+            self._surname == other._surname and \
             self._salary == other._salary
 
 
