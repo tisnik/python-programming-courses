@@ -22,7 +22,7 @@ class Employee:
             return False
         return self._first_name == other._first_name and \
                self._surname == other._surname and \
-               self._salary == other._salary
+            self._salary == other._salary
 
 
 # vytvoření dvou instancí třídy
