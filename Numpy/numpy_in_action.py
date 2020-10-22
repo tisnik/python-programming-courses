@@ -1252,6 +1252,115 @@ print(a)
 # tisk nového pole
 print(b)
 
+# ## Operátory
+# pole op pole
+
+# první pole
+a1 = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# druhé pole
+a2 = eye(3)
+
+# součet prvek po prvku
+c = a1 + a2
+
+# tisk nového pole
+print(c)
+
+# ## Operátory
+# - různé kombinace
+
+# první pole
+a1 = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# druhé pole
+a2 = eye(3)
+
+# operace
+c = a1 * 10 + a2 * 20
+
+# tisk nového pole
+print(c)
+
+# ## Modifikace matice s využitím operátorů += atd.
+
+# původní matice
+a1=array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# tisk matice
+print(a1)
+
+# provedení operace
+a1 += 100
+
+# tisk výsledku operace
+print(a1)
+
+# ## Násobení matic
+# - Operátor @, nikoli *
+
+# původní matice
+a1 = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# původní matice
+a2 = eye(3)
+
+# - Násobení prvek po prvku
+c = a1 * a2
+
+# tisk výsledku operace
+print(c)
+
+# ## Násobení matic
+# - Maticový součin
+
+# původní matice
+a1 = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# původní matice
+a2 = eye(3)
+
+# maticový součin
+c = a1 @ a2
+
+# tisk výsledku operace
+print(c)
+
+# ## Násobení matic
+# - Maticový součin
+
+# původní matice
+a1 = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# původní matice
+a2 = eye(3)
+
+# - Změna prvku původně jednotkové matice
+a2[1][1]=-1
+
+# tisk výsledku operace
+print(a1@a2)
+
+# maticový součin
+c = a1 @ a2
+
+# tisk výsledku operace
+print(c)
+
+# ## Další operace s maticemi
+
+# ## Výpočet determinantu
+import numpy.linalg
+    
+# matice 3x3 prvky
+m = array([[0,1,0],[1,1,1],[0,1,1]])
+
+# výpočet determinantu
+det = linalg.det(m)
+
+# tisk výsledku operace
+print(det)
+
 # ## Další podbalíčky, které nalezneme v knihovně NumPy
 # ```
 # ╔════════════╤═════════════════════════════════════╗
