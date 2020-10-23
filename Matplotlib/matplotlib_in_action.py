@@ -522,3 +522,81 @@ plt.legend(loc="lower right")
 
 # zobrazení grafu
 plt.show()
+
+# --------------------------------------------
+
+# ### Šestnáctý demonstrační příklad:
+# - jednoduchý histogram
+
+# náhodné hodnoty
+y = np.random.normal(0, 0.1, 10000)
+
+plt.hist(y, bins=30, range=None, normed=True)
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Sedmnáctý demonstrační příklad:
+# - koláčový graf
+
+# make a square figure and axes
+fig = plt.figure(1, figsize=(6, 6), dpi=50)
+ax = fig.add_axes([0.16, 0.16, 0.68, 0.68])
+
+plt.title("Scripting languages")
+ax.title.set_fontsize(30)
+
+# popisky jednotlivých výřezů
+labels = ['Perl', 'Python', 'Ruby']
+
+# šířky jednotlivých výřezů
+fracs = [90, 150, 70]
+
+# vytvoření koláčového grafu
+ax.pie(fracs, labels=labels, autopct='%1.1f%%', shadow=True)
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Osmnáctý demonstrační příklad:
+# - změna stylu koláčových grafů
+
+# make a square figure and axes
+fig = plt.figure(1, figsize=(6, 6), dpi=50)
+ax = fig.add_axes([0.16, 0.16, 0.68, 0.68])
+
+plt.title("Scripting languages")
+ax.title.set_fontsize(30)
+
+# popisky jednotlivých výřezů
+labels = ['Perl', 'Python', 'Ruby']
+
+# šířky jednotlivých výřezů
+fracs = [90, 150, 70]
+
+# vytáhnutí výřezů
+explode = (0.0, 0.0, 0.15)
+
+# barvy
+colors = ('yellow', '#60ff60', 'red')
+
+# vytvoření koláčového grafu
+patches, texts, autotexts = ax.pie(fracs, explode=explode, colors=colors,
+                                   labels=labels, autopct='%1.1f%%',
+                                   shadow=True)
+
+# změna stylu písma
+proptease = fm.FontProperties()
+proptease.set_size('xx-large')
+plt.setp(autotexts, fontproperties=proptease)
+plt.setp(texts, fontproperties=proptease)
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
