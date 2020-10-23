@@ -36,4 +36,3 @@ ax.plot_surface(X, Y, Z, rstride=2, cstride=2, cmap=cm.coolwarm,
 
 # zobrazení grafu
 plt.show()
-
