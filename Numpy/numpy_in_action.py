@@ -1361,6 +1361,107 @@ det = linalg.det(m)
 # tisk výsledku operace
 print(det)
 
+# ## Výpočet inverzní matice
+
+# původní matice
+a = array([[0,1,0],[1,1,1],[0,1,1]])
+   
+# výpočet inverzní matice
+inv = linalg.inv(m)
+
+# tisk výsledku
+print(inv)
+
+# ## Otestování - výsledkem musí být jednotková matice
+# původní matice
+a = array([[0,1,0],[1,1,1],[0,1,1]])
+   
+# výpočet inverzní matice
+inverse = linalg.inv(a)
+
+# zpětný výpočet
+c = dot(a, inverse)
+
+print(c)
+
+# ## Relační operátory: pole vs skalární hodnota
+
+# původní pole
+a = arange(12)
+
+# tisk výsledku operace
+print(a == 5)
+
+# tisk výsledku operace
+print(a < 6)
+
+# ## Relační operátory: pole vs pole
+
+# původní pole
+a = arange(1,11)
+
+# původní pole
+b= array([100,0,100,0,100,0,100,0,100,0])
+
+# tisk výsledku operace
+print(a == b)
+
+# tisk výsledku operace
+print(a != b)
+
+# tisk výsledku operace
+print(a < b)
+
+# ## Dtto pro matice
+
+# původní vektor
+a = arange(24)
+
+# konstrukce matice
+b = reshape(a, (6, 4), order='F')
+
+# tisk výsledku operace
+print(b < 10)
+
+# tisk výsledku operace
+print(b % 2 == 1)
+
+# ## Výběr prvků na základě podmínky - filtrace
+
+# původní pole
+a = arange(12)
+
+# tisk výsledku operace
+print(a < 6)
+
+# filtrace (selekce)
+print(a[a<6])
+
+# filtrace (selekce)
+print(a[a%2 == 0])
+
+# ## Ovšem pozor u vícerozměrných polí
+
+# původní pole
+a=reshape(arange(100,125),(5,5))
+
+# filtrací zíkáme jednorozměrný vektor
+print(a[a%2 == 0])
+
+# ## Další užitečné funkce - min, max, sum
+
+# původní pole
+a1=array([[1,2,3], [4,5,6], [7,8,9]])
+
+# tisk výsledku operace
+print(a1.max())
+
+# tisk výsledku operace
+print(a1.min())
+
+# tisk výsledku operace
+print(a1.sum())
+
 # ## Další podbalíčky, které nalezneme v knihovně NumPy
 # ```
 # ╔════════════╤═════════════════════════════════════╗
