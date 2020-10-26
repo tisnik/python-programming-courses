@@ -1462,6 +1462,130 @@ print(a1.min())
 # tisk výsledku operace
 print(a1.sum())
 
+# ## Výběr osy ve funkcích min, max a sum
+
+# původní pole
+a1=array([[1,2,3], [4,5,6], [7,8,9]])
+
+# sloupce
+print(a1.max(axis=0))
+
+# sloupce
+print(a1.sum(axis=0))
+   
+# řádky
+print(a1.max(axis=1))
+
+# řádky
+print(a1.sum(axis=1))
+
+# ## Univerzální funkce a operátory
+
+# původní pole
+a = array([[1,2,3], [4,5,6], [7,8,9]])
+
+# původní pole
+b = abs(a-5)
+
+# tisk výsledku operace
+print(b)
+
+# ## Univerzální funkce a operátory
+
+# Padesát hodnot v zadaném intervalu
+a = linspace(0, pi/2)
+
+## Výpočet sinů těchto hodnot 
+b = sin(a)
+
+# tisk výsledku operace
+print(b)
+
+# ## Funkce vyššího řádu apply_along_axis
+# - (Anonymní) funkce, které se předává řádek/sloupec/matice n-1 dimenze
+# - Opět se specifikuje osa
+
+# původní pole
+a1=array([[1,2,3], [4,5,6], [7,8,9]])
+
+# aplikace anonymní funkce
+a = apply_along_axis(lambda v:v[1], 0, a1)
+
+# tisk výsledku operace
+print(a)
+
+# aplikace anonymní funkce
+a = apply_along_axis(lambda v:v[1], 1, a1)
+
+# tisk výsledku operace
+print(a)
+
+# ## Vyřešení systému lineárních rovnic
+# - Triviální příklad - jedna rovnice o jedné neznámé
+# - Rovnice 2x = 10
+# - Maticově
+#     - levá strana rovnice
+#     - pravá strana rovnice
+
+# - Řešení lze získat následovně
+# levá strana rovnice (koeficienty)
+a = array([[2]])
+
+# pravá strana rovnice
+b = array([10])
+
+# řešení
+c = linalg.solve(a,b)
+
+# tisk výsledku operace
+print(c)
+
+# ## Vyřešení systému lineárních rovnic
+# - Dvě rovnice o dvou neznámých
+#       x + y = 2
+#       x - y = 0
+# - Maticově
+#     - levé strany rovnic
+#     - pravé strany rovnic
+     
+# - Řešení lze získat následovně
+# matice koeficientů původních rovnic
+# [1,1] znamená 1*x + 1*y
+a = array([ [1,1] , [1,-1] ])
+
+# matice pravých stran rovnic
+b=array([2,0])
+   
+# výpočet
+c = linalg.solve(a,b)
+
+# tisk výsledku operace
+print(c)
+
+# což znamená:
+# x=1
+# y=1
+
+# ## Poněkud složitější příklad
+# - Zadání
+#    2x₁ + 3x₂ + 7x₃ = 47
+#    3x₁ + 8x₂ +  x₃ = 50
+#          3x₂ + 3x₃ = 27
+
+# - Řešení
+
+# matice koeficientů původních rovnic
+a = array([[2,3,7],[3,8,1],[0,3,3]])
+
+# matice pravých stran rovnic
+b = array([47,50,27])
+
+# výpočet
+c = linalg.solve(a,b)
+
+# tisk výsledku operace
+print(c)
+
 # ## Další podbalíčky, které nalezneme v knihovně NumPy
 # ```
 # ╔════════════╤═════════════════════════════════════╗
