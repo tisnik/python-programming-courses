@@ -531,7 +531,7 @@ plt.show()
 # náhodné hodnoty
 y = np.random.normal(0, 0.1, 10000)
 
-plt.hist(y, bins=30, range=None, normed=True)
+plt.hist(y, bins=30, range=None, density=True)
 
 # zobrazení grafu
 plt.show()
@@ -540,6 +540,9 @@ plt.show()
 
 # ### Sedmnáctý demonstrační příklad:
 # - koláčový graf
+
+# musíme naimportovat ještě jeden balíček
+from matplotlib import font_manager as fm
 
 # make a square figure and axes
 fig = plt.figure(1, figsize=(6, 6), dpi=50)
@@ -600,3 +603,120 @@ plt.show()
 
 # --------------------------------------------
 
+# ### Devatenáctý demonstrační příklad:
+# - sloupcový graf se dvěma skupinami sloupců
+#   a se zobrazením odchylek
+
+# první pole hodnot a pole odchylek
+vals1 = [10, 15, 20, 12, 14, 8]
+delta1 = [1, 2, 3, 4, 5, 0]
+
+# druhé pole hodnot a pole odchylek
+vals2 = [19, 18,  6, 11,  6, 14]
+delta2 = [4, 2, 3, 2, 2, 4]
+
+# počet prvků
+N = len(vals1)
+
+# indexy prvků
+indexes = np.arange(N)
+
+# šířka sloupců
+width = 0.30
+
+# sloupcový graf se dvěma skupinami sloupců
+plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1',
+        yerr=delta1)
+
+# posunuté sloupce
+plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
+        label='CPU#2', yerr=delta2)
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# přidání legendy
+plt.legend(loc="lower right")
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Dvacátý demonstrační příklad:
+# - sloupcový graf se dvěma skupinami sloupců
+#   a se zobrazením odchylek
+
+# první pole hodnot a pole odchylek
+vals1 = [10, 15, 20, 12, 14, 8]
+delta1 = [1, 2, 3, 4, 5, 0]
+
+# druhé pole hodnot a pole odchylek
+vals2 = [19, 18,  6, 11,  6, 14]
+delta2 = [4, 2, 3, 2, 2, 4]
+
+# počet prvků
+N = len(vals1)
+
+# indexy prvků
+indexes = np.arange(N)
+
+# šířka sloupců
+width = 0.30
+
+# sloupcový graf se dvěma skupinami sloupců
+plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1',
+        yerr=delta1, error_kw=dict(elinewidth=2, ecolor='red'))
+
+# posunuté sloupce
+plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
+        label='CPU#2',
+        yerr=delta2, error_kw=dict(elinewidth=2, ecolor='black'))
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# přidání legendy
+plt.legend(loc="lower right")
+
+# zobrazení grafu
+plt.show()
+
+# --------------------------------------------
+
+# ### Dvacátý první demonstrační příklad:
+# - zobrazení kontur funkce typu z=f(x,y)
+
+# import dvou dalších potřebných knihoven
+import matplotlib.cm as cm
+import matplotlib.mlab as mlab
+
+
+delta = 0.1
+
+# průběh nezávislé proměnné x
+x = np.arange(-10.0, 10.0, delta)
+
+# průběh nezávislé proměnné y
+y = np.arange(-10.0, 10.0, delta)
+
+# vytvoření dvou polí se souřadnicemi [x,y]
+X, Y = np.meshgrid(x, y)
+
+# vzdálenost od bodu [0,0]
+R1 = np.sqrt(X*X+Y*Y)
+
+# vzdálenost od bodu [3,3]
+R2 = np.sqrt((X-3)*(X-3)+(Y-3)*(Y-3))
+
+# výpočet funkce, kterou použijeme při vykreslování grafu
+Z = np.sin(R1)-np.cos(R2)
+
+# povolení zobrazení mřížky
+plt.grid(True)
+
+# vytvoření grafu s konturami funkce z=f(x,y)
+plt.contour(X, Y, Z)
+
+# zobrazení grafu
+plt.show()
