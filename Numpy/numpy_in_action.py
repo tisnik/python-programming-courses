@@ -1213,7 +1213,7 @@ print(a[::2, ::2])
 # ### Přičtení hodnoty ke všem prvkům matice
 
 # konstrukce pole
-a = array([[1,2,3], [4,5,6], [7,8,9]])
+a = array([[1, 2,3], [4,5,6], [7,8,9]])
 
 # provedení operace
 b = a + 100
