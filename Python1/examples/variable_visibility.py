@@ -1,5 +1,6 @@
 x = 1
 
+
 def fn1():
     pass
 
