@@ -5,11 +5,14 @@ class B(Exception):
 class C(B):
     pass
 
+
 class C(B):
     pass
 
+
 class D(C):
     pass
+
 
 for cls in [B, C, D]:
     try:
