@@ -1203,7 +1203,7 @@ a = reshape(arange(0, 25), (5, 5))
 print(a)
 
 # řez s uvedením kroku
-print(a[::2,::2])
+print(a[::2, ::2])
 
 # ## Operátory
 # - Základní operátory jsou přetížené
