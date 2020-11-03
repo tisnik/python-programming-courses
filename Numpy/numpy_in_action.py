@@ -1197,7 +1197,7 @@ print(a[1::2])
 # ## Sudé sloupce, sudé řádky
 
 # konstrukce pole
-a = reshape(arange(0,25), (5,5))
+a = reshape(arange(0, 25), (5,5))
 
 # tisk původního pole
 print(a)
