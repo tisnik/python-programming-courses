@@ -1185,7 +1185,7 @@ a[::3]
 # ## Specifikace kroku při provádění řezů - matice
 
 # konstrukce pole
-a = reshape(arange(0, 25), (5,5))
+a = reshape(arange(0, 25), (5, 5))
 
 # tisk původního pole
 print(a)
