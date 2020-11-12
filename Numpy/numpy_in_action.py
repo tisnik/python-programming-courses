@@ -1351,7 +1351,7 @@ print(c)
 
 # ## Výpočet determinantu
 import numpy.linalg
-    
+
 # matice 3x3 prvky
 m = array([[0,1,0],[1,1,1],[0,1,1]])
 
