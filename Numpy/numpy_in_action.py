@@ -1336,7 +1336,7 @@ a1 = array([[1,2,3], [4,5,6], [7,8,9]])
 a2 = eye(3)
 
 # - Změna prvku původně jednotkové matice
-a2[1][1]=-1
+a2[1][1] = -1
 
 # tisk výsledku operace
 print(a1@a2)
