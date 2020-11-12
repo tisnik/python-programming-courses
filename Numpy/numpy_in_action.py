@@ -1271,7 +1271,7 @@ print(c)
 # - různé kombinace
 
 # první pole
-a1 = array([[1,2,3], [4,5,6], [7,8,9]])
+a1 = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 # druhé pole
 a2 = eye(3)
