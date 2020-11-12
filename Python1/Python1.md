@@ -138,6 +138,15 @@
 
 ---
 
+### Vývojová prostředí pro Python
+
+* IDLE
+    - výchozí, relativně primitivní
+* VSCode
+    - s rozšířením pro Python
+
+---
+
 ### Srovnání s ostatními programovacími jazyky
 
 * Skriptovací jazyk
