@@ -144,6 +144,8 @@
     - výchozí, relativně primitivní
 * VSCode
     - s rozšířením pro Python
+* PyCharm
+    - profesionální IDE
 
 ---
 
