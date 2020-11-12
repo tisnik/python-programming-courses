@@ -128,6 +128,8 @@
     - Numpy
     - SciPy
     - Matplotlib
+* Zpracování dat
+    - Pandas
 * Moderní způsoby využití Pythonu
     - AI
     - Machine Learning (Deep Learning)
