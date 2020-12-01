@@ -185,6 +185,15 @@
 
 ---
 
+### Python pro Windows
+
+* Oficiální instalace Pythonu
+    - https://www.python.org/downloads/windows/
+* ActiveState Python
+    - https://www.activestate.com/products/python/
+
+---
+
 ### Python 2.x vs Python 3.x
 
 * Tyto dvě větve nejsou plně kompatibilní
