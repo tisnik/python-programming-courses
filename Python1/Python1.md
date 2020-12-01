@@ -149,6 +149,17 @@
 
 ---
 
+### IDLE
+    - https://docs.python.org/3/library/idle.html
+    - vytvořeno přímo v Pythonu
+    - používá `tkinter`
+    - využitelné na Windows, Linuxu i macOS
+    - editor zdrojových kódů
+    - debugger
+    - Python shell (REPL)
+
+---
+
 ### Srovnání s ostatními programovacími jazyky
 
 * Skriptovací jazyk
