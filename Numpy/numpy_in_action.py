@@ -1350,7 +1350,7 @@ print(c)
 # ## Další operace s maticemi
 
 # ## Výpočet determinantu
-import numpy.linalg
+import numpy.linalg  # noqa: E402
 
 # matice 3x3 prvky
 m = array([[0, 1, 0],[1,1,1],[0,1,1]])
