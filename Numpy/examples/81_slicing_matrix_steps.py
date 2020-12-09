@@ -6,7 +6,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.reshape(numpy.arange(0,25), (5, 5))
+a = numpy.reshape(numpy.arange(0, 25), (5, 5))
 
 # tisk původního pole
 print(a)
