@@ -7,7 +7,7 @@
 import numpy
 
 # první pole
-a1 = numpy.array([[1,2,3], [4,5, 6], [7, 8, 9]])
+a1 = numpy.array([[1,2,3], [4, 5, 6], [7, 8, 9]])
 
 # druhé pole
 a2 = numpy.eye(3)
