@@ -128,11 +128,35 @@
     - Numpy
     - SciPy
     - Matplotlib
+* Zpracování dat
+    - Pandas
 * Moderní způsoby využití Pythonu
     - AI
     - Machine Learning (Deep Learning)
     - Big data
 * Tzv. "glue" jazyk
+
+---
+
+### Vývojová prostředí pro Python
+
+* IDLE
+    - výchozí, relativně primitivní
+* VSCode
+    - s rozšířením pro Python
+* PyCharm
+    - profesionální IDE
+
+---
+
+### IDLE
+    - https://docs.python.org/3/library/idle.html
+    - vytvořeno přímo v Pythonu
+    - používá `tkinter`
+    - využitelné na Windows, Linuxu i macOS
+    - editor zdrojových kódů
+    - debugger
+    - Python shell (REPL)
 
 ---
 
@@ -169,6 +193,15 @@
     - Cython
     - RPython
     - Numba
+
+---
+
+### Python pro Windows
+
+* Oficiální instalace Pythonu
+    - https://www.python.org/downloads/windows/
+* ActiveState Python
+    - https://www.activestate.com/products/python/
 
 ---
 
