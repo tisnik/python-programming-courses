@@ -1364,7 +1364,7 @@ print(det)
 # ## Výpočet inverzní matice
 
 # původní matice
-a = array([[0, 1, 0], [1,1,1],[0,1,1]])
+a = array([[0, 1, 0], [1, 1,1],[0,1,1]])
    
 # výpočet inverzní matice
 inv = linalg.inv(m)
