@@ -1353,7 +1353,7 @@ print(c)
 import numpy.linalg  # noqa: E402
 
 # matice 3x3 prvky
-m = array([[0, 1, 0], [1, 1, 1], [0, 1,1]])
+m = array([[0, 1, 0], [1, 1, 1], [0, 1, 1]])
 
 # výpočet determinantu
 det = linalg.det(m)
