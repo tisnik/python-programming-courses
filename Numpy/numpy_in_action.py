@@ -1374,7 +1374,7 @@ print(inv)
 
 # ## Otestování - výsledkem musí být jednotková matice
 # původní matice
-a = array([[0, 1, 0],[1,1,1],[0,1,1]])
+a = array([[0, 1, 0], [1,1,1],[0,1,1]])
    
 # výpočet inverzní matice
 inverse = linalg.inv(a)
