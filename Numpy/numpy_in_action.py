@@ -1398,7 +1398,7 @@ print(a < 6)
 # ## Relační operátory: pole vs pole
 
 # původní pole
-a = arange(1,11)
+a = arange(1, 11)
 
 # původní pole
 b= array([100,0,100,0,100,0,100,0,100,0])
