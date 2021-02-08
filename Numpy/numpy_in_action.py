@@ -1401,7 +1401,7 @@ print(a < 6)
 a = arange(1, 11)
 
 # původní pole
-b= array([100, 0, 100, 0, 100,0,100,0,100,0])
+b= array([100, 0, 100, 0, 100, 0,100,0,100,0])
 
 # tisk výsledku operace
 print(a == b)
