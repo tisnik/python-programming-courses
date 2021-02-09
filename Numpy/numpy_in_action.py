@@ -1443,7 +1443,7 @@ print(a[a % 2 == 0])
 # ## Ovšem pozor u vícerozměrných polí
 
 # původní pole
-a = reshape(arange(100, 125),(5,5))
+a = reshape(arange(100, 125), (5,5))
 
 # filtrací zíkáme jednorozměrný vektor
 print(a[a%2 == 0])
