@@ -1438,7 +1438,7 @@ print(a < 6)
 print(a[a < 6])
 
 # filtrace (selekce)
-print(a[a%2 == 0])
+print(a[a % 2 == 0])
 
 # ## Ovšem pozor u vícerozměrných polí
 
