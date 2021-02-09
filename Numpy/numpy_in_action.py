@@ -1435,7 +1435,7 @@ a = arange(12)
 print(a < 6)
 
 # filtrace (selekce)
-print(a[a<6])
+print(a[a <6])
 
 # filtrace (selekce)
 print(a[a%2 == 0])
