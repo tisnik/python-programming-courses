@@ -1495,7 +1495,7 @@ print(b)
 # Padesát hodnot v zadaném intervalu
 a = linspace(0, pi/2)
 
-# Výpočet sinů těchto hodnot 
+# Výpočet sinů těchto hodnot
 b = sin(a)
 
 # tisk výsledku operace
