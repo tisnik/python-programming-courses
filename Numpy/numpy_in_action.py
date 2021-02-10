@@ -1482,7 +1482,7 @@ print(a1.sum(axis=1))
 # ## Univerzální funkce a operátory
 
 # původní pole
-a = array([[1,2,3], [4,5,6], [7,8,9]])
+a = array([[1, 2,3], [4,5,6], [7,8,9]])
 
 # původní pole
 b = abs(a-5)
