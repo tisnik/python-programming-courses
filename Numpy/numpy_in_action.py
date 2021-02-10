@@ -1465,7 +1465,7 @@ print(a1.sum())
 # ## Výběr osy ve funkcích min, max a sum
 
 # původní pole
-a1 = array([[1, 2, 3], [4, 5, 6], [7, 8,9]])
+a1 = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 # sloupce
 print(a1.max(axis=0))
