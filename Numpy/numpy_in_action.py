@@ -1472,7 +1472,7 @@ print(a1.max(axis=0))
 
 # sloupce
 print(a1.sum(axis=0))
-   
+
 # řádky
 print(a1.max(axis=1))
 
