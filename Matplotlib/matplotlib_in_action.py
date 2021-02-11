@@ -689,7 +689,7 @@ plt.show()
 
 # import dvou dalších potřebných knihoven
 import matplotlib.cm as cm
-import matplotlib.mlab as mlab
+import matplotlib.mlab as mlab  # noqa: E402
 
 
 delta = 0.1
