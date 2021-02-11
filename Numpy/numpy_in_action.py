@@ -1581,7 +1581,7 @@ a = array([[2, 3, 7], [3, 8, 1], [0, 3, 3]])
 b = array([47,50,27])
 
 # výpočet
-c = linalg.solve(a,b)
+c = linalg.solve(a, b)
 
 # tisk výsledku operace
 print(c)
