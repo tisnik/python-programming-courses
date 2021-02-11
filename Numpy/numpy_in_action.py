@@ -1555,7 +1555,7 @@ a = array([ [1,1] , [1,-1] ])
 
 # matice pravých stran rovnic
 b=array([2,0])
-   
+
 # výpočet
 c = linalg.solve(a, b)
 
