@@ -1515,7 +1515,7 @@ a = apply_along_axis(lambda v:v[1], 0, a1)
 print(a)
 
 # aplikace anonymní funkce
-a = apply_along_axis(lambda v:v[1], 1, a1)
+a = apply_along_axis(lambda v: v[1], 1, a1)
 
 # tisk výsledku operace
 print(a)
