@@ -1575,7 +1575,7 @@ print(c)
 # - Řešení
 
 # matice koeficientů původních rovnic
-a = array([[2,3, 7], [3, 8, 1], [0, 3, 3]])
+a = array([[2, 3, 7], [3, 8, 1], [0, 3, 3]])
 
 # matice pravých stran rovnic
 b = array([47,50,27])
