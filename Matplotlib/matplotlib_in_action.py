@@ -542,7 +542,7 @@ plt.show()
 # - koláčový graf
 
 # musíme naimportovat ještě jeden balíček
-from matplotlib import font_manager as fm
+from matplotlib import font_manager as fm  # noqa: E402
 
 # make a square figure and axes
 fig = plt.figure(1, figsize=(6, 6), dpi=50)
