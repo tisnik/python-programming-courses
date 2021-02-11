@@ -1547,7 +1547,7 @@ print(c)
 # - Maticově
 #     - levé strany rovnic
 #     - pravé strany rovnic
-     
+
 # - Řešení lze získat následovně
 # matice koeficientů původních rovnic
 # [1,1] znamená 1*x + 1*y
