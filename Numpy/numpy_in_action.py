@@ -1535,7 +1535,7 @@ a = array([[2]])
 b = array([10])
 
 # řešení
-c = linalg.solve(a,b)
+c = linalg.solve(a, b)
 
 # tisk výsledku operace
 print(c)
