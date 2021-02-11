@@ -1551,7 +1551,7 @@ print(c)
 # - Řešení lze získat následovně
 # matice koeficientů původních rovnic
 # [1,1] znamená 1*x + 1*y
-a = array([ [1,1] , [1, -1] ])
+a = array([ [1, 1] , [1, -1] ])
 
 # matice pravých stran rovnic
 b = array([2, 0])
