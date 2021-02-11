@@ -688,7 +688,7 @@ plt.show()
 # - zobrazení kontur funkce typu z=f(x,y)
 
 # import dvou dalších potřebných knihoven
-import matplotlib.cm as cm
+import matplotlib.cm as cm  # noqa: E402
 import matplotlib.mlab as mlab  # noqa: E402
 
 
