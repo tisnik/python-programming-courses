@@ -658,6 +658,17 @@ F""")
 
 ---
 
+### Metody pro práci se seznamy
+
+* `clear`
+* `append`
+* `insert`
+* `count`
+* `reverse`
+* `sort`
+
+---
+
 ### Seznamy (pole) - ukázka
 
 ```python
