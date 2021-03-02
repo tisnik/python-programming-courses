@@ -1506,7 +1506,7 @@ print(b)
 # - Opět se specifikuje osa
 
 # původní pole
-a1 = array([[1, 2, 3], [4,5,6], [7,8,9]])
+a1 = array([[1, 2, 3], [4, 5,6], [7,8,9]])
 
 # aplikace anonymní funkce
 a = apply_along_axis(lambda v: v[1], 0, a1)
