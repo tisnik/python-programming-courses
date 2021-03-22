@@ -68,6 +68,7 @@
     - klávesové zkratky
 * Použití debuggeru
 * MicroPython
+* Užitečné nástroje pro Python
 
 ---
 
@@ -2459,6 +2460,16 @@ pin.value(1)
     - Online editor: http://python.microbit.org/v/1
     - převod zdrojového kódu do Intel hex formátu
     - upload v Intel hex formátu
+
+---
+
+## Užitečné nástroje pro Python
+
+* pydocstyle
+    - testuje, zda jsou správně zapsány komentáře
+* pycodestyle (pep8)
+    - kontroluje styl zápisu programů
+    - udržuje štábní kulturu
 
 ---
 
