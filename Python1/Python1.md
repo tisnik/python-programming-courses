@@ -871,6 +871,12 @@ Eda
 
 ---
 
+### Funkce pro práci s množinami
+
+* `len` - vrací počet prvků množiny
+
+---
+
 ### Množiny
 
 ```python
