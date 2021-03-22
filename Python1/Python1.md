@@ -643,6 +643,12 @@ F""")
 
 ---
 
+### Funkce pro práci s řetězci
+
+* `len` - vrací počet znaků řetězce
+
+---
+
 ### Seznamy (pole)
 
 * základní složený datový typ Pythonu
