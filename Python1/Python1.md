@@ -659,6 +659,12 @@ F""")
 
 ---
 
+### Funkce pro práci se seznamy
+
+* `len` - vrací délku seznamu
+
+---
+
 ### Metody pro práci se seznamy
 
 * `clear`
