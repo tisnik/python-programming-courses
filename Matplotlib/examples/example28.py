@@ -5,7 +5,6 @@
 # Dvacátý osmý demonstrační příklad:
 # - zobrazení 3D grafu funkce typu [x,y,z]=f(t)
 
-from mpl_toolkits.mplot3d import axes3d
 import matplotlib.pyplot as plt
 import numpy as np
 
