@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # encoding=utf-8
 
+from functools import reduce
+
 
 def factorial(n):
     """Výpočet faktoriálu pomocí reduce."""
