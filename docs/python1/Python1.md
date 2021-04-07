@@ -1881,8 +1881,11 @@ print(list(y))
 ```
 
 * Funkce `reduce`
+    - musí být importována z balíčku `functools`
 
 ```python
+from functools import reduce
+
 x = range(1, 11)
 
 print(x)
