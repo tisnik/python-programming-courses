@@ -1,14 +1,63 @@
 # Knihovna Pandas
 
 ![pandas_logo.png](pandas_logo.png)
+
 ### Autor Pavel Tišnovský, Red Hat
 ### Email ptisnovs@redhat.com
 
+
+
+## Obsah kurzu
+
+* Možnosti poskytované knihovnou Pandas
+* Základy práce s datovými rámci
+* Zobrazení obsahu datových rámců, vykreslení grafů a validace dat
+* Práce s datovými řadami (series)
+* Spojování datových rámců s využitím append, concat, merge a join
+* Použití metody groupby, naformátování a export tabulek pro tisk
+* Práce se seskupenými záznamy, vytvoření multiindexů
+* Odkazy na další informační zdroje
+
+
+
+## Možnosti poskytované knihovnou Pandas
+
+* Načtení dat z různých datových zdrojů do datových rámců
+    - CSV
+    - TSV
+    - databáze
+    - tabulkové procesory
+* Programová konstrukce datových rámců
+* Prohlížení obsahu datových rámců
+* Iterace nad daty, řazení a další podobné operace
+* Spojování, seskupování a změna tvaru dat
+* Práce s takzvanými sériemi
+    - většinou získanými z datových rámců
+* Vykreslování grafů z údajů získaných z datových rámců
+
+
+
 ## Základy práce s datovými rámci
+
+* Knihovna Pandas podporuje využití různých datových zdrojů, především pak:
+  - Souborů CSV (Comma-Separated Values)
+  - Souborů TSV (Tab-Separated Values)
+  - Textových souborů s volitelným oddělovačem a formátem sloupců
+  - Tabulek z tabulkových procesorů (xls, xlsx, xlsm, xlsb, odf, ods, odt)
+  - Souborů JSON se strukturovanými daty
+  - Načítání z relačních databází s využitím SQL driverů
+  - Načítání z Parquet souborů
+  - atd.
 
 ### Načtení obsahu jednoduché tabulky ze souboru typu CSV
 
 * CSV neboli Comma-Separated Values
+* Obecně problematické
+  - Anglický/český Excel
+  - Víceřádkové buňky
+  - Hlavičky sloupců
+
+* Vstupní soubor s daty
 
 ```
 Block size,Time to read
@@ -23,6 +72,8 @@ Block size,Time to read
 9,182263641
 10,177141401
 ```
+
+* Import dat
 
 ```python
 import pandas
@@ -41,6 +92,8 @@ print(df.dtypes)
 
 ### Zpracování prázdných hodnot v tabulce
 
+* Upravený vstupní soubor s daty
+
 ```
 Block size,Time to read
 1,672512695
@@ -54,6 +107,10 @@ Block size,Time to read
 9,182263641
 10,177141401
 ```
+
+* Načtení bez specifikace formátu
+- Knihovna Pandas musí nějakým způsobem reprezentovat chybějící hodnotu
+- pro tento účel lze (mj.) použít i datový typ `float64` neboli `double`
 
 ```python
 import pandas
@@ -72,7 +129,7 @@ print(df.dtypes)
 
 ### Hodnota `NA`
 
-```
+```python
 import pandas
  
 df = pandas.read_csv("missing_integer_values.csv", dtype={"Time to read": "Int64"})
@@ -107,6 +164,8 @@ n,Timestamp
 14,2020-01-16 22:29:24
 ```
 
+* Prozatím při načtení nebudeme žádným způsobem specifikovat typy sloupců
+
 ```python
 import pandas
  
@@ -123,6 +182,8 @@ print(df.dtypes)
 ```
 
 ### Korektní parsing časových razítek
+
+* Nutnost specifikace sloupce, který obsahuje časová razítka
 
 ```python
 import pandas
@@ -159,6 +220,10 @@ n,Timestamp
 14,2020/01/16 22-29-24
 ```
 
+* Výsledek ovšem v tomto případě nedopadne nejlépe
+* Pandas se sice pokusí o rozpoznání časových údajů (což jsme ostatně vyžadovali)
+* Ovšem specifický formát nedokáže správně rozkódovat
+
 ```python
 import pandas
  
@@ -177,6 +242,8 @@ print(df.dtypes)
 ```
 
 ### Vlastní parsovací funkce
+
+* `datetime_parser`
 
 ```python
 import pandas
@@ -206,6 +273,8 @@ print(df.dtypes)
 
 ### Dtto, ale s lambda výrazem
 
+* Neboli s anonymní funkcí
+
 ```python
 import pandas
 import datetime
@@ -231,6 +300,10 @@ print(df.dtypes)
 ### Čtení tabulky uložené ve formátu TSV
 
 * TSV neboli Tab-Separated Values
+* Je velmi podobným formátem jako CSV
+* Ovšem s tím rozdílem, že oddělovačem jednotlivých buněk je znak tabulátoru
+  - tím současně odpadají mnohé problémy CSV
+* Podobně jako v případě CSV i zde možnost ukládat na první řádek souboru hlavičku
 
 ```
 Sep 2020        Sep 2019        Change  Language        Ratings Changep
@@ -258,7 +331,9 @@ Sep 2020        Sep 2019        Change  Language        Ratings Changep
 
 ### Nerozpoznání formátu
 
-```
+* Při běžném použití importní funkce `pandas.read_csv` není tento formát správně rozpoznán
+
+```python
 import pandas
  
 df = pandas.read_csv("tiobe.tsv")
@@ -274,6 +349,10 @@ print(df.dtypes)
 ```
 
 ### Specifikace oddělovače sloupců
+
+* Soubory TSV lze načíst tak, že nepovinným (pojmenovaným) parametrem `sep` specifikujeme oddělovač mezi záznamy
+* V tomto případě se jedná o znak „\t“
+    - Python používá céčkovský způsob zápisu řídicích znaků
 
 ```python
 import pandas
@@ -293,7 +372,14 @@ print(df.dtypes)
 
 ### Import dat z textových souborů
 
-```python
+* Existuje i mnoho aplikací, v nichž jsou tabulková data uložena ve formě běžných textových souborů
+   - s nějakými oddělovači odlišnými od výše zmíněného tabulátoru
+   - relativně často se jedná o středníky, dvojtečky nebo o znak |
+* Buď se jedná o zobecnění formátů CSV a TSV
+* Nebo může mít textový soubor podobu naformátovaných sloupců s pevnou délkou
+   - a tedy bez problémů čitelných uživatelem
+
+```
 Sep 2020            Sep 2019            Change              Language            Ratings             Changep
 1                   2                   change              C                   15.95               +0.74
 2                   1                   change              Java                13.48               -3.18
@@ -319,6 +405,10 @@ Sep 2020            Sep 2019            Change              Language            
 
 ### Problém - sloupce s mezerami
 
+* Výsledek ovšem není zcela dokonalý, protože u sloupců, jejichž jména obsahují
+  mezery, došlo k rozdělení na dva sloupce a tím pádem nám vznikly dvě série
+  hodnot `NaN`
+
 ```python
 import pandas
  
@@ -336,6 +426,8 @@ print(df.dtypes)
 ```
 
 ### Explicitní specifikace šířky sloupců
+
+* Použijeme nepovinný parametr `widths`, kde šířky nastavíme
 
 ```python
 import pandas
@@ -356,6 +448,7 @@ print(df.dtypes)
 ### Zpracování souborů s nestandardním formátem
 
 * https://www.cnb.cz/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/denni_kurz.txt
+* Evidentně se jedná o tabulková a velmi dobře strukturovaná data, která by bylo vhodné umět automaticky zpracovat
 
 ```
 20.11.2020 #224
@@ -397,6 +490,8 @@ Velká Británie|libra|1|GBP|29,464
 
 #### Pokus o načtení souboru s nestandardním formátem
 
+* Výsledek není v žádném případě dokonalý, což značí, že budeme muset lépe a přesněji specifikovat konkrétní použitý formát dat
+
 ```python
 import pandas
  
@@ -413,6 +508,8 @@ print(df.dtypes)
 ```
 
 #### Specifikace oddělovače
+
+* Použijeme pojmenovaný parametr `sep` předaný funkci `pandas.read_csv`
 
 ```python
 import pandas
@@ -431,6 +528,10 @@ print(df.dtypes)
 
 #### Přeskok prvního řádku, který neobsahuje data tabulky ani hlavičku
 
+* Aby byl textový soubor správně načten, musíme zcela přeskočit první řádek, jenž není součástí tabulky
+* Nejjednodušší způsob spočívá v použití parametru nazvaného `skiprows`
+    - pochopitelně i s dříve použitým parametrem `sep`
+
 ```python
 import pandas
  
@@ -447,6 +548,14 @@ print(df.dtypes)
 ```
 
 #### Převod záznamů s desetinnou čárkou na číselné hodnoty
+
+* Poslední úpravou datového rámce, kterou musíme provést, je převod hodnot v
+  posledním sloupci na numerické hodnoty. Tuto úpravu můžeme spustit po načtení
+  datového rámce, a to tak, že de facto do rámce vložíme nový sloupec
+  pojmenovaný stejně jako sloupec starý (tedy „kurz“). A hodnoty pro tento
+  sloupec získáme nejprve řetězcovou záměnou desetinné čárky za desetinnou
+  tečku a posléze převodem na numerické hodnoty, k čemuž použijeme konverzní
+  funkci `pandas.to_numeric`
 
 ```python
 import pandas
@@ -467,6 +576,8 @@ print(df.dtypes)
 
 #### Načtení dat přímo z webu
 
+* Data, resp. celé tabulky je možné v případě potřeby načíst přímo z internetu, databáze atd.
+
 ```python
 import pandas
  
@@ -485,9 +596,17 @@ print("---------------------------")
 print(df.dtypes)
 ```
 
+
+
 ## Zobrazení obsahu datových rámců, vykreslení grafů a validace dat
 
+
 ### Nové datové typy podporované knihovnou Pandas
+
+* Společně s knihovnou Pandas je dodávána i deklarace nových datových typů
+* Důležité jsou především první dva typy
+    - `Series` odvozený od jednodimenzionálního pole knihovny Numpy
+    - `DataFrame`
 
 ```
 #       Datový typ        Stručný popis
@@ -522,6 +641,8 @@ df["kurz"] = pandas.to_numeric(df["kurz"].str.replace(',','.'), errors='coerce')
 print(df)
 ```
 
+* Pro rozsáhlejší datové rámce
+
 ```python
 import pandas
  
@@ -533,6 +654,10 @@ print(df.head())
 ```
 
 ### Zobrazení podrobnějších informací o datovém rámci
+
+* Informace o typech
+* Informace o sloucích
+* Obsazení operační paměti
 
 #### `df.types`
 
@@ -572,6 +697,15 @@ print(df.info())
 
 #### Osy, dimenze a velikost
 
+* Další informace se týkají os (axes)
+  - osy vertikální i horizontální (v rámci tabulky)
+* Počtu dimenzí
+   - prakticky vždy dvě
+* Tvaru
+   - počet řádků×počet sloupců
+* Velikosti
+   - výsledek počet řádků×počet sloupců
+
 ```
 import pandas
  
@@ -587,6 +721,8 @@ print("Shape: ", df.shape)
 
 ### Základní statistické informace o datech uložených v rámci
 
+* Metodou `describe` lze získat základní (a mnohdy velmi užitečné) statistické informace o záznamech uložených v datovém rámci
+
 ```python
 import pandas
  
@@ -598,6 +734,11 @@ print(df.describe())
 ```
 
 ### Kooperace mezi Pandas a Matplotlibem
+
+* CSV s daty načteme přímo do datového rámce
+* Vypočteme koeficienty lineární regrese
+* Vykreslíme průběh načtených hodnot
+* A taktéž úsečku získanou lineární regresí
 
 ```python
 import sys
@@ -630,7 +771,7 @@ x = np.arange(0, len(messages))
 coef = np.polyfit(x, messages, 1)
 poly1d_fn = np.poly1d(coef)
  
-# Create new histogram graph
+# Create new graph
 plt.plot(messages, "b", poly1d_fn(np.arange(0, len(messages))), 'y--')
  
 # Title of a graph
@@ -656,6 +797,8 @@ plt.show()
 ```
 
 ### Přímé vykreslení grafu bez použití knihovny Matplotlib
+
+* O vytvoření grafu se může postarat přímo knihovna Pandas
 
 ```python
 import sys
@@ -686,6 +829,10 @@ plt.show()
 ```
 
 ### Přidání klouzavého průměru do grafu
+
+* Výpočet klouzavého průměru je relativně přímočarý
+  - pouze musíme zajistit, že se do datového rámce přidá další sloupec s výsledky
+  - využívají se nám již známé metody `df.shape`, popř. `df.iloc`:
 
 ```python
 import sys
@@ -722,6 +869,9 @@ plt.show()
 
 ### Vylepšený výpočet klouzavého průměru
 
+* Existuje však i možnost použít při výpočtu přímo možností nabízených samotnou knihovnou Pandas
+  - konkrétně metody `rolling` a `mean`
+
 ```python
 import sys
 import pandas as pd
@@ -754,9 +904,186 @@ df.plot(x="Time", y=["topic : uploads", "SMA_3"])
 plt.show()
 ```
 
+### Sloupcové grafy
+
+* `df.plot.bar()`
+
+```python
+#!/usr/bin/env python3
+ 
+import sys
+import pandas as pd
+import matplotlib.pyplot as plt
+ 
+# Check if command line argument is specified (it is mandatory).
+if len(sys.argv) < 2:
+    print("Usage:")
+    print("  plot_benchmark_results_bar_chart.py ")
+    print("Example:")
+    print("  plot_benchmark_results_bar_chart.py data.tsv")
+    sys.exit(1)
+ 
+# First command line argument should contain name of input CSV.
+input_file = sys.argv[1]
+ 
+df = pd.read_csv(input_file, sep="\t")
+ 
+data_columns = ["ANSI C", "Cython #1", "Cython #2", "Cython #3", "Numba #1/interpret", "Numba #2", "Numba #3", "Numba #4"]
+ 
+for data_column in data_columns:
+    df[data_column] = pd.to_numeric(df[data_column].str.replace(',', '.'), errors='coerce')
+ 
+print(df)
+print()
+ 
+print(df.info())
+print()
+ 
+print(df.describe())
+print()
+ 
+ 
+# Create new histogram graph
+df.plot.bar(x="Height", y=data_columns)
+ 
+# Try to show the plot on screen
+plt.show()
+```
+
 
 
 ## Práce s datovými řadami (series)
+
+* Základním stavebním kamenem knihovny Pandas je typ `Series` (datová řada)
+  - zapouzdřuje jednodimenzionální pole z knihovny Numpy
+  - představuje uspořádaný sloupec údajů, které mají shodný typ (například int64 nebo float64 atd.)
+  - každému prvku je přiřazen index
+  - nemusí se přitom jednat o celé číslo, protože indexem mohou být i řetězce atd.
+
+* Instance třídy `Series` mají několik užitečných atributů
+
+```
+#  Atribut   Stručný popis
+1  index     indexy prvků v řadě
+2  values    hodnoty prvků ve formě 1D pole
+3  size      počet prvků v řadě
+4  name      jméno řady (pokud je specifikováno)
+5  dtype     typ prvků uložených v datové řadě
+6  hasnans   test, zda je nějaký prvek roven NaN
+```
+
+### Konstrukce datové řady
+
+```python
+import pandas
+ 
+s = pandas.Series((1, 2, 3, 4, 5, 6))
+ 
+print("Series:")
+print(s)
+print()
+ 
+print("Index:")
+print(s.index)
+print()
+ 
+print("Values:")
+print(s.values)
+print()
+```
+
+### Specifikace indexů
+
+* Počet prvků musí být roven počtu indexů!
+
+```python
+import pandas
+ 
+s = pandas.Series(('a', 'b', 'c', 'd', 'e', 'f'), (1, 2, 3, 4, 5, 6))
+ 
+print("Series:")
+print(s)
+print()
+ 
+print("Index:")
+print(s.index)
+print()
+ 
+print("Values:")
+print(s.values)
+print()
+```
+
+### Konstrukce datové řady ze slovníku
+
+```python
+import pandas
+ 
+input_data = {
+        "a": 1,
+        "b": 2,
+        "c": 3,
+        "d": 4,
+        "e": 5,
+        "f": 6,
+        }
+ 
+print("Input data:")
+print(input_data)
+print()
+ 
+s = pandas.Series(input_data)
+ 
+print("Series:")
+print(s)
+print()
+ 
+print("Index:")
+print(s.index)
+print()
+ 
+print("Values:")
+print(s.values)
+print()
+```
+
+### Pro statší Python (<3.8)
+
+* Zachování pořadí prvků
+
+```python
+import pandas
+from collections import OrderedDict
+ 
+input_data = OrderedDict()
+ 
+input_data["f"] = 6
+input_data["e"] = 5
+input_data["d"] = 4
+input_data["c"] = 3
+input_data["b"] = 2
+input_data["a"] = 1
+ 
+print("Input data:")
+print(input_data)
+print()
+ 
+s = pandas.Series(input_data)
+ 
+print("Series:")
+print(s)
+print()
+ 
+print("Index:")
+print(s.index)
+print()
+ 
+print("Values:")
+print(s.values)
+print()
+```
+
+### Vytvoření nové datové řady z řady stávající – výběr prvků na základě jejich indexů
 
 ## Spojování datových rámců s využitím append, concat, merge a join
 
@@ -764,7 +1091,7 @@ plt.show()
 
 ## Práce se seskupenými záznamy, vytvoření multiindexů
 
-## Odkazy
+## Odkazy na další informační zdroje
 
 * Seriál: Knihovna Pandas 
   [https://www.root.cz/serialy/knihovna-pandas/](https://www.root.cz/serialy/knihovna-pandas/)
