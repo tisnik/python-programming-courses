@@ -1047,7 +1047,7 @@ print(s.values)
 print()
 ```
 
-### Pro statší Python (<3.8)
+### Pro starší Python (<3.8)
 
 * Zachování pořadí prvků
 
@@ -1084,6 +1084,521 @@ print()
 ```
 
 ### Vytvoření nové datové řady z řady stávající – výběr prvků na základě jejich indexů
+
+* Datovou řadu je možné vytvořit z řady již existující
+  - výběrem indexů těch prvků, které mají být přidány do nové řady
+* Podobně je možné změnit (mutovat) stávající datovou řadu
+* Pro oba účely se používá metoda nazvaná `pandas.Series.reindex`
+  - té se předá seznam, popř. pole indexů vybíraných prvků.
+
+```python
+import pandas
+ 
+s = pandas.Series(range(1, 7), ('a', 'b', 'c', 'd', 'e', 'f'))
+ 
+print("Series:")
+print(s)
+print()
+ 
+print("Index:")
+print(s.index)
+print()
+ 
+print("Values:")
+print(s.values)
+print()
+ 
+s = s.reindex(['d', 'a', 'b', 'c', 'd', 'a', 'a', 'a'])
+ 
+print("Reindexed:")
+print()
+ 
+print("Series:")
+print(s)
+print()
+ 
+print("Index:")
+print(s.index)
+print()
+ 
+print("Values:")
+print(s.values)
+print()
+```
+
+### Základní statistické informace o prvcích uložených v datové řadě
+
+```python
+import pandas
+ 
+s = pandas.Series(range(1, 7), ('a', 'b', 'c', 'd', 'e', 'f'))
+ 
+print("sum", s.sum(), sep="\t")
+print("prod", s.prod(), sep="\t")
+print("min", s.min(), sep="\t")
+print("max", s.max(), sep="\t")
+print("median", s.median(), sep="\t")
+print("std", s.std(), sep="\t")
+print("var", s.var(), sep="\t")
+print("quantile", s.quantile(0.01), sep="\t")
+```
+
+### Přeskočení chybějících hodnot při výpočtu statistických informací
+
+```python
+import pandas
+ 
+s = pandas.Series((1, 2, None, 4, 5, 6), ('a', 'b', 'c', 'd', 'e', 'f'))
+ 
+print("sum", s.sum(), sep="\t")
+print("prod", s.prod(), sep="\t")
+print("min", s.min(), sep="\t")
+print("max", s.max(), sep="\t")
+print("median", s.median(), sep="\t")
+print("std", s.std(), sep="\t")
+print("var", s.var(), sep="\t")
+print("quantile", s.quantile(0.01), sep="\t")
+```
+
+### Vektorové operace nad všemi prvky datové řady
+
+```python
+import numpy as np
+import pandas
+ 
+s1 = pandas.Series(range(1, 7), ('a', 'b', 'c', 'd', 'e', 'f'))
+ 
+print(s1 + 10)
+print(s1 - 10)
+print(s1 * 10)
+print(s1 / 10)
+ 
+print(s1 % 2)
+```
+
+### Relační operátory
+
+* Výsledkem je nová datová řada s hodnotami `True` a `False`
+
+```python
+import numpy as np
+import pandas
+ 
+s1 = pandas.Series(range(1, 7), ('a', 'b', 'c', 'd', 'e', 'f'))
+ 
+print(s1 > 3)
+print(s1 < 3)
+print(s1 % 2 == 0)
+```
+
+#### Hodnoty None a NA, které se vyhodnotí na False
+
+```python
+import numpy as np
+import pandas
+ 
+s1 = pandas.Series((1, 2, None, 4, 5, 6), ('a', 'b', 'c', 'd', 'e', 'f'))
+ 
+print(s1 > 3)
+print(s1 < 3)
+print(s1 % 2 == 0)
+```
+
+### Výběr prvků z datové řady na základě podmínky
+
+* Knihovna Pandas umožňuje výběr prvků z datové řady na základě vyhodnocení podmínky pro každý prvek
+* V tomto případě je nutné podmínku zapsat do hranatých (indexových) závorek
+* Pokud se podmínka vyhodnotí na `True`, bude prvek použit ve výsledku, v opačném případě bude zahozen
+* Vybírat tedy můžeme prvky menší nebo větší než nějaká hodnota, prvky dělitelné dvěma atd.
+
+```python
+import numpy as np
+import pandas
+ 
+s1 = pandas.Series(range(1, 7))
+s2 = pandas.Series(range(50))
+ 
+print(s1[s1<3])
+print(s1[s1>3])
+ 
+print(s2[s2 % 2 == 0])
+print(s2[s2 % 2 != 0])
+ 
+print(s2[s2 % 3 == 0])
+```
+
+* Nic nám ovšem nebrání provádět výběr na základě logické operace aplikované na odlišnou datovou řadu
+
+```python
+import numpy as np
+import pandas
+ 
+s1 = pandas.Series(range(1, 7))
+s2 = pandas.Series(range(-3, 3))
+ 
+print(s1[s2 >= 0])
+print(s1[s2 < 0])
+print(s1[s2 != 0])
+```
+
+### Konverze mezi různými datovými typy datové řady
+
+```python
+import pandas
+ 
+s = pandas.Series((100, 200, 300, 400, 500, 600))
+print(s.dtypes)
+print(s)
+print()
+ 
+s = s.astype('int32')
+print(s.dtypes)
+print(s)
+print()
+ 
+s =s.astype('int8')
+print(s.dtypes)
+print(s)
+```
+
+* Taktéž je možné využít automatickou konverzi na ten nejlepší datový typ
+
+```python
+import pandas
+ 
+s = pandas.Series((100, 200, 300, 400, 500, 600), dtype="float32")
+print(s.dtypes)
+print(s)
+print()
+ 
+s = s.convert_dtypes()
+print(s.dtypes)
+print(s)
+print()
+```
+
+### Vykreslení hodnot prvků z datové řady formou grafu
+
+* Založeno na knihovně Matplotlib
+
+```
+#    Metoda                       Stručný popis
+1    pandas.Series.plot           graf vybraný parametrem kind
+2    pandas.Series.plot.area      oblast pod průběhem je vyplněna barvou (pro kladné hodnoty)
+3    pandas.Series.plot.bar       sloupcový graf s vertikálně orientovanými sloupci
+4    pandas.Series.plot.barh      sloupcový graf s horizontálně orientovanými sloupci
+5    pandas.Series.plot.box       krabicový diagram
+6    pandas.Series.plot.density   diagram založený na KDE
+7    pandas.Series.plot.hist      histogram
+8    pandas.Series.plot.kde       diagram založený na KDE
+9    pandas.Series.plot.line      stejné jako pandas.Series.plot
+10   pandas.Series.plot.pie       koláčový diagram
+11   pandas.Series.hist           histogram
+```
+
+### Liniový (spojnicový) graf
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# tisk obsahu Series
+print(s)
+ 
+# vytvoření grafu
+s.plot()
+ 
+# uložení grafu
+plt.savefig("series_plot_01.png")
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Vyplnění plochy pod funkcí/hodnotami
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# tisk obsahu Series
+print(s)
+ 
+# vytvoření grafu
+s.plot.area(stacked=False)
+ 
+# uložení grafu
+plt.savefig("series_plot_02.png")
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Vertikální i horizontální sloupcové grafy
+
+* Vertikální sloupce
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 20)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# tisk obsahu Series
+print(s)
+ 
+# vytvoření grafu
+s.plot.bar(grid=True)
+ 
+# uložení grafu
+plt.savefig("series_plot_03.png")
+ 
+# vykreslení grafu
+plt.show()
+```
+
+* Horizontální sloupce
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 20)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# tisk obsahu Series
+print(s)
+ 
+# vytvoření grafu
+s.plot.barh(grid=True)
+ 
+# uložení grafu
+plt.savefig("series_plot_04.png")
+ 
+# vykreslení grafu
+plt.show()
+```
+
+
+### Graf s KDE (Kernel density estimation)
+
+* Narozdíl od histogramu umožňuje KDE lépe popsat skutečné chování dat, kterých se předpokládá, že tvoří spojitou funkc
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# tisk obsahu Series
+print(s)
+ 
+# vytvoření grafu
+s.plot.kde(grid=True)
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Koláčový diagram
+
+* Vstupní data
+
+```
+Sep 2020  Sep 2019  Change    Language           Ratings   Changep
+1         2         change    C                  15.95     +0.74
+2         1         change    Java               13.48     -3.18
+3         3                   Python             10.47     +0.59
+4         4                   C++                7.11      +1.48
+5         5                   C#                 4.58      +1.18
+6         6                   Visual Basic       4.12      +0.83
+7         7                   JavaScript         2.54      +0.41
+8         9         change    PHP                2.49      +0.62
+9         19        change    R                  2.37      +1.33
+10        8         change    SQL                1.76      -0.19
+11        14        change    Go                 1.46      +0.24
+12        16        change    Swift              1.38      +0.28
+13        20        change    Perl               1.30      +0.26
+14        12        change    Assembly language  1.30      -0.08
+15        15                  Ruby               1.24      +0.03
+16        18        change    MATLAB             1.10      +0.04
+17        11        change    Groovy             0.99      -0.52
+18        33        change    Rust               0.92      +0.55
+19        10        change    Objective-C        0.85      -0.99
+20        24        change    Dart               0.77      +0.13
+```
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce struktury Series - datové řady z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu Series
+print(s)
+ 
+# vytvoření grafu
+s.plot.pie()
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Data obsahující šum
+
+* Simulace šumu
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce datové struktury Series
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# šum
+s2 = np.random.rand(100)/2
+ 
+# přidání šumu k původní řadě
+s3 = s + s2
+ 
+# tisk obsahu Series
+print(s3)
+ 
+# vytvoření grafu
+s3.plot(grid=True)
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Vyhlazení průběhu na grafu
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# přidání šumu
+s2 = s.map(lambda x: x+np.random.rand()/2)
+ 
+# vyhlazení (moving average)
+s3 = s2.rolling(2).mean()
+ 
+# tisk obsahu Series
+print(s3)
+ 
+# vytvoření grafu
+s3.plot(grid=True)
+ 
+# vykreslení grafu
+plt.show()
+```
+
+* Širší vyhlazovaná oblast
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+# přidání šumu
+s2 = s.map(lambda x: x+np.random.rand()/2)
+ 
+# vyhlazení (moving average)
+s3 = s2.rolling(20).mean()
+ 
+# tisk obsahu Series
+print(s3)
+ 
+# vytvoření grafu
+s3.plot(grid=True)
+ 
+# vykreslení grafu
+plt.show()
+```
+
+* Váhování vzorků Gaussovou křivkou
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+s2 = s.map(lambda x: x+np.random.rand()/2)
+ 
+s3 = s2.rolling(10, win_type="gaussian").sum(std=3)
+ 
+# tisk obsahu Series
+print(s3)
+ 
+# vytvoření grafu
+s3.plot(grid=True)
+ 
+# vykreslení grafu
+plt.show()
+```
+
 
 ## Spojování datových rámců s využitím append, concat, merge a join
 
