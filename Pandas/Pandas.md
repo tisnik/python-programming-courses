@@ -1599,6 +1599,456 @@ s3.plot(grid=True)
 plt.show()
 ```
 
+### Graf s několika průběhy získanými z datové řady, použití podgrafů
+
+* Budeme muset zkombinovat možnosti knihoven Pandas i Matplotlib
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+s2 = s.map(lambda x: x+np.random.rand()/2)
+ 
+s3 = s2 - s
+ 
+# vytvoření grafu
+plt.plot(s, "--", s2, "-", s3, "-")
+ 
+# uložení grafu
+plt.savefig("series_plot_11.png")
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Podgrafy
+
+```python
+import numpy as np
+import pandas
+import matplotlib.pyplot as plt
+ 
+# hodnoty na x-ové ose
+r = np.linspace(0, 2*np.pi, 100)
+ 
+# konstrukce struktury Series - datové řady
+s = pandas.Series(data=np.sin(r), index=r)
+ 
+s2 = s.map(lambda x: x+np.random.rand()/2)
+ 
+s3 = s2 - s
+ 
+# vytvoření grafu
+plt.subplot(221)
+plt.plot(s)
+ 
+plt.subplot(222)
+plt.plot(s2)
+ 
+plt.subplot(223)
+plt.plot(s3)
+ 
+# uložení grafu
+plt.savefig("series_plot_12.png")
+ 
+# vykreslení grafu
+plt.show()
+```
+
+### Iterace přes všechny prvky datové řady
+
+* V každé iteraci se vrací tuple (n-tice)
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu Series
+print(s)
+ 
+# iterace nad prvky rady
+for index, value in s.items():
+    print("Index: {:20}  Value: {:5.3}".format(index, value))
+```
+
+#### Alternativní způsob s metodou `iteritems`
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu Series
+print(s)
+ 
+# iterace nad prvky rady
+for index, value in s.iteritems():
+    print("Index: {:20}  Value: {:5.3}".format(index, value))
+```
+
+### Aplikace vybrané funkce na všechny prvky datové řady
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print("In percents")
+print(s)
+print()
+ 
+# převod na skutečný poměr <0, 1>
+s2 = s.map(lambda x: x/100.0)
+ 
+# tisk obsahu nové datové řady
+print("As ratios")
+print(s2)
+```
+
+#### Naformátování hodnot v datové řadě
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print("In percents")
+print(s)
+print()
+ 
+# formát hodnot v datové řadě
+s2 = s.map("Rating is {:4.1f} %".format)
+ 
+# tisk obsahu nové datové řady
+print("As ratings")
+print(s2)
+```
+
+#### Transformace dat
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print("In percents")
+print(s)
+print()
+ 
+# převod na skutečný poměr <0, 1>
+s2 = s.transform(lambda x: x/100.0)
+ 
+# tisk obsahu nové datové řady
+print("As ratios")
+print(s2)
+```
+
+#### Obecnější transformace
+
+* Výsledkem bude nikoli jeden sloupec (tedy klasická datová řada), ale sloupce dva, které sdílí společný index
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print("In percents")
+print(s)
+print()
+ 
+# převod na skutečný poměr <0, 1>
+s2 = s.transform([lambda x: x, lambda x: x/100.0])
+ 
+# tisk obsahu nové datové řady
+print("In percents and also as ratios")
+print(s2)
+```
+
+### Agregace informací z datové řady
+
+```
+import pandas
+import numpy as np
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print("In percents")
+print(s)
+print()
+ 
+# agregace výsledků
+results = s.aggregate([np.min, np.max, np.sum, np.mean])
+ 
+# tisk výsledku
+print("Results")
+print(results)
+```
+
+### Kombinace údajů ze dvou datových řad, popř. datové řady a skalární hodnoty
+
+* Zkombinujeme (postupně) hodnotu prvků z datové řady s hodnotou 2, resp. 10
+* Přičemž kombinace bude provedena funkcemi `min` a `max`
+* V prvním případě tedy nahradíme ty prvky z řady, které jsou větší než 10 hodnotou 10
+* A následně ty prvky z řady, které jsou menší než 2 právě hodnotou 2
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print(s)
+print()
+ 
+# omezení hodnot
+results = s.combine(10, min)
+ 
+# tisk výsledku
+print("Bound (max)")
+print(results)
+ 
+# omezení hodnot
+results = results.combine(2, max)
+ 
+# tisk výsledku
+print("Bound (min)")
+print(results)
+```
+
+### Výběr hodnot na základě zadané podmínky metodou `Series.mask`
+
+* Tato metoda vrátí novou datovou řadu
+* Prvky odpovídající zadané podmínce maskovány hodnotou `NA` nebo `NaN`
+  - kterou je možné později odstranit
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print(s)
+print()
+ 
+# maskování hodnot
+results = s.mask(s > 10)
+ 
+# tisk výsledku
+print("Masked (max)")
+print(results)
+ 
+# maskování hodnot
+results = results.mask(s < 2)
+ 
+# tisk výsledku
+print("Masked (min)")
+print(results)
+```
+
+### Výběr hodnot na základě zadané podmínky metodou `Series.where`
+
+* Dokáže změnit vybrané prvky na určitou hodnotu
+  -  je tedy přesným opakem metody `Series.mask`
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print(s)
+print()
+ 
+# maskování hodnot
+results = s.where(s < 10, "Dobře")
+ 
+# tisk výsledku
+print(results)
+ 
+# maskování hodnot
+results = results.where(s > 2, "Nic moc")
+ 
+# tisk výsledku
+print(results)
+```
+
+### Skutečná filtrace dat kombinující `Series.where` a `Series.dropna`
+
+* V předchozích příkladech jsme „pouze“ nahrazovali prvky na základě splnění či nesplnění podmínky za hodnoty NaN, popř. NA
+* Tyto hodnoty je možné snadno z datové řady odstranit, a to s využitím metody `Series.dropna`:
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print(s)
+print()
+ 
+# maskování hodnot
+results = s.where(s < 10)
+ 
+# tisk výsledku
+print(results)
+ 
+results = results.dropna()
+ 
+# tisk nového výsledku
+print(results)
+```
+
+### Výběr prvků metodou `Series.filter`
+
+```
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# pro jistotu si datový rámec zobrazíme
+print(df)
+print()
+ 
+# konstrukce datové struktury Series (datové řady) z datového rámce
+s = pandas.Series(df["Ratings"])
+ 
+# tisk obsahu původní datové řady
+print(s)
+print()
+ 
+# maskování hodnot
+results = s.filter(regex="C.*")
+ 
+# tisk výsledku
+print(results)
+```
 
 ## Spojování datových rámců s využitím append, concat, merge a join
 
