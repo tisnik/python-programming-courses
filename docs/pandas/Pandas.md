@@ -2052,9 +2052,384 @@ print(results)
 
 ## Spojování datových rámců s využitím append, concat, merge a join
 
-## Použití metody groupby, naformátování a export tabulek pro tisk
+### Přidání nového datového sloupce odvozeného z existujícího sloupce
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# převod na skutečný poměr <0, 1>
+df["Ratings as ratio"] = df["Ratings"].map(lambda x: x/100.0)
+ 
+# datový rámec zobrazíme
+print(df)
+print()
+ 
+# podrobnější informace o datovém rámci
+print(df.dtypes)
+print()
+ 
+# více podrobnějších informací o datovém rámci
+print(df.info())
+print()
+```
+
+### Přepis původního sloupce „Ratings“ zkonvertovanými hodnotami:
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+ 
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# převod na skutečný poměr <0, 1>
+df["Ratings"] = df["Ratings"].map(lambda x: x/100.0)
+ 
+# datový rámec zobrazíme
+print(df)
+print()
+ 
+# podrobnější informace o datovém rámci
+print(df.dtypes)
+print()
+ 
+# více podrobnějších informací o datovém rámci
+print(df.info())
+print()
+```
+
+### Přímá aplikace funkce format bez nutnosti použití lambda výrazu:
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+ 
+import pandas
+ 
+# přečtení zdrojových dat
+df = pandas.read_csv("tiobe.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df.set_index("Language", inplace=True)
+ 
+# formát hodnot ve sloupci
+df["Ratings"] = df["Ratings"].map("Rating is {:4.1f}%".format)
+ 
+# datový rámec zobrazíme
+print(df)
+print()
+ 
+# podrobnější informace o datovém rámci
+print(df.dtypes)
+print()
+ 
+# více podrobnějších informací o datovém rámci
+print(df.info())
+print()
+```
+
+### Spojení datových rámců metodou `append`
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeC.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeD.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+concatenated = df1.append(df2)
+ 
+# výpis výsledku
+print(concatenated)
+```
+
+### Spojení rámců po sloupcích nebo po řádcích funkcí concat
+
+* Alternativní možnost spojení dvou datových rámců nabízí funkce nazvaná `concat`
+* Je aplikovatelná pro libovolný počet instancí třídy `DataFrame`
+* Tato funkce dokáže datové rámce spojit buď po sloupcích nebo po řádcích
+  - a to v závislosti na hodnotě parametru `axis`, který by měl obsahovat hodnotu 0 nebo 1 (popř. nebýt vůbec uveden)
+
+#### Spojení rámců po sloupcích
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeE.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeF.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+concatenated = pandas.concat([df1, df2], axis=1)
+ 
+# výpis výsledku
+print(concatenated)
+```
+
+#### Spojení rámců po řádcích
+
+```python```
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeC.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeD.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+concatenated = pandas.concat([df1, df2])
+ 
+# výpis výsledku
+print(concatenated)
+```
+
+### Funkce `merge`
+
+* Velmi často se setkáme s nutností spojit dvě tabulky, které sice obsahují
+  shodné sloupce, ovšem ne všechny řádky (resp. záznamy) nalezneme v obou
+  spojovaných tabulkách
+* Taková operace je zcela běžná v oblasti relačních databází (přesněji řečeno v
+  SQL databázích), kde pro ni existuje i klauzule JOIN.
+* Podle toho, jakým způsobem jsou do výsledku zařazeny ty záznamy, které nejsou
+  nalezeny v obou spojovaných tabulkách, rozlišujeme:
+   - vnitřní spojení (inner join)
+   - vnější spojení (outer join)
+* Vnější spojení je dále děleno na:
+   - úplně vnější spojení (outer join)
+   - vnější spojení zleva (left join)
+   - vnější spojení zprava (right join)
+
+#### Inner join (vnitřní spojení) založený na funkci `merge`
+
+* Operace vnitřního spojení neboli inner join dokáže automaticky spojit ty
+  řádky tabulek, které mají totožný obsah
+* Současně jsou i identifikovány sloupce se shodným názvem a typem (pokud
+  neurčíme jinak).
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeA.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeB.tsv", sep="\t")
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+merged = pandas.merge(df1, df2)
+ 
+# výpis výsledku
+print(merged)
+```
+
+* Spojení dvou datových rámců s explicitně nastavenými indexy získanými ze sloupce „Language“:
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeA.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeB.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+merged = pandas.merge(df1, df2)
+ 
+# výpis výsledku
+print(merged)
+```
+
+* Předchozí demonstrační příklad lze rozšířit specifikací těch sloupců, které
+  se skutečně mají spojit. To zařizuje nepovinný parametr on (což opět
+  připomíná SQL konstrukci JOIN xxx ON):
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeA.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeB.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+merged = pandas.merge(df1, df2, left_index=True, right_index=True,
+                      on=["Change", "Ratings", "Changep"])
+
+# výpis výsledku
+print(merged)
+```
+
+#### Left join (vnější spojení „zleva“) založený na funkci `merge`
+
+* Toto spojení je specifikováno parametrem how nastaveným na hodnotu „left“
+  (jedná se o řetězec)
+* Ve výsledném datovém rámci budou za všech okolností všechny řádky z levého
+  rámce, a to i ve chvíli, kdy k nim nebyly nalezeny odpovídající řádky v
+  pravém rámci
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeA.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeB.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+merged = pandas.merge(df1, df2, left_index=True, right_index=True,
+                      how="left",
+                      on=["Change", "Ratings", "Changep"])
+ 
+# výpis výsledku
+print(merged)
+```
+
+#### Right join (vnější spojení „zprava“) založený na funkci `merge`
+
+* Toto spojení je specifikováno parametrem how nastaveným na hodnotu „right“
+  (opět se jedná o řetězec)
+* Ve výsledném datovém rámci budou za všech okolností všechny řádky z pravého
+  rámce, a to i ve chvíli, kdy k nim nebyly nalezeny odpovídající řádky v levém
+  rámci
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeA.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeB.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+merged = pandas.merge(df1, df2, left_index=True, right_index=True,
+                      how="right",
+                      on=["Change", "Ratings", "Changep"])
+ 
+# výpis výsledku
+print(merged)
+```
+
+#### Outer join (vnější spojení) založený na funkci `merge`
+
+```python
+import pandas
+ 
+# přečtení zdrojových dat
+df1 = pandas.read_csv("tiobeA.tsv", sep="\t")
+df2 = pandas.read_csv("tiobeB.tsv", sep="\t")
+ 
+# specifikace indexu - má se získat ze sloupce Language
+df1.set_index("Language", inplace=True)
+df2.set_index("Language", inplace=True)
+ 
+# datové rámce zobrazíme
+print(df1)
+print()
+print(df2)
+print()
+ 
+# spojení obou datových rámců
+merged = pandas.merge(df1, df2, left_index=True, right_index=True,
+                      how="outer",
+                      on=["Change", "Ratings", "Changep"])
+ 
+# výpis výsledku
+print(merged)
+```
+
+## Použití metody `groupby`, naformátování a export tabulek pro tisk
+
+### Metoda `groupby`
+
+* Jedná se o metodu, která umožňuje údaje z datových rámců rozdělit do
+* Údaje z každé skupiny nějakým způsobem agregují
+  - například se zjistí jejich počet, součet hodnot ve vybraném sloupci atd.
+
 
 ## Práce se seskupenými záznamy, vytvoření multiindexů
+
+
 
 ## Odkazy na další informační zdroje
 
