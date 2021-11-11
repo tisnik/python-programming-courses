@@ -3,3 +3,4 @@
 # Obsah repositáře
 
 * [Jazyk Python - základy programování](Python1/Python1.md)
+* [Jazyk Python - pokročilé techniky](Python2/Python2.md)
