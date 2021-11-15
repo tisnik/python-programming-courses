@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Převod objektu na řetězec."""
+
+
 class Complex:
 
     def __init__(self, real=0, imag=0):
