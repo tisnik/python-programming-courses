@@ -1,6 +1,14 @@
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Třída představující komplexní čísla."""
+
+
 class Complex:
+    """Třída představující komplexní čísla."""
 
     def __init__(self, real=0, imag=0):
+        """Konstruktor."""
         self._real = real
         self._imag = imag
 
