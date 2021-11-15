@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Přetížení speciální metody pri převod objektu na řetězec."""
+
 
 class Employee:
     """Třída reprezentující zaměstnance."""
