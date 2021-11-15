@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Přetížení speciální metody pro porovnání dvou objektů."""
+
 
 class Employee:
     """Třída reprezentující zaměstnance."""
