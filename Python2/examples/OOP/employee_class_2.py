@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
 
+"""Vylepšení metody pro výpis hodnoty objektu."""
+
 
 class Employee:
     """Třída reprezentující zaměstnance."""
