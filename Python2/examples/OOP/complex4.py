@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Součet komplexních čísel."""
+
+
 class Complex:
 
     def __init__(self, real=0, imag=0):
