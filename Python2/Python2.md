@@ -7,7 +7,16 @@
 
 ---
 
+
+
 ## Obsah kurzu
+
+* Objektově orientované konstrukce v jazyku Python
+    - Použitá terminologie
+    - Definice třídy
+    - Atributy
+    - Metody
+    - Objekty
 
 * Pokročilé OOP techniky
     - Magické metody
@@ -56,6 +65,8 @@
 
 --
 
+
+
 ## Objektově orientované konstrukce v jazyku Python
 
 * Použitá terminologie
@@ -63,12 +74,110 @@
 * Atributy
 * Metody
 * Objekty
-* Dědičnost
-* Speciální metody
+
+
+
+### Použitá terminologie
+
+* Třída
+    - data+funkce+(zapouzdření)
+* Předek, potomek
+* Objekt
+    - instance třídy
+* Metoda
+* Atribut
+    - objektu
+    - třídní
+* Konstruktor
+
+
+
+### Definice třídy
+
+* Třída představuje nový uživatelsky definovaný datový typ
+* Současně obsahuje předpis metod
+* Může obsahovat i statické atributy popř. třídní atributy
+* V Pythonu však neobsahuje definice atributů objektů!
+    - je to dynamický jazyk
+
+! examples/OOP/employee_class_0.py
+
+
+
+### Objekty
+
+* Instance třídy
+* Jedna třída více objektů
+
+! examples/OOP/employee_class_1.py
+
+
+
+### Atributy tříd a objektů
+
+* Datové položky
+* Vytvářené explicitně pro každou instanci třídy
+    - typicky v konstruktoru
+* Přístup k atributům
+    - interně přes `self`
+    - externě pomocí "tečkové notace"
+* Třídní/statický atribut
+    - deklarován přímo ve třídě
+    - sdílený všemi instancemi
+    - přístup přes `JménoTřídy.jménoAtributu`
+    - mohou být pojmenovány stejně jako atributy objektu
+
+! examples/OOP/class_attribute.py
+
+
+
+### Konstruktor
+
+* Zavolán při konstrukci objektu
+
+! examples/OOP/employee_class_2.py
+
+
+
+### Metody
+
+* Funkce, které mají přístup k datovým položkám
+    - přístup přes `self`
+    - zavolání pomocí "tečkové notace"
+
+```python
+    def display_employee(self):
+        print("Full name: ", self._first_name, self._surname, "   Salary: ", self._salary)
+```
+
+* Celý skript
+
+! examples/OOP/employee_class_3.py
+
+* Vylepšení formátování výstupu
+
+! examples/OOP/employee_class_4.py
+
+
 
 --
 
 ## Pokročilé OOP techniky
+
+
+### Speciální metoda `__str__`
+
+* Zavolána při převodu objektu na řetězec
+
+! examples/OOP/employee_class_5.py
+
+
+
+### Speciální metoda `__eq__`
+
+* Zavolána při porovnávání objektů
+
+! examples/OOP/employee_class_6.py
 
 --
 
