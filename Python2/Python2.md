@@ -158,8 +158,6 @@
 
 ! examples/OOP/employee_class_4.py
 
-
-
 --
 
 ## Pokročilé OOP techniky
@@ -179,6 +177,37 @@
 
 ! examples/OOP/employee_class_6.py
 
+
+### Dedičnost
+
+! examples/OOP/inheritance1.py
+! examples/OOP/inheritance2.py
+! examples/OOP/inheritance3.py
+! examples/OOP/inheritance4.py
+! examples/OOP/inheritance5.py
+
+### Polymorfismus
+
+! examples/OOP/polymorphism1.py
+! examples/OOP/polymorphism2.py
+
+### Atributy třídy
+
+! examples/OOP/class_method.py
+
+### Statické atributy
+
+! examples/OOP/static_method1.py
+! examples/OOP/static_method2.py
+
+### Třída reprezentující komplexní čísla
+
+! examples/OOP/complex1.py
+! examples/OOP/complex2.py
+! examples/OOP/complex3.py
+! examples/OOP/complex4.py
+! examples/OOP/complex5.py
+
 --
 
 ## Základy funkcionálního programování v Pythonu
@@ -186,6 +215,12 @@
 * Lambda výrazy
 * Generátorová notace seznamu
 * Funkce vyššího řádu
+* Zkrácené logické výrazy
+
+### Lambda výrazy
+### Generátorová notace seznamu
+### Funkce vyššího řádu
+### Zkrácené logické výrazy
 
 --
 
