@@ -19,7 +19,7 @@
     - Objekty
 
 * Pokročilé OOP techniky
-    - Magické metody
+    - Magické/speciální metody
     - Dědičnost, polymorfismus
     - Properties
     - Statické metody
@@ -162,8 +162,23 @@
 
 ## Pokročilé OOP techniky
 
+* Magické/speciální metody
+* Dědičnost, polymorfismus
+* Properties
+* Statické metody
+
 ### Speciální metody
 
+* Použity pro takzvané přetěžování operátorů
+    - aritmetické operátory
+    - relační operátory
+* Ovšem nelze modifikovat
+    - prioritu operátorů
+    - asociativitu operátorů
+* Některé volány ve specifických situacích
+    - konstruktor objektu
+    - přístup k atributům objektu, mazání atributu
+    - převod objektu na řetězec
 * Seznam speciálních metod
 
 ```
