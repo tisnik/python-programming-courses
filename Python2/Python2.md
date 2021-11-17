@@ -162,6 +162,67 @@
 
 ## Pokročilé OOP techniky
 
+### Speciální metody
+
+* Seznam speciálních metod
+
+```
+__init__
+__str__
+__repr__
+__hash__
+__call__
+__iter__
+__getattr__
+__getattribute__
+__setattr__
+__delattr__
+
+__eq__  x, y   x == y
+__ne__  x, y   x != y
+__lt__  x, y   x < y
+__gt__  x, y   x > y
+__le__  x, y   x <= y
+__ge__  x, y   x >= y
+```
+
+```
+__add__        binární + operátor
+__sub__        binární - operátor
+__mul__        * operátor
+__div__        / operátor
+__floordiv__   // operátor (P2)
+__truediv__    / operátor (P3)
+__mod__        % operátor
+__pow__        ** operátor or pow(x, y, z)
+__neg__        unární - operátor
+__pos__        unární + operátor
+__abs__        absolutní hodnota
+__nonzero__    konverze na Boolean
+__invert__     ~ operátor
+__lshift__     << operátor
+__rshift__     >> operátor
+__and__        & operátor
+__or__  x, y   | operátor
+__xor__        ^ operátor
+```
+
+```
+__iadd__       += operátor
+__isub__       -= operátor
+__imul__       *= operátor
+__idiv__       /= operátor (P2)
+__ifloordiv__  //= operátor
+__itruediv__   /= operátor (P3)
+__imod__       %= operátor
+__ipow__       **= operátor
+__ilshift__    <<= operátor
+__irshift__    >>= operátor
+__iand__       &= operátor
+__ior__        |= operátor
+__ixor__       ^= operátor
+```
+
 
 ### Speciální metoda `__str__`
 
