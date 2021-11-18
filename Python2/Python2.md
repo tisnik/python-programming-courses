@@ -325,7 +325,46 @@ __ixor__       ^= operátor
 ! examples/Functional/list_comprehension.py
 
 ### Funkce vyššího řádu
+
+* Funkce `map`
+
+! examples/Functional/map_function.py
+
+! examples/Functional/map_function2.py
+
+* Funkce `filter`
+
+! examples/Functional/filter_function.py
+
+* Funkce `reduce`
+    - musí být importována z balíčku `functools`
+
+! examples/Functional/reduce_function.py
+
+! examples/Functional/reduce_sum.py
+
+
 ### Zkrácené logické výrazy
+
+* Druhý operand je vyhodnocen pouze v případě, že není dopředu známý výsledek výrazu
+    - `x and y` - pokud `x==False`, není nutné vyhodnotit `y`
+    - `x or y` - pokud `x==True`, není nutné vyhodnotit `y`
+
+! examples/Functional/short_circuit_1.py
+
+! examples/Functional/short_circuit_2.py
+
+! examples/Functional/short_circuit_3.py
+
+! examples/Functional/short_circuit_4.py
+
+! examples/Functional/short_circuit_5.py
+
+! examples/Functional/short_circuit_6.py
+
+! examples/Functional/short_circuit_7.py
+
+! examples/Functional/short_circuit_8.py
 
 --
 
