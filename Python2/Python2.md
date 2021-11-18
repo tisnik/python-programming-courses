@@ -293,8 +293,37 @@ __ixor__       ^= operátor
 * Funkce vyššího řádu
 * Zkrácené logické výrazy
 
+
+
 ### Lambda výrazy
+
+* Anonymní funkce
+* Lze použít na místech, kde se očekává reference na funkci (map atd.)
+* Implicitní `return`
+* V Pythonu některá omezení
+    - jeden výraz v těle funkce
+    - žádné příkazy (skutečně jen výraz)
+
+* Lambda výraz s parametry
+
+! examples/Functional/lambda1.py
+
+* Lambda výraz bez parametrů
+
+! examples/Functional/lambda2.py
+
+* Někdy je zapotřebí parametr ignorovat
+
+! examples/Functional/lambda3.py
+
+
+
 ### Generátorová notace seznamu
+
+* List comprehension
+
+! examples/Functional/list_comprehension.py
+
 ### Funkce vyššího řádu
 ### Zkrácené logické výrazy
 
@@ -309,6 +338,24 @@ __ixor__       ^= operátor
 --
 
 ## CPython a jeho alternativy
+
+### Implementace Pythonu
+
+* Nejpoužívanější implementace
+    - CPython
+    - Jython
+    - Iron Python
+    - Pypy
+
+* Další implementace
+    - Psyco
+    - Stackles Python
+    - MicroPython
+
+* Speciální implementace
+    - Cython
+    - RPython
+    - Numba
 
 --
 
