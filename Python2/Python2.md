@@ -415,6 +415,38 @@ __ixor__       ^= operátor
 
 ### Dekorátory
 
+* Funkce vracející jinou funkci
+    - jedná se tedy o funkci vyššího řádu
+    - ovšem s odlišnou formou zápisu, která je uživatelsky přívětivá
+    - lze použít větší množství dekorátorů
+
+! examples/decorators/return_function.py
+
+* Přepis předchozího příkladu jako dekorátoru
+
+! examples/decorators/decorator.py
+
+* Užitečný dekorátor - měření času
+
+! examples/decorators/measure_time.py
+
+
+
+### Větší množství dekorátorů
+
+* Bez dekorátorů
+
+! examples/decorators/decorators1.py
+
+* Jeden dekorátor
+    
+! examples/decorators/decorators2.py
+
+* Dva dekorátory
+
+! examples/decorators/decorators3.py
+
+
 --
 
 ## Tvorba skriptů v Pythonu
