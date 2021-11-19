@@ -419,12 +419,38 @@ if __name__ == "__main__":
     - poměrně nešikovná práce
     - existují i lepší způsoby
 
+* Využití knihovny `argparse`
+
 --
 
 ## Standardní knihovna, zajímavé moduly a balíčky
 
 * Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
     - https://docs.python.org/3/library/index.html
+
+### Práce s formátem JSON
+
+* Serializace a deserializace dat
+    - primitivní hodnoty
+    - seznamy
+    - n-tice
+    - slovníky
+    - slovníky ve slovnících atd.
+
+* Introducing JSON
+    - (https://www.json.org/json-en.html)[https://www.json.org/json-en.html]
+
+* Výstup datové struktury do formátu JSON
+
+! examples/stdlib/json_output_1.py
+
+* Zajištění lepší čitelnosti JSON výstupu
+
+! examples/stdlib/json_output_2.py
+
+* Přečtení datového souboru uloženého ve formátu JSON
+
+! examples/stdlib/json_input.py
 
 --
 
