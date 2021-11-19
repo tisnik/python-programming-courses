@@ -114,7 +114,11 @@ class Employee:
 ### Objekty
 
 * Instance třídy
-* Jedna třída více objektů
+* Z jedné třídy lze vytvořit více objektů
+    - dtto pro další datové typy
+    - (seznam, slovník, celé číslo)
+* Třída -> datový typ
+* Objekt -> hodnota daného datového typu
 
 ```python
 """Kostra jednoduché třídy reprezentující zaměstnance."""
@@ -166,7 +170,7 @@ print(c1.x)
 
 ### Konstruktor
 
-* Zavolán při konstrukci objektu
+* Zavolán automaticky při konstrukci objektu
 
 ```python
 #!/usr/bin/env python3
@@ -200,7 +204,7 @@ print(employee2._first_name)
 
 * Funkce, které mají přístup k datovým položkám
     - přístup přes `self`
-    - zavolání pomocí "tečkové notace"
+    - zavolání s využitím "tečkové notace"
 
 ```python
     def display_employee(self):
@@ -283,6 +287,7 @@ employee2.display_employee()
 * Properties
 * Statické metody
 
+
 ### Speciální metody
 
 * Použity pro takzvané přetěžování operátorů
@@ -308,7 +313,9 @@ __getattr__
 __getattribute__
 __setattr__
 __delattr__
+```
 
+```
 __eq__  x, y   x == y
 __ne__  x, y   x != y
 __lt__  x, y   x < y
@@ -358,6 +365,7 @@ __ixor__       ^= operátor
 ### Speciální metoda `__str__`
 
 * Zavolána při převodu objektu na řetězec
+* Lze ji přetížit její (re)definicí
 
 ```python
 #!/usr/bin/env python3
@@ -1118,22 +1126,382 @@ print(c3 == c5)
 * Funkce vyššího řádu
 * Zkrácené logické výrazy
 
+
+
 ### Lambda výrazy
+
+* Anonymní funkce
+* Lze použít na místech, kde se očekává reference na funkci (map atd.)
+* Implicitní `return`
+* V Pythonu některá omezení
+    - jeden výraz v těle funkce
+    - žádné příkazy (skutečně jen výraz)
+
+* Lambda výraz s parametry
+
+```python
+f = lambda x, y : x + y
+print(f(1,2))
+```
+
+* Lambda výraz bez parametrů
+
+```python
+f = lambda : "hello"
+print(f())
+```
+
+* Někdy je zapotřebí parametr ignorovat
+
+```python
+f = lambda _: "hello"
+print(f("foo"))
+```
+
+
+
 ### Generátorová notace seznamu
+
+* List comprehension
+
+```python
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+seznam2 = [item*2 for item in seznam]
+
+seznam3 = [item for item in seznam if item % 3 == 0]
+
+print(seznam)
+print(seznam2)
+print(seznam3)
+```
+
 ### Funkce vyššího řádu
+
+* Funkce `map`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Funkce vyššího řádu map."""
+
+x = range(10)
+
+print(x)
+
+y = map(lambda value: value*2, x)
+print(list(y))
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Funkce vyššího řádu map."""
+
+def inc(x):
+    return x+1
+
+x = range(10)
+
+print(x)
+
+y = map(inc, x)
+print(list(y))
+```
+
+* Funkce `filter`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Funkce vyššího řádu filter."""
+
+x = range(20)
+
+print(x)
+
+y = filter(lambda value: value % 3 == 0, x)
+print(list(y))
+```
+
+* Funkce `reduce`
+    - musí být importována z balíčku `functools`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Funkce vyššího řádu reduce."""
+
+from functools import reduce
+
+x = range(1, 11)
+
+print(x)
+
+y = reduce(lambda a, b: a*b, x)
+print(y)
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Funkce vyššího řádu reduce."""
+
+from functools import reduce
+
+x = range(1, 101)
+
+print(x)
+
+y = reduce(lambda a, b: a+b, x)
+print(y)
+```
+
+
 ### Zkrácené logické výrazy
+
+* Druhý operand je vyhodnocen pouze v případě, že není dopředu známý výsledek výrazu
+    - `x and y` - pokud `x==False`, není nutné vyhodnotit `y`
+    - `x or y` - pokud `x==True`, není nutné vyhodnotit `y`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return False
+
+def y():
+    print("y() called")
+    return False
+
+if x() or y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return True
+
+def y():
+    print("y() called")
+    return False
+
+if x() or y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return False
+
+def y():
+    print("y() called")
+    return True
+
+if x() or y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return True
+
+def y():
+    print("y() called")
+    return True
+
+if x() or y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return False
+
+def y():
+    print("y() called")
+    return False
+
+if x() and y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return True
+
+def y():
+    print("y() called")
+    return False
+
+if x() and y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return False
+
+def y():
+    print("y() called")
+    return True
+
+if x() and y():
+    print("if branch")
+else:
+    print("else branch")
+```
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zkrácené vyhodnocení logických operátorů."""
+
+def x():
+    print("x() called")
+    return True
+
+def y():
+    print("y() called")
+    return True
+
+if x() and y():
+    print("if branch")
+else:
+    print("else branch")
+```
 
 --
 
 ## Tvorba skriptů v Pythonu
 
+* skript vs. nativní binární soubor
+    - magické číslo
+    - "shebang"
+
+* vstupní bod aplikace
+    - lze rozlišit import vs. spuštění z příkazového řádku
+
+* parametry na příkazovém řádku
+    - ukázka zpracování parametrů
+
+### Shebang
+
+* Rozpoznáván na prvním textovém řádku!
+    - nelze přemístit
+
+```python
+#!/usr/bin/env python3
+```
+
+* Většinou je vhodné uvést i kódování
+    - existuje několik způsobů
+    - následující způsob je rozpoznán interpretrem
+
+```python
+# vim: set fileencoding=utf-8
+```
+
+### Vstupní bod aplikace (skriptu)
+
+```python
+if __name__ == "__main__":
+    main()
+```
+
+### Zpracování parametrů předaných při spouštění skriptů
+
+* Dostupné přes `sys.argv`
+    - `len(sys.argv)` pro počet předaných parametrů
+    - poměrně nešikovná práce
+    - existují i lepší způsoby
+
 --
 
 ## Standardní knihovna, zajímavé moduly a balíčky
 
+* Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
+    - https://docs.python.org/3/library/index.html
+
 --
 
 ## CPython a jeho alternativy
+
+### Implementace Pythonu
+
+* Nejpoužívanější implementace
+    - CPython
+    - Jython
+    - Iron Python
+    - Pypy
+
+* Další implementace
+    - Psyco
+    - Stackles Python
+    - MicroPython
+
+* Speciální implementace
+    - Cython
+    - RPython
+    - Numba
 
 --
 
@@ -1149,3 +1517,21 @@ print(c3 == c5)
 
 --
 
+---
+
+## Užitečné odkazy
+
+* Python Quick Reference: http://rgruet.free.fr/#QuickRef
+* Python docs: http://www.python.org/doc/
+* PEP 8: http://www.python.org/dev/peps/pep-0008/
+* pep8.py: http://pypi.python.org/pypi/pep8/
+* pylint: http://www.logilab.org/project/pylint
+* Epydoc: http://epydoc.sourceforge.net/
+* Sphinx: http://sphinx-doc.org/
+* Python in Python: http://pypy.org/
+* The key differences between Python 2.7.x and Python 3.x with examples: http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+* Language differences and workarounds: http://python3porting.com/differences.html
+* Everything you did not want to know about Unicode in Python 3: http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/
+* Unicode (Wikipedia): https://en.wikipedia.org/wiki/Unicode
+* Dive Into Python: http://www.diveintopython.net/
+* Dive into Python 3: http://www.diveintopython3.net/
