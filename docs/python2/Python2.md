@@ -24,19 +24,22 @@
     - Properties
     - Statické metody
 
-* Pokročilé konstrukty jazyka
-    - Generátory a iterátory
-    - Generátorová notace
-    - Dekorátory
-
 * Základy funkcionálního programování v Pythonu
     - Lambda výrazy
     - Anonymní funkce, first-class funkce, rekurze, closures, ...
     - Map, reduce, filter
     - Zkrácené logické výrazy
 
+* Pokročilé konstrukty jazyka Python
+    - Generátory a iterátory
+    - Generátorová notace
+    - Dekorátory
+
 * Tvorba skriptů v Pythonu
     - Psaní skriptů
+    - Parametry na příkazové řádce
+    - Návratové hodnoty
+    - Přesměrování vstupů a výstupů
 
 * Standardní knihovna, zajímavé moduly a balíčky
     - Přehled modulů a balíčků standardní knihovny
@@ -1176,6 +1179,8 @@ print(seznam2)
 print(seznam3)
 ```
 
+
+
 ### Funkce vyššího řádu
 
 * Funkce `map`
@@ -1261,6 +1266,7 @@ print(x)
 y = reduce(lambda a, b: a+b, x)
 print(y)
 ```
+
 
 
 ### Zkrácené logické výrazy
@@ -1431,6 +1437,259 @@ else:
 
 --
 
+## Pokročilé konstrukty jazyka Python
+
+* Generátory a iterátory
+* Dekorátory
+
+
+
+### Generátory
+
+* Běžná funkce, která vygenruje seznam o zadané délce
+
+```python
+def n_items(max_n):
+    n, numbers = 0, []
+    while n <= max_n:
+        numbers.append(n)
+        n += 1
+    return numbers
+
+
+lst = n_items(20)
+print(lst)
+```
+
+* Generátor seznamu o zadané délce
+
+```python
+def generator(max_n):
+    n = 0
+    while n < max_n:
+        yield n
+        n += 1
+
+
+for i in generator(10000):
+    print(i)
+    if i >= 10:
+        break
+```
+
+* Generátor seznamu o nekonečné (neomezené) délce
+
+```python
+def infinite_generator():
+    n = 0
+    while True:
+        yield n
+        n += 1
+
+
+for i in infinite_generator():
+    print(i)
+    if i >= 10:
+        break
+```
+
+* Generátor konečného seznamu implementovaný jako třída
+
+```python
+class generator():
+
+    def __init__(self, max_n):
+        self.max_n = max_n
+        self.n = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.n < self.max_n:
+            current, self.n = self.n, self.n+1
+            return current
+        raise StopIteration()
+
+
+for i in generator(10000):
+    print(i)
+    if i >= 10:
+        break
+```
+
+* Generátor nekonečného seznamu implementovaný jako třída
+
+```python
+class infinite_generator():
+
+    def __init__(self):
+        self.n = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        current, self.n = self.n, self.n+1
+        return current
+
+
+for i in infinite_generator():
+    print(i)
+    if i >= 10:
+        break
+
+```
+
+
+
+### Dekorátory
+
+* Funkce vracející jinou funkci
+    - jedná se tedy o funkci vyššího řádu
+    - ovšem s odlišnou formou zápisu, která je uživatelsky přívětivá
+    - lze použít větší množství dekorátorů
+
+```python
+def function_caller(function):
+
+    def inner_function():
+        print("Calling function...")
+        function()
+        print("...done")
+
+    return inner_function
+
+
+def hello():
+    print("Hello!")
+
+
+f = function_caller(hello)
+f()
+```
+
+* Přepis předchozího příkladu jako dekorátoru
+
+```python
+def function_caller(function):
+
+    def inner_function():
+        print("Calling function...")
+        function()
+        print("...done")
+
+    return inner_function
+
+
+@function_caller
+def hello():
+    print("Hello!")
+
+
+hello()
+```
+
+* Užitečný dekorátor - měření času
+
+```python
+# Original code:
+# https://pythonbasics.org/decorators/#Real-world-examples
+
+
+import time
+
+
+def measure_time(func):
+
+    def wrapper(*arg):
+        t = time.time()
+        res = func(*arg)
+        print("Function took " + str(time.time()-t) + " seconds to run")
+        return res
+
+    return wrapper
+
+
+@measure_time
+def tested_function(n):
+    time.sleep(n)
+
+
+tested_function(1)
+tested_function(2)
+```
+
+
+
+### Větší množství dekorátorů
+
+* Bez dekorátorů
+
+```python
+def hello():
+    print("Hello!")
+
+
+hello()
+```
+
+* Jeden dekorátor
+    
+```python
+def wrapper1(function):
+
+    def inner_function():
+        print("-"*40)
+        function()
+        print("-"*40)
+
+    return inner_function
+
+
+@wrapper1
+def hello():
+    print("Hello!")
+
+
+hello()
+```
+
+* Dva dekorátory
+
+```python
+def wrapper1(function):
+
+    def inner_function():
+        print("-"*40)
+        function()
+        print("-"*40)
+
+    return inner_function
+
+
+def wrapper2(function):
+
+    def inner_function():
+        print("="*40)
+        function()
+        print("="*40)
+
+    return inner_function
+
+
+@wrapper1
+@wrapper2
+def hello():
+    print("Hello!")
+
+
+hello()
+```
+
+
+--
+
 ## Tvorba skriptů v Pythonu
 
 * skript vs. nativní binární soubor
@@ -1472,9 +1731,66 @@ if __name__ == "__main__":
 * Dostupné přes `sys.argv`
     - `len(sys.argv)` pro počet předaných parametrů
     - poměrně nešikovná práce
-    - existují i lepší způsoby
+    - existují ovšem i lepší způsoby
 
 * Využití knihovny `argparse`
+
+### Příklad využití knihovny `argparse`
+
+```python
+#!/usr/bin/env python3
+
+from argparse import ArgumentParser
+
+def cli_arguments():
+    """Retrieve all CLI arguments provided by user."""
+    # First of all, we need to specify all command line flags that are
+    # recognized by this tool.
+    parser = ArgumentParser()
+
+    # All supported command line arguments and flags
+    parser.add_argument("-a", "--address", dest="address", required=False,
+                        help="Address of REST API for external data pipeline")
+
+    parser.add_argument("-u", "--user", dest="user", required=False,
+                        help="User name for basic authentication")
+
+    parser.add_argument("-p", "--password", dest="password", required=False,
+                        help="Password for basic authentication")
+
+    parser.add_argument("-i", "--input", dest="input", default=None, required=False,
+                        help="Specification of input file (with list of clusters, for example)")
+
+    parser.add_argument("-c", "--compare-results", dest="compare_results", action="store_true",
+                        default=None, required=False,
+                        help="Compare two sets of results, each set stored in its own directory")
+
+    parser.add_argument("-e", "--export", dest="export_file_name", required=False,
+                        default="report.csv",
+                        help="Name of CSV file with exported comparison results")
+
+    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=None,
+                        help="Make messages verbose", required=False)
+
+    # Now it is time to parse flags, check the actual content of command line
+    # and fill-in the object named `args`.
+    return parser.parse_args()
+
+
+def main():
+    """Entry point to this script."""
+    # Parse and process and command line arguments.
+    args = cli_arguments()
+
+    # Verbosity flag
+    verbose = args.verbose
+
+
+# If this script is started from command line, run the `main` function which is
+# entry point to the processing.
+if __name__ == "__main__":
+    main()
+```
 
 --
 
@@ -1564,6 +1880,23 @@ with open("test.json", "r") as fin:
     - Cython
     - RPython
     - Numba
+
+* Python pro webový browser
+    - Brython
+
+### CPython
+
+### Jython
+
+### Iron Python
+
+### Pypy
+
+### MicroPython
+
+### RPython
+
+### Numba
 
 --
 
