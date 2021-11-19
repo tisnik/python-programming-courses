@@ -24,19 +24,22 @@
     - Properties
     - Statické metody
 
-* Pokročilé konstrukty jazyka
-    - Generátory a iterátory
-    - Generátorová notace
-    - Dekorátory
-
 * Základy funkcionálního programování v Pythonu
     - Lambda výrazy
     - Anonymní funkce, first-class funkce, rekurze, closures, ...
     - Map, reduce, filter
     - Zkrácené logické výrazy
 
+* Pokročilé konstrukty jazyka Python
+    - Generátory a iterátory
+    - Generátorová notace
+    - Dekorátory
+
 * Tvorba skriptů v Pythonu
     - Psaní skriptů
+    - Parametry na příkazové řádce
+    - Návratové hodnoty
+    - Přesměrování vstupů a výstupů
 
 * Standardní knihovna, zajímavé moduly a balíčky
     - Přehled modulů a balíčků standardní knihovny
@@ -332,6 +335,8 @@ __ixor__       ^= operátor
 
 ! examples/Functional/list_comprehension.py
 
+
+
 ### Funkce vyššího řádu
 
 * Funkce `map`
@@ -350,6 +355,7 @@ __ixor__       ^= operátor
 ! examples/Functional/reduce_function.py
 
 ! examples/Functional/reduce_sum.py
+
 
 
 ### Zkrácené logické výrazy
@@ -373,6 +379,41 @@ __ixor__       ^= operátor
 ! examples/Functional/short_circuit_7.py
 
 ! examples/Functional/short_circuit_8.py
+
+--
+
+## Pokročilé konstrukty jazyka Python
+
+* Generátory a iterátory
+* Dekorátory
+
+
+
+### Generátory
+
+* Běžná funkce, která vygenruje seznam o zadané délce
+
+! examples/generators/gen_list.py
+
+* Generátor seznamu o zadané délce
+
+! examples/generators/function_generator_1.py
+
+* Generátor seznamu o nekonečné (neomezené) délce
+
+! examples/generators/function_generator_2.py
+
+* Generátor konečného seznamu implementovaný jako třída
+
+! examples/generators/generator_class_1.py
+
+* Generátor nekonečného seznamu implementovaný jako třída
+
+! examples/generators/generator_class_2.py
+
+
+
+### Dekorátory
 
 --
 
@@ -417,9 +458,13 @@ if __name__ == "__main__":
 * Dostupné přes `sys.argv`
     - `len(sys.argv)` pro počet předaných parametrů
     - poměrně nešikovná práce
-    - existují i lepší způsoby
+    - existují ovšem i lepší způsoby
 
 * Využití knihovny `argparse`
+
+### Příklad využití knihovny `argparse`
+
+! examples/stdlib/cli_args.py
 
 --
 
@@ -473,6 +518,23 @@ if __name__ == "__main__":
     - Cython
     - RPython
     - Numba
+
+* Python pro webový browser
+    - Brython
+
+### CPython
+
+### Jython
+
+### Iron Python
+
+### Pypy
+
+### MicroPython
+
+### RPython
+
+### Numba
 
 --
 
