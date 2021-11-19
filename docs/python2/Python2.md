@@ -1894,11 +1894,64 @@ with open("test.json", "r") as fin:
 
 ### MicroPython
 
+* 2013, mikrořadič pyboard
+* Dnes dostupný na více jednodeskových mikropočítačů
+    - Micro Bit
+    - Arduino
+    - ESP32
+    - ESP8255
+    - PIC16...
+* Typické omezení
+    - 256 kB ROM
+    - 16 kB RAM
+* Dva možné režimy činnosti
+    - interpret přímo na CPU/MCU
+    - překlad do hex/objektového kódu
+* Repositář
+    - https://github.com/micropython/micropython
+    - překlad pro každý CPU/MCU zvlášť
+
+### Rozdíly CPython vs MicroPython
+
+* Chybí některé standardní knihovny
+* Navíc přístup k hardware
+
+```python
+from machine import Pin
+pin = Pin(0, Pin.IN)
+print(pin.value())
+```
+
+```python
+from machine import Pin
+pin = Pin(14, Pin.OUT)
+pin.value(1)
+```
+
+
+### MicroPython pro MicroBit
+
+* MicroPython pro MicroBit
+    - http://microbit.org/guide/python/
+    - Online editor: http://python.microbit.org/v/1
+    - převod zdrojového kódu do Intel hex formátu
+    - upload v Intel hex formátu
+
+
+
 ### RPython
 
 ### Numba
 
 --
+
+## Užitečné nástroje pro Python
+
+* pydocstyle
+    - testuje, zda jsou správně zapsány komentáře
+* pycodestyle (pep8)
+    - kontroluje styl zápisu programů
+    - udržuje štábní kulturu
 
 ## Datové formáty, perzistentní úložiště, databáze
 
