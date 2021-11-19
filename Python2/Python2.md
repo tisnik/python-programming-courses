@@ -107,7 +107,11 @@
 ### Objekty
 
 * Instance třídy
-* Jedna třída více objektů
+* Z jedné třídy lze vytvořit více objektů
+    - dtto pro další datové typy
+    - (seznam, slovník, celé číslo)
+* Třída -> datový typ
+* Objekt -> hodnota daného datového typu
 
 ! examples/OOP/employee_class_1.py
 
@@ -133,7 +137,7 @@
 
 ### Konstruktor
 
-* Zavolán při konstrukci objektu
+* Zavolán automaticky při konstrukci objektu
 
 ! examples/OOP/employee_class_2.py
 
@@ -143,7 +147,7 @@
 
 * Funkce, které mají přístup k datovým položkám
     - přístup přes `self`
-    - zavolání pomocí "tečkové notace"
+    - zavolání s využitím "tečkové notace"
 
 ```python
     def display_employee(self):
@@ -166,6 +170,7 @@
 * Dědičnost, polymorfismus
 * Properties
 * Statické metody
+
 
 ### Speciální metody
 
@@ -192,7 +197,9 @@ __getattr__
 __getattribute__
 __setattr__
 __delattr__
+```
 
+```
 __eq__  x, y   x == y
 __ne__  x, y   x != y
 __lt__  x, y   x < y
@@ -242,6 +249,7 @@ __ixor__       ^= operátor
 ### Speciální metoda `__str__`
 
 * Zavolána při převodu objektu na řetězec
+* Lze ji přetížit její (re)definicí
 
 ! examples/OOP/employee_class_5.py
 
@@ -454,3 +462,21 @@ if __name__ == "__main__":
 
 --
 
+---
+
+## Užitečné odkazy
+
+* Python Quick Reference: http://rgruet.free.fr/#QuickRef
+* Python docs: http://www.python.org/doc/
+* PEP 8: http://www.python.org/dev/peps/pep-0008/
+* pep8.py: http://pypi.python.org/pypi/pep8/
+* pylint: http://www.logilab.org/project/pylint
+* Epydoc: http://epydoc.sourceforge.net/
+* Sphinx: http://sphinx-doc.org/
+* Python in Python: http://pypy.org/
+* The key differences between Python 2.7.x and Python 3.x with examples: http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+* Language differences and workarounds: http://python3porting.com/differences.html
+* Everything you did not want to know about Unicode in Python 3: http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/
+* Unicode (Wikipedia): https://en.wikipedia.org/wiki/Unicode
+* Dive Into Python: http://www.diveintopython.net/
+* Dive into Python 3: http://www.diveintopython3.net/
