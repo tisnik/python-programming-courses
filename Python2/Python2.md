@@ -438,7 +438,7 @@ if __name__ == "__main__":
     - slovníky ve slovnících atd.
 
 * Introducing JSON
-    - (https://www.json.org/json-en.html)[https://www.json.org/json-en.html]
+    - [https://www.json.org/json-en.html](https://www.json.org/json-en.html)
 
 * Výstup datové struktury do formátu JSON
 
@@ -493,38 +493,38 @@ if __name__ == "__main__":
 ## Užitečné odkazy
 
 * Python Quick Reference:
-    - (http://rgruet.free.fr/#QuickRef)[http://rgruet.free.fr/#QuickRef]
+    - [http://rgruet.free.fr/#QuickRef](http://rgruet.free.fr/#QuickRef)
 * Python docs:
-    - (http://www.python.org/doc/)[http://www.python.org/doc/]
+    - [http://www.python.org/doc/](http://www.python.org/doc/)
 * PEP 8:
-    - (http://www.python.org/dev/peps/pep-0008/)[http://www.python.org/dev/peps/pep-0008/]
+    - [http://www.python.org/dev/peps/pep-0008/](http://www.python.org/dev/peps/pep-0008/)
 * pep8.py:
-    - (http://pypi.python.org/pypi/pep8/)[http://pypi.python.org/pypi/pep8/]
+    - [http://pypi.python.org/pypi/pep8/](http://pypi.python.org/pypi/pep8/)
 * pylint:
-    - (http://www.logilab.org/project/pylint)[http://www.logilab.org/project/pylint]
+    - [http://www.logilab.org/project/pylint](http://www.logilab.org/project/pylint)
 * Epydoc:
-    - (http://epydoc.sourceforge.net/)[http://epydoc.sourceforge.net/]
+    - [http://epydoc.sourceforge.net/](http://epydoc.sourceforge.net/)
 * Sphinx:
-    - (http://sphinx-doc.org/)[http://sphinx-doc.org/]
+    - [http://sphinx-doc.org/](http://sphinx-doc.org/)
 * Python in Python:
-    - (http://pypy.org/)[http://pypy.org/]
+    - [http://pypy.org/](http://pypy.org/)
 * The key differences between Python 2.7.x and Python 3.x with examples:
-    - (http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)[http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html]
+    - [http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
 * Language differences and workarounds:
-    - (http://python3porting.com/differences.html)[http://python3porting.com/differences.html]
+    - [http://python3porting.com/differences.html](http://python3porting.com/differences.html)
 * Everything you did not want to know about Unicode in Python 3:
-    - (http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/)[http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/]
+    - [http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/](http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/)
 * Unicode (Wikipedia):
-    - (https://en.wikipedia.org/wiki/Unicode)[https://en.wikipedia.org/wiki/Unicode]
+    - [https://en.wikipedia.org/wiki/Unicode](https://en.wikipedia.org/wiki/Unicode)
 * Dive Into Python:
-    - (http://www.diveintopython.net/)[http://www.diveintopython.net/]
+    - [http://www.diveintopython.net/](http://www.diveintopython.net/)
 * Dive into Python 3:
-    - (http://www.diveintopython3.net/)[http://www.diveintopython3.net/]
+    - [http://www.diveintopython3.net/](http://www.diveintopython3.net/)
 * Testování webových aplikací s REST API z Pythonu
-    - (https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/)[https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/]
+    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/)
 * Testování aplikací s využitím nástroje Hypothesis
-    - (https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)[https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/]
+    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)
 * Použití Pythonu pro tvorbu testů: od jednotkových testů až po testy UI
-    - (https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)[https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/]
+    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)
 * Testování nativních funkcí s využitím programovacího jazyka Python
-    - (https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/)[https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/]
+    - [https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/](https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/)
