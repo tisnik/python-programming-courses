@@ -370,9 +370,53 @@ __ixor__       ^= operátor
 
 ## Tvorba skriptů v Pythonu
 
+* skript vs. nativní binární soubor
+    - magické číslo
+    - "shebang"
+
+* vstupní bod aplikace
+    - lze rozlišit import vs. spuštění z příkazového řádku
+
+* parametry na příkazovém řádku
+    - ukázka zpracování parametrů
+
+### Shebang
+
+* Rozpoznáván na prvním textovém řádku!
+    - nelze přemístit
+
+```python
+#!/usr/bin/env python3
+```
+
+* Většinou je vhodné uvést i kódování
+    - existuje několik způsobů
+    - následující způsob je rozpoznán interpretrem
+
+```python
+# vim: set fileencoding=utf-8
+```
+
+### Vstupní bod aplikace (skriptu)
+
+```python
+if __name__ == "__main__":
+    main()
+```
+
+### Zpracování parametrů předaných při spouštění skriptů
+
+* Dostupné přes `sys.argv`
+    - `len(sys.argv)` pro počet předaných parametrů
+    - poměrně nešikovná práce
+    - existují i lepší způsoby
+
 --
 
 ## Standardní knihovna, zajímavé moduly a balíčky
+
+* Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
+    - https://docs.python.org/3/library/index.html
 
 --
 
