@@ -4,7 +4,7 @@
 """Simple preprocessor for Markdown files that handles @ character as include statement."""
 
 input_file = "Python2.md"
-output_file = "Python2_.md"
+output_file = "../docs/python2/Python2.md"
 
 with open(input_file, "r") as fin:
     with open(output_file, "w") as fout:
