@@ -43,8 +43,8 @@
 
 * Standardní knihovna, zajímavé moduly a balíčky
     - Přehled modulů a balíčků standardní knihovny
-    - Repozitář PyPi
-    - Nástroje pip, ensurepip
+    - Repositář PyPi
+    - Nástroje pip popř., ensurepip
 
 * CPython a jeho alternativy
     - Hlavní vlastnosti CPythonu
@@ -65,6 +65,8 @@
 * Aplikace s GUI
     - Návrh jednoduché aplikace s GUI
     - Widget knihovny jako GTk+, wxWidgets, QT a Python
+    - Zpracování událostí
+    - Animace
 
 --
 
@@ -88,10 +90,18 @@
 * Objekt
     - instance třídy
 * Metoda
+    - funkce definovaná ve třídě
+    - běžná metoda má přístup k atributům
+    - statické metody
+    - třídní metody
 * Atribut
     - objektu
     - třídní
 * Konstruktor
+    - zavolán při vytváření objektu
+* Destruktor
+    - zavolán před uvolněním objektu
+    - v Pythonu problematické
 
 
 
@@ -99,8 +109,8 @@
 
 * Třída představuje nový uživatelsky definovaný datový typ
 * Současně obsahuje předpis metod
-* Může obsahovat i statické atributy popř. třídní atributy
-* V Pythonu však neobsahuje definice atributů objektů!
+* Může obsahovat i statické metody popř. třídní atributy a metody
+* V Pythonu však neobsahuje explicitní definice atributů objektů!
     - je to dynamický jazyk
 
 ```python
@@ -149,7 +159,8 @@ print(employee2)
     - typicky v konstruktoru
 * Přístup k atributům
     - interně přes `self`
-    - externě pomocí "tečkové notace"
+    - externě pomocí jména proměnné
+    - "tečková notace"
 * Třídní/statický atribut
     - deklarován přímo ve třídě
     - sdílený všemi instancemi
@@ -174,6 +185,8 @@ print(c1.x)
 ### Konstruktor
 
 * Zavolán automaticky při konstrukci objektu
+* Může akceptovat další parametry
+* Může přistupovat k atributům (většinou je vytváří)
 
 ```python
 #!/usr/bin/env python3
@@ -203,18 +216,91 @@ print(employee2._first_name)
 
 
 
+### Destruktor
+
+* Zavolán automaticky při uvolňování objektu
+    - popř. pokud objekt již nemá kontext
+* Neakceptuje další parametry
+* Může přistupovat k atributům (problematické!)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Ukázka jednoduché třídy reprezentující zaměstnance."""
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        print("Konstruktor:", first_name, surname)
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+
+    def __del__(self):
+        """Destruktor objektu."""
+        print("Destruktor:", self._first_name, self._surname)
+
+
+def test_destructor():
+    # vytvoření dvou instancí třídy
+    employee1 = Employee("Eda", "Wasserfall", 10000)
+    employee2 = Employee("Přemysl", "Hájek", 25001)
+
+
+test_destructor()
+```
+
+* Volání konstruktoru může přijít "pozdě" - po ukončení skriptu
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Ukázka jednoduché třídy reprezentující zaměstnance."""
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        print("Konstruktor:", first_name, surname)
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+
+    def __del__(self):
+        """Destruktor objektu."""
+        print("Destruktor:", self._first_name, self._surname)
+
+
+# vytvoření dvou instancí třídy
+employee1 = Employee("Eda", "Wasserfall", 10000)
+employee2 = Employee("Přemysl", "Hájek", 25001)
+
+print("Konec programu")
+```
+
+
+
 ### Metody
 
 * Funkce, které mají přístup k datovým položkám
     - přístup přes `self`
     - zavolání s využitím "tečkové notace"
 
+* Deklarovány uvnitř třídy
+
 ```python
     def display_employee(self):
         print("Full name: ", self._first_name, self._surname, "   Salary: ", self._salary)
 ```
 
-* Celý skript
+* Celý skript s metodou `display_employee`
 
 ```python
 #!/usr/bin/env python3
@@ -283,11 +369,14 @@ employee2.display_employee()
 
 --
 
+
+
 ## Pokročilé OOP techniky
 
 * Magické/speciální metody
 * Dědičnost, polymorfismus
 * Properties
+* Atributy třídy, třídní metody
 * Statické metody
 
 
@@ -296,14 +385,18 @@ employee2.display_employee()
 * Použity pro takzvané přetěžování operátorů
     - aritmetické operátory
     - relační operátory
-* Ovšem nelze modifikovat
+* Ovšem nelze modifikovat zejména
     - prioritu operátorů
     - asociativitu operátorů
-* Některé volány ve specifických situacích
+* Některé metody volány ve specifických situacích
     - konstruktor objektu
+    - destruktor objektu
     - přístup k atributům objektu, mazání atributu
     - převod objektu na řetězec
-* Seznam speciálních metod
+
+### Seznam speciálních metod
+
+* Metody volané automaticky ve specifických situacích
 
 ```
 __init__
@@ -318,6 +411,8 @@ __setattr__
 __delattr__
 ```
 
+* Přetížení relačních operátorů
+
 ```
 __eq__  x, y   x == y
 __ne__  x, y   x != y
@@ -327,13 +422,15 @@ __le__  x, y   x <= y
 __ge__  x, y   x >= y
 ```
 
+* Přetížení unárních a binárních operátorů
+
 ```
 __add__        binární + operátor
 __sub__        binární - operátor
 __mul__        * operátor
 __div__        / operátor
-__floordiv__   // operátor (P2)
-__truediv__    / operátor (P3)
+__floordiv__   // operátor (Python 2)
+__truediv__    / operátor (Python 3)
 __mod__        % operátor
 __pow__        ** operátor or pow(x, y, z)
 __neg__        unární - operátor
@@ -348,13 +445,15 @@ __or__  x, y   | operátor
 __xor__        ^ operátor
 ```
 
+* Přetížení kombinace přiřazení + binární operátor
+
 ```
 __iadd__       += operátor
 __isub__       -= operátor
 __imul__       *= operátor
-__idiv__       /= operátor (P2)
+__idiv__       /= operátor (Python 2)
 __ifloordiv__  //= operátor
-__itruediv__   /= operátor (P3)
+__itruediv__   /= operátor (Python 3)
 __imod__       %= operátor
 __ipow__       **= operátor
 __ilshift__    <<= operátor
@@ -363,6 +462,7 @@ __iand__       &= operátor
 __ior__        |= operátor
 __ixor__       ^= operátor
 ```
+
 
 
 ### Speciální metoda `__str__`
@@ -452,9 +552,284 @@ print(employee1 == employee2)
 ```
 
 
-### Dedičnost
+
+### Třída komplexních čísel
+
+* Základní reprezentace komplexního čísla
 
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Třída představující komplexní čísla."""
+
+
+class Complex:
+    """Třída představující komplexní čísla."""
+
+    def __init__(self, real=0, imag=0):
+        """Konstruktor."""
+        self._real = real
+        self._imag = imag
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+```
+
+* Převod na řetězec
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Převod objektu na řetězec."""
+
+
+class Complex:
+
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+```
+
+* Porovnání dvou komplexních čísel
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Porovnání komplexních čísel."""
+
+
+class Complex:
+
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+```
+
+* Součet komplexních čísel operátorem `+`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Součet komplexních čísel."""
+
+
+class Complex:
+
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+    def __add__(self, other):
+        r = self._real + other._real
+        i = self._imag + other._imag
+        return Complex(r, i)
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c1 += c3
+print(c1)
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+```
+
+* Přičtení ke komplexnímu číslu operátorem `+=`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Přičtení komplexního čísla."""
+
+
+class Complex:
+
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+    def __add__(self, other):
+        r = self._real + other._real
+        i = self._imag + other._imag
+        return Complex(r, i)
+
+    def __iadd__(self, other):
+        self._real += other._real
+        self._imag += other._imag
+        return self
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c1 += c3
+print(c1)
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+```
+
+* Negace komplexního čísla
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Negace komplexního čísla."""
+
+
+class Complex:
+
+    def __init__(self, real=0, imag=0):
+        self._real = real
+        self._imag = imag
+
+    def __str__(self):
+        return "{r} + {i}j".format(r=self._real, i=self._imag)
+
+    def __eq__(self, other):
+        return self._real == other._real and self._imag == other._imag
+
+    def __add__(self, other):
+        r = self._real + other._real
+        i = self._imag + other._imag
+        return Complex(r, i)
+
+    def __iadd__(self, other):
+        self._real += other._real
+        self._imag += other._imag
+        return self
+
+    def __neg__(self):
+        r = self._real
+        i = self._imag
+        return Complex(-r, -i)
+
+
+c1 = Complex(1, 2)
+c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
+
+c1 += c3
+print(c1)
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
+print(c3)
+print(c4)
+
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
+
+c6 = - c1
+print(c1)
+print(c6)
+```
+
+
+
+### Dědičnost
+
+* Z jedné třídy lze odvodit třídu další
+    - předek/potomek
+    - superclass
+* Nová třída zdědí vlastnosti z třídy předchozí
+* Vybrané vlastnosti je možné modifikovat
+
+* Třída `Person` a od ní odvozená třída `Student`
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Třída Person a odvození třídy Student."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
@@ -483,7 +858,16 @@ s1 = Student("John", "Doe")
 
 print(s1)
 ```
+
+* Přetížení metody `__str__` ve třídě Student
+
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Přetížení metody __str__ ve třídě Student."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
@@ -518,7 +902,16 @@ s1 = Student("John", "Doe")
 
 print(s1)
 ```
+
+* Volání konstruktoru nadtřídy
+
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Volání konstruktoru nadtřídy."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
@@ -556,7 +949,16 @@ s1 = Student("John", "Doe")
 
 print(s1)
 ```
+
+* Volání konstruktoru nadtřídy, rozlišení konstruktorů
+
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Volání konstruktoru nadtřídy, rozlišení konstruktorů."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
@@ -596,7 +998,16 @@ s1 = Student("John", "Doe")
 
 print(s1)
 ```
+
+* Další třída `Employee` odvozená od třídy `Person`
+
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Další třída Employee odvozená od třídy Person."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
@@ -656,9 +1067,19 @@ e1 = Employee("Eric", "Iverson", 10000)
 print(e1)
 ```
 
+
+
 ### Polymorfismus
 
+* Ukázka polymorfismu
+
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Ukázka polymorfismu."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
@@ -712,7 +1133,17 @@ people = [
 for p in people:
     print(p)
 ```
+
+* Třída jako rozhraní v Pythonu
+
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Ukázka polymorfismu (třída jako rozhraní)."""
+
+
+
 class Printable:
     def display(self):
         print(self)
@@ -772,7 +1203,32 @@ for p in people:
     p.display()
 ```
 
-### Atributy třídy
+
+
+### Atributy třídy, třídní metody
+
+* Předepsány přímo v deklaraci třídy
+* Jsou sdíleny všemi instancemi této třídy!
+* Přístup přes třídní metody
+    - class method
+* Parametr `cls` (jako class) nikoli `self`
+
+* Atribut třídy a tečková notace
+
+```python
+class CLS:
+    x = 10
+
+c1 = CLS()
+print(CLS.x)
+print(c1.x)
+
+c1.x = 20
+print(CLS.x)
+print(c1.x)
+```
+
+* Typický příklad použití - počitadlo instancí
 
 ```python
 #!/usr/bin/env python3
@@ -822,7 +1278,17 @@ employee1.display_employee()
 employee2.display_employee()
 ```
 
-### Statické atributy
+* (bylo by vhodné upravit přetížením destruktoru)
+
+
+
+### Statické metody
+
+* Pouze funkce zapouzdřené do jmenného prostoru třídy
+* Nemají přístup k žádným atributům
+* I proto nemají parametr `self`
+
+* Nekorektní příklad použití
 
 ```python
 #!/usr/bin/env python3
@@ -878,6 +1344,9 @@ print("Now we have", Employee.num_employees(), "employees")
 employee1.display_employee()
 employee2.display_employee()
 ```
+
+* Korektní příklad použití
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -936,197 +1405,17 @@ e3 = Employee("Foo", "Bar", 0)
 e4 = Employee("Foo", "Baz", 0)
 ```
 
-### Třída reprezentující komplexní čísla
 
-```python
-#!/usr/bin/env python3
-# vim: set fileencoding=utf-8
-
-"""Třída představující komplexní čísla."""
-
-
-class Complex:
-    """Třída představující komplexní čísla."""
-
-    def __init__(self, real=0, imag=0):
-        """Konstruktor."""
-        self._real = real
-        self._imag = imag
-
-
-c1 = Complex(1, 2)
-c2 = Complex(10, 20)
-c3 = Complex(100)
-c4 = Complex()
-
-c5 = Complex(1, 2)
-print(c1)
-print(c2)
-print(c3)
-print(c4)
-```
-```python
-#!/usr/bin/env python3
-# vim: set fileencoding=utf-8
-
-"""Převod objektu na řetězec."""
-
-
-class Complex:
-
-    def __init__(self, real=0, imag=0):
-        self._real = real
-        self._imag = imag
-
-    def __str__(self):
-        return "{r} + {i}j".format(r=self._real, i=self._imag)
-
-
-c1 = Complex(1, 2)
-c2 = Complex(10, 20)
-c3 = Complex(100)
-c4 = Complex()
-
-c5 = Complex(1, 2)
-print(c1)
-print(c2)
-print(c3)
-print(c4)
-```
-```python
-#!/usr/bin/env python3
-# vim: set fileencoding=utf-8
-
-"""Porovnání komplexních čísel."""
-
-
-class Complex:
-
-    def __init__(self, real=0, imag=0):
-        self._real = real
-        self._imag = imag
-
-    def __str__(self):
-        return "{r} + {i}j".format(r=self._real, i=self._imag)
-
-    def __eq__(self, other):
-        return self._real == other._real and self._imag == other._imag
-
-
-c1 = Complex(1, 2)
-c2 = Complex(10, 20)
-c3 = Complex(100)
-c4 = Complex()
-
-c5 = Complex(1, 2)
-print(c1)
-print(c2)
-print(c3)
-print(c4)
-
-print(c1 == c5)
-print(c2 == c5)
-print(c3 == c5)
-```
-```python
-#!/usr/bin/env python3
-# vim: set fileencoding=utf-8
-
-"""Součet komplexních čísel."""
-
-
-class Complex:
-
-    def __init__(self, real=0, imag=0):
-        self._real = real
-        self._imag = imag
-
-    def __str__(self):
-        return "{r} + {i}j".format(r=self._real, i=self._imag)
-
-    def __eq__(self, other):
-        return self._real == other._real and self._imag == other._imag
-
-    def __add__(self, other):
-        r = self._real + other._real
-        i = self._imag + other._imag
-        return Complex(r, i)
-
-
-c1 = Complex(1, 2)
-c2 = Complex(10, 20)
-c3 = Complex(100)
-c4 = Complex()
-
-c1 += c3
-print(c1)
-
-c5 = Complex(1, 2)
-print(c1)
-print(c2)
-print(c3)
-print(c4)
-
-print(c1 == c5)
-print(c2 == c5)
-print(c3 == c5)
-```
-```python
-#!/usr/bin/env python3
-# vim: set fileencoding=utf-8
-
-"""Přičtení komplexního čísla."""
-
-
-class Complex:
-
-    def __init__(self, real=0, imag=0):
-        self._real = real
-        self._imag = imag
-
-    def __str__(self):
-        return "{r} + {i}j".format(r=self._real, i=self._imag)
-
-    def __eq__(self, other):
-        return self._real == other._real and self._imag == other._imag
-
-    def __add__(self, other):
-        r = self._real + other._real
-        i = self._imag + other._imag
-        return Complex(r, i)
-
-    def __iadd__(self, other):
-        self._real += other._real
-        self._imag += other._imag
-        return self
-
-
-c1 = Complex(1, 2)
-c2 = Complex(10, 20)
-c3 = Complex(100)
-c4 = Complex()
-
-c1 += c3
-print(c1)
-
-c5 = Complex(1, 2)
-print(c1)
-print(c2)
-print(c3)
-print(c4)
-
-print(c1 == c5)
-print(c2 == c5)
-print(c3 == c5)
-```
 
 --
 
 ## Základy funkcionálního programování v Pythonu
 
-* Lambda výrazy
+* Lambda výrazy, anonymní funkce
 * Generátorová notace seznamu
 * Funkce vyššího řádu
+* First-class funkce, rekurze, closures, ...
+* Map, reduce, filter
 * Zkrácené logické výrazy
 
 
@@ -1134,9 +1423,9 @@ print(c3 == c5)
 ### Lambda výrazy
 
 * Anonymní funkce
-* Lze použít na místech, kde se očekává reference na funkci (map atd.)
-* Implicitní `return`
-* V Pythonu některá omezení
+* Lze použít na místech, kde se očekává reference na funkci (`map` atd.)
+* Implicitní konstrukce `return`
+* V Pythonu platí některá omezení
     - jeden výraz v těle funkce
     - žádné příkazy (skutečně jen výraz)
 
@@ -1155,6 +1444,7 @@ print(f())
 ```
 
 * Někdy je zapotřebí parametr ignorovat
+    - uvidíme při návrhu GUI u událostí (events)
 
 ```python
 f = lambda _: "hello"
@@ -1163,18 +1453,134 @@ print(f("foo"))
 
 
 
+### First-class funkce
+
+* Funkce jsou v Pythonu plnohodnotným datovým typem
+    - akceptují se jako parametry jiných funkcí
+    - lze je vracet jako návratové hodnoty jiných funkcí
+    - lze je ukládat do n-tic, seznamů, slovníků...
+
+* Funkce jako parametr jiné funkce
+
+```python
+def calculate(what, x, y):
+    return what(x, y)
+
+
+def add(x, y):
+    return x + y
+
+
+result = calculate(add, 10, 20)
+
+print(result)
+```
+
+* Funkce jako návratová hodnota jiné funkce
+
+```python
+def calculate(what, x, y):
+    return what(x, y)
+
+
+def add(x, y):
+    return x + y
+
+
+def get_function(selector):
+    if selector == "add":
+        return add
+    return None
+
+
+adder = get_function("add")
+result = calculate(adder, 10, 20)
+
+print(result)
+```
+
+
+
+### Uzávěry (closures)
+
+* Funkce mající přístup k nelokální proměnné/hodnotě
+    - "uzavírají" tuto hodnotu
+
+```python
+def increment_by(n):
+
+    def add(x):
+        return x + n
+
+    return add
+
+
+i1 = increment_by(2)
+print(i1(1))
+print(i1(10))
+
+i2 = increment_by(100)
+print(i2(1))
+print(i2(10))
+```
+
+* Nutnost použití modifikátoru `nonlocal`
+
+* Typický příklad - libovolné množství čítačů
+
+```python
+def counter():
+    cnt = 0
+
+    def impl():
+        nonlocal cnt
+        cnt += 1
+        return cnt
+
+    return impl
+
+
+c1 = counter()
+c2 = counter()
+
+print(c1())
+print(c1())
+print(c1())
+
+print(c2())
+
+print(c1())
+print(c1())
+print(c1())
+
+print(c2())
+
+```
+
+* (lze implementovat i s využitím generátorů)
+
+
+
 ### Generátorová notace seznamu
 
 * List comprehension
+    - možnost konstrukce n-tice nebo seznamu na jediném řádku bez `append`
+    - lze kombinovat s podmínkou
+    - existuje i varianta založená na generátorech
 
 ```python
+"""Generátorová notace seznamu."""
+
 seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+seznam1 = [item for item in seznam]
 
 seznam2 = [item*2 for item in seznam]
 
 seznam3 = [item for item in seznam if item % 3 == 0]
 
 print(seznam)
+print(seznam1)
 print(seznam2)
 print(seznam3)
 ```
@@ -1183,7 +1589,18 @@ print(seznam3)
 
 ### Funkce vyššího řádu
 
+* Funkce vyššího řádu = všechny funkce, které:
+    - akceptují jiné funkce jako parametry
+    - vrací funkce (návratové hodnoty)
+
+* Typická trojice funkcí vyššího řádu
+    - `map`
+    - `reduce`
+    - `filter`
+
 * Funkce `map`
+    - aplikace nějaké funkce na všechny prvky nějaké sekvence
+    - typicky se používá společně s anonymní funkcí `lambda`
 
 ```python
 #!/usr/bin/env python3
@@ -1198,6 +1615,8 @@ print(x)
 y = map(lambda value: value*2, x)
 print(list(y))
 ```
+
+    - popř. s pojmenovanou funkcí
 
 ```python
 #!/usr/bin/env python3
@@ -1217,6 +1636,7 @@ print(list(y))
 ```
 
 * Funkce `filter`
+    - výběr hodnot ze sekvence na základě zadané podmínky
 
 ```python
 #!/usr/bin/env python3
@@ -1233,6 +1653,7 @@ print(list(y))
 ```
 
 * Funkce `reduce`
+    - postupné zkracování vstupní sekvence akumulací mezivýsledku
     - musí být importována z balíčku `functools`
 
 ```python
@@ -1275,6 +1696,8 @@ print(y)
     - `x and y` - pokud `x==False`, není nutné vyhodnotit `y`
     - `x or y` - pokud `x==True`, není nutné vyhodnotit `y`
 
+* Ukázka všech možných kombinací, které mohou nastat
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1434,6 +1857,8 @@ if x() and y():
 else:
     print("else branch")
 ```
+
+
 
 --
 
@@ -1446,7 +1871,7 @@ else:
 
 ### Generátory
 
-* Běžná funkce, která vygenruje seznam o zadané délce
+* Běžná funkce, která vygeneruje seznam o zadané délce
 
 ```python
 def n_items(max_n):
@@ -1702,6 +2127,8 @@ hello()
 * parametry na příkazovém řádku
     - ukázka zpracování parametrů
 
+
+
 ### Shebang
 
 * Rozpoznáván na prvním textovém řádku!
@@ -1719,12 +2146,16 @@ hello()
 # vim: set fileencoding=utf-8
 ```
 
+
+
 ### Vstupní bod aplikace (skriptu)
 
 ```python
 if __name__ == "__main__":
     main()
 ```
+
+
 
 ### Zpracování parametrů předaných při spouštění skriptů
 
@@ -1734,6 +2165,8 @@ if __name__ == "__main__":
     - existují ovšem i lepší způsoby
 
 * Využití knihovny `argparse`
+
+
 
 ### Příklad využití knihovny `argparse`
 
@@ -1794,10 +2227,14 @@ if __name__ == "__main__":
 
 --
 
+
+
 ## Standardní knihovna, zajímavé moduly a balíčky
 
 * Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
     - https://docs.python.org/3/library/index.html
+
+
 
 ### Práce s formátem JSON
 
@@ -1861,6 +2298,8 @@ with open("test.json", "r") as fin:
 
 --
 
+
+
 ## CPython a jeho alternativy
 
 ### Implementace Pythonu
@@ -1911,6 +2350,8 @@ with open("test.json", "r") as fin:
     - https://github.com/micropython/micropython
     - překlad pro každý CPU/MCU zvlášť
 
+
+
 ### Rozdíly CPython vs MicroPython
 
 * Chybí některé standardní knihovny
@@ -1940,6 +2381,33 @@ pin.value(1)
 
 
 ### RPython
+
+* Určen pro překlad programů napsaných v podmnožině programovacího jazyka Python do nativního kódu
+* Snaží se odvozovat datové typy proměnných, argumentů i návratových hodnot funkcí na základě analýzy grafu (CFG)
+* Počáteční písmeno v názvu „RPython“ znamená „restricted“,
+
+### Cython
+
+* Tento překladač pracuje poněkud odlišným způsobem než RPython
+* Transformace (transpilace) do jazyka C
+* Ve chvíli, kdy Cython nezná datový typ funkce/proměnné/argumentu, použije `PyObject *`
+* Rozšiřuje jazyk Python o další klíčová slova, především pak o slovo `cdef`
+
+```python
+def calc(width, height, maxiter, palette):
+    ...
+    ...
+    ...
+```
+
+```
+cdef calc(int width, int height, int maxiter, palette):
+    ...
+    ...
+    ...
+```
+
+
 
 ### Numba
 
