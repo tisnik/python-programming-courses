@@ -172,6 +172,9 @@
 
 ! examples/OOP/employee_class_destructor2.py
 
+* Explicitní smazání konstruktoru konstrukcí `del`
+
+! examples/OOP/explicit_del_call.py
 
 
 ### Metody
