@@ -122,6 +122,7 @@ class Employee:
     pass
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_0.py)
 
 
 ### Objekty
@@ -150,6 +151,7 @@ print(employee1)
 print(employee2)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_1.py)
 
 
 ### Atributy tříd a objektů
@@ -180,6 +182,7 @@ print(CLS.x)
 print(c1.x)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_attribute.py)
 
 
 ### Konstruktor
@@ -214,6 +217,7 @@ print(employee1._first_name)
 print(employee2._first_name)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_2.py)
 
 
 ### Destruktor
@@ -254,6 +258,7 @@ def test_destructor():
 test_destructor()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_destructor1.py)
 * Volání konstruktoru může přijít "pozdě" - po ukončení skriptu
 
 ```python
@@ -285,6 +290,7 @@ employee2 = Employee("Přemysl", "Hájek", 25001)
 print("Konec programu")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_destructor2.py)
 
 
 ### Metody
@@ -332,6 +338,7 @@ employee1.display_employee()
 employee2.display_employee()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_3.py)
 * Vylepšení formátování výstupu
 
 ```python
@@ -367,6 +374,7 @@ employee1.display_employee()
 employee2.display_employee()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_4.py)
 --
 
 
@@ -503,6 +511,7 @@ print(employee1)
 print(employee2)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_5.py)
 
 
 ### Speciální metoda `__eq__`
@@ -540,7 +549,7 @@ class Employee:
             self._salary == other._salary
 
 
-# vytvoření dvou instancí třídy
+# vytvoření tří instancí třídy
 employee1 = Employee("Eda", "Wasserfall", 10000)
 employee2 = Employee("Eda", "Wasserfall", 10000)
 employee3 = Employee("Přemysl", "Hájek", 25001)
@@ -551,6 +560,7 @@ print(employee2)
 print(employee1 == employee2)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_6.py)
 
 
 ### Třída komplexních čísel
@@ -585,6 +595,7 @@ print(c3)
 print(c4)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex1.py)
 * Převod na řetězec
 
 ```python
@@ -616,6 +627,7 @@ print(c3)
 print(c4)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex2.py)
 * Porovnání dvou komplexních čísel
 
 ```python
@@ -654,6 +666,7 @@ print(c2 == c5)
 print(c3 == c5)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex3.py)
 * Součet komplexních čísel operátorem `+`
 
 ```python
@@ -700,6 +713,7 @@ print(c2 == c5)
 print(c3 == c5)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex4.py)
 * Přičtení ke komplexnímu číslu operátorem `+=`
 
 ```python
@@ -751,6 +765,7 @@ print(c2 == c5)
 print(c3 == c5)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex5.py)
 * Negace komplexního čísla
 
 ```python
@@ -811,6 +826,7 @@ print(c1)
 print(c6)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex6.py)
 
 
 ### Dědičnost
@@ -859,6 +875,7 @@ s1 = Student("John", "Doe")
 print(s1)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance1.py)
 * Přetížení metody `__str__` ve třídě Student
 
 ```python
@@ -903,6 +920,7 @@ s1 = Student("John", "Doe")
 print(s1)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance2.py)
 * Volání konstruktoru nadtřídy
 
 ```python
@@ -950,6 +968,7 @@ s1 = Student("John", "Doe")
 print(s1)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance3.py)
 * Volání konstruktoru nadtřídy, rozlišení konstruktorů
 
 ```python
@@ -999,6 +1018,7 @@ s1 = Student("John", "Doe")
 print(s1)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance4.py)
 * Další třída `Employee` odvozená od třídy `Person`
 
 ```python
@@ -1067,6 +1087,7 @@ e1 = Employee("Eric", "Iverson", 10000)
 print(e1)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance5.py)
 
 
 ### Polymorfismus
@@ -1134,6 +1155,7 @@ for p in people:
     print(p)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism1.py)
 * Třída jako rozhraní v Pythonu
 
 ```python
@@ -1203,6 +1225,7 @@ for p in people:
     p.display()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism2.py)
 
 
 ### Atributy třídy, třídní metody
@@ -1228,6 +1251,7 @@ print(CLS.x)
 print(c1.x)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_attribute.py)
 * Typický příklad použití - počitadlo instancí
 
 ```python
@@ -1278,6 +1302,7 @@ employee1.display_employee()
 employee2.display_employee()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_method.py)
 * (bylo by vhodné upravit přetížením destruktoru)
 
 
@@ -1345,6 +1370,7 @@ employee1.display_employee()
 employee2.display_employee()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/static_method1.py)
 * Korektní příklad použití
 
 ```python
@@ -1405,6 +1431,7 @@ e3 = Employee("Foo", "Bar", 0)
 e4 = Employee("Foo", "Baz", 0)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/static_method2.py)
 
 
 --
@@ -1436,6 +1463,7 @@ f = lambda x, y : x + y
 print(f(1,2))
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda1.py)
 * Lambda výraz bez parametrů
 
 ```python
@@ -1443,6 +1471,7 @@ f = lambda : "hello"
 print(f())
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda2.py)
 * Někdy je zapotřebí parametr ignorovat
     - uvidíme při návrhu GUI u událostí (events)
 
@@ -1451,6 +1480,7 @@ f = lambda _: "hello"
 print(f("foo"))
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda3.py)
 
 
 ### First-class funkce
@@ -1476,6 +1506,7 @@ result = calculate(add, 10, 20)
 print(result)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/accept_function.py)
 * Funkce jako návratová hodnota jiné funkce
 
 ```python
@@ -1499,6 +1530,7 @@ result = calculate(adder, 10, 20)
 print(result)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/adder.py)
 
 
 ### Uzávěry (closures)
@@ -1524,6 +1556,7 @@ print(i2(1))
 print(i2(10))
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/closure.py)
 * Nutnost použití modifikátoru `nonlocal`
 
 * Typický příklad - libovolné množství čítačů
@@ -1557,6 +1590,7 @@ print(c2())
 
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/counter.py)
 * (lze implementovat i s využitím generátorů)
 
 
@@ -1585,6 +1619,7 @@ print(seznam2)
 print(seznam3)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/list_comprehension.py)
 
 
 ### Funkce vyššího řádu
@@ -1616,6 +1651,7 @@ y = map(lambda value: value*2, x)
 print(list(y))
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/map_function.py)
     - popř. s pojmenovanou funkcí
 
 ```python
@@ -1635,6 +1671,7 @@ y = map(inc, x)
 print(list(y))
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/map_function2.py)
 * Funkce `filter`
     - výběr hodnot ze sekvence na základě zadané podmínky
 
@@ -1652,6 +1689,7 @@ y = filter(lambda value: value % 3 == 0, x)
 print(list(y))
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/filter_function.py)
 * Funkce `reduce`
     - postupné zkracování vstupní sekvence akumulací mezivýsledku
     - musí být importována z balíčku `functools`
@@ -1672,6 +1710,7 @@ y = reduce(lambda a, b: a*b, x)
 print(y)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/reduce_function.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1688,6 +1727,7 @@ y = reduce(lambda a, b: a+b, x)
 print(y)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/reduce_sum.py)
 
 
 ### Zkrácené logické výrazy
@@ -1718,6 +1758,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_1.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1738,6 +1779,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_2.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1758,6 +1800,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_3.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1778,6 +1821,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_4.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1798,6 +1842,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_5.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1818,6 +1863,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_6.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1838,6 +1884,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_7.py)
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1858,6 +1905,7 @@ else:
     print("else branch")
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_8.py)
 
 
 --
@@ -1886,6 +1934,7 @@ lst = n_items(20)
 print(lst)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/gen_list.py)
 * Generátor seznamu o zadané délce
 
 ```python
@@ -1902,6 +1951,7 @@ for i in generator(10000):
         break
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/function_generator_1.py)
 * Generátor seznamu o nekonečné (neomezené) délce
 
 ```python
@@ -1918,6 +1968,7 @@ for i in infinite_generator():
         break
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/function_generator_2.py)
 * Generátor konečného seznamu implementovaný jako třída
 
 ```python
@@ -1943,6 +1994,7 @@ for i in generator(10000):
         break
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_class_1.py)
 * Generátor nekonečného seznamu implementovaný jako třída
 
 ```python
@@ -1966,6 +2018,7 @@ for i in infinite_generator():
 
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_class_2.py)
 
 
 ### Dekorátory
@@ -1994,6 +2047,7 @@ f = function_caller(hello)
 f()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/return_function.py)
 * Přepis předchozího příkladu jako dekorátoru
 
 ```python
@@ -2015,6 +2069,7 @@ def hello():
 hello()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorator.py)
 * Užitečný dekorátor - měření času
 
 ```python
@@ -2045,6 +2100,7 @@ tested_function(1)
 tested_function(2)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/measure_time.py)
 
 
 ### Větší množství dekorátorů
@@ -2059,6 +2115,7 @@ def hello():
 hello()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorators1.py)
 * Jeden dekorátor
     
 ```python
@@ -2080,6 +2137,7 @@ def hello():
 hello()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorators2.py)
 * Dva dekorátory
 
 ```python
@@ -2112,6 +2170,7 @@ def hello():
 hello()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorators3.py)
 
 --
 
@@ -2225,6 +2284,7 @@ if __name__ == "__main__":
     main()
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/cli_args.py)
 --
 
 
@@ -2266,6 +2326,7 @@ with open("test.json", "w") as fout:
     json.dump(data, fout)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/json_output_1.py)
 * Zajištění lepší čitelnosti JSON výstupu
 
 ```python
@@ -2284,6 +2345,7 @@ with open("test.json", "w") as fout:
     json.dump(data, fout, indent=4)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/json_output_2.py)
 * Přečtení datového souboru uloženého ve formátu JSON
 
 ```python
@@ -2296,6 +2358,7 @@ with open("test.json", "r") as fin:
     print(data)
 ```
 
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/json_input.py)
 --
 
 
