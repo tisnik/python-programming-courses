@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Třída Person a odvození třídy Student."""
+
+
 class Person:
 
     def __init__(self, first_name, surname):
