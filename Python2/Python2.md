@@ -88,10 +88,18 @@
 * Objekt
     - instance třídy
 * Metoda
+    - funkce definovaná ve třídě
+    - běžná metoda má přístup k atributům
+    - statické metody
+    - třídní metody
 * Atribut
     - objektu
     - třídní
 * Konstruktor
+    - zavolán při vytváření objektu
+* Destruktor
+    - zavolán před uvolněním objektu
+    - v Pythonu problematické
 
 
 
@@ -100,7 +108,7 @@
 * Třída představuje nový uživatelsky definovaný datový typ
 * Současně obsahuje předpis metod
 * Může obsahovat i statické atributy popř. třídní atributy
-* V Pythonu však neobsahuje definice atributů objektů!
+* V Pythonu však neobsahuje explicitní definice atributů objektů!
     - je to dynamický jazyk
 
 ! examples/OOP/employee_class_0.py
@@ -127,7 +135,8 @@
     - typicky v konstruktoru
 * Přístup k atributům
     - interně přes `self`
-    - externě pomocí "tečkové notace"
+    - externě pomocí jména proměnné
+    - "tečková notace"
 * Třídní/statický atribut
     - deklarován přímo ve třídě
     - sdílený všemi instancemi
@@ -141,8 +150,25 @@
 ### Konstruktor
 
 * Zavolán automaticky při konstrukci objektu
+* Může akceptovat další parametry
+* Může přistupovat k atributům (většinou je vytváří)
 
 ! examples/OOP/employee_class_2.py
+
+
+
+### Destruktor
+
+* Zavolán automaticky při uvolňování objektu
+    - popř. pokud objekt již nemá kontext
+* Neakceptuje další parametry
+* Může přistupovat k atributům (problematické!)
+
+! examples/OOP/employee_class_destructor1.py
+
+* Volání konstruktoru může přijít "pozdě" - po ukončení skriptu
+
+! examples/OOP/employee_class_destructor2.py
 
 
 
@@ -152,12 +178,14 @@
     - přístup přes `self`
     - zavolání s využitím "tečkové notace"
 
+* Deklarovány uvnitř třídy
+
 ```python
     def display_employee(self):
         print("Full name: ", self._first_name, self._surname, "   Salary: ", self._salary)
 ```
 
-* Celý skript
+* Celý skript s metodou `display_employee`
 
 ! examples/OOP/employee_class_3.py
 
@@ -166,6 +194,8 @@
 ! examples/OOP/employee_class_4.py
 
 --
+
+
 
 ## Pokročilé OOP techniky
 
