@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Ukázka polymorfismu (třída jako rozhraní)."""
+
+
+
 class Printable:
     def display(self):
         print(self)
