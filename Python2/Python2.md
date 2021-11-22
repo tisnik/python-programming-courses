@@ -339,6 +339,10 @@ __ixor__       ^= operátor
 
 ! examples/OOP/complex6.py
 
+* Přidání metody `__repr__`
+
+! examples/OOP/complex7.py
+
 
 
 ### Dědičnost
