@@ -6,6 +6,8 @@
 input_file = "Python2.md"
 output_file = "../docs/python2/Python2.md"
 
+source_prefix = "https://github.com/tisnik/python-programming-courses/blob/master/Python2"
+
 with open(input_file, "r") as fin:
     with open(output_file, "w") as fout:
         for line in fin.readlines():
@@ -20,7 +22,8 @@ with open(input_file, "r") as fin:
                 with open(include, "r") as inc:
                     included = inc.read()
                 fout.write(included)
-                fout.write("```\n")
+                fout.write("```\n\n")
+                fout.write("[Zdrojový kód]({}/{})".format(source_prefix, include))
             # other lines are to be output in its original form
             else:
                 fout.write(line)
