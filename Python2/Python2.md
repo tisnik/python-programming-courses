@@ -107,7 +107,7 @@
 
 * Třída představuje nový uživatelsky definovaný datový typ
 * Současně obsahuje předpis metod
-* Může obsahovat i statické atributy popř. třídní atributy
+* Může obsahovat i statické metody popř. třídní atributy a metody
 * V Pythonu však neobsahuje explicitní definice atributů objektů!
     - je to dynamický jazyk
 
@@ -202,6 +202,7 @@
 * Magické/speciální metody
 * Dědičnost, polymorfismus
 * Properties
+* Atributy třídy, třídní metody
 * Statické metody
 
 
@@ -210,14 +211,18 @@
 * Použity pro takzvané přetěžování operátorů
     - aritmetické operátory
     - relační operátory
-* Ovšem nelze modifikovat
+* Ovšem nelze modifikovat zejména
     - prioritu operátorů
     - asociativitu operátorů
-* Některé volány ve specifických situacích
+* Některé metody volány ve specifických situacích
     - konstruktor objektu
+    - destruktor objektu
     - přístup k atributům objektu, mazání atributu
     - převod objektu na řetězec
-* Seznam speciálních metod
+
+### Seznam speciálních metod
+
+* Metody volané automaticky ve specifických situacích
 
 ```
 __init__
@@ -232,6 +237,8 @@ __setattr__
 __delattr__
 ```
 
+* Přetížení relačních operátorů
+
 ```
 __eq__  x, y   x == y
 __ne__  x, y   x != y
@@ -240,6 +247,8 @@ __gt__  x, y   x > y
 __le__  x, y   x <= y
 __ge__  x, y   x >= y
 ```
+
+* Přetížení unárních a binárních operátorů
 
 ```
 __add__        binární + operátor
@@ -262,6 +271,8 @@ __or__  x, y   | operátor
 __xor__        ^ operátor
 ```
 
+* Přetížení kombinace přiřazení + binární operátor
+
 ```
 __iadd__       += operátor
 __isub__       -= operátor
@@ -277,6 +288,7 @@ __iand__       &= operátor
 __ior__        |= operátor
 __ixor__       ^= operátor
 ```
+
 
 
 ### Speciální metoda `__str__`
@@ -295,35 +307,112 @@ __ixor__       ^= operátor
 ! examples/OOP/employee_class_6.py
 
 
-### Dedičnost
+
+### Třída komplexních čísel
+
+* Základní reprezentace komplexního čísla
+
+! examples/OOP/complex1.py
+
+* Převod na řetězec
+
+! examples/OOP/complex2.py
+
+* Porovnání dvou komplexních čísel
+
+! examples/OOP/complex3.py
+
+* Součet komplexních čísel operátorem +
+
+! examples/OOP/complex4.py
+
+* Přičtení ke komplexnímu číslu operátorem +=
+
+! examples/OOP/complex5.py
+
+* Negace komplexního čísla
+
+! examples/OOP/complex6.py
+
+
+
+### Dědičnost
+
+* Z jedné třídy lze odvodit třídu další
+    - předek/potomek
+    - superclass
+* Nová třída zdědí vlastnosti z třídy předchozí
+* Vybrané vlastnosti je možné modifikovat
+
+* Třída Person a od ní odvozená třída Student 
 
 ! examples/OOP/inheritance1.py
+
+* Přetížení metody `__str__` ve třídě Student
+
 ! examples/OOP/inheritance2.py
+
+* Volání konstruktoru nadtřídy
+
 ! examples/OOP/inheritance3.py
+
+* Volání konstruktoru nadtřídy, rozlišení konstruktorů
+
 ! examples/OOP/inheritance4.py
+
+* Další třída Employee odvozená od třídy Person
+
 ! examples/OOP/inheritance5.py
+
+
 
 ### Polymorfismus
 
+* Ukázka polymorfismu
+
 ! examples/OOP/polymorphism1.py
+
+* Třída jako rozhraní v Pythonu
+
 ! examples/OOP/polymorphism2.py
 
-### Atributy třídy
+
+
+### Atributy třídy, třídní metody
+
+* Předepsán přímo v deklaraci třídy
+* Je sdílen všemi instancemi této třídy!
+* Přístup přes třídní metody
+    - class method
+* Parametr `cls` (jako class) nikoli `self`
+
+* Atribut třídy a tečková notace
+
+! examples/OOP/class_attribute.py
+
+* Typický příklad použití - počitadlo instancí
 
 ! examples/OOP/class_method.py
 
-### Statické atributy
+* (bylo by vhodné upravit přetížením destruktoru)
+
+
+
+### Statické metody
+
+* Pouze funkce zapouzdřené do jmenného prostoru třídy
+* Nemají přístup k žádným atributům
+* I proto nemají parametr `self`
+
+* Nekorektní příklad použití
 
 ! examples/OOP/static_method1.py
+
+* Korektní příklad použití
+
 ! examples/OOP/static_method2.py
 
-### Třída reprezentující komplexní čísla
 
-! examples/OOP/complex1.py
-! examples/OOP/complex2.py
-! examples/OOP/complex3.py
-! examples/OOP/complex4.py
-! examples/OOP/complex5.py
 
 --
 
