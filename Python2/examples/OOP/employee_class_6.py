@@ -28,7 +28,7 @@ class Employee:
             self._salary == other._salary
 
 
-# vytvoření dvou instancí třídy
+# vytvoření tří instancí třídy
 employee1 = Employee("Eda", "Wasserfall", 10000)
 employee2 = Employee("Eda", "Wasserfall", 10000)
 employee3 = Employee("Přemysl", "Hájek", 25001)
