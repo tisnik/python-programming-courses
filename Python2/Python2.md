@@ -43,8 +43,8 @@
 
 * Standardní knihovna, zajímavé moduly a balíčky
     - Přehled modulů a balíčků standardní knihovny
-    - Repozitář PyPi
-    - Nástroje pip, ensurepip
+    - Repositář PyPi
+    - Nástroje pip popř., ensurepip
 
 * CPython a jeho alternativy
     - Hlavní vlastnosti CPythonu
@@ -65,6 +65,8 @@
 * Aplikace s GUI
     - Návrh jednoduché aplikace s GUI
     - Widget knihovny jako GTk+, wxWidgets, QT a Python
+    - Zpracování událostí
+    - Animace
 
 --
 
@@ -255,8 +257,8 @@ __add__        binární + operátor
 __sub__        binární - operátor
 __mul__        * operátor
 __div__        / operátor
-__floordiv__   // operátor (P2)
-__truediv__    / operátor (P3)
+__floordiv__   // operátor (Python 2)
+__truediv__    / operátor (Python 3)
 __mod__        % operátor
 __pow__        ** operátor or pow(x, y, z)
 __neg__        unární - operátor
@@ -277,9 +279,9 @@ __xor__        ^ operátor
 __iadd__       += operátor
 __isub__       -= operátor
 __imul__       *= operátor
-__idiv__       /= operátor (P2)
+__idiv__       /= operátor (Python 2)
 __ifloordiv__  //= operátor
-__itruediv__   /= operátor (P3)
+__itruediv__   /= operátor (Python 3)
 __imod__       %= operátor
 __ipow__       **= operátor
 __ilshift__    <<= operátor
@@ -322,11 +324,11 @@ __ixor__       ^= operátor
 
 ! examples/OOP/complex3.py
 
-* Součet komplexních čísel operátorem +
+* Součet komplexních čísel operátorem `+`
 
 ! examples/OOP/complex4.py
 
-* Přičtení ke komplexnímu číslu operátorem +=
+* Přičtení ke komplexnímu číslu operátorem `+=`
 
 ! examples/OOP/complex5.py
 
@@ -344,7 +346,7 @@ __ixor__       ^= operátor
 * Nová třída zdědí vlastnosti z třídy předchozí
 * Vybrané vlastnosti je možné modifikovat
 
-* Třída Person a od ní odvozená třída Student 
+* Třída `Person` a od ní odvozená třída `Student`
 
 ! examples/OOP/inheritance1.py
 
@@ -360,7 +362,7 @@ __ixor__       ^= operátor
 
 ! examples/OOP/inheritance4.py
 
-* Další třída Employee odvozená od třídy Person
+* Další třída `Employee` odvozená od třídy `Person`
 
 ! examples/OOP/inheritance5.py
 
@@ -380,8 +382,8 @@ __ixor__       ^= operátor
 
 ### Atributy třídy, třídní metody
 
-* Předepsán přímo v deklaraci třídy
-* Je sdílen všemi instancemi této třídy!
+* Předepsány přímo v deklaraci třídy
+* Jsou sdíleny všemi instancemi této třídy!
 * Přístup přes třídní metody
     - class method
 * Parametr `cls` (jako class) nikoli `self`
@@ -488,6 +490,9 @@ __ixor__       ^= operátor
 ### Generátorová notace seznamu
 
 * List comprehension
+    - možnost konstrukce n-tice nebo seznamu na jediném řádku bez `append`
+    - lze kombinovat s podmínkou
+    - existuje i varianta založená na generátorech
 
 ! examples/Functional/list_comprehension.py
 
@@ -495,14 +500,22 @@ __ixor__       ^= operátor
 
 ### Funkce vyššího řádu
 
-* = všechny funkce, které:
+* Funkce vyššího řádu = všechny funkce, které:
     - akceptují jiné funkce jako parametry
-    - vrací funkce
+    - vrací funkce (návratové hodnoty)
+
+* Typická trojice funkcí vyššího řádu
+    - `map`
+    - `reduce`
+    - `filter`
 
 * Funkce `map`
     - aplikace nějaké funkce na všechny prvky nějaké sekvence
+    - typicky se používá společně s anonymní funkcí `lambda`
 
 ! examples/Functional/map_function.py
+
+    - popř. s pojmenovanou funkcí
 
 ! examples/Functional/map_function2.py
 
@@ -512,8 +525,8 @@ __ixor__       ^= operátor
 ! examples/Functional/filter_function.py
 
 * Funkce `reduce`
-    - musí být importována z balíčku `functools`
     - postupné zkracování vstupní sekvence akumulací mezivýsledku
+    - musí být importována z balíčku `functools`
 
 ! examples/Functional/reduce_function.py
 
@@ -558,7 +571,7 @@ __ixor__       ^= operátor
 
 ### Generátory
 
-* Běžná funkce, která vygenruje seznam o zadané délce
+* Běžná funkce, která vygeneruje seznam o zadané délce
 
 ! examples/generators/gen_list.py
 
@@ -628,6 +641,8 @@ __ixor__       ^= operátor
 * parametry na příkazovém řádku
     - ukázka zpracování parametrů
 
+
+
 ### Shebang
 
 * Rozpoznáván na prvním textovém řádku!
@@ -645,12 +660,16 @@ __ixor__       ^= operátor
 # vim: set fileencoding=utf-8
 ```
 
+
+
 ### Vstupní bod aplikace (skriptu)
 
 ```python
 if __name__ == "__main__":
     main()
 ```
+
+
 
 ### Zpracování parametrů předaných při spouštění skriptů
 
@@ -661,16 +680,22 @@ if __name__ == "__main__":
 
 * Využití knihovny `argparse`
 
+
+
 ### Příklad využití knihovny `argparse`
 
 ! examples/stdlib/cli_args.py
 
 --
 
+
+
 ## Standardní knihovna, zajímavé moduly a balíčky
 
 * Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
     - https://docs.python.org/3/library/index.html
+
+
 
 ### Práce s formátem JSON
 
@@ -697,6 +722,8 @@ if __name__ == "__main__":
 ! examples/stdlib/json_input.py
 
 --
+
+
 
 ## CPython a jeho alternativy
 
@@ -748,6 +775,8 @@ if __name__ == "__main__":
     - https://github.com/micropython/micropython
     - překlad pro každý CPU/MCU zvlášť
 
+
+
 ### Rozdíly CPython vs MicroPython
 
 * Chybí některé standardní knihovny
@@ -777,6 +806,33 @@ pin.value(1)
 
 
 ### RPython
+
+* Určen pro překlad programů napsaných v podmnožině programovacího jazyka Python do nativního kódu
+* Snaží se odvozovat datové typy proměnných, argumentů i návratových hodnot funkcí na základě analýzy grafu (CFG)
+* Počáteční písmeno v názvu „RPython“ znamená „restricted“,
+
+### Cython
+
+* Tento překladač pracuje poněkud odlišným způsobem než RPython
+* Transformace (transpilace) do jazyka C
+* Ve chvíli, kdy Cython nezná datový typ funkce/proměnné/argumentu, použije `PyObject *`
+* Rozšiřuje jazyk Python o další klíčová slova, především pak o slovo `cdef`
+
+```python
+def calc(width, height, maxiter, palette):
+    ...
+    ...
+    ...
+```
+
+```
+cdef calc(int width, int height, int maxiter, palette):
+    ...
+    ...
+    ...
+```
+
+
 
 ### Numba
 
