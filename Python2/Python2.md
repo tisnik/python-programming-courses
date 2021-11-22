@@ -418,9 +418,11 @@ __ixor__       ^= operátor
 
 ## Základy funkcionálního programování v Pythonu
 
-* Lambda výrazy
+* Lambda výrazy, anonymní funkce
 * Generátorová notace seznamu
 * Funkce vyššího řádu
+* First-class funkce, rekurze, closures, ...
+* Map, reduce, filter
 * Zkrácené logické výrazy
 
 
@@ -428,9 +430,9 @@ __ixor__       ^= operátor
 ### Lambda výrazy
 
 * Anonymní funkce
-* Lze použít na místech, kde se očekává reference na funkci (map atd.)
-* Implicitní `return`
-* V Pythonu některá omezení
+* Lze použít na místech, kde se očekává reference na funkci (`map` atd.)
+* Implicitní konstrukce `return`
+* V Pythonu platí některá omezení
     - jeden výraz v těle funkce
     - žádné příkazy (skutečně jen výraz)
 
@@ -443,8 +445,43 @@ __ixor__       ^= operátor
 ! examples/Functional/lambda2.py
 
 * Někdy je zapotřebí parametr ignorovat
+    - uvidíme při návrhu GUI u událostí (events)
 
 ! examples/Functional/lambda3.py
+
+
+
+### First-class funkce
+
+* Funkce jsou v Pythonu plnohodnotným datovým typem
+    - akceptují se jako parametry jiných funkcí
+    - lze je vracet jako návratové hodnoty jiných funkcí
+    - lze je ukládat do n-tic, seznamů, slovníků...
+
+* Funkce jako parametr jiné funkce
+
+! examples/Functional/accept_function.py
+
+* Funkce jako návratová hodnota jiné funkce
+
+! examples/Functional/adder.py
+
+
+
+### Uzávěry (closures)
+
+* Funkce mající přístup k nelokální proměnné/hodnotě
+    - "uzavírají" tuto hodnotu
+
+! examples/Functional/closure.py
+
+* Nutnost použití modifikátoru `nonlocal`
+
+* Typický příklad - libovolné množství čítačů
+
+! examples/Functional/counter.py
+
+* (lze implementovat i s využitím generátorů)
 
 
 
@@ -458,18 +495,25 @@ __ixor__       ^= operátor
 
 ### Funkce vyššího řádu
 
+* = všechny funkce, které:
+    - akceptují jiné funkce jako parametry
+    - vrací funkce
+
 * Funkce `map`
+    - aplikace nějaké funkce na všechny prvky nějaké sekvence
 
 ! examples/Functional/map_function.py
 
 ! examples/Functional/map_function2.py
 
 * Funkce `filter`
+    - výběr hodnot ze sekvence na základě zadané podmínky
 
 ! examples/Functional/filter_function.py
 
 * Funkce `reduce`
     - musí být importována z balíčku `functools`
+    - postupné zkracování vstupní sekvence akumulací mezivýsledku
 
 ! examples/Functional/reduce_function.py
 
@@ -482,6 +526,8 @@ __ixor__       ^= operátor
 * Druhý operand je vyhodnocen pouze v případě, že není dopředu známý výsledek výrazu
     - `x and y` - pokud `x==False`, není nutné vyhodnotit `y`
     - `x or y` - pokud `x==True`, není nutné vyhodnotit `y`
+
+* Ukázka všech možných kombinací, které mohou nastat
 
 ! examples/Functional/short_circuit_1.py
 
@@ -498,6 +544,8 @@ __ixor__       ^= operátor
 ! examples/Functional/short_circuit_7.py
 
 ! examples/Functional/short_circuit_8.py
+
+
 
 --
 
