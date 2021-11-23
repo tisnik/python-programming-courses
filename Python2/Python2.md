@@ -975,9 +975,9 @@ for x in range(1, 11):
 
 ! examples/stdlib/multithreading2.py
 
-! examples/stdlib/thread_pool_1.py.py
+! examples/stdlib/thread_pool_1.py
 
-! examples/stdlib/thread_pool_2.py.py
+! examples/stdlib/thread_pool_2.py
 
 
 
