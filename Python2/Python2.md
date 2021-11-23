@@ -752,6 +752,30 @@ for x in range(1, 11):
     print("1/{x:<2d} = {y:5.3f}".format(x=x, y=y))
 ```
 
+* Metoda `split`
+
+
+```python
+x = "prvni,druhy,treti,ctvrty"
+
+l = x.split(",")
+```
+
+* Metoda `join`
+
+```python
+l = ["prvni", "druhy", "treti", "ctvrty"]
+
+x = ",".join(l)
+```
+
+* Metoda `replace`
+
+```python
+"vccvxvcxz".replace("c", "-")
+'v--vxv-xz'
+```
+
 
 
 ### Modul `re`
@@ -808,19 +832,24 @@ for x in range(1, 11):
     - regulární výraz pro IPv4 adresu (nepřesný!)
          `"(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})"`
     - regulární výraz akceptující reálná čísla
-         `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-8]+)?"`
+         `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-9]+)?"`
+
+* První možné řešení:
 
 ! examples/stdlib/get_framebuffer_resolution.py
 
-* časově efektivnější řešení:
+* Časově efektivnější řešení:
 
 ! examples/stdlib/get_framebuffer_resolution2.py
+
+* Reálný příklad:
 
 ! examples/stdlib/regular_expression2.py
 
 * Online nástroje
     - [https://extendsclass.com/regex-tester.html](https://extendsclass.com/regex-tester.html)
     - [https://regex101.com/](https://regex101.com/)
+
 
 
 ### Modul `datetime`
@@ -832,6 +861,11 @@ for x in range(1, 11):
     - `datetime.time`
     - `datetime.datetime`
     - `datetime.timedelta`
+
+! examples/stdlib/strftime.py
+
+! examples/stdlib/strptime.py
+
 
 
 ### Modul `pprint`
@@ -858,12 +892,12 @@ for x in range(1, 11):
 'u' wchar_t Unicode character 2
 'h' signed short int          2
 'H' unsigned short int        2
-'i' signed int int            2
-'I' unsigned int int          2
-'l' signed long int           4
-'L' unsigned long int         4
-'q' signed long long int      8
-'Q' unsigned long long int    8
+'i' signed int int            2 (4)
+'I' unsigned int int          2 (4)
+'l' signed long int           4 (8)
+'L' unsigned long int         4 (8)
+'q' signed long long int      8 (16)
+'Q' unsigned long long int    8 (16)
 'f' float float               4
 'd' double float              8
 ```
@@ -906,7 +940,7 @@ for x in range(1, 11):
 
 ! examples/stdlib/stack_example.py
 
-! examples/stdlib/priority_queue_example.py.py
+! examples/stdlib/priority_queue_example.py
 
 ! examples/stdlib/queues1.py
 

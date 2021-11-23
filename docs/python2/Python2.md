@@ -2719,6 +2719,30 @@ for x in range(1, 11):
     print("1/{x:<2d} = {y:5.3f}".format(x=x, y=y))
 ```
 
+* Metoda `split`
+
+
+```python
+x = "prvni,druhy,treti,ctvrty"
+
+l = x.split(",")
+```
+
+* Metoda `join`
+
+```python
+l = ["prvni", "druhy", "treti", "ctvrty"]
+
+x = ",".join(l)
+```
+
+* Metoda `replace`
+
+```python
+"vccvxvcxz".replace("c", "-")
+'v--vxv-xz'
+```
+
 
 
 ### Modul `re`
@@ -2775,7 +2799,9 @@ for x in range(1, 11):
     - regulární výraz pro IPv4 adresu (nepřesný!)
          `"(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})"`
     - regulární výraz akceptující reálná čísla
-         `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-8]+)?"`
+         `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-9]+)?"`
+
+* První možné řešení:
 
 ```python
 import subprocess
@@ -2797,7 +2823,7 @@ print(get_framebuffer_resolution("/dev/fb0"))
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution.py)
 
-* časově efektivnější řešení:
+* Časově efektivnější řešení:
 
 ```python
 import subprocess
@@ -2821,6 +2847,8 @@ print(get_framebuffer_resolution("/dev/fb0"))
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution2.py)
 
+* Reálný příklad:
+
 ```python
 HTTP_RE = re.compile(
     r"^(?:https://[^/]+\.s3\.amazonaws\.com/[0-9a-zA-Z/\-]+|"
@@ -2842,6 +2870,7 @@ def get(self, src):
     - [https://regex101.com/](https://regex101.com/)
 
 
+
 ### Modul `datetime`
 
 * Manipulace s časovými razítky
@@ -2851,6 +2880,49 @@ def get(self, src):
     - `datetime.time`
     - `datetime.datetime`
     - `datetime.timedelta`
+
+```python
+import datetime
+
+dt = datetime.datetime.now()
+print(dt)
+
+s = dt.strftime("%Y-%m-%d")
+print(s)
+
+s = dt.strftime("%d.%m.%Y")
+print(s)
+
+s = dt.strftime("%m/%d/%Y")
+print(s)
+
+s = dt.strftime("%H:%m:%S")
+print(s)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/strftime.py)
+
+```python
+import datetime
+
+s = "2021-11-12"
+
+dt = datetime.datetime.strptime(s, "%Y-%m-%d")
+print(dt)
+
+s = "2021-11-12 10:20:30"
+
+dt = datetime.datetime.strptime(s, "%Y-%m-%d %H:%M:%S")
+print(dt)
+
+s = "10:20:30"
+
+dt = datetime.datetime.strptime(s, "%H:%M:%S")
+print(dt)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/strptime.py)
+
 
 
 ### Modul `pprint`
@@ -2877,12 +2949,12 @@ def get(self, src):
 'u' wchar_t Unicode character 2
 'h' signed short int          2
 'H' unsigned short int        2
-'i' signed int int            2
-'I' unsigned int int          2
-'l' signed long int           4
-'L' unsigned long int         4
-'q' signed long long int      8
-'Q' unsigned long long int    8
+'i' signed int int            2 (4)
+'I' unsigned int int          2 (4)
+'l' signed long int           4 (8)
+'L' unsigned long int         4 (8)
+'q' signed long long int      8 (16)
+'Q' unsigned long long int    8 (16)
 'f' float float               4
 'd' double float              8
 ```
@@ -3037,6 +3109,87 @@ print(a4.buffer_info()[1]*a4.itemsize)
     - `get`
     - `get_nowait`
     - `join`
+
+```python
+#!/usr/bin/env python3
+
+import queue
+
+q = queue.Queue(500)
+
+for item in range(10):
+    print("Size", q.qsize())
+    print("Empty?", q.empty())
+    print("Full?", q.full())
+    q.put("prvek # {}".format(item))
+
+while not q.empty():
+    print("Read item:", q.get())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queue_example.py)
+
+```python
+#!/usr/bin/env python3
+
+import queue
+
+q = queue.SimpleQueue()
+
+for item in range(10):
+    print("Size", q.qsize())
+    print("Empty?", q.empty())
+    print("Full?", q.full())
+    q.put("prvek # {}".format(item))
+
+while not q.empty():
+    print("Read item:", q.get())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/simple_queue_example.py)
+
+```python
+#!/usr/bin/env python3
+
+import queue
+
+q = queue.LifoQueue(500)
+
+for item in range(10):
+    print("Size", q.qsize())
+    print("Empty?", q.empty())
+    print("Full?", q.full())
+    q.put("prvek # {}".format(item))
+
+while not q.empty():
+    print("Read item:", q.get())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/stack_example.py)
+
+```python
+#!/usr/bin/env python3
+
+import queue
+import random
+
+q = queue.PriorityQueue(40)
+
+for item in range(30):
+    print("Size", q.qsize())
+    print("Empty?", q.empty())
+    print("Full?", q.full())
+
+    value = random.randint(1, 20)
+    print(value)
+    q.put("prvek # {:2d}".format(value))
+
+
+while not q.empty():
+    print("Read item:", q.get())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/priority_queue_example.py)
 
 ```python
 import time
