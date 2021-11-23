@@ -697,6 +697,8 @@ if __name__ == "__main__":
 
 * Využití knihovny `argparse`
 
+! examples/stdlib/cli_args.py
+
 
 
 ### Příklad využití knihovny `argparse`
@@ -711,6 +713,12 @@ if __name__ == "__main__":
 
 * Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
     - https://docs.python.org/3/library/index.html
+
+! examples/stdlib/file_write.py
+
+! examples/stdlib/file_append.py
+
+! examples/stdlib/ord_chr.py
 
 
 ### Modul `string`
@@ -804,6 +812,8 @@ for x in range(1, 11):
 
 ! examples/stdlib/get_framebuffer_resolution.py
 
+! examples/stdlib/regular_expression2.py
+
 
 
 ### Modul `datetime`
@@ -815,15 +825,6 @@ for x in range(1, 11):
     - `datetime.time`
     - `datetime.datetime`
     - `datetime.timedelta`
-
-* Příklad použití třídy `datetime.date`
-
-* Příklad použití třídy `datetime.time`
-
-* Příklad použití třídy `datetime.datetime`
-
-* Příklad použití třídy `datetime.timedelta`
-
 
 
 ### Modul `pprint`
@@ -860,6 +861,14 @@ for x in range(1, 11):
 'd' double float              8
 ```
 
+! examples/stdlib/arrays1.py
+
+! examples/stdlib/arrays2.py
+
+! examples/stdlib/arrays3.py
+
+! examples/stdlib/arrays4.py
+
 
 
 ### Modul `queue`
@@ -887,6 +896,10 @@ for x in range(1, 11):
 ! examples/stdlib/queues1.py
 
 ! examples/stdlib/queues2.py
+
+! examples/stdlib/queues3.py
+
+! examples/stdlib/queues4.py
 
 
 
@@ -921,6 +934,8 @@ for x in range(1, 11):
 
 ! examples/stdlib/get_framebuffer_resolution.py
 
+
+
 ### Práce s formátem JSON
 
 * Serializace a deserializace dat
@@ -946,6 +961,16 @@ for x in range(1, 11):
 ! examples/stdlib/json_input.py
 
 --
+
+## Multithreading
+
+! examples/stdlib/multithreading1.py
+
+! examples/stdlib/multithreading2.py
+
+! examples/stdlib/thread_pool_1.py.py
+
+! examples/stdlib/thread_pool_2.py.py
 
 
 
