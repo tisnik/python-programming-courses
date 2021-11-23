@@ -12,7 +12,7 @@ with open(input_file, "r") as fin:
     with open(output_file, "w") as fout:
         for line in fin.readlines():
             # handle @ character at the beginning of line as include statement
-            if line[0] == "!":
+            if line[0:2] == "! ":
                 # retrieve file name of file to be included
                 include = line[2:].strip()
                 print("including:", include)
