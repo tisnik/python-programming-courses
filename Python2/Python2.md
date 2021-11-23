@@ -634,6 +634,16 @@ __ixor__       ^= operátor
 ! examples/decorators/decorators3.py
 
 
+### Od getterů a setterů k properties
+
+! examples/OOP/employee_class_7.py
+
+! examples/OOP/employee_class_8.py
+
+! examples/OOP/employee_class_9.py
+
+
+
 --
 
 ## Tvorba skriptů v Pythonu
@@ -703,6 +713,213 @@ if __name__ == "__main__":
     - https://docs.python.org/3/library/index.html
 
 
+### Modul `string`
+
+* Manipulace s řetězci
+* Formátování řetězců
+    - vlastní doménově specifický jazyk pro specifikaci formátu
+* Příklad použiti
+
+```python
+print("hodnota: {value:5d}".format(value=42))
+print("hodnota: {value:05d}".format(value=42))
+```
+* Formátování tabulky na výstupu
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:2d} = {y:5.3f}".format(x=x, y=y))
+```
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:02d} = {y:5.3f}".format(x=x, y=y))
+```
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:<2d} = {y:5.3f}".format(x=x, y=y))
+```
+
+
+
+### Modul `re`
+
+* Podpora pro regulární výrazy
+* Vlastní doménově specifický jazyk pro regulární výrazy
+    - znaky se speciálním významem
+        - kvalifikátory
+        - atomy
+        - znaky pro začátek a konec řádku
+        - výrazy v []
+        - třídy znaků
+        - speciální znaky
+* Součásti regulárních výrazů
+    - kvalifikátory
+        - `*`     sekvence 0..n atomů
+        - `+`     sekvence 1..n atomů
+        - `?`     žádný nebo jeden atom
+        - `{m}`   v závorce je zapsán přesný počet atomů
+        - `{m,}`  v závorce je zapsán minimální počet atomů
+        - `{m,n}` v závorce je minimální a maximální počet atomů
+    - atomy
+        - `x`  konkrétní znak
+        - `()` prázdný řetězec
+        - `.`  jediný znak
+        - `\X` řídicí znak či znak se zadaným kódem
+        - `(xxx)` část výrazu, k níž lze později přistupovat (podle indexu)
+    - znaky pro začátek a konec řádku
+        - `^` nahrazuje začátek řádku
+        - `$` nahrazuje konec řádku
+    - výrazy v []
+        - lze zde zapsat množinu znaků
+        - při rozdělení znaků pomocí `-` se určuje rozsah `a-z`, `5-7` atd.
+        - `^` negace - všechny znaky, které NEodpovídají dalšímu výrazu
+    - třídy znaků
+        - vnější závorky `[]` změní třídu znaků na množinu
+    - speciální (řídicí) znaky
+        - `\a`      alert (bell)
+        - `\b`      backspace
+        - `\B`      může se použít namísto `\\` (čitelnější)
+        - `\e`      znak ESCape
+        - `\n`      nový řádek
+        - `\r`      návrat kurzoru
+        - `\t`      tab
+        - `\u1234`  znak se zadaným Unikódem
+    - vybrané třídy znaků zapsané zkrácenou formou
+        - `\d` `[[:digit:]]`
+        - `\s` `[[:space:]]`
+        - `\w` `[[:alnum:]_]`  jako `\d` a `_`
+        - `\D` `[^[:digit:]]`
+        - `\S` `[^[:space:]]`
+        - `\W` `[^[:alnum:]_]` negace `\W`
+* Příklady regulárních výrazů
+    - regulární výraz pro IPv4 adresu (nepřesný!)
+         `"(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})"`
+    - regulární výraz akceptující reálná čísla
+         `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-8]+)?"`
+
+! examples/stdlib/get_framebuffer_resolution.py
+
+
+
+### Modul `datetime`
+
+* Manipulace s časovými razítky
+* Podpora pro časové zóny
+* Třídy
+    - `datetime.date`
+    - `datetime.time`
+    - `datetime.datetime`
+    - `datetime.timedelta`
+
+* Příklad použití třídy `datetime.date`
+
+* Příklad použití třídy `datetime.time`
+
+* Příklad použití třídy `datetime.datetime`
+
+* Příklad použití třídy `datetime.timedelta`
+
+
+
+### Modul `pprint`
+
+* "Hezký" tisk strukturovaných dat
+* Třída `pprint.PrettyPrinter`
+    - `indent=1`
+    - `width=80`
+    - `depth=None`
+* Metoda `PrettyPrinter.format`
+* Funkce `pprint.pprint`
+
+
+
+### Modul `array`
+
+* Paměťově efektivní uložení prvků v polích
+
+* Podporované typy prvků
+
+```
+'b' signed char int           1
+'B' unsigned char int         1
+'u' wchar_t Unicode character 2
+'h' signed short int          2
+'H' unsigned short int        2
+'i' signed int int            2
+'I' unsigned int int          2
+'l' signed long int           4
+'L' unsigned long int         4
+'q' signed long long int      8
+'Q' unsigned long long int    8
+'f' float float               4
+'d' double float              8
+```
+
+
+
+### Modul `queue`
+
+* Synchronizované fronty
+* Třída `queue.Queue`
+    - klasická fronta se zadanou kapacitou
+* Třída `queue.SimpleQueue`
+    - klasická fronta s neomezenou kapacitou
+* Třída `queue.LifoQueue`
+    - zásobník se zadanou kapacitou
+* Třída `queue.PriorityQueue`
+    - prioritní fronta se zadanou kapacitou
+
+* Podporované metody
+    - `qsize`
+    - `empty`
+    - `full`
+    - `put`
+    - `put_nowait`
+    - `get`
+    - `get_nowait`
+    - `join`
+
+! examples/stdlib/queues1.py
+
+! examples/stdlib/queues2.py
+
+
+
+### Modul `math`
+
+* Matematické funkce
+
+! examples/stdlib/math_sin_cos.py
+
+
+
+### Modul `sys`
+
+* Systémová volání resp. rozhraní pro ně
+
+! examples/stdlib/bounds.py
+
+
+
+### Modul `os`
+
+* Funkce specifické pro různé operační systémy
+
+! examples/stdlib/environ.py
+
+
+
+### Modul `subprocess`
+
+* Spuštění dalších procesů
+* Zpracování vstupů a výstupů z těchto procesů
+
+! examples/stdlib/get_framebuffer_resolution.py
 
 ### Práce s formátem JSON
 
