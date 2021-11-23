@@ -697,7 +697,7 @@ if __name__ == "__main__":
 
 * Využití knihovny `argparse`
 
-! examples/stdlib/cli_args.py
+! examples/stdlib/cli_args.pe
 
 
 
@@ -814,6 +814,9 @@ for x in range(1, 11):
 
 ! examples/stdlib/regular_expression2.py
 
+* Online nástroje
+    - [https://extendsclass.com/regex-tester.html](https://extendsclass.com/regex-tester.html)
+    - [https://regex101.com/](https://regex101.com/)
 
 
 ### Modul `datetime`
