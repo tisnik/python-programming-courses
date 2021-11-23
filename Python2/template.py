@@ -24,6 +24,7 @@ with open(input_file, "r") as fin:
                 fout.write(included)
                 fout.write("```\n\n")
                 fout.write("[Zdrojový kód]({}/{})".format(source_prefix, include))
+                fout.write("\n")
             # other lines are to be output in its original form
             else:
                 fout.write(line)
