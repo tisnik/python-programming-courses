@@ -900,6 +900,14 @@ for x in range(1, 11):
     - `get_nowait`
     - `join`
 
+! examples/stdlib/queue_example.py
+
+! examples/stdlib/simple_queue_example.py
+
+! examples/stdlib/stack_example.py
+
+! examples/stdlib/priority_queue_example.py.py
+
 ! examples/stdlib/queues1.py
 
 ! examples/stdlib/queues2.py
