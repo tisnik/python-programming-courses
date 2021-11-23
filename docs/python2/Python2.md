@@ -125,6 +125,7 @@ class Employee:
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_0.py)
 
 
+
 ### Objekty
 
 * Instance třídy
@@ -152,6 +153,7 @@ print(employee2)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_1.py)
+
 
 
 ### Atributy tříd a objektů
@@ -183,6 +185,7 @@ print(c1.x)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_attribute.py)
+
 
 
 ### Konstruktor
@@ -218,6 +221,7 @@ print(employee2._first_name)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_2.py)
+
 
 
 ### Destruktor
@@ -259,6 +263,7 @@ test_destructor()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_destructor1.py)
+
 * Volání konstruktoru může přijít "pozdě" - po ukončení skriptu
 
 ```python
@@ -291,6 +296,7 @@ print("Konec programu")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_destructor2.py)
+
 * Explicitní smazání konstruktoru konstrukcí `del`
 
 ```python
@@ -331,6 +337,7 @@ print("Konec programu")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/explicit_del_call.py)
+
 
 ### Metody
 
@@ -378,6 +385,7 @@ employee2.display_employee()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_3.py)
+
 * Vylepšení formátování výstupu
 
 ```python
@@ -414,6 +422,7 @@ employee2.display_employee()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_4.py)
+
 --
 
 
@@ -553,6 +562,7 @@ print(employee2)
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_5.py)
 
 
+
 ### Speciální metoda `__eq__`
 
 * Zavolána při porovnávání objektů
@@ -602,6 +612,7 @@ print(employee1 == employee2)
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_6.py)
 
 
+
 ### Třída komplexních čísel
 
 * Základní reprezentace komplexního čísla
@@ -635,6 +646,7 @@ print(c4)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex1.py)
+
 * Převod na řetězec
 
 ```python
@@ -667,6 +679,7 @@ print(c4)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex2.py)
+
 * Porovnání dvou komplexních čísel
 
 ```python
@@ -706,6 +719,7 @@ print(c3 == c5)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex3.py)
+
 * Součet komplexních čísel operátorem `+`
 
 ```python
@@ -753,6 +767,7 @@ print(c3 == c5)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex4.py)
+
 * Přičtení ke komplexnímu číslu operátorem `+=`
 
 ```python
@@ -805,6 +820,7 @@ print(c3 == c5)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex5.py)
+
 * Negace komplexního čísla
 
 ```python
@@ -815,18 +831,13 @@ print(c3 == c5)
 
 
 class Complex:
-    """Třída představující komplexní čísla."""
 
     def __init__(self, real=0, imag=0):
-        """Konstruktor."""
         self._real = real
         self._imag = imag
 
     def __str__(self):
         return "{r} + {i}j".format(r=self._real, i=self._imag)
-
-    def __repr__(self):
-        return "Complex({r}, {i})".format(r=self._real, i=self._imag)
 
     def __eq__(self, other):
         return self._real == other._real and self._imag == other._imag
@@ -849,16 +860,29 @@ class Complex:
 
 c1 = Complex(1, 2)
 c2 = Complex(10, 20)
+c3 = Complex(100)
+c4 = Complex()
 
-c3 = c1 + c2
+c1 += c3
+print(c1)
+
+c5 = Complex(1, 2)
+print(c1)
+print(c2)
 print(c3)
+print(c4)
 
-print(c3)
+print(c1 == c5)
+print(c2 == c5)
+print(c3 == c5)
 
-print(c3.__repr__())
+c6 = - c1
+print(c1)
+print(c6)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex6.py)
+
 * Přidání metody `__repr__`
 
 ```python
@@ -915,6 +939,7 @@ print(c3.__repr__())
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/complex7.py)
 
 
+
 ### Dědičnost
 
 * Z jedné třídy lze odvodit třídu další
@@ -962,6 +987,7 @@ print(s1)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance1.py)
+
 * Přetížení metody `__str__` ve třídě Student
 
 ```python
@@ -1007,6 +1033,7 @@ print(s1)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance2.py)
+
 * Volání konstruktoru nadtřídy
 
 ```python
@@ -1055,6 +1082,7 @@ print(s1)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance3.py)
+
 * Volání konstruktoru nadtřídy, rozlišení konstruktorů
 
 ```python
@@ -1105,6 +1133,7 @@ print(s1)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance4.py)
+
 * Další třída `Employee` odvozená od třídy `Person`
 
 ```python
@@ -1176,6 +1205,7 @@ print(e1)
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/inheritance5.py)
 
 
+
 ### Polymorfismus
 
 * Ukázka polymorfismu
@@ -1242,6 +1272,7 @@ for p in people:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism1.py)
+
 * Třída jako rozhraní v Pythonu
 
 ```python
@@ -1314,6 +1345,7 @@ for p in people:
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism2.py)
 
 
+
 ### Atributy třídy, třídní metody
 
 * Předepsány přímo v deklaraci třídy
@@ -1338,6 +1370,7 @@ print(c1.x)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_attribute.py)
+
 * Typický příklad použití - počitadlo instancí
 
 ```python
@@ -1389,6 +1422,7 @@ employee2.display_employee()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_method.py)
+
 * (bylo by vhodné upravit přetížením destruktoru)
 
 
@@ -1457,6 +1491,7 @@ employee2.display_employee()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/static_method1.py)
+
 * Korektní příklad použití
 
 ```python
@@ -1520,6 +1555,7 @@ e4 = Employee("Foo", "Baz", 0)
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/static_method2.py)
 
 
+
 --
 
 ## Základy funkcionálního programování v Pythonu
@@ -1550,6 +1586,7 @@ print(f(1,2))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda1.py)
+
 * Lambda výraz bez parametrů
 
 ```python
@@ -1558,6 +1595,7 @@ print(f())
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda2.py)
+
 * Někdy je zapotřebí parametr ignorovat
     - uvidíme při návrhu GUI u událostí (events)
 
@@ -1567,6 +1605,7 @@ print(f("foo"))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda3.py)
+
 
 
 ### First-class funkce
@@ -1593,6 +1632,7 @@ print(result)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/accept_function.py)
+
 * Funkce jako návratová hodnota jiné funkce
 
 ```python
@@ -1619,6 +1659,7 @@ print(result)
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/adder.py)
 
 
+
 ### Uzávěry (closures)
 
 * Funkce mající přístup k nelokální proměnné/hodnotě
@@ -1643,6 +1684,7 @@ print(i2(10))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/closure.py)
+
 * Nutnost použití modifikátoru `nonlocal`
 
 * Typický příklad - libovolné množství čítačů
@@ -1677,6 +1719,7 @@ print(c2())
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/counter.py)
+
 * (lze implementovat i s využitím generátorů)
 
 
@@ -1706,6 +1749,7 @@ print(seznam3)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/list_comprehension.py)
+
 
 
 ### Funkce vyššího řádu
@@ -1738,6 +1782,7 @@ print(list(y))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/map_function.py)
+
     - popř. s pojmenovanou funkcí
 
 ```python
@@ -1758,6 +1803,7 @@ print(list(y))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/map_function2.py)
+
 * Funkce `filter`
     - výběr hodnot ze sekvence na základě zadané podmínky
 
@@ -1776,6 +1822,7 @@ print(list(y))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/filter_function.py)
+
 * Funkce `reduce`
     - postupné zkracování vstupní sekvence akumulací mezivýsledku
     - musí být importována z balíčku `functools`
@@ -1797,6 +1844,7 @@ print(y)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/reduce_function.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1814,6 +1862,7 @@ print(y)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/reduce_sum.py)
+
 
 
 ### Zkrácené logické výrazy
@@ -1845,6 +1894,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_1.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1866,6 +1916,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_2.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1887,6 +1938,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_3.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1908,6 +1960,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_4.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1929,6 +1982,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_5.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1950,6 +2004,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_6.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1971,6 +2026,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_7.py)
+
 ```python
 #!/usr/bin/env python3
 # vim: set fileencoding=utf-8
@@ -1992,6 +2048,7 @@ else:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/short_circuit_8.py)
+
 
 
 --
@@ -2021,6 +2078,7 @@ print(lst)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/gen_list.py)
+
 * Generátor seznamu o zadané délce
 
 ```python
@@ -2038,6 +2096,7 @@ for i in generator(10000):
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/function_generator_1.py)
+
 * Generátor seznamu o nekonečné (neomezené) délce
 
 ```python
@@ -2055,6 +2114,7 @@ for i in infinite_generator():
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/function_generator_2.py)
+
 * Generátor konečného seznamu implementovaný jako třída
 
 ```python
@@ -2081,6 +2141,7 @@ for i in generator(10000):
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_class_1.py)
+
 * Generátor nekonečného seznamu implementovaný jako třída
 
 ```python
@@ -2105,6 +2166,7 @@ for i in infinite_generator():
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_class_2.py)
+
 
 
 ### Dekorátory
@@ -2134,6 +2196,7 @@ f()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/return_function.py)
+
 * Přepis předchozího příkladu jako dekorátoru
 
 ```python
@@ -2156,6 +2219,7 @@ hello()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorator.py)
+
 * Užitečný dekorátor - měření času
 
 ```python
@@ -2189,6 +2253,7 @@ tested_function(2)
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/measure_time.py)
 
 
+
 ### Větší množství dekorátorů
 
 * Bez dekorátorů
@@ -2202,6 +2267,7 @@ hello()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorators1.py)
+
 * Jeden dekorátor
     
 ```python
@@ -2224,6 +2290,7 @@ hello()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorators2.py)
+
 * Dva dekorátory
 
 ```python
@@ -2257,6 +2324,159 @@ hello()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/decorators/decorators3.py)
+
+
+### Od getterů a setterů k properties
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Gettery a settery."""
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+        self._poznamka = 124
+        self._age = None
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
+                                                                               surname=self._surname,
+                                                                               salary=self._salary,
+                                                                               age=self._age)
+
+    def set_age(self, age):
+        if age <= 0:
+            raise ValueError('The age must be positive')
+        self._age = age
+
+    def get_age(self):
+        return self._age
+
+
+# vytvoření tří instancí třídy
+employee1 = Employee("Eda", "Wasserfall", 10000)
+employee2 = Employee("Eda", "Wasserfall", 10000)
+
+employee1.set_age(30)
+employee2.set_age(40)
+
+# výpis hodnot objektů
+print(employee1)
+print(employee2)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_7.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Properties."""
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+        self._poznamka = 124
+        self._age = None
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
+                                                                               surname=self._surname,
+                                                                               salary=self._salary,
+                                                                               age=self._age)
+
+    def set_age(self, age):
+        if age <= 0:
+            raise ValueError('The age must be positive')
+        self._age = age
+
+    def get_age(self):
+        return self._age
+
+    age = property(fget=get_age, fset=set_age)
+
+
+# vytvoření tří instancí třídy
+employee1 = Employee("Eda", "Wasserfall", 10000)
+employee2 = Employee("Eda", "Wasserfall", 10000)
+
+employee1.age = 30
+employee2.age = 40
+
+# výpis hodnot objektů
+print(employee1)
+print(employee2)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_8.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Properties."""
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+        self._poznamka = 124
+        self._age = None
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
+                                                                               surname=self._surname,
+                                                                               salary=self._salary,
+                                                                               age=self._age)
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, age):
+        if age <= 0:
+            raise ValueError('The age must be positive')
+        self._age = age
+
+
+# vytvoření tří instancí třídy
+employee1 = Employee("Eda", "Wasserfall", 10000)
+employee2 = Employee("Eda", "Wasserfall", 10000)
+
+employee1.age = 30
+employee2.age = 40
+
+# výpis hodnot objektů
+print(employee1)
+print(employee2)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_9.py)
+
+
 
 --
 
@@ -2310,6 +2530,63 @@ if __name__ == "__main__":
     - existují ovšem i lepší způsoby
 
 * Využití knihovny `argparse`
+
+```python
+#!/usr/bin/env python3
+
+from argparse import ArgumentParser
+
+def cli_arguments():
+    """Retrieve all CLI arguments provided by user."""
+    # First of all, we need to specify all command line flags that are
+    # recognized by this tool.
+    parser = ArgumentParser()
+
+    # All supported command line arguments and flags
+    parser.add_argument("-a", "--address", dest="address", required=False,
+                        help="Address of REST API for external data pipeline")
+
+    parser.add_argument("-u", "--user", dest="user", required=False,
+                        help="User name for basic authentication")
+
+    parser.add_argument("-p", "--password", dest="password", required=False,
+                        help="Password for basic authentication")
+
+    parser.add_argument("-i", "--input", dest="input", default=None, required=False,
+                        help="Specification of input file (with list of clusters, for example)")
+
+    parser.add_argument("-c", "--compare-results", dest="compare_results", action="store_true",
+                        default=None, required=False,
+                        help="Compare two sets of results, each set stored in its own directory")
+
+    parser.add_argument("-e", "--export", dest="export_file_name", required=False,
+                        default="report.csv",
+                        help="Name of CSV file with exported comparison results")
+
+    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=None,
+                        help="Make messages verbose", required=False)
+
+    # Now it is time to parse flags, check the actual content of command line
+    # and fill-in the object named `args`.
+    return parser.parse_args()
+
+
+def main():
+    """Entry point to this script."""
+    # Parse and process and command line arguments.
+    args = cli_arguments()
+
+    # Verbosity flag
+    verbose = args.verbose
+
+
+# If this script is started from command line, run the `main` function which is
+# entry point to the processing.
+if __name__ == "__main__":
+    main()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/cli_args.py)
 
 
 
@@ -2371,6 +2648,7 @@ if __name__ == "__main__":
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/cli_args.py)
+
 --
 
 
@@ -2379,6 +2657,617 @@ if __name__ == "__main__":
 
 * Oproti některým jiným jazykům obsahuje Python velmi rozsáhlou základní knihovnu
     - https://docs.python.org/3/library/index.html
+
+```python
+fout = open("data.txt", "w")
+
+for i in range(1, 11):
+    fout.write(str(i) + "\n")
+
+fout.close()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/file_write.py)
+
+```python
+fout = open("data.txt", "a")
+
+for i in range(1, 11):
+    fout.write(str(i) + "\n")
+
+fout.close()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/file_append.py)
+
+```python
+for znak in range(ord("a"), ord("z") + 1):
+    print(chr(znak))
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/ord_chr.py)
+
+
+### Modul `string`
+
+* Manipulace s řetězci
+* Formátování řetězců
+    - vlastní doménově specifický jazyk pro specifikaci formátu
+* Příklad použiti
+
+```python
+print("hodnota: {value:5d}".format(value=42))
+print("hodnota: {value:05d}".format(value=42))
+```
+* Formátování tabulky na výstupu
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:2d} = {y:5.3f}".format(x=x, y=y))
+```
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:02d} = {y:5.3f}".format(x=x, y=y))
+```
+
+```python
+for x in range(1, 11):
+    y = 1.0/x
+    print("1/{x:<2d} = {y:5.3f}".format(x=x, y=y))
+```
+
+
+
+### Modul `re`
+
+* Podpora pro regulární výrazy
+* Vlastní doménově specifický jazyk pro regulární výrazy
+    - znaky se speciálním významem
+        - kvalifikátory
+        - atomy
+        - znaky pro začátek a konec řádku
+        - výrazy v []
+        - třídy znaků
+        - speciální znaky
+* Součásti regulárních výrazů
+    - kvalifikátory
+        - `*`     sekvence 0..n atomů
+        - `+`     sekvence 1..n atomů
+        - `?`     žádný nebo jeden atom
+        - `{m}`   v závorce je zapsán přesný počet atomů
+        - `{m,}`  v závorce je zapsán minimální počet atomů
+        - `{m,n}` v závorce je minimální a maximální počet atomů
+    - atomy
+        - `x`  konkrétní znak
+        - `()` prázdný řetězec
+        - `.`  jediný znak
+        - `\X` řídicí znak či znak se zadaným kódem
+        - `(xxx)` část výrazu, k níž lze později přistupovat (podle indexu)
+    - znaky pro začátek a konec řádku
+        - `^` nahrazuje začátek řádku
+        - `$` nahrazuje konec řádku
+    - výrazy v []
+        - lze zde zapsat množinu znaků
+        - při rozdělení znaků pomocí `-` se určuje rozsah `a-z`, `5-7` atd.
+        - `^` negace - všechny znaky, které NEodpovídají dalšímu výrazu
+    - třídy znaků
+        - vnější závorky `[]` změní třídu znaků na množinu
+    - speciální (řídicí) znaky
+        - `\a`      alert (bell)
+        - `\b`      backspace
+        - `\B`      může se použít namísto `\\` (čitelnější)
+        - `\e`      znak ESCape
+        - `\n`      nový řádek
+        - `\r`      návrat kurzoru
+        - `\t`      tab
+        - `\u1234`  znak se zadaným Unikódem
+    - vybrané třídy znaků zapsané zkrácenou formou
+        - `\d` `[[:digit:]]`
+        - `\s` `[[:space:]]`
+        - `\w` `[[:alnum:]_]`  jako `\d` a `_`
+        - `\D` `[^[:digit:]]`
+        - `\S` `[^[:space:]]`
+        - `\W` `[^[:alnum:]_]` negace `\W`
+* Příklady regulárních výrazů
+    - regulární výraz pro IPv4 adresu (nepřesný!)
+         `"(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})\.(\[0-9]{1,3})"`
+    - regulární výraz akceptující reálná čísla
+         `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-8]+)?"`
+
+```python
+import subprocess
+import re
+
+def get_framebuffer_resolution(framebuffer_device):
+    fbset_output = subprocess.check_output(["fbset", "-s", "-fb", framebuffer_device])
+
+    for line in fbset_output.split("\n"):
+        line = line.strip()
+        if line.startswith("geometry"):
+            print(line)
+            parsed = re.match(r"geometry (\d+) (\d+)", line)
+            return (parsed.group(1), parsed.group(2))
+
+print(get_framebuffer_resolution("/dev/fb0"))
+
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution.py)
+
+```python
+HTTP_RE = re.compile(
+    r"^(?:https://[^/]+\.s3\.amazonaws\.com/[0-9a-zA-Z/\-]+|"
+    r"https://s3\.[0-9a-zA-Z\-]+\.amazonaws\.com/[0-9a-zA-Z\-]+/[0-9a-zA-Z/\-]+|"
+    r"http://minio:9000/insights-upload-perma/[0-9a-zA-Z\.\-]+/[0-9a-zA-Z\-]+)\?"
+    r"X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=[^/]+$"
+)
+
+def get(self, src):
+    """Download a file from HTTP server and store it in a temporary file."""
+    if src is None or not HTTP_RE.fullmatch(src):
+        raise DataPipelineError(f"Invalid URL format: {src}")
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/regular_expression2.py)
+
+
+
+### Modul `datetime`
+
+* Manipulace s časovými razítky
+* Podpora pro časové zóny
+* Třídy
+    - `datetime.date`
+    - `datetime.time`
+    - `datetime.datetime`
+    - `datetime.timedelta`
+
+
+### Modul `pprint`
+
+* "Hezký" tisk strukturovaných dat
+* Třída `pprint.PrettyPrinter`
+    - `indent=1`
+    - `width=80`
+    - `depth=None`
+* Metoda `PrettyPrinter.format`
+* Funkce `pprint.pprint`
+
+
+
+### Modul `array`
+
+* Paměťově efektivní uložení prvků v polích
+
+* Podporované typy prvků
+
+```
+'b' signed char int           1
+'B' unsigned char int         1
+'u' wchar_t Unicode character 2
+'h' signed short int          2
+'H' unsigned short int        2
+'i' signed int int            2
+'I' unsigned int int          2
+'l' signed long int           4
+'L' unsigned long int         4
+'q' signed long long int      8
+'Q' unsigned long long int    8
+'f' float float               4
+'d' double float              8
+```
+
+```python
+#!/usr/bin/env python3
+
+"""Základní způsob použití modulu `array`."""
+
+from array import array
+
+a1 = array('l')
+a2 = array('u', 'hello \u2567')
+a3 = array('l', [1, 2, 3, 4, 5])
+a4 = array('d', [1.0, 2.0, 3.14])
+
+print(a1)
+print(a2)
+print(a3)
+print(a4)
+
+a3[3] = -1
+print(a3)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/arrays1.py)
+
+```python
+#!/usr/bin/env python3
+
+"""Základní způsob použití modulu `array` - celočíselné typy."""
+
+from array import array
+
+input_data = [i for i in range(0, 10)]
+
+a1 = array('b', input_data)
+a2 = array('B', input_data)
+a3 = array('h', input_data)
+a4 = array('H', input_data)
+a5 = array('i', input_data)
+a6 = array('I', input_data)
+a7 = array('l', input_data)
+a8 = array('L', input_data)
+
+print(a1)
+print(a2)
+print(a3)
+print(a4)
+print(a5)
+print(a6)
+print(a7)
+print(a8)
+
+print(a1.buffer_info()[1]*a1.itemsize)
+print(a2.buffer_info()[1]*a2.itemsize)
+print(a3.buffer_info()[1]*a3.itemsize)
+print(a4.buffer_info()[1]*a4.itemsize)
+print(a5.buffer_info()[1]*a5.itemsize)
+print(a6.buffer_info()[1]*a6.itemsize)
+print(a7.buffer_info()[1]*a7.itemsize)
+print(a8.buffer_info()[1]*a8.itemsize)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/arrays2.py)
+
+```python
+#!/usr/bin/env python3
+
+"""Základní způsob použití modulu `array` - zápis polí do souboru."""
+
+from array import array
+
+a1 = array('l')
+a2 = array('u', 'hello \u2567')
+a3 = array('l', [1, 2, 3, 4, 5])
+a4 = array('d', [1.0, 2.0, 3.14])
+
+with open("a1", "wb") as fout:
+    a1.tofile(fout)
+
+with open("a2", "wb") as fout:
+    a2.tofile(fout)
+
+with open("a3", "wb") as fout:
+    a3.tofile(fout)
+
+with open("a4", "wb") as fout:
+    a4.tofile(fout)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/arrays3.py)
+
+```python
+#!/usr/bin/env python3
+
+"""Základní způsob použití modulu `array` - čtení polí ze souboru."""
+
+from array import array
+
+a1 = array('l')
+a2 = array('u')
+a3 = array('l')
+a4 = array('d')
+
+
+with open("a1", "rb") as fin:
+    a1.fromfile(fin, 0)
+
+with open("a2", "rb") as fin:
+    a2.fromfile(fin, 5)
+
+with open("a3", "rb") as fin:
+    a3.fromfile(fin, 5)
+
+with open("a4", "rb") as fin:
+    a4.fromfile(fin, 3)
+
+print(a1)
+print(a2)
+print(a3)
+print(a4)
+
+print(a1.buffer_info()[1]*a1.itemsize)
+print(a2.buffer_info()[1]*a2.itemsize)
+print(a3.buffer_info()[1]*a3.itemsize)
+print(a4.buffer_info()[1]*a4.itemsize)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/arrays4.py)
+
+
+
+### Modul `queue`
+
+* Synchronizované fronty
+* Třída `queue.Queue`
+    - klasická fronta se zadanou kapacitou
+* Třída `queue.SimpleQueue`
+    - klasická fronta s neomezenou kapacitou
+* Třída `queue.LifoQueue`
+    - zásobník se zadanou kapacitou
+* Třída `queue.PriorityQueue`
+    - prioritní fronta se zadanou kapacitou
+
+* Podporované metody
+    - `qsize`
+    - `empty`
+    - `full`
+    - `put`
+    - `put_nowait`
+    - `get`
+    - `get_nowait`
+    - `join`
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace konzumenta
+def consumer():
+    while True:
+        job = q.get()
+        print(f'Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumenta
+threading.Thread(target=consumer, daemon=True, name="první").start()
+
+# vytvoření úloh v producentovi
+for job in range(10):
+    print(f'Producing {job}')
+    q.put(job)
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues1.py)
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace konzumenta
+def consumer():
+    name = threading.current_thread().name
+    while True:
+        job = q.get()
+        print(f'{name} thread: Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'{name} thread: Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumentů
+threading.Thread(target=consumer, daemon=True, name="1st").start()
+threading.Thread(target=consumer, daemon=True, name="2nd").start()
+threading.Thread(target=consumer, daemon=True, name="3rd").start()
+
+# vytvoření úloh v producentovi
+for job in range(10):
+    print(f'Producing {job}')
+    q.put(job)
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues2.py)
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace producenta
+def producer():
+    name = threading.current_thread().name
+    for job in range(10):
+        print(f'{name} thread: Starting producing {job}')
+        q.put(job)
+        time.sleep(0.3)
+        print(f'{name} thread: Produced {job}')
+
+
+# simulace konzumenta
+def consumer():
+    name = threading.current_thread().name
+    while True:
+        job = q.get()
+        print(f'{name} thread: Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'{name} thread: Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumentů
+threading.Thread(target=consumer, daemon=True, name="1st").start()
+threading.Thread(target=consumer, daemon=True, name="2nd").start()
+threading.Thread(target=consumer, daemon=True, name="3rd").start()
+
+# spuštění producentů
+threading.Thread(target=producer, daemon=True, name="1st").start()
+threading.Thread(target=producer, daemon=True, name="2nd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues3.py)
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace producenta
+def producer():
+    name = threading.current_thread().name
+    for job in range(1000):
+        print(f'{name} thread: Starting producing {job}')
+        q.put(job)
+        time.sleep(0.3)
+        print(f'{name} thread: Produced {job}')
+
+
+# simulace konzumenta
+def consumer():
+    name = threading.current_thread().name
+    while True:
+        job = q.get()
+        print(f'{name} thread: Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'{name} thread: Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumentů
+threading.Thread(target=consumer, daemon=True, name="1st").start()
+threading.Thread(target=consumer, daemon=True, name="2nd").start()
+threading.Thread(target=consumer, daemon=True, name="3rd").start()
+
+# spuštění producentů
+threading.Thread(target=producer, daemon=True, name="1st").start()
+threading.Thread(target=producer, daemon=True, name="2nd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues4.py)
+
+
+
+### Modul `math`
+
+* Matematické funkce
+
+```python
+# Vykreslení čar s různým sklonem
+for i in range(1, 90, 5):
+    # převod ze stupňů na radiány
+    angle = math.radians(i)
+    radius = 150
+    # výpočet koncových bodů úseček
+    x = radius * math.sin(math.radians(i))
+    y = radius * math.cos(math.radians(i))
+    # vykreslení jedné úsečky
+    pygame.draw.line(display, WHITE, (WIDTH-1, 0), (WIDTH-x, y))
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/math_sin_cos.py)
+
+
+
+### Modul `sys`
+
+* Systémová volání resp. rozhraní pro ně
+
+```python
+class Bounds:
+
+    def __init__(self,
+                 xmin=sys.float_info.max, ymin=sys.float_info.max,
+                 xmax=-sys.float_info.max, ymax=-sys.float_info.max):
+        """Construct new bounds using given coordinates or default values."""
+        self.xmin = xmin
+        self.ymin = ymin
+        self.xmax = xmax
+        self.ymax = ymax
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/bounds.py)
+
+
+
+### Modul `os`
+
+* Funkce specifické pro různé operační systémy
+
+```python
+import os
+
+def get_event_level():
+    """Get level of events to monitor (errors only, or error and warnings)."""
+    if os.environ.get("SENTRY_CATCH_WARNINGS", False):
+        return logging.WARNING
+    return logging.ERROR
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/environ.py)
+
+
+
+### Modul `subprocess`
+
+* Spuštění dalších procesů
+* Zpracování vstupů a výstupů z těchto procesů
+
+```python
+import subprocess
+import re
+
+def get_framebuffer_resolution(framebuffer_device):
+    fbset_output = subprocess.check_output(["fbset", "-s", "-fb", framebuffer_device])
+
+    for line in fbset_output.split("\n"):
+        line = line.strip()
+        if line.startswith("geometry"):
+            print(line)
+            parsed = re.match(r"geometry (\d+) (\d+)", line)
+            return (parsed.group(1), parsed.group(2))
+
+print(get_framebuffer_resolution("/dev/fb0"))
+
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution.py)
 
 
 
@@ -2413,6 +3302,7 @@ with open("test.json", "w") as fout:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/json_output_1.py)
+
 * Zajištění lepší čitelnosti JSON výstupu
 
 ```python
@@ -2432,6 +3322,7 @@ with open("test.json", "w") as fout:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/json_output_2.py)
+
 * Přečtení datového souboru uloženého ve formátu JSON
 
 ```python
@@ -2445,180 +3336,62 @@ with open("test.json", "r") as fin:
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/json_input.py)
+
 --
 
-
-
-## CPython a jeho alternativy
-
-### Implementace Pythonu
-
-* Nejpoužívanější implementace
-    - CPython
-    - Jython
-    - Iron Python
-    - Pypy
-
-* Další implementace
-    - Psyco
-    - Stackles Python
-    - MicroPython
-
-* Speciální implementace
-    - Cython
-    - RPython
-    - Numba
-
-* Python pro webový browser
-    - Brython
-
-### CPython
-
-### Jython
-
-### Iron Python
-
-### Pypy
-
-### MicroPython
-
-* 2013, mikrořadič pyboard
-* Dnes dostupný na více jednodeskových mikropočítačů
-    - Micro Bit
-    - Arduino
-    - ESP32
-    - ESP8255
-    - PIC16...
-* Typické omezení
-    - 256 kB ROM
-    - 16 kB RAM
-* Dva možné režimy činnosti
-    - interpret přímo na CPU/MCU
-    - překlad do hex/objektového kódu
-* Repositář
-    - https://github.com/micropython/micropython
-    - překlad pro každý CPU/MCU zvlášť
-
-
-
-### Rozdíly CPython vs MicroPython
-
-* Chybí některé standardní knihovny
-* Navíc přístup k hardware
+## Multithreading
 
 ```python
-from machine import Pin
-pin = Pin(0, Pin.IN)
-print(pin.value())
+#!/usr/bin/env python3
+
+"""Multithreading."""
+
+import threading
+import time
+
+
+def worker():
+    threadName = threading.current_thread().name
+    delay = 1
+    n = 10
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření a spuštění trojice vláken
+threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
+
+time.sleep(100)
 ```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading1.py)
 
 ```python
-from machine import Pin
-pin = Pin(14, Pin.OUT)
-pin.value(1)
+#!/usr/bin/env python3
+
+"""Multithreading."""
+
+import threading
+import time
+
+
+def worker(threadName, delay, n):
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření a spuštění trojice vláken
+threading.Thread(target=worker, args=("Thread-1", 0.5, 10)).start()
+threading.Thread(target=worker, args=("Thread-2", 1.0, 10)).start()
+threading.Thread(target=worker, args=("Thread-3", 1.5, 10)).start()
+
+time.sleep(100)
 ```
 
-
-### MicroPython pro MicroBit
-
-* MicroPython pro MicroBit
-    - http://microbit.org/guide/python/
-    - Online editor: http://python.microbit.org/v/1
-    - převod zdrojového kódu do Intel hex formátu
-    - upload v Intel hex formátu
-
-
-
-### RPython
-
-* Určen pro překlad programů napsaných v podmnožině programovacího jazyka Python do nativního kódu
-* Snaží se odvozovat datové typy proměnných, argumentů i návratových hodnot funkcí na základě analýzy grafu (CFG)
-* Počáteční písmeno v názvu „RPython“ znamená „restricted“,
-
-### Cython
-
-* Tento překladač pracuje poněkud odlišným způsobem než RPython
-* Transformace (transpilace) do jazyka C
-* Ve chvíli, kdy Cython nezná datový typ funkce/proměnné/argumentu, použije `PyObject *`
-* Rozšiřuje jazyk Python o další klíčová slova, především pak o slovo `cdef`
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading2.py)
 
 ```python
-def calc(width, height, maxiter, palette):
-    ...
-    ...
-    ...
-```
-
-```
-cdef calc(int width, int height, int maxiter, palette):
-    ...
-    ...
-    ...
-```
-
-
-
-### Numba
-
---
-
-## Užitečné nástroje pro Python
-
-* pydocstyle
-    - testuje, zda jsou správně zapsány komentáře
-* pycodestyle (pep8)
-    - kontroluje styl zápisu programů
-    - udržuje štábní kulturu
-
-## Datové formáty, perzistentní úložiště, databáze
-
---
-
-## Testování
-
---
-
-## Aplikace s GUI
-
---
-
----
-
-## Užitečné odkazy
-
-* Python Quick Reference:
-    - [http://rgruet.free.fr/#QuickRef](http://rgruet.free.fr/#QuickRef)
-* Python docs:
-    - [http://www.python.org/doc/](http://www.python.org/doc/)
-* PEP 8:
-    - [http://www.python.org/dev/peps/pep-0008/](http://www.python.org/dev/peps/pep-0008/)
-* pep8.py:
-    - [http://pypi.python.org/pypi/pep8/](http://pypi.python.org/pypi/pep8/)
-* pylint:
-    - [http://www.logilab.org/project/pylint](http://www.logilab.org/project/pylint)
-* Epydoc:
-    - [http://epydoc.sourceforge.net/](http://epydoc.sourceforge.net/)
-* Sphinx:
-    - [http://sphinx-doc.org/](http://sphinx-doc.org/)
-* Python in Python:
-    - [http://pypy.org/](http://pypy.org/)
-* The key differences between Python 2.7.x and Python 3.x with examples:
-    - [http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
-* Language differences and workarounds:
-    - [http://python3porting.com/differences.html](http://python3porting.com/differences.html)
-* Everything you did not want to know about Unicode in Python 3:
-    - [http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/](http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/)
-* Unicode (Wikipedia):
-    - [https://en.wikipedia.org/wiki/Unicode](https://en.wikipedia.org/wiki/Unicode)
-* Dive Into Python:
-    - [http://www.diveintopython.net/](http://www.diveintopython.net/)
-* Dive into Python 3:
-    - [http://www.diveintopython3.net/](http://www.diveintopython3.net/)
-* Testování webových aplikací s REST API z Pythonu
-    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/)
-* Testování aplikací s využitím nástroje Hypothesis
-    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)
-* Použití Pythonu pro tvorbu testů: od jednotkových testů až po testy UI
-    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)
-* Testování nativních funkcí s využitím programovacího jazyka Python
-    - [https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/](https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/)
