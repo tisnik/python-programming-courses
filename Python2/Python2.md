@@ -1230,10 +1230,13 @@ cdef calc(int width, int height, int maxiter, palette):
 
 * Různé podoby testovací pyramidy
 
-![Pyramida #1](https://www.root.cz/obrazek/408774/)
-![Pyramida #2](https://www.root.cz/obrazek/408775/)
-![Pyramida #3](https://www.root.cz/obrazek/408776/)
-![Pyramida #4](https://www.root.cz/obrazek/408777/)
+- [Pyramida #1](https://www.root.cz/obrazek/408774/)
+
+- [Pyramida #2](https://www.root.cz/obrazek/408775/)
+
+- [Pyramida #3](https://www.root.cz/obrazek/408776/)
+
+- [Pyramida #4](https://www.root.cz/obrazek/408777/)
 
 
 
@@ -1244,7 +1247,7 @@ cdef calc(int width, int height, int maxiter, palette):
     - navíc se UI může často měnit
     - (bikeshedding)
 
-![Kornout](https://www.root.cz/obrazek/408773/)
+- [Kornout](https://www.root.cz/obrazek/408773/)
 
 
 
@@ -1264,7 +1267,7 @@ cdef calc(int width, int height, int maxiter, palette):
 * Jednotkové testy nedokáží odhalit problémy na vyšších úrovních abstrakce
     - například problematické sestavení jednotlivých modulů do vyšších celků
 
-![Okno](https://www.root.cz/obrazek/408778/)
+- [Okno](https://www.root.cz/obrazek/408778/)
 
 * Někdy velmi komplikované/nemožné testovat (reálný HW)
 [Proton M](https://www.youtube.com/watch?v=vqW0LEcTAYg)
@@ -1284,6 +1287,9 @@ cdef calc(int width, int height, int maxiter, palette):
 
 * Testy akceptační jsou ještě zajímavější
     - na jejich vytváření se může podílet i zákazník
+
+
+
 --
 
 ## Aplikace s GUI
@@ -1330,3 +1336,4 @@ cdef calc(int width, int height, int maxiter, palette):
     - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)
 * Testování nativních funkcí s využitím programovacího jazyka Python
     - [https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/](https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/)
+
