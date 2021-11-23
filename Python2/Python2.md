@@ -697,7 +697,7 @@ if __name__ == "__main__":
 
 * Využití knihovny `argparse`
 
-! examples/stdlib/cli_args.pe
+! examples/stdlib/cli_args.py
 
 
 
@@ -811,6 +811,10 @@ for x in range(1, 11):
          `"[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)([eE][-+]?[0-8]+)?"`
 
 ! examples/stdlib/get_framebuffer_resolution.py
+
+* časově efektivnější řešení:
+
+! examples/stdlib/get_framebuffer_resolution2.py
 
 ! examples/stdlib/regular_expression2.py
 
