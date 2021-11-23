@@ -186,6 +186,52 @@ print(c1.x)
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/class_attribute.py)
 
+* "Name mangling" interních atributů
+
+```python
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    __counter = 0
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+        Employee.inc_counter()
+
+    def display_employee(self):
+        """Metoda pro výpis hodnoty objektu."""
+        print("Full name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name,
+            surname=self._surname,
+            salary=self._salary))
+
+    @classmethod
+    def inc_counter(cls):
+        cls.__counter += 1
+
+    @classmethod
+    def num_employees(cls):
+        return cls.__counter
+
+
+def test():
+    # vytvoření dvou instancí třídy
+    employee1 = Employee("Eda", "Wasserfall", 10000)
+    print("Now we have", Employee.num_employees(), "employees")
+
+    employee2 = Employee("Přemysl", "Hájek", 25001)
+    print("Now we have", Employee.num_employees(), "employees")
+
+
+test()
+print("Now we have", Employee.num_employees(), "employees")
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/name_mangling.py)
+
 
 
 ### Konstruktor
@@ -1344,6 +1390,149 @@ for p in people:
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism2.py)
 
+* Další příklady na polymorfismus
+
+```python
+class Person:
+
+    def __init__(self, first_name, surname):
+        """Konstruktor objektu."""
+        print("Person.__init__")
+        self._first_name = first_name
+        self._surname = surname
+
+    def get_name(self):
+        return "Person:  {} {}".format(self._first_name, self._surname)
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "**Person** Full name: {name} {surname}".format(
+                name=self._first_name,
+                surname=self._surname)
+
+
+class Student(Person):
+    def __init__(self, first_name, surname):
+        """Konstruktor objektu."""
+        print("Student.__init__")
+        super().__init__(first_name, surname)
+
+    def get_name(self):
+        return "Student: {} {}".format(self._first_name, self._surname)
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "**Student** Full name: {name} {surname}".format(
+                name=self._first_name,
+                surname=self._surname)
+
+
+class Employee(Person):
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        print("Employee.__init__")
+        super().__init__(first_name, surname)
+        self._salary = salary
+
+    def get_name(self):
+        return "Employee: {} {}".format(self._first_name, self._surname)
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name,
+                surname=self._surname,
+                salary=self._salary)
+
+
+people = [
+    Person("Eda", "Wasserfall"),
+    Person("Přemysl", "Hájek"),
+    Student("John", "Doe"),
+    Employee("Eric", "Iverson", 10000)
+]
+
+for p in people:
+    print(p.get_name())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism3.py)
+
+```python
+class Person:
+
+    def __init__(self, first_name, surname):
+        """Konstruktor objektu."""
+        print("Person.__init__")
+        self._first_name = first_name
+        self._surname = surname
+
+    def get_name(self):
+        return "Person:  {} {}".format(self._first_name, self._surname)
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "**Person** Full name: {name} {surname}".format(
+                name=self._first_name,
+                surname=self._surname)
+
+
+class Student(Person):
+    def __init__(self, first_name, surname):
+        """Konstruktor objektu."""
+        print("Student.__init__")
+        super().__init__(first_name, surname)
+
+    def get_name(self):
+        return "Student: {} {}".format(self._first_name, self._surname)
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "**Student** Full name: {name} {surname}".format(
+                name=self._first_name,
+                surname=self._surname)
+
+
+class Employee(Person):
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        print("Employee.__init__")
+        super().__init__(first_name, surname)
+        self._salary = salary
+
+    def calc_bonus(self):
+        return self._salary * 0.5
+
+    def get_name(self):
+        return "Employee: {} {}".format(self._first_name, self._surname)
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name,
+                surname=self._surname,
+                salary=self._salary)
+
+
+class Manager(Employee):
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        print("Manager.__init__")
+        super().__init__(first_name, surname, salary)
+
+    def calc_bonus(self):
+        return self._salary * 0.75
+
+
+e1 = Employee("Eric", "Iverson", 10000)
+m1 = Manager("aaa", "bbb", 10000)
+
+print(e1.calc_bonus())
+print(m1.calc_bonus())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/polymorphism4.py)
+
 
 
 ### Atributy třídy, třídní metody
@@ -1722,6 +1911,65 @@ print(c2())
 
 * (lze implementovat i s využitím generátorů)
 
+* Další příklady
+
+```python
+def increment_by(n):
+
+    return lambda x: x+n
+
+
+def add(x):
+    return x+x
+
+i1 = increment_by(2)
+print(i1(1))
+print(i1(10))
+
+i2 = increment_by(100)
+print(i2(1))
+print(i2(10))
+
+print(add)
+print(i1)
+print(i2)
+
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/clojure_lambda.py)
+
+```python
+def counter(start=0, step=1):
+    cnt = start
+
+    def impl():
+        nonlocal cnt
+        cnt += step
+        return cnt
+
+    return impl
+
+
+c1 = counter(10, 1)
+c2 = counter(0, 2)
+c3 = counter(100, -10)
+
+for i in range(10):
+    print("c1", c1())
+
+print()
+
+for i in range(10):
+    print("c2", c2())
+
+print()
+
+for i in range(10):
+    print("c3", c3())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/closure3.py)
+
 
 
 ### Generátorová notace seznamu
@@ -1749,6 +1997,45 @@ print(seznam3)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/list_comprehension.py)
+
+* Proč generátorová notace seznamu?
+    - ostatní způsoby jsou dlouhé
+    - a nejsou idiomatické
+
+```python
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(seznam)
+
+seznam2 = []
+
+for item in seznam:
+    seznam2.append(item*2)
+
+print(seznam2)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/list_comprehension_why.py)
+
+```python
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(seznam)
+
+seznam3 = []
+
+for item in seznam:
+    if item % 3 == 0:
+        seznam3.append(item)
+
+print(seznam3)
+
+seznam3B = [item for item in seznam if item % 3 == 0]
+
+print(seznam3B)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/list_comprehension_why_2.py)
 
 
 
@@ -1862,6 +2149,32 @@ print(y)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/reduce_sum.py)
+
+* Výpočet faktoriálu s využitím `reduce`
+
+```python
+#!/usr/bin/env python
+# encoding=utf-8
+
+"""Výpočet faktoriálu pomocí reduce."""
+
+from functools import reduce
+
+
+def factorial(n):
+    """Výpočet faktoriálu pomocí reduce."""
+    return reduce(lambda a, b: a * b, range(1, n + 1))
+
+
+# výpočet 10!
+print(factorial(10))
+
+# tabulka s hodnotami n!
+for n in range(1, 11):
+    print(n, factorial(n))
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/factorial.py)
 
 
 
@@ -2166,6 +2479,48 @@ for i in infinite_generator():
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_class_2.py)
+
+* Generátorová notace...
+
+```python
+#!/usr/bin/env python
+# encoding=utf-8
+
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+g1 = (item for item in seznam)
+
+g2 = (item*2 for item in seznam)
+
+g3 = (item for item in seznam if item % 3 == 0)
+
+print(seznam)
+print(g1)
+print(g2)
+print(g3)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_comprehension1.py)
+
+```python
+#!/usr/bin/env python
+# encoding=utf-8
+
+seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+g1 = list(item for item in seznam)
+
+g2 = list(item*2 for item in seznam)
+
+g3 = list(item for item in seznam if item % 3 == 0)
+
+print(seznam)
+print(g1)
+print(g2)
+print(g3)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_comprehension2.py)
 
 
 
@@ -2530,65 +2885,6 @@ if __name__ == "__main__":
     - existují ovšem i lepší způsoby
 
 * Využití knihovny `argparse`
-
-```python
-#!/usr/bin/env python3
-
-from argparse import ArgumentParser
-
-def cli_arguments():
-    """Retrieve all CLI arguments provided by user."""
-    # First of all, we need to specify all command line flags that are
-    # recognized by this tool.
-    parser = ArgumentParser()
-
-    # All supported command line arguments and flags
-    parser.add_argument("-a", "--address", dest="address", required=False,
-                        help="Address of REST API for external data pipeline")
-
-    parser.add_argument("-u", "--user", dest="user", required=False,
-                        help="User name for basic authentication")
-
-    parser.add_argument("-p", "--password", dest="password", required=False,
-                        help="Password for basic authentication")
-
-    parser.add_argument("-i", "--input", dest="input", default=None, required=False,
-                        help="Specification of input file (with list of clusters, for example)")
-
-    parser.add_argument("-c", "--compare-results", dest="compare_results", action="store_true",
-                        default=None, required=False,
-                        help="Compare two sets of results, each set stored in its own directory")
-
-    parser.add_argument("-e", "--export", dest="export_file_name", required=False,
-                        default="report.csv",
-                        help="Name of CSV file with exported comparison results")
-
-    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=None,
-                        help="Make messages verbose", required=False)
-
-    # Now it is time to parse flags, check the actual content of command line
-    # and fill-in the object named `args`.
-    return parser.parse_args()
-
-
-def main():
-    """Entry point to this script."""
-    # Parse and process and command line arguments.
-    args = cli_arguments()
-
-    # Verbosity flag
-    verbose = args.verbose
-
-
-# If this script is started from command line, run the `main` function which is
-# entry point to the processing.
-if __name__ == "__main__":
-    main()
-```
-
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/cli_args.py)
-
-
 
 ### Příklad využití knihovny `argparse`
 
@@ -3191,6 +3487,8 @@ while not q.empty():
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/priority_queue_example.py)
 
+* Fronty jako komunikační médium mezi vlákny
+
 ```python
 import time
 import threading
@@ -3574,6 +3872,45 @@ time.sleep(100)
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading2.py)
 
+* Dlouhodobé procesy (pro kontrolu, co se děje "uvnitř")
+
+```python
+#!/usr/bin/env python3
+
+"""Multithreading."""
+
+import threading
+import time
+
+
+def worker(threadName, delay, n):
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření trojice vláken
+t1 = threading.Thread(target=worker, args=("Thread-1", 0.5, 10))
+t2 = threading.Thread(target=worker, args=("Thread-2", 1.0, 10))
+t3 = threading.Thread(target=worker, args=("Thread-3", 1.5, 10))
+
+# spuštění všech vláken
+t1.start()
+t2.start()
+t3.start()
+
+# čekání na dokončení všech vláken
+t1.join()
+t2.join()
+t3.join()
+
+print("Done!")
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading3.py)
+
+* Nový přístup k plánování práce "workerů"
+
 ```python
 from concurrent.futures.thread import ThreadPoolExecutor
 import time
@@ -3751,6 +4088,102 @@ cdef calc(int width, int height, int maxiter, palette):
 
 ## Testování
 
+* Základní technologie testování
+* Pyramida testů
+* Zmrzlinový kornout jako antipattern
+* Jednotkové testy
+* Modul `pytest`
+* Nástroj Hypothesis
+* Fuzzy testy
+
+
+
+### Základní technologie testování
+
+* Velké množství testovacích frameworků
+
+```
+1 	unittest
+2 	doctest
+3 	pytest
+4 	nose
+5 	testify
+6 	Trial
+7 	Twisted
+8 	subunit
+9 	testresources
+10 	reahl.tofu
+11 	unit testing
+12 	testtools
+13 	Sancho
+14 	zope.testing
+15 	pry
+16 	pythoscope
+17 	testlib
+18 	pytest
+19 	dutest
+```
+
+
+
+### Pyramida typů testů
+
+* Různé podoby testovací pyramidy
+
+![Pyramida #1](https://www.root.cz/obrazek/408774/)
+![Pyramida #2](https://www.root.cz/obrazek/408775/)
+![Pyramida #3](https://www.root.cz/obrazek/408776/)
+![Pyramida #4](https://www.root.cz/obrazek/408777/)
+
+
+
+### Antipattern - zmrzlinový kornout
+
+* Na první pohled může vypadat "logicky"
+* Ovšem velmi pracné a časově náročné
+    - navíc se UI může často měnit
+    - (bikeshedding)
+
+![Kornout](https://www.root.cz/obrazek/408773/)
+
+
+
+### Jednotkové testy
+
+* Co považovat za jednotku?
+* Tvoří je většinou autor kódu
+    - spravedlnost
+    - čím složitější kód, tím hůře se testuje!
+* Lze zjistit pokrytí kódu testy
+    - code coverage
+
+
+
+### Testy komponent
+
+* Jednotkové testy nedokáží odhalit problémy na vyšších úrovních abstrakce
+    - například problematické sestavení jednotlivých modulů do vyšších celků
+
+![Okno](https://www.root.cz/obrazek/408778/)
+
+* Někdy velmi komplikované/nemožné testovat (reálný HW)
+[Proton M](https://www.youtube.com/watch?v=vqW0LEcTAYg)
+
+
+
+# Systémové testy, akceptační testy
+
+* Systémové testy se většinou rozdělují do dalších podkategorií
+    - smoke testy (původ jména)
+    - pouze velmi rychle zjišťují, zda je zajištěna alespoň minimální míra funkčnosti aplikace předtím, než se spustí složitější a časově mnohem náročnější testy
+    - pokud smoke testy zhavarují, vrací se aplikace zpět k vývojářům a popř. k devops týmu
+
+* Po úspěšném provedení smoke testů se mohou spouštět systémové testy
+    - primárním účelem je ověření, jestli aplikace (služba) sestavená do jednoho celku pracuje korektně
+    - tvorbou těchto testů již může být pověřen samostatný tým
+
+* Testy akceptační jsou ještě zajímavější
+    - na jejich vytváření se může podílet i zákazník
 --
 
 ## Aplikace s GUI

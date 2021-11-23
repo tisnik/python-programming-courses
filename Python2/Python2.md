@@ -147,6 +147,10 @@
 
 ! examples/OOP/class_attribute.py
 
+* "Name mangling" interních atributů
+
+! examples/OOP/name_mangling.py
+
 
 
 ### Konstruktor
@@ -385,6 +389,12 @@ __ixor__       ^= operátor
 
 ! examples/OOP/polymorphism2.py
 
+* Další příklady na polymorfismus
+
+! examples/OOP/polymorphism3.py
+
+! examples/OOP/polymorphism4.py
+
 
 
 ### Atributy třídy, třídní metody
@@ -492,6 +502,12 @@ __ixor__       ^= operátor
 
 * (lze implementovat i s využitím generátorů)
 
+* Další příklady
+
+! examples/Functional/clojure_lambda.py
+
+! examples/Functional/closure3.py
+
 
 
 ### Generátorová notace seznamu
@@ -502,6 +518,14 @@ __ixor__       ^= operátor
     - existuje i varianta založená na generátorech
 
 ! examples/Functional/list_comprehension.py
+
+* Proč generátorová notace seznamu?
+    - ostatní způsoby jsou dlouhé
+    - a nejsou idiomatické
+
+! examples/Functional/list_comprehension_why.py
+
+! examples/Functional/list_comprehension_why_2.py
 
 
 
@@ -538,6 +562,10 @@ __ixor__       ^= operátor
 ! examples/Functional/reduce_function.py
 
 ! examples/Functional/reduce_sum.py
+
+* Výpočet faktoriálu s využitím `reduce`
+
+! examples/Functional/factorial.py
 
 
 
@@ -597,6 +625,12 @@ __ixor__       ^= operátor
 * Generátor nekonečného seznamu implementovaný jako třída
 
 ! examples/generators/generator_class_2.py
+
+* Generátorová notace...
+
+! examples/generators/generator_comprehension1.py
+
+! examples/generators/generator_comprehension2.py
 
 
 
@@ -696,10 +730,6 @@ if __name__ == "__main__":
     - existují ovšem i lepší způsoby
 
 * Využití knihovny `argparse`
-
-! examples/stdlib/cli_args.py
-
-
 
 ### Příklad využití knihovny `argparse`
 
@@ -942,6 +972,8 @@ x = ",".join(l)
 
 ! examples/stdlib/priority_queue_example.py
 
+* Fronty jako komunikační médium mezi vlákny
+
 ! examples/stdlib/queues1.py
 
 ! examples/stdlib/queues2.py
@@ -1016,6 +1048,12 @@ x = ",".join(l)
 ! examples/stdlib/multithreading1.py
 
 ! examples/stdlib/multithreading2.py
+
+* Dlouhodobé procesy (pro kontrolu, co se děje "uvnitř")
+
+! examples/stdlib/multithreading3.py
+
+* Nový přístup k plánování práce "workerů"
 
 ! examples/stdlib/thread_pool_1.py
 
@@ -1150,6 +1188,102 @@ cdef calc(int width, int height, int maxiter, palette):
 
 ## Testování
 
+* Základní technologie testování
+* Pyramida testů
+* Zmrzlinový kornout jako antipattern
+* Jednotkové testy
+* Modul `pytest`
+* Nástroj Hypothesis
+* Fuzzy testy
+
+
+
+### Základní technologie testování
+
+* Velké množství testovacích frameworků
+
+```
+1 	unittest
+2 	doctest
+3 	pytest
+4 	nose
+5 	testify
+6 	Trial
+7 	Twisted
+8 	subunit
+9 	testresources
+10 	reahl.tofu
+11 	unit testing
+12 	testtools
+13 	Sancho
+14 	zope.testing
+15 	pry
+16 	pythoscope
+17 	testlib
+18 	pytest
+19 	dutest
+```
+
+
+
+### Pyramida typů testů
+
+* Různé podoby testovací pyramidy
+
+![Pyramida #1](https://www.root.cz/obrazek/408774/)
+![Pyramida #2](https://www.root.cz/obrazek/408775/)
+![Pyramida #3](https://www.root.cz/obrazek/408776/)
+![Pyramida #4](https://www.root.cz/obrazek/408777/)
+
+
+
+### Antipattern - zmrzlinový kornout
+
+* Na první pohled může vypadat "logicky"
+* Ovšem velmi pracné a časově náročné
+    - navíc se UI může často měnit
+    - (bikeshedding)
+
+![Kornout](https://www.root.cz/obrazek/408773/)
+
+
+
+### Jednotkové testy
+
+* Co považovat za jednotku?
+* Tvoří je většinou autor kódu
+    - spravedlnost
+    - čím složitější kód, tím hůře se testuje!
+* Lze zjistit pokrytí kódu testy
+    - code coverage
+
+
+
+### Testy komponent
+
+* Jednotkové testy nedokáží odhalit problémy na vyšších úrovních abstrakce
+    - například problematické sestavení jednotlivých modulů do vyšších celků
+
+![Okno](https://www.root.cz/obrazek/408778/)
+
+* Někdy velmi komplikované/nemožné testovat (reálný HW)
+[Proton M](https://www.youtube.com/watch?v=vqW0LEcTAYg)
+
+
+
+# Systémové testy, akceptační testy
+
+* Systémové testy se většinou rozdělují do dalších podkategorií
+    - smoke testy (původ jména)
+    - pouze velmi rychle zjišťují, zda je zajištěna alespoň minimální míra funkčnosti aplikace předtím, než se spustí složitější a časově mnohem náročnější testy
+    - pokud smoke testy zhavarují, vrací se aplikace zpět k vývojářům a popř. k devops týmu
+
+* Po úspěšném provedení smoke testů se mohou spouštět systémové testy
+    - primárním účelem je ověření, jestli aplikace (služba) sestavená do jednoho celku pracuje korektně
+    - tvorbou těchto testů již může být pověřen samostatný tým
+
+* Testy akceptační jsou ještě zajímavější
+    - na jejich vytváření se může podílet i zákazník
 --
 
 ## Aplikace s GUI
