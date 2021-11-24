@@ -1352,9 +1352,137 @@ cdef calc(int width, int height, int maxiter, palette):
 
 ## Aplikace s GUI
 
+* Tkinter
+* appJar
+* PyGTK
+* PyGObject
+* PyQt
+* PySide
+* wxPython
+* Kivy
+* Pyforms
+* PyjamasDesktop (pyjs Desktop)
+
+* Knihovny pro tvorbu grafického uživatelského rozhraní v Pythonu
+    - [https://www.root.cz/clanky/knihovny-pro-tvorbu-grafickeho-uzivatelskeho-rozhrani-v-pythonu/](https://www.root.cz/clanky/knihovny-pro-tvorbu-grafickeho-uzivatelskeho-rozhrani-v-pythonu/)
+
+
+
+### Tkinter
+
+* tvoří rozhraní ke knihovně Tk
+* Tk je takzvaný toolkit
+* pro jednoduchý a rychlý vývoj programů obsahujících grafické uživatelské rozhraní
+* úsporný, flexibilní a přitom čitelný zápis programu se specifikací
+    - ovládacích prvků
+    - jejich umístění v oknech
+    - vlastností
+    - callback funkcí volaných v důsledku uživatelské činnosti
+
+! examples/gui/tkinter.py
+
+
+
+### appJar
+
+* použití ve výuce
+* nejrychlejší a současně i nejjednodušší způsob, jak v Pythonu vytvořit aplikaci s grafickým uživatelským rozhraním
+* některé pokročilejší ovládací prvky nejsou k dispozici
+
+! examples/gui/appjar.py
+
+
+
+### PyGTK
+
+* určena pro desktopová prostředí založená na GTK+, konkrétně ovšem na GTK+ 2.x
+* dnes již zastaralé
+* složitější práce v porovnání s Tkinterem a appJarem
+
+! examples/gui/pygtk.py
+
+! examples/gui/pygtk_no_events.py
+
+
+
+### PyGObject
+
+* pro novější verze GTK
+* velké množství aplikací, například https://en.wikipedia.org/wiki/Category:Software_that_uses_PyGObject
+* ne zcela vhodné pro multiplatformní aplikace
+
+
+
+### PyQt
+
+* rozhraní pro Qt, které je používáné (nejenom) v desktopovém prostředí KDE
+    - ve skutečnosti se s Qt setkáme i v iOS či v Androidu
+* Qt je ucelený framework
+    - v PyQt mají vývojáři k dispozici rozhraní se zhruba 440 třídami a 6000 funkcemi i metodami
+    - grafické uživatelské rozhraní (i s použitím deklarativního jazyka QML)
+    - widget QScintilla používaný v textových editorech a procesorech
+    - relační databáze
+    - vektorový grafický formát SVG
+    - práce se soubory XML
+    - apod.
+
+! examples/gui/pyqt.py
+
+
+
+### PySide
+
+* podobné PyQt
+* odlišné licencování
+* dnes používanější
+
+! examples/gui/pyside1.py
+
+! examples/gui/pyside2.py
+
+
+
+### wxPython
+
+* zajišťuje rozhraní k populární GUI knihovně wxWidgets
+* původně wxWindows -> wxWidgets
+* multiplatformní aplikace
+
+! examples/gui/wxpython.py
+
+
+
+### Kivy
+
+* ucelený framework určený především pro tvorbu aplikací pro mobilní platformy
+* použití i na běžných desktopech
+* akcelerace vykreslení prvků přes OpenGL ES 2
+* pro deklaraci GUI použít speciální jazyk nazvaný K
+    - hraje podobnou roli jako například QML (Qt Modeling Language)
+
+! examples/gui/kivy.py
+
+
+
+### Pyforms
+
+* pro desktopové i webové aplikace
+* interně může používat PySide pro desktopové aplikace
+
+
+
+### PyjamasDesktop (pyjs Desktop)
+
+* především webové aplikace
+* desktopové aplikace založené na webových technologiích
+    - viz Electron
+    - editor Atom
+    - VSCode atd.
+* transpilace Pythonu do JavaScriptu
 --
 
----
+
+--
 
 ## Užitečné odkazy
 
