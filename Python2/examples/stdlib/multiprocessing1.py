@@ -5,6 +5,12 @@ def worker(name):
     print("hello", name)
 
 
-p = Process(target=worker, args=("foo",))
-p.start()
-p.join()
+def main():
+    p = Process(target=worker, args=("foo",))
+    p.start()
+    p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
