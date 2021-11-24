@@ -4178,9 +4178,15 @@ def worker(name):
     print("hello", name)
 
 
-p = Process(target=worker, args=("foo",))
-p.start()
-p.join()
+def main():
+    p = Process(target=worker, args=("foo",))
+    p.start()
+    p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing1.py)
@@ -4196,15 +4202,21 @@ def worker(name):
     print("done", name)
 
 
-ps = []
+def main():
+    ps = []
 
-for name in ("foo", "bar", "baz", "other"):
-    p = Process(target=worker, args=(name,))
-    p.start()
-    ps.append(p)
+    for name in ("foo", "bar", "baz", "other"):
+        p = Process(target=worker, args=(name,))
+        p.start()
+        ps.append(p)
 
-for p in ps:
-    p.join()
+    for p in ps:
+        p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing2.py)
@@ -4220,13 +4232,19 @@ def worker(name):
     print("done", name)
 
 
-ps = [Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")]
+def main():
+    ps = [Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")]
 
-for p in ps:
-    p.start()
+    for p in ps:
+        p.start()
 
-for p in ps:
-    p.join()
+    for p in ps:
+        p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing3.py)
@@ -4241,25 +4259,32 @@ def worker(name, q):
         cmd = q.get()
         print(name, cmd)
         if cmd == "quit":
+            print("Quitting")
             return
         time.sleep(1)
 
 
-q = Queue()
+def main():
+    q = Queue()
 
-ps = [Process(target=worker, args=(name,q)) for name in ("foo", "bar", "baz")]
+    ps = [Process(target=worker, args=(name, q)) for name in ("foo", "bar", "baz")]
 
-for p in ps:
-    p.start()
+    for p in ps:
+        p.start()
 
-for i in range(10):
-    q.put("command {}".format(i))
+    for i in range(10):
+        q.put("command {}".format(i))
 
-for i in range(3):
-    q.put("quit")
+    for i in range(3):
+        q.put("quit")
 
-for p in ps:
-    p.join()
+    for p in ps:
+        p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing4.py)
@@ -4280,18 +4305,23 @@ def worker(name, conn):
         time.sleep(1)
 
 
-parent_conn, child_conn = Pipe()
+def main():
+    parent_conn, child_conn = Pipe()
 
-p = Process(target=worker, args=("Worker", child_conn))
-p.start()
+    p = Process(target=worker, args=("Worker", child_conn))
+    p.start()
 
-for i in range(10):
-    parent_conn.send("command {}".format(i))
-    print(parent_conn.recv())
+    for i in range(10):
+        parent_conn.send("command {}".format(i))
+        print(parent_conn.recv())
 
-parent_conn.send("quit")
+    parent_conn.send("quit")
 
-p.join()
+    p.join()
+
+
+if __name__ == '__main__':
+    main()
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing5.py)
