@@ -1094,6 +1094,16 @@ x = ",".join(l)
 ! examples/stdlib/queues4.py
 
 
+### Vlákna běžící na pozadí, čekání na dokončení vláken
+
+! examples/stdlib/multithreading_no_join_no_deamon.py
+
+! examples/stdlib/multithreading_no_join_deamon.py
+
+! examples/stdlib/multithreading_join_deamon.py
+
+! examples/stdlib/multithreading_timeout.py
+
 
 ### Balíček `concurrent.futures`
 
