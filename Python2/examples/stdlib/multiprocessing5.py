@@ -13,15 +13,20 @@ def worker(name, conn):
         time.sleep(1)
 
 
-parent_conn, child_conn = Pipe()
+def main():
+    parent_conn, child_conn = Pipe()
 
-p = Process(target=worker, args=("Worker", child_conn))
-p.start()
+    p = Process(target=worker, args=("Worker", child_conn))
+    p.start()
 
-for i in range(10):
-    parent_conn.send("command {}".format(i))
-    print(parent_conn.recv())
+    for i in range(10):
+        parent_conn.send("command {}".format(i))
+        print(parent_conn.recv())
 
-parent_conn.send("quit")
+    parent_conn.send("quit")
 
-p.join()
+    p.join()
+
+
+if __name__ == '__main__':
+    main()
