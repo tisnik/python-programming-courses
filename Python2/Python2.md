@@ -1045,6 +1045,34 @@ x = ",".join(l)
 
 ## Multithreading
 
+* Praktická nutnost v 21.století
+    - multijádrová CPU
+    - výkon jednotlivých jader již nestoupá (závratně)
+    - distributované systémy
+    - paměťová lokalita
+* Několik úrovní souběžnosti
+    - multiprocessing
+    - multithreading
+    - gorutiny
+    - SIMD/MIMD
+* Problémy
+    - zcela jiný koncept přístupu k problémům
+    - deadlock
+    - starvation
+    - ...
+* Řešení
+    - CSP
+    - python-csp
+    - PyCSP
+    - Trellis
+    - STM
+    - Kamaelia
+    - Multiprocessing
+
+
+
+### Balíček `threading`
+
 ! examples/stdlib/multithreading1.py
 
 ! examples/stdlib/multithreading2.py
@@ -1053,11 +1081,41 @@ x = ",".join(l)
 
 ! examples/stdlib/multithreading3.py
 
+
+
+### Komunikace mezi vlákny přes fronty
+
+! examples/stdlib/queues1.py
+
+! examples/stdlib/queues2.py
+
+! examples/stdlib/queues3.py
+
+! examples/stdlib/queues4.py
+
+
+
+### Balíček `concurrent.futures`
+
 * Nový přístup k plánování práce "workerů"
 
 ! examples/stdlib/thread_pool_1.py
 
 ! examples/stdlib/thread_pool_2.py
+
+
+
+### Balíček `multiprocessing`
+
+! examples/stdlib/multiprocessing1.py
+
+! examples/stdlib/multiprocessing2.py
+
+! examples/stdlib/multiprocessing3.py
+
+! examples/stdlib/multiprocessing4.py
+
+! examples/stdlib/multiprocessing5.py
 
 
 
