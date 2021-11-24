@@ -4113,6 +4113,127 @@ print('Done')
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues4.py)
 
 
+### Vlákna běžící na pozadí, čekání na dokončení vláken
+
+```python
+import threading
+import time
+
+
+def worker():
+    threadName = threading.current_thread().name
+    delay = 1
+    n = 10
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření a spuštění trojice vláken
+threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
+threading.Thread(target=worker).start()
+
+# automaticky se čeká na dokončení vláken
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading_no_join_no_deamon.py)
+
+```python
+import threading
+import time
+
+
+def worker():
+    threadName = threading.current_thread().name
+    delay = 1
+    n = 10
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření a spuštění trojice vláken v režimu daemon
+threading.Thread(target=worker, daemon=True).start()
+threading.Thread(target=worker, daemon=True).start()
+threading.Thread(target=worker, daemon=True).start()
+
+# na dokončení vláken se nečeká!
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading_no_join_deamon.py)
+
+```python
+import threading
+import time
+
+
+def worker():
+    threadName = threading.current_thread().name
+    delay = 1
+    n = 10
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření a spuštění trojice vláken v režimu daemon
+t1 = threading.Thread(target=worker, daemon=True)
+t2 = threading.Thread(target=worker, daemon=True)
+t3 = threading.Thread(target=worker, daemon=True)
+
+t1.start()
+t2.start()
+t3.start()
+
+t1.join()
+t2.join()
+t3.join()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading_join_deamon.py)
+
+```python
+import threading
+import time
+
+
+def worker(threadName, delay, n):
+    for counter in range(1, n+1):
+        time.sleep(delay)
+        print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
+
+
+# vytvoření trojice vláken
+t1 = threading.Thread(target=worker, args=("Thread-1", 0.5, 10))
+t2 = threading.Thread(target=worker, args=("Thread-2", 1.0, 10))
+t3 = threading.Thread(target=worker, args=("Thread-3", 1.5, 10))
+
+# spuštění všech vláken
+t1.start()
+t2.start()
+t3.start()
+
+# čekání na dokončení všech vláken
+t3.join(timeout=5)
+
+if t3.is_alive():
+    print("wait timeout")
+else:
+    print("t3 has finished")
+
+t2.join()
+print("t2 has finished")
+
+t1.join()
+print("t1 has finished")
+
+
+print("Done!")
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading_timeout.py)
+
 
 ### Balíček `concurrent.futures`
 
