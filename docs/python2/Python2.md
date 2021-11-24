@@ -3819,6 +3819,34 @@ with open("test.json", "r") as fin:
 
 ## Multithreading
 
+* Praktická nutnost v 21.století
+    - multijádrová CPU
+    - výkon jednotlivých jader již nestoupá (závratně)
+    - distributované systémy
+    - paměťová lokalita
+* Několik úrovní souběžnosti
+    - multiprocessing
+    - multithreading
+    - gorutiny
+    - SIMD/MIMD
+* Problémy
+    - zcela jiný koncept přístupu k problémům
+    - deadlock
+    - starvation
+    - ...
+* Řešení
+    - CSP
+    - python-csp
+    - PyCSP
+    - Trellis
+    - STM
+    - Kamaelia
+    - Multiprocessing
+
+
+
+### Balíček `threading`
+
 ```python
 #!/usr/bin/env python3
 
@@ -3909,6 +3937,185 @@ print("Done!")
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multithreading3.py)
 
+
+
+### Komunikace mezi vlákny přes fronty
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace konzumenta
+def consumer():
+    while True:
+        job = q.get()
+        print(f'Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumenta
+threading.Thread(target=consumer, daemon=True, name="první").start()
+
+# vytvoření úloh v producentovi
+for job in range(10):
+    print(f'Producing {job}')
+    q.put(job)
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues1.py)
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace konzumenta
+def consumer():
+    name = threading.current_thread().name
+    while True:
+        job = q.get()
+        print(f'{name} thread: Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'{name} thread: Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumentů
+threading.Thread(target=consumer, daemon=True, name="1st").start()
+threading.Thread(target=consumer, daemon=True, name="2nd").start()
+threading.Thread(target=consumer, daemon=True, name="3rd").start()
+
+# vytvoření úloh v producentovi
+for job in range(10):
+    print(f'Producing {job}')
+    q.put(job)
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues2.py)
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace producenta
+def producer():
+    name = threading.current_thread().name
+    for job in range(10):
+        print(f'{name} thread: Starting producing {job}')
+        q.put(job)
+        time.sleep(0.3)
+        print(f'{name} thread: Produced {job}')
+
+
+# simulace konzumenta
+def consumer():
+    name = threading.current_thread().name
+    while True:
+        job = q.get()
+        print(f'{name} thread: Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'{name} thread: Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumentů
+threading.Thread(target=consumer, daemon=True, name="1st").start()
+threading.Thread(target=consumer, daemon=True, name="2nd").start()
+threading.Thread(target=consumer, daemon=True, name="3rd").start()
+
+# spuštění producentů
+threading.Thread(target=producer, daemon=True, name="1st").start()
+threading.Thread(target=producer, daemon=True, name="2nd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues3.py)
+
+```python
+import time
+import threading
+import queue
+
+
+# vytvoření fronty
+q = queue.Queue()
+
+
+# simulace producenta
+def producer():
+    name = threading.current_thread().name
+    for job in range(1000):
+        print(f'{name} thread: Starting producing {job}')
+        q.put(job)
+        time.sleep(0.3)
+        print(f'{name} thread: Produced {job}')
+
+
+# simulace konzumenta
+def consumer():
+    name = threading.current_thread().name
+    while True:
+        job = q.get()
+        print(f'{name} thread: Starting consuming {job}')
+        time.sleep(0.4)
+        print(f'{name} thread: Consumed {job}')
+        q.task_done()
+
+
+# spuštění konzumentů
+threading.Thread(target=consumer, daemon=True, name="1st").start()
+threading.Thread(target=consumer, daemon=True, name="2nd").start()
+threading.Thread(target=consumer, daemon=True, name="3rd").start()
+
+# spuštění producentů
+threading.Thread(target=producer, daemon=True, name="1st").start()
+threading.Thread(target=producer, daemon=True, name="2nd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+threading.Thread(target=producer, daemon=True, name="3rd").start()
+
+# čekání na zpracování všech zpráv ve frontě
+q.join()
+print('Done')
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues4.py)
+
+
+
+### Balíček `concurrent.futures`
+
 * Nový přístup k plánování práce "workerů"
 
 ```python
@@ -3958,6 +4165,136 @@ print("Done!")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/thread_pool_2.py)
+
+
+
+### Balíček `multiprocessing`
+
+```python
+from multiprocessing import Process
+
+
+def worker(name):
+    print("hello", name)
+
+
+p = Process(target=worker, args=("foo",))
+p.start()
+p.join()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing1.py)
+
+```python
+from multiprocessing import Process
+import time
+
+
+def worker(name):
+    print("hello", name)
+    time.sleep(5)
+    print("done", name)
+
+
+ps = []
+
+for name in ("foo", "bar", "baz", "other"):
+    p = Process(target=worker, args=(name,))
+    p.start()
+    ps.append(p)
+
+for p in ps:
+    p.join()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing2.py)
+
+```python
+from multiprocessing import Process
+import time
+
+
+def worker(name):
+    print("hello", name)
+    time.sleep(5)
+    print("done", name)
+
+
+ps = [Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")]
+
+for p in ps:
+    p.start()
+
+for p in ps:
+    p.join()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing3.py)
+
+```python
+from multiprocessing import Process, Queue
+import time
+
+
+def worker(name, q):
+    while True:
+        cmd = q.get()
+        print(name, cmd)
+        if cmd == "quit":
+            return
+        time.sleep(1)
+
+
+q = Queue()
+
+ps = [Process(target=worker, args=(name,q)) for name in ("foo", "bar", "baz")]
+
+for p in ps:
+    p.start()
+
+for i in range(10):
+    q.put("command {}".format(i))
+
+for i in range(3):
+    q.put("quit")
+
+for p in ps:
+    p.join()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing4.py)
+
+```python
+from multiprocessing import Process, Pipe
+import time
+
+
+def worker(name, conn):
+    while True:
+        cmd = conn.recv()
+        print("{} received {}".format(name, cmd))
+        if cmd == "quit":
+            return
+        else:
+            conn.send("{} accepted {}".format(name, cmd))
+        time.sleep(1)
+
+
+parent_conn, child_conn = Pipe()
+
+p = Process(target=worker, args=("Worker", child_conn))
+p.start()
+
+for i in range(10):
+    parent_conn.send("command {}".format(i))
+    print(parent_conn.recv())
+
+parent_conn.send("quit")
+
+p.join()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/multiprocessing5.py)
 
 
 
@@ -4194,9 +4531,304 @@ cdef calc(int width, int height, int maxiter, palette):
 
 ## Aplikace s GUI
 
+* Tkinter
+* appJar
+* PyGTK
+* PyGObject
+* PyQt
+* PySide
+* wxPython
+* Kivy
+* Pyforms
+* PyjamasDesktop (pyjs Desktop)
+
+* Knihovny pro tvorbu grafického uživatelského rozhraní v Pythonu
+    - [https://www.root.cz/clanky/knihovny-pro-tvorbu-grafickeho-uzivatelskeho-rozhrani-v-pythonu/](https://www.root.cz/clanky/knihovny-pro-tvorbu-grafickeho-uzivatelskeho-rozhrani-v-pythonu/)
+
+
+
+### Tkinter
+
+* tvoří rozhraní ke knihovně Tk
+* Tk je takzvaný toolkit
+* pro jednoduchý a rychlý vývoj programů obsahujících grafické uživatelské rozhraní
+* úsporný, flexibilní a přitom čitelný zápis programu se specifikací
+    - ovládacích prvků
+    - jejich umístění v oknech
+    - vlastností
+    - callback funkcí volaných v důsledku uživatelské činnosti
+
+```python
+#!/usr/bin/env python
+
+from tkinter import *
+from tkinter import ttk
+
+root = Tk()
+
+label = ttk.Label(root, text="Hello world!")
+
+label.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/tkinter.py)
+
+
+
+### appJar
+
+* použití ve výuce
+* nejrychlejší a současně i nejjednodušší způsob, jak v Pythonu vytvořit aplikaci s grafickým uživatelským rozhraním
+* některé pokročilejší ovládací prvky nejsou k dispozici
+
+```python
+#!/usr/bin/env python
+
+from appJar import gui
+
+app = gui()
+
+app.addLabel("title", "Hello world!")
+
+app.go()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/appjar.py)
+
+
+
+### PyGTK
+
+* určena pro desktopová prostředí založená na GTK+, konkrétně ovšem na GTK+ 2.x
+* dnes již zastaralé
+* složitější práce v porovnání s Tkinterem a appJarem
+
+```python
+import pygtk
+pygtk.require('2.0')
+import gtk
+
+
+def delete_event(widget, event, data=None):
+    print "delete event occurred"
+    return False
+
+
+def destroy(widget, data=None):
+    print "destroy signal occurred"
+    gtk.main_quit()
+
+
+window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+window.connect("delete_event", delete_event)
+window.connect("destroy", destroy)
+
+label = gtk.Label("Hello world!")
+window.add(label)
+label.show()
+
+window.show()
+gtk.main()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pygtk.py)
+
+```python
+import pygtk
+pygtk.require('2.0')
+import gtk
+
+
+window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+
+label = gtk.Label("Hello world!")
+window.add(label)
+label.show()
+
+window.show()
+gtk.main()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pygtk_no_events.py)
+
+
+
+### PyGObject
+
+* pro novější verze GTK
+* velké množství aplikací, například https://en.wikipedia.org/wiki/Category:Software_that_uses_PyGObject
+* ne zcela vhodné pro multiplatformní aplikace
+
+
+
+### PyQt
+
+* rozhraní pro Qt, které je používáné (nejenom) v desktopovém prostředí KDE
+    - ve skutečnosti se s Qt setkáme i v iOS či v Androidu
+* Qt je ucelený framework
+    - v PyQt mají vývojáři k dispozici rozhraní se zhruba 440 třídami a 6000 funkcemi i metodami
+    - grafické uživatelské rozhraní (i s použitím deklarativního jazyka QML)
+    - widget QScintilla používaný v textových editorech a procesorech
+    - relační databáze
+    - vektorový grafický formát SVG
+    - práce se soubory XML
+    - apod.
+
+```python
+import sys
+
+# zajisteni importu noveho rozhrani
+import sip
+
+sip.setapi('QDate', 2)
+sip.setapi('QDateTime', 2)
+sip.setapi('QString', 2)
+sip.setapi('QTextStream', 2)
+sip.setapi('QTime', 2)
+sip.setapi('QUrl', 2)
+sip.setapi('QVariant', 2)
+
+from PyQt4.Qt import *
+
+qt_application = QApplication(sys.argv)
+
+label = QLabel('Hello world!')
+
+label.show()
+
+qt_application.exec_()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pyqt.py)
+
+
+
+### PySide
+
+* podobné PyQt
+* odlišné licencování
+* dnes používanější
+
+```python
+import sys
+
+from PySide.QtCore import *
+from PySide.QtGui import *
+
+qt_application = QApplication(sys.argv)
+
+label = QLabel('Hello world!')
+
+label.show()
+
+qt_application.exec_()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pyside1.py)
+
+```python
+import sys
+
+from PySide.QtCore import *
+from PySide.QtGui import *
+
+qt_application = QApplication(sys.argv)
+
+
+class HelloWorldLabel(QLabel):
+    def __init__(self):
+        QLabel.__init__(self, "Hello world!")
+
+        self.setMinimumSize(QSize(600, 400))
+        self.setAlignment(Qt.AlignCenter)
+        self.setWindowTitle('Hello world!')
+
+    def run(self):
+        self.show()
+        qt_application.exec_()
+
+
+HelloWorldLabel().run()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pyside2.py)
+
+
+
+### wxPython
+
+* zajišťuje rozhraní k populární GUI knihovně wxWidgets
+* původně wxWindows -> wxWidgets
+* multiplatformní aplikace
+
+```python
+# vim: set fileencoding=utf-8
+
+from wx import App, Frame, ID_ANY
+
+# vytvoření instance objektu představujícího běžící aplikaci
+app = App()
+
+# vytvoření hlavního okna se specifikací jeho vlastností a titulku
+frame = Frame(None, ID_ANY, "wxPython!")
+
+# zobrazení hlavního okna aplikace
+frame.Show(True)
+
+# vstup do smyčky pro čtení a zpracování událostí (event loop)
+app.MainLoop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/wxpython.py)
+
+
+
+### Kivy
+
+* ucelený framework určený především pro tvorbu aplikací pro mobilní platformy
+* použití i na běžných desktopech
+* akcelerace vykreslení prvků přes OpenGL ES 2
+* pro deklaraci GUI použít speciální jazyk nazvaný K
+    - hraje podobnou roli jako například QML (Qt Modeling Language)
+
+```python
+from kivy.app import App
+from kivy.uix.label import Label
+
+
+class TestApp(App):
+    def build(self):
+        return Label(text='Hello World')
+
+
+TestApp().run()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/kivy.py)
+
+
+
+### Pyforms
+
+* pro desktopové i webové aplikace
+* interně může používat PySide pro desktopové aplikace
+
+
+
+### PyjamasDesktop (pyjs Desktop)
+
+* především webové aplikace
+* desktopové aplikace založené na webových technologiích
+    - viz Electron
+    - editor Atom
+    - VSCode atd.
+* transpilace Pythonu do JavaScriptu
 --
 
----
+
+--
 
 ## Užitečné odkazy
 
