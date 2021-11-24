@@ -8,12 +8,18 @@ def worker(name):
     print("done", name)
 
 
-ps = []
+def main():
+    ps = []
 
-for name in ("foo", "bar", "baz", "other"):
-    p = Process(target=worker, args=(name,))
-    p.start()
-    ps.append(p)
+    for name in ("foo", "bar", "baz", "other"):
+        p = Process(target=worker, args=(name,))
+        p.start()
+        ps.append(p)
 
-for p in ps:
-    p.join()
+    for p in ps:
+        p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
