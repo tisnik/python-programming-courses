@@ -1250,7 +1250,59 @@ cdef calc(int width, int height, int maxiter, palette):
     - kontroluje styl zápisu programů
     - udržuje štábní kulturu
 
+
+
 ## Datové formáty, perzistentní úložiště, databáze
+
+* Pickle
+* Shelve
+
+
+
+### Pickle
+
+* Serializace a deserializace (libovolných) hodnot a objektů
+
+! examples/serialization/pickle_write.py
+
+! examples/serialization/pickle_write_protocol.py
+
+! examples/serialization/pickle_read.py
+
+
+
+### Pickle - serializace a deserializace objektů
+
+! examples/serialization/employee_class_pickle_write.py
+
+! examples/serialization/employee_class_pickle_read.py
+
+
+
+### Shelve
+
+* Databáze hodnot/objektů
+
+! examples/serialization/shelve_db_write
+
+! examples/serialization/shelve_db_read
+
+
+
+### Shelve - ukládání objektů do databáze
+
+! examples/serialization/employee_class_shelve_write.py
+
+! examples/serialization/employee_class_shelve_read.py
+
+
+## Kafka
+
+! examples/Kafka/producer1.py
+
+! examples/Kafka/consumer1.py
+
+! examples/Kafka/consumer2.py
 
 --
 
