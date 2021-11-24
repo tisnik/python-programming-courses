@@ -7,22 +7,29 @@ def worker(name, q):
         cmd = q.get()
         print(name, cmd)
         if cmd == "quit":
+            print("Quitting")
             return
         time.sleep(1)
 
 
-q = Queue()
+def main():
+    q = Queue()
 
-ps = [Process(target=worker, args=(name,q)) for name in ("foo", "bar", "baz")]
+    ps = [Process(target=worker, args=(name, q)) for name in ("foo", "bar", "baz")]
 
-for p in ps:
-    p.start()
+    for p in ps:
+        p.start()
 
-for i in range(10):
-    q.put("command {}".format(i))
+    for i in range(10):
+        q.put("command {}".format(i))
 
-for i in range(3):
-    q.put("quit")
+    for i in range(3):
+        q.put("quit")
 
-for p in ps:
-    p.join()
+    for p in ps:
+        p.join()
+
+
+if __name__ == '__main__':
+    print("Running main")
+    main()
