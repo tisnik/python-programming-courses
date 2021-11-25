@@ -4736,3 +4736,656 @@ with open("test", "rb") as fin:
 * Databáze hodnot/objektů
 
 ```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zápis prvků do databáze."""
+
+import shelve
+
+with shelve.open("test") as db:
+    db["x"] = "Hello"
+    db["y"] = "world"
+    db["z"] = [1, 2, 3, 4]
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/serialization/shelve_db_write.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Čtení prvků z databáze."""
+
+import shelve
+
+with shelve.open("test") as db:
+    print(db["x"])
+    print(db["y"])
+    print(db["z"])
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/serialization/shelve_db_read.py)
+
+
+
+### Shelve - ukládání objektů do databáze
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Zápis objektů do databáze."""
+
+import shelve
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+        self._poznamka = 124
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
+                                                                  surname=self._surname,
+                                                                  salary=self._salary)
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+        return self._first_name == other._first_name and \
+            self._surname == other._surname and \
+            self._salary == other._salary
+
+
+# vytvoření tří instancí třídy
+employee1 = Employee("Eda", "Wasserfall", 10000)
+employee2 = Employee("Eda", "Wasserfall", 10000)
+employee3 = Employee("Přemysl", "Hájek", 25001)
+
+
+with shelve.open("test") as db:
+    db["employee1"] = employee1
+    db["employee2"] = employee2
+    db["employee3"] = employee3
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/serialization/employee_class_shelve_write.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+"""Přečtení objektů z databáze."""
+
+import shelve
+
+
+class Employee:
+    """Třída reprezentující zaměstnance."""
+
+    def __init__(self, first_name, surname, salary):
+        """Konstruktor objektu."""
+        self._first_name = first_name
+        self._surname = surname
+        self._salary = salary
+        self._poznamka = 124
+
+    def __str__(self):
+        """Speciální metoda pro převod objektu na řetězec."""
+        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
+                                                                  surname=self._surname,
+                                                                  salary=self._salary)
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+        return self._first_name == other._first_name and \
+            self._surname == other._surname and \
+            self._salary == other._salary
+
+
+with shelve.open("test") as db:
+    print(db["employee1"])
+    print(db["employee2"])
+    print(db["employee3"])
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/serialization/employee_class_shelve_read.py)
+
+
+## Kafka
+
+```python
+#!/usr/bin/env python3
+
+from kafka import KafkaProducer
+from time import sleep
+from json import dumps
+
+server = 'localhost:9092'
+topic = 'upload'
+
+print('Connecting to Kafka')
+producer = KafkaProducer(bootstrap_servers=[server],
+                         value_serializer=lambda x: dumps(x).encode('utf-8'))
+print('Connected to Kafka')
+
+for i in range(1000):
+    data = {'counter': i}
+    producer.send(topic, value=data)
+    sleep(5)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Kafka/producer1.py)
+
+```python
+#!/usr/bin/env python3
+
+import sys
+from kafka import KafkaConsumer
+
+server = 'localhost:9092'
+topic = 'upload'
+group_id = 'group1'
+
+print('Connecting to Kafka')
+consumer = KafkaConsumer(topic,
+                         group_id=group_id,
+                         bootstrap_servers=[server],
+                         auto_offset_reset='earliest')
+print('Connected to Kafka')
+
+try:
+    for message in consumer:
+        print("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
+                                             message.offset, message.key, message.value))
+except KeyboardInterrupt:
+    sys.exit()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Kafka/consumer1.py)
+
+```python
+#!/usr/bin/env python3
+
+import sys
+from kafka import KafkaConsumer, TopicPartition
+
+server = 'localhost:9092'
+topic = 'upload'
+group_id = 'group1'
+
+print('Connecting to Kafka')
+consumer = KafkaConsumer(group_id=group_id,
+                         bootstrap_servers=[server])
+print('Connected to Kafka')
+
+tp = TopicPartition(topic=topic, partition=0)
+consumer.assign([tp])
+consumer.seek(tp, 0)
+
+try:
+    for message in consumer:
+        print("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
+                                             message.offset, message.key, message.value))
+except KeyboardInterrupt:
+    sys.exit()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Kafka/consumer2.py)
+
+--
+
+## Testování
+
+* Základní technologie testování
+* Pyramida testů
+* Zmrzlinový kornout jako antipattern
+* Jednotkové testy
+* Modul `pytest`
+* Nástroj Hypothesis
+* Fuzzy testy
+
+
+
+### Základní technologie testování
+
+* Velké množství testovacích frameworků
+
+```
+1 	unittest
+2 	doctest
+3 	pytest
+4 	nose
+5 	testify
+6 	Trial
+7 	Twisted
+8 	subunit
+9 	testresources
+10 	reahl.tofu
+11 	unit testing
+12 	testtools
+13 	Sancho
+14 	zope.testing
+15 	pry
+16 	pythoscope
+17 	testlib
+18 	pytest
+19 	dutest
+```
+
+
+
+### Pyramida typů testů
+
+* Různé podoby testovací pyramidy
+
+- [Pyramida #1](https://www.root.cz/obrazek/408774/)
+
+- [Pyramida #2](https://www.root.cz/obrazek/408775/)
+
+- [Pyramida #3](https://www.root.cz/obrazek/408776/)
+
+- [Pyramida #4](https://www.root.cz/obrazek/408777/)
+
+
+
+### Antipattern - zmrzlinový kornout
+
+* Na první pohled může vypadat "logicky"
+* Ovšem velmi pracné a časově náročné
+    - navíc se UI může často měnit
+    - (bikeshedding)
+
+- [Kornout](https://www.root.cz/obrazek/408773/)
+
+
+
+### Jednotkové testy
+
+* Co považovat za jednotku?
+* Tvoří je většinou autor kódu
+    - spravedlnost
+    - čím složitější kód, tím hůře se testuje!
+* Lze zjistit pokrytí kódu testy
+    - code coverage
+
+
+
+### Testy komponent
+
+* Jednotkové testy nedokáží odhalit problémy na vyšších úrovních abstrakce
+    - například problematické sestavení jednotlivých modulů do vyšších celků
+
+- [Okno](https://www.root.cz/obrazek/408778/)
+
+* Někdy velmi komplikované/nemožné testovat (reálný HW)
+[Proton M](https://www.youtube.com/watch?v=vqW0LEcTAYg)
+
+
+
+# Systémové testy, akceptační testy
+
+* Systémové testy se většinou rozdělují do dalších podkategorií
+    - smoke testy (původ jména)
+    - pouze velmi rychle zjišťují, zda je zajištěna alespoň minimální míra funkčnosti aplikace předtím, než se spustí složitější a časově mnohem náročnější testy
+    - pokud smoke testy zhavarují, vrací se aplikace zpět k vývojářům a popř. k devops týmu
+
+* Po úspěšném provedení smoke testů se mohou spouštět systémové testy
+    - primárním účelem je ověření, jestli aplikace (služba) sestavená do jednoho celku pracuje korektně
+    - tvorbou těchto testů již může být pověřen samostatný tým
+
+* Testy akceptační jsou ještě zajímavější
+    - na jejich vytváření se může podílet i zákazník
+
+
+
+--
+
+## Aplikace s GUI
+
+* Tkinter
+* appJar
+* PyGTK
+* PyGObject
+* PyQt
+* PySide
+* wxPython
+* Kivy
+* Pyforms
+* PyjamasDesktop (pyjs Desktop)
+
+* Knihovny pro tvorbu grafického uživatelského rozhraní v Pythonu
+    - [https://www.root.cz/clanky/knihovny-pro-tvorbu-grafickeho-uzivatelskeho-rozhrani-v-pythonu/](https://www.root.cz/clanky/knihovny-pro-tvorbu-grafickeho-uzivatelskeho-rozhrani-v-pythonu/)
+
+
+
+### Tkinter
+
+* tvoří rozhraní ke knihovně Tk
+* Tk je takzvaný toolkit
+* pro jednoduchý a rychlý vývoj programů obsahujících grafické uživatelské rozhraní
+* úsporný, flexibilní a přitom čitelný zápis programu se specifikací
+    - ovládacích prvků
+    - jejich umístění v oknech
+    - vlastností
+    - callback funkcí volaných v důsledku uživatelské činnosti
+
+```python
+#!/usr/bin/env python
+
+from tkinter import *
+from tkinter import ttk
+
+root = Tk()
+
+label = ttk.Label(root, text="Hello world!")
+
+label.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/tkinter.py)
+
+
+
+### appJar
+
+* použití ve výuce
+* nejrychlejší a současně i nejjednodušší způsob, jak v Pythonu vytvořit aplikaci s grafickým uživatelským rozhraním
+* některé pokročilejší ovládací prvky nejsou k dispozici
+
+```python
+#!/usr/bin/env python
+
+from appJar import gui
+
+app = gui()
+
+app.addLabel("title", "Hello world!")
+
+app.go()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/appjar.py)
+
+
+
+### PyGTK
+
+* určena pro desktopová prostředí založená na GTK+, konkrétně ovšem na GTK+ 2.x
+* dnes již zastaralé
+* složitější práce v porovnání s Tkinterem a appJarem
+
+```python
+import pygtk
+pygtk.require('2.0')
+import gtk
+
+
+def delete_event(widget, event, data=None):
+    print "delete event occurred"
+    return False
+
+
+def destroy(widget, data=None):
+    print "destroy signal occurred"
+    gtk.main_quit()
+
+
+window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+window.connect("delete_event", delete_event)
+window.connect("destroy", destroy)
+
+label = gtk.Label("Hello world!")
+window.add(label)
+label.show()
+
+window.show()
+gtk.main()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pygtk.py)
+
+```python
+import pygtk
+pygtk.require('2.0')
+import gtk
+
+
+window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+
+label = gtk.Label("Hello world!")
+window.add(label)
+label.show()
+
+window.show()
+gtk.main()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pygtk_no_events.py)
+
+
+
+### PyGObject
+
+* pro novější verze GTK
+* velké množství aplikací, například https://en.wikipedia.org/wiki/Category:Software_that_uses_PyGObject
+* ne zcela vhodné pro multiplatformní aplikace
+
+
+
+### PyQt
+
+* rozhraní pro Qt, které je používáné (nejenom) v desktopovém prostředí KDE
+    - ve skutečnosti se s Qt setkáme i v iOS či v Androidu
+* Qt je ucelený framework
+    - v PyQt mají vývojáři k dispozici rozhraní se zhruba 440 třídami a 6000 funkcemi i metodami
+    - grafické uživatelské rozhraní (i s použitím deklarativního jazyka QML)
+    - widget QScintilla používaný v textových editorech a procesorech
+    - relační databáze
+    - vektorový grafický formát SVG
+    - práce se soubory XML
+    - apod.
+
+```python
+import sys
+
+# zajisteni importu noveho rozhrani
+import sip
+
+sip.setapi('QDate', 2)
+sip.setapi('QDateTime', 2)
+sip.setapi('QString', 2)
+sip.setapi('QTextStream', 2)
+sip.setapi('QTime', 2)
+sip.setapi('QUrl', 2)
+sip.setapi('QVariant', 2)
+
+from PyQt4.Qt import *
+
+qt_application = QApplication(sys.argv)
+
+label = QLabel('Hello world!')
+
+label.show()
+
+qt_application.exec_()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pyqt.py)
+
+
+
+### PySide
+
+* podobné PyQt
+* odlišné licencování
+* dnes používanější
+
+```python
+import sys
+
+from PySide.QtCore import *
+from PySide.QtGui import *
+
+qt_application = QApplication(sys.argv)
+
+label = QLabel('Hello world!')
+
+label.show()
+
+qt_application.exec_()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pyside1.py)
+
+```python
+import sys
+
+from PySide.QtCore import *
+from PySide.QtGui import *
+
+qt_application = QApplication(sys.argv)
+
+
+class HelloWorldLabel(QLabel):
+    def __init__(self):
+        QLabel.__init__(self, "Hello world!")
+
+        self.setMinimumSize(QSize(600, 400))
+        self.setAlignment(Qt.AlignCenter)
+        self.setWindowTitle('Hello world!')
+
+    def run(self):
+        self.show()
+        qt_application.exec_()
+
+
+HelloWorldLabel().run()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/pyside2.py)
+
+
+
+### wxPython
+
+* zajišťuje rozhraní k populární GUI knihovně wxWidgets
+* původně wxWindows -> wxWidgets
+* multiplatformní aplikace
+
+```python
+# vim: set fileencoding=utf-8
+
+from wx import App, Frame, ID_ANY
+
+# vytvoření instance objektu představujícího běžící aplikaci
+app = App()
+
+# vytvoření hlavního okna se specifikací jeho vlastností a titulku
+frame = Frame(None, ID_ANY, "wxPython!")
+
+# zobrazení hlavního okna aplikace
+frame.Show(True)
+
+# vstup do smyčky pro čtení a zpracování událostí (event loop)
+app.MainLoop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/wxpython.py)
+
+
+
+### Kivy
+
+* ucelený framework určený především pro tvorbu aplikací pro mobilní platformy
+* použití i na běžných desktopech
+* akcelerace vykreslení prvků přes OpenGL ES 2
+* pro deklaraci GUI použít speciální jazyk nazvaný K
+    - hraje podobnou roli jako například QML (Qt Modeling Language)
+
+```python
+from kivy.app import App
+from kivy.uix.label import Label
+
+
+class TestApp(App):
+    def build(self):
+        return Label(text='Hello World')
+
+
+TestApp().run()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/gui/kivy.py)
+
+
+
+### Pyforms
+
+* pro desktopové i webové aplikace
+* interně může používat PySide pro desktopové aplikace
+
+
+
+### PyjamasDesktop (pyjs Desktop)
+
+* především webové aplikace
+* desktopové aplikace založené na webových technologiích
+    - viz Electron
+    - editor Atom
+    - VSCode atd.
+* transpilace Pythonu do JavaScriptu
+--
+
+
+--
+
+## Užitečné odkazy
+
+* Python Quick Reference:
+    - [http://rgruet.free.fr/#QuickRef](http://rgruet.free.fr/#QuickRef)
+* Python docs:
+    - [http://www.python.org/doc/](http://www.python.org/doc/)
+* PEP 8:
+    - [http://www.python.org/dev/peps/pep-0008/](http://www.python.org/dev/peps/pep-0008/)
+* pep8.py:
+    - [http://pypi.python.org/pypi/pep8/](http://pypi.python.org/pypi/pep8/)
+* pylint:
+    - [http://www.logilab.org/project/pylint](http://www.logilab.org/project/pylint)
+* Epydoc:
+    - [http://epydoc.sourceforge.net/](http://epydoc.sourceforge.net/)
+* Sphinx:
+    - [http://sphinx-doc.org/](http://sphinx-doc.org/)
+* Python in Python:
+    - [http://pypy.org/](http://pypy.org/)
+* The key differences between Python 2.7.x and Python 3.x with examples:
+    - [http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
+* Language differences and workarounds:
+    - [http://python3porting.com/differences.html](http://python3porting.com/differences.html)
+* Everything you did not want to know about Unicode in Python 3:
+    - [http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/](http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/)
+* Unicode (Wikipedia):
+    - [https://en.wikipedia.org/wiki/Unicode](https://en.wikipedia.org/wiki/Unicode)
+* Dive Into Python:
+    - [http://www.diveintopython.net/](http://www.diveintopython.net/)
+* Dive into Python 3:
+    - [http://www.diveintopython3.net/](http://www.diveintopython3.net/)
+* Testování webových aplikací s REST API z Pythonu
+    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/)
+* Testování aplikací s využitím nástroje Hypothesis
+    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)
+* Použití Pythonu pro tvorbu testů: od jednotkových testů až po testy UI
+    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)
+* Testování nativních funkcí s využitím programovacího jazyka Python
+    - [https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/](https://www.root.cz/clanky/testovani-nativnich-funkci-s-vyuzitim-programovaciho-jazyka-python/)
+

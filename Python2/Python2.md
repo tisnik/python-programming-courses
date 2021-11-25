@@ -1283,9 +1283,9 @@ cdef calc(int width, int height, int maxiter, palette):
 
 * Databáze hodnot/objektů
 
-! examples/serialization/shelve_db_write
+! examples/serialization/shelve_db_write.py
 
-! examples/serialization/shelve_db_read
+! examples/serialization/shelve_db_read.py
 
 
 
