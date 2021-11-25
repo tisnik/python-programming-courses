@@ -26,11 +26,11 @@ class TestClass:
         """Zavoláno při finalizaci třídy s testy."""
         print("\nTEARDOWN CLASS")
 
-    def setup_method(cls):
+    def setup_method(method):
         """Zavoláno před každou metodou s jednotkovými testy."""
         print("SETUP METHOD")
 
-    def teardown_method(cls):
+    def teardown_method(method):
         """Zavoláno po každé metodě s jednotkovými testy."""
         print("\nTEARDOWN METHOD")
 
