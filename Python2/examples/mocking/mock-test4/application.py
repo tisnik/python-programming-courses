@@ -9,5 +9,7 @@ def function1():
 
 def function2():
     """Druhá funkce, kterou v testech nahradíme mockem."""
+    print("*"*60)
     print("function2 called")
+    print("*"*60)
     return "function 2"
