@@ -4960,25 +4960,25 @@ except KeyboardInterrupt:
 * Velké množství testovacích frameworků
 
 ```
-1 	unittest
-2 	doctest
-3 	pytest
-4 	nose
-5 	testify
-6 	Trial
-7 	Twisted
-8 	subunit
-9 	testresources
-10 	reahl.tofu
-11 	unit testing
-12 	testtools
-13 	Sancho
-14 	zope.testing
-15 	pry
-16 	pythoscope
-17 	testlib
-18 	pytest
-19 	dutest
+1                   unittest
+2                   doctest
+3                   pytest
+4                   nose
+5                   testify
+6                   Trial
+7                   Twisted
+8                   subunit
+9                   testresources
+10                  reahl.tofu
+11                  unit testing
+12                  testtools
+13                  Sancho
+14                  zope.testing
+15                  pry
+16                  pythoscope
+17                  testlib
+18                  pytest
+19                  dutest
 ```
 
 
@@ -5346,6 +5346,2811 @@ TestApp().run()
     - VSCode atd.
 * transpilace Pythonu do JavaScriptu
 --
+
+## Tkinter
+
+* Výchozí GUI knihovna pro Python
+* Založeno na TCL/Tk
+* Základní koncepty
+    - Widgety
+    - Kontejnery
+    - Správci umístění (geometrie) widget§
+    - Události
+    - Handlery událostí
+
+### Widgety
+
+```
+Jméno widgetu     Význam a funkce
+---------------------------------
+label             widget, který zobrazuje v okně či dialogu měnitelný text
+button            graficky zobrazené tlačítko, které implicitně reaguje na levé tlačítko myši
+checkbutton       dvoustavový přepínač, který implicitně reaguje na levé tlačítko myši
+radiobutton       widget, jichž může být sdruženo větší množství, vždy pouze jeden je vybraný
+scale             dnes nazýván pojmem slider atd., jedná se o widget s posuvnou částí a přidruženým textem, kde se zobrazuje hodnota v závislosti na poloze posuvné části
+entry             widget, do kterého je možné zapisovat text, k tomu má přidruženo mnoho klávesových zkratek (jde o kombinaci staršího a novějšího standardu)
+spinbox           widget určený pro zadávání číselných hodnot kombinací klávesnice a myši (i s kontrolou mezí)
+menu              vertikální menu, které se skládá z více položek
+menubutton        používá se spolu s menu pro vytváření jednotlivých položek
+listbox           widget, jež nabízí na výběr libovolné množství řádků s textem
+scrollbar         podobné widgetu scale s tím rozdílem, že zobrazuje posuvné šipky a naopak nezobrazuje přidruženou číselnou hodnotu
+frame             jeden z několika nabízených kontejnerů; tento má tvar obdélníka (může být také neviditelný nebo může mít 3D rámeček)
+toplevel          další z kontejnerů, tento se chová jako samostatné okno či dialog
+bitmap            bitmapa, tj. rastrový obrázek
+photo/photoimage  rastrový obrázek, jež může být načten z externího souboru v mnoha různých formátech
+canvas            widget, na který lze programově vkládat další grafické komponenty (úsečky, oblouky, kružnice, polyčáry, text atd.)
+```
+
+### Vlastnosti widgetů
+
+```
+Jméno vlastnosti   Popis vlastnosti
+------------------------------------
+background         barva pozadí widgetu v případě, že widget není aktivní (vybraný)
+foreground         barva popředí widgetu (například zobrazeného textu) v případě, že widget není aktivní (vybraný)
+borderwidth        šířka okraje widgetu, která je zadaná v pixelech
+activebackground   barva pozadí widgetu v případě, že je widget vybrán (typicky kurzorem myši)
+activeforeground   barva popředí widgetu v případě, že je widget vybrán
+disabledforeground barva popředí widgetu v případě, že je ovládání widgetu zakázáno
+relief             způsob prostorového zobrazení widgetu
+compound           způsob umístění bitmapy či obrázku na widgetu
+bitmap             bitmapa, která má být ve widgetu zobrazena
+image              obrázek, který má být ve widgetu zobrazen (více o bitmapách a obrázcích bude uvedeno v dalších dílech)
+font               jméno fontu, který je použit pro text uvnitř widgetu (font lze specifikovat platformově nezávislým způsobem)
+text               text, který má být ve widgetu (tlačítko, položka menu atd.) zobrazen
+cursor             jméno kurzoru myši, který bude použit v případě, že se kurzor nachází nad widgetem
+textvariable       jméno proměnné, která je nastavována podle uživatelových manipulací s widgetem (StringVar v Tkinteru)
+justify            zarovnání textu ve widgetu v případě, že se zobrazuje více řádků
+anchor             způsob umístění textu či obrázku ve widgetu
+```
+
+### Témata
+
+* clam
+* alt
+* default
+* classic
+
+### Dialogy
+
+* `showinfo()`
+* `showwarning()`
+* `showerror()`
+* `askokcancel()`
+* `askretrycancel()`
+* `askyesno()`
+* `askquestion()`
+
+```python
+messagebox.showinfo("Title", "Text"))
+ 
+messagebox.showwarning("Title", "Text"))
+ 
+messagebox.showerror("Title", "Text"))
+```
+
+### Demonstrační příklady
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+root = tkinter.Tk()
+
+label = ttk.Label(root, text="Hello world!")
+
+label.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/01_label.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+label = ttk.Label(root, text="Hello world!")
+button = ttk.Button(root, text="Close window", command=exit)
+
+label.pack()
+button.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/02_button.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+label = ttk.Label(root, text="Hello world!")
+button = ttk.Button(root, text="Close window", command=lambda: sys.exit(0))
+
+label.pack()
+button.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/03_button_and_lambda.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+button1 = ttk.Button(root, text="First button")
+button2 = ttk.Button(root, text="Second button")
+button3 = ttk.Button(root, text="Third button")
+button4 = ttk.Button(root, text="Fourth button")
+
+button1.grid(column=1, row=1)
+button2.grid(column=2, row=1)
+button3.grid(column=1, row=2)
+button4.grid(column=2, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/04_buttons_in_regular_grid.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+button1 = ttk.Button(root, text="First button", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="Fourth button", command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1)
+button2.grid(column=2, row=1)
+button3.grid(column=1, row=2)
+button4.grid(column=2, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/05_buttons_in_regular_grid_cmd.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="First button")
+button2 = ttk.Button(root, text="Second button with long text")
+button3 = ttk.Button(root, text="Third button")
+button4 = ttk.Button(root, text="Fourth button")
+
+button1.pack()
+button2.pack()
+button3.pack()
+button4.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/06_buttons_and_pack_manager.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="First button")
+button2 = ttk.Button(root, text="Second button")
+button3 = ttk.Button(root, text="Third button")
+button4 = ttk.Button(root, text="Fourth button")
+
+button1.grid(column=2, row=4)
+button2.grid(column=3, row=1)
+button3.grid(column=1, row=3)
+button4.grid(column=4, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/07_buttons_in_grid.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="First button", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="Fourth button", command=lambda: sys.exit(0))
+
+button1.grid(column=2, row=4)
+button2.grid(column=3, row=1)
+button3.grid(column=1, row=3)
+button4.grid(column=4, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/08_buttons_in_grid_cmd.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="First button", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="Fourth button", command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1)
+button2.grid(column=2, row=2)
+button3.grid(column=1, row=3, columnspan=2)
+button4.grid(column=4, row=1, rowspan=3)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/09_columnspan.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="This is fourth button, the last one",
+                     command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1)
+button2.grid(column=2, row=1)
+button3.grid(column=1, row=2)
+button4.grid(column=2, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/10_no_sticky_buttons.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="This is fourth button, the last one",
+                     command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1, sticky="w")
+button2.grid(column=2, row=1, sticky="w")
+button3.grid(column=1, row=2, sticky="w")
+button4.grid(column=2, row=2, sticky="w")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/11_sticky_buttons_west.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="This is fourth button, the last one",
+                     command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1, sticky="e")
+button2.grid(column=2, row=1, sticky="e")
+button3.grid(column=1, row=2, sticky="e")
+button4.grid(column=2, row=2, sticky="e")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/12_sticky_buttons_east.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="This is fourth button, the last one",
+                     command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=2, row=1, sticky="we")
+button3.grid(column=1, row=2, sticky="we")
+button4.grid(column=2, row=2, sticky="we")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/13_sticky_buttons_west_east.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+from tkinter import *
+from tkinter import ttk
+
+import sys
+
+root = Tk()
+
+button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
+button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
+button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = ttk.Button(root, text="This is fourth button, the last one",
+                     command=lambda: sys.exit(0))
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=2, row=2, sticky="we")
+button3.grid(column=1, row=3, sticky="we")
+button4.grid(column=3, row=1, rowspan=4, sticky="nswe")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/14_sticky_buttons_north_south.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+
+import sys
+
+root = tkinter.Tk()
+
+button1 = tkinter.Button(root, background='yellow', text="1st btn",
+                         command=lambda: sys.exit(0))
+button2 = tkinter.Button(root, background='#ff8080', text="Second button",
+                         command=lambda: sys.exit(0))
+button3 = tkinter.Button(root, text="Third button",
+                         command=lambda: sys.exit(0))
+button4 = tkinter.Button(root, text="This is fourth button, the last one",
+                         command=lambda: sys.exit(0))
+
+button3.configure(background='#8080ff')
+button4['background'] = '#80ff80'
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=2, row=1, sticky="we")
+button3.grid(column=1, row=2, sticky="we")
+button4.grid(column=2, row=2, sticky="we")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/15_button_styles.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Yellow.TButton', background='yellow')
+style.configure('Red.TButton', background='#ff8080')
+style.configure('Blue.TButton', background='#8080ff')
+style.configure('Green.TButton', background='#80ff80')
+
+button1 = ttk.Button(root, text="1st btn", style='Yellow.TButton',
+                     command=exit)
+button2 = ttk.Button(root, text="Second button", style='Red.TButton',
+                     command=exit)
+button3 = ttk.Button(root, text="Third button",
+                     command=exit)
+button4 = ttk.Button(root, text="This is fourth button, the last one",
+                     command=exit)
+
+button3.configure(style='Green.TButton')
+
+button4["style"] = 'Blue.TButton'
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=2, row=1, sticky="we")
+button3.grid(column=1, row=2, sticky="we")
+button4.grid(column=2, row=2, sticky="we")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/16_ttk_styles.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+style = ttk.Style()
+
+print(style.theme_names())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/17_themes.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+
+style.configure('Red.TButton', background='#ff8080')
+
+button1 = ttk.Button(root, text="clam",
+                     command=lambda: style.theme_use("clam"))
+button2 = ttk.Button(root, text="alt",
+                     command=lambda: style.theme_use("alt"))
+button3 = ttk.Button(root, text="default",
+                     command=lambda: style.theme_use("default"))
+button4 = ttk.Button(root, text="classic",
+                     command=lambda: style.theme_use("classic"))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=2, row=1, sticky="we")
+button3.grid(column=1, row=2, sticky="we")
+button4.grid(column=2, row=2, sticky="we")
+
+quitButton.grid(column=2, row=5, sticky="we")
+
+label = tkinter.Label(root, text='Hello world')
+entry = tkinter.Entry(root)
+checkbutton = tkinter.Checkbutton(text='Do you like Tkinter?')
+
+checkbutton.grid(column=1, row=3, columnspan=2, sticky="w")
+label.grid(column=1, row=4)
+entry.grid(column=2, row=4)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/18_theme_selection.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+
+for style_name in ('clam', 'alt', 'default', 'classic'):
+    style.theme_use(style_name)
+    style.configure('Red.TButton', background='#ff8080')
+
+button1 = ttk.Button(root, text="clam",
+                     command=lambda: style.theme_use("clam"))
+button2 = ttk.Button(root, text="alt",
+                     command=lambda: style.theme_use("alt"))
+button3 = ttk.Button(root, text="default",
+                     command=lambda: style.theme_use("default"))
+button4 = ttk.Button(root, text="classic",
+                     command=lambda: style.theme_use("classic"))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=2, row=1, sticky="we")
+button3.grid(column=1, row=2, sticky="we")
+button4.grid(column=2, row=2, sticky="we")
+
+quitButton.grid(column=2, row=5, sticky="we")
+
+label = tkinter.Label(root, text='Hello world')
+entry = tkinter.Entry(root)
+checkbutton = tkinter.Checkbutton(text='Do you like Tkinter?')
+
+checkbutton.grid(column=1, row=3, columnspan=2, sticky="w")
+label.grid(column=1, row=4)
+entry.grid(column=2, row=4)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/19_theme_settings_and_selection.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Red.TButton', background='#ff8080')
+
+button1 = tkinter.Button(root, text="sunken", relief="sunken")
+button2 = tkinter.Button(root, text="solid", relief="solid")
+button3 = tkinter.Button(root, text="flat", relief="flat")
+button4 = tkinter.Button(root, text="groove", relief="groove")
+button5 = tkinter.Button(root, text="raised", relief="raised")
+button6 = tkinter.Button(root, text="ridge", relief="ridge")
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+button1.grid(column=1, row=1, sticky="we")
+button2.grid(column=1, row=2, sticky="we")
+button3.grid(column=1, row=3, sticky="we")
+button4.grid(column=1, row=4, sticky="we")
+button5.grid(column=1, row=5, sticky="we")
+button6.grid(column=1, row=6, sticky="we")
+
+quitButton.grid(column=2, row=6, sticky="we")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/20_button_styles.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Red.TButton', background='#ff8080')
+
+buttonStyles = ("sunken", "solid", "flat", "groove", "raised", "ridge")
+
+buttons = (tkinter.Button(root, text=buttonStyle, relief=buttonStyle)
+           for buttonStyle in buttonStyles)
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for i, button in enumerate(buttons):
+    button.grid(column=1, row=i, sticky="we")
+
+quitButton.grid(column=2, row=6, sticky="we")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/21_button_styles_2.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Red.TButton', background='#ff8080')
+
+buttonStyles = ("sunken", "solid", "flat", "groove", "raised", "ridge")
+
+buttons = (tkinter.Button(root, text=buttonStyle, relief=buttonStyle)
+           for buttonStyle in buttonStyles)
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for i, button in enumerate(buttons):
+    button.grid(column=1, row=i, sticky="we", padx=6, pady=6)
+
+quitButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/22_grid_padding.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Red.TButton', background='#ff8080')
+
+buttonStyles = ("sunken", "solid", "flat", "groove", "raised", "ridge")
+
+buttons = (Button(root, text=buttonStyle, relief=buttonStyle, borderwidth=2)
+           for buttonStyle in buttonStyles)
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for i, button in enumerate(buttons):
+    button.grid(column=1, row=i, sticky="we", padx=6, pady=6)
+
+quitButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/23_border_width.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Red.TButton', background='#ff8080')
+
+button1 = ttk.Button(root, text="1s button", command=exit)
+button2 = ttk.Button(root, text="2nd button with long text", command=exit)
+button3 = ttk.Button(root, text="3rd button", command=exit)
+button4 = ttk.Button(root, text="4th button", command=exit)
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+button1.pack()
+button2.pack()
+button3.pack()
+button4.pack()
+
+label = tkinter.Label(root, text='Hello world')
+entry = tkinter.Entry(root)
+checkbutton = tkinter.Checkbutton(text='Do you like Tkinter?')
+
+checkbutton.pack()
+label.pack()
+entry.pack()
+
+quitButton.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/24_pack_manager.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.configure('Red.TButton', background='#ff8080')
+
+checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
+                              command=lambda: print("changed"))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/25_checkbutton.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
+                              command=lambda: print("changed"))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/26_checkbutton_alt_theme.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+delete_internet = tkinter.IntVar()
+
+checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
+                              variable=delete_internet,
+                              command=lambda: print(delete_internet.get()))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/27_checkbox_variable.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+delete_internet = tkinter.StringVar()
+
+checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
+                              variable=delete_internet,
+                              onvalue="yes",
+                              offvalue="no",
+                              command=lambda: print(delete_internet.get()))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/28_checkbox_specific_values.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+entry = ttk.Entry(root)
+entry.insert(0, "xyzzy")
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+entry.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/29_entry.py)
+
+```python
+#!/usr/bin/env python3
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+value = tkinter.StringVar()
+
+entry = ttk.Entry(root, textvariable=value)
+entry.insert(0, "xyzzy")
+
+showButton = ttk.Button(root, text="Show var",
+                        command=lambda: print(value.get()))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+entry.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+showButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=3, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/30_entry_variable.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+
+import sys
+
+root = tkinter.Tk()
+
+radio_var = tkinter.StringVar()
+
+radio1 = tkinter.Radiobutton(root, variable=radio_var, value="Assembler",
+                             text="Assembler")
+
+radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic",
+                             text="Basic")
+
+radio3 = tkinter.Radiobutton(root, variable=radio_var, value="Brainfuck",
+                             text="Brainfuck")
+
+radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C",
+                             text="C")
+
+radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python",
+                             text="Python")
+
+showButton = tkinter.Button(root, text="Show var",
+                            command=lambda: print(radio_var.get()))
+
+quitButton = tkinter.Button(root, text="Exit", background='#ff8080',
+                            command=exit)
+
+radio1.grid(column=1, row=1)
+radio2.grid(column=1, row=2)
+radio3.grid(column=1, row=3)
+radio4.grid(column=1, row=4)
+radio5.grid(column=1, row=5)
+
+showButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+quitButton.grid(column=2, row=7, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/31_radio_button.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+
+import sys
+
+root = tkinter.Tk()
+
+radio_var = tkinter.StringVar()
+
+radio1 = tkinter.Radiobutton(root, variable=radio_var, value="Assembler",
+                             text="Assembler")
+
+radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic",
+                             text="Basic")
+
+radio3 = tkinter.Radiobutton(root, variable=radio_var, value="Brainfuck",
+                             text="Brainfuck")
+
+radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C",
+                             text="C")
+
+radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python",
+                             text="Python")
+
+showButton = tkinter.Button(root, text="Show var",
+                            command=lambda: print(radio_var.get()))
+
+quitButton = tkinter.Button(root, text="Exit", background='#ff8080',
+                            command=exit)
+
+radio1.grid(column=1, row=1, sticky="w")
+radio2.grid(column=1, row=2, sticky="w")
+radio3.grid(column=1, row=3, sticky="w")
+radio4.grid(column=1, row=4, sticky="w")
+radio5.grid(column=1, row=5, sticky="w")
+
+showButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+quitButton.grid(column=2, row=7, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/32_radio_button_align.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+
+import sys
+
+root = tkinter.Tk()
+
+radio_var = tkinter.StringVar()
+
+radio_var.set("C")
+
+radio1 = tkinter.Radiobutton(root, variable=radio_var, value="Assembler",
+                             text="Assembler")
+
+radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic",
+                             text="Basic")
+
+radio3 = tkinter.Radiobutton(root, variable=radio_var, value="Brainfuck",
+                             text="Brainfuck")
+
+radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C",
+                             text="C")
+
+radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python",
+                             text="Python")
+
+showButton = tkinter.Button(root, text="Show var",
+                            command=lambda: print(radio_var.get()))
+
+quitButton = tkinter.Button(root, text="Exit", background='#ff8080',
+                            command=exit)
+
+radio1.grid(column=1, row=1, sticky="w")
+radio2.grid(column=1, row=2, sticky="w")
+radio3.grid(column=1, row=3, sticky="w")
+radio4.grid(column=1, row=4, sticky="w")
+radio5.grid(column=1, row=5, sticky="w")
+
+showButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+quitButton.grid(column=2, row=7, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/33_radio_button_default_value.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+radio_var = tkinter.StringVar()
+radio_var.set("Python")
+
+radio1 = ttk.Radiobutton(root, variable=radio_var, value="Assembler",
+                         text="Assembler")
+
+radio2 = ttk.Radiobutton(root, variable=radio_var, value="Basic",
+                         text="Basic")
+
+radio3 = ttk.Radiobutton(root, variable=radio_var, value="Brainfuck",
+                         text="Brainfuck")
+
+radio4 = ttk.Radiobutton(root, variable=radio_var, value="C",
+                         text="C")
+
+radio5 = ttk.Radiobutton(root, variable=radio_var, value="Python",
+                         text="Python")
+
+showButton = ttk.Button(root, text="Show var",
+                        command=lambda: print(radio_var.get()))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+radio1.grid(column=1, row=1, sticky="w")
+radio2.grid(column=1, row=2, sticky="w")
+radio3.grid(column=1, row=3, sticky="w")
+radio4.grid(column=1, row=4, sticky="w")
+radio5.grid(column=1, row=5, sticky="w")
+
+showButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+quitButton.grid(column=2, row=7, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/34_ttk_radio_button.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+radio_var = tkinter.StringVar()
+radio_var.set("Python")
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+radio_buttons = (ttk.Radiobutton(root, text=lang, value=lang,
+                                 variable=radio_var)
+                 for lang in langs)
+
+showButton = ttk.Button(root, text="Show var",
+                        command=lambda: print(radio_var.get()))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for i, radio_button in enumerate(radio_buttons):
+    radio_button.grid(column=1, row=i, sticky="w")
+
+showButton.grid(column=2, row=6, sticky="we", padx=6, pady=6)
+quitButton.grid(column=2, row=7, sticky="we", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/35_ttk_button_groups.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+radio_var = tkinter.StringVar()
+radio_var.set("Python")
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+radio_buttons = (ttk.Radiobutton(root, text=lang, value=lang,
+                                 variable=radio_var)
+                 for lang in langs)
+
+showButton = ttk.Button(root, text="Show var",
+                        command=lambda: print(radio_var.get()))
+
+quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for radio_button in radio_buttons:
+    radio_button.pack(fill="x")
+
+showButton.pack()
+quitButton.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/36_ttk_button_pack.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+listbox = tkinter.Listbox(root)
+
+
+for lang in langs:
+    listbox.insert(tkinter.END, lang)
+
+
+quitButton = ttk.Button(root, text="Exit", command=exit)
+
+listbox.pack()
+quitButton.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/37_listbox.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+listbox = tkinter.Listbox(root)
+
+
+for lang in langs:
+    listbox.insert(tkinter.END, lang)
+
+
+def on_listbox_select(event):
+    index = listbox.curselection()[0]
+    global langs
+    print(langs[index])
+
+
+listbox.bind("<<ListboxSelect>>", on_listbox_select)
+
+quitButton = ttk.Button(root, text="Exit", command=exit)
+
+listbox.pack()
+quitButton.pack()
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/38_listbox_bind.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+scrollbar = tkinter.Scrollbar(root)
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "C++", "Java", "Julia",
+         "Perl", "Python")
+
+listbox = tkinter.Listbox(root, height=4)
+
+
+for lang in langs:
+    listbox.insert(tkinter.END, lang)
+
+
+def on_listbox_select(event):
+    index = listbox.curselection()[0]
+    global langs
+    print(langs[index])
+
+
+listbox.bind("<<ListboxSelect>>", on_listbox_select)
+
+quitButton = ttk.Button(root, text="Exit", command=exit)
+
+listbox.grid(column=1, row=1, sticky="nswe")
+scrollbar.grid(column=2, row=1, sticky="ns")
+quitButton.grid(column=1, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/39_listbox_scroll.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+scrollbar = ttk.Scrollbar(root)
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "C++", "Java", "Julia",
+         "Perl", "Python")
+
+listbox = tkinter.Listbox(root, yscrollcommand=scrollbar.set, height=4)
+
+scrollbar.config(command=listbox.yview)
+
+
+for lang in langs:
+    listbox.insert(tkinter.END, lang)
+
+
+def on_listbox_select(event):
+    index = listbox.curselection()[0]
+    global langs
+    print(langs[index])
+
+
+listbox.bind("<<ListboxSelect>>", on_listbox_select)
+
+quitButton = ttk.Button(root, text="Exit", command=exit)
+
+listbox.grid(column=1, row=1, sticky="nswe")
+scrollbar.grid(column=2, row=1, sticky="ns")
+quitButton.grid(column=1, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/40_listbox_scroll_linked.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+number = tkinter.IntVar()
+
+spinbox = tkinter.Spinbox(root, from_=100, to=120, width=10,
+                          textvariable=number)
+
+showButton = ttk.Button(root, text="Show var",
+                        command=lambda: print(number.get()))
+
+quitButton = ttk.Button(root, text="Exit", command=exit)
+
+spinbox.grid(column=1, row=1)
+showButton.grid(column=1, row=2)
+quitButton.grid(column=2, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/41_spinbox.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+selected_lang = tkinter.StringVar()
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "C++", "Java", "Julia",
+         "Perl", "Python")
+
+spinbox = tkinter.Spinbox(root, values=langs, width=10,
+                          textvariable=selected_lang, wrap=True)
+
+showButton = ttk.Button(root, text="Show var",
+                        command=lambda: print(selected_lang.get()))
+
+quitButton = ttk.Button(root, text="Exit", command=exit)
+
+spinbox.grid(column=1, row=1)
+showButton.grid(column=1, row=2)
+quitButton.grid(column=2, row=2)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/42_spinbox_values.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+radio_var = tkinter.StringVar()
+radio_var.set("Python")
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+f1 = ttk.Frame(root)
+f2 = ttk.Frame(root)
+
+radio_buttons = (ttk.Radiobutton(f1, text=lang, value=lang,
+                                 variable=radio_var)
+                 for lang in langs)
+
+showButton = ttk.Button(f2, text="Show var",
+                        command=lambda: print(radio_var.get()))
+
+quitButton = ttk.Button(f2, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for i, radio_button in enumerate(radio_buttons):
+    radio_button.grid(column=1, row=i, sticky="w")
+
+showButton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+f1.grid(column=1, row=1, sticky="ne", padx=6, pady=6)
+f2.grid(column=2, row=1, sticky="ne", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/43_frame.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+import sys
+
+root = tkinter.Tk()
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+radio_var = tkinter.StringVar()
+radio_var.set("Python")
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+f1 = ttk.LabelFrame(root, text="Languages")
+f2 = ttk.LabelFrame(root, text="Commands")
+
+radio_buttons = (ttk.Radiobutton(f1, text=lang, value=lang,
+                                 variable=radio_var)
+                 for lang in langs)
+
+showButton = ttk.Button(f2, text="Show var",
+                        command=lambda: print(radio_var.get()))
+
+quitButton = ttk.Button(f2, text="Exit", style='Red.TButton',
+                        command=exit)
+
+for i, radio_button in enumerate(radio_buttons):
+    radio_button.grid(column=1, row=i, sticky="w")
+
+showButton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+f1.grid(column=1, row=1, sticky="ne", padx=6, pady=6)
+f2.grid(column=2, row=1, sticky="ne", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/44_labelframe.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+menubar.add_command(label="Test", command=test)
+menubar.add_command(label="Quit", command=root.quit)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/45_toplevel_menu.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+menubar.add_command(label="Test", command=test)
+menubar.add_command(label="Quit", command=root.quit)
+
+root.config(menu=menubar)
+
+style = ttk.Style()
+style.theme_use("alt")
+style.configure('Red.TButton', background='#ff8080')
+
+radio_var = tkinter.StringVar()
+radio_var.set("Python")
+
+langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
+
+f1 = ttk.LabelFrame(root, text="Languages")
+f2 = ttk.LabelFrame(root, text="Commands")
+
+radio_buttons = (ttk.Radiobutton(f1, text=lang, value=lang,
+                                 variable=radio_var)
+                 for lang in langs)
+
+showButton = ttk.Button(f2, text="Show var",
+                        command=lambda: print(radio_var.get()))
+
+quitButton = ttk.Button(f2, text="Exit", style='Red.TButton',
+                        command=root.quit)
+
+for i, radio_button in enumerate(radio_buttons):
+    radio_button.grid(column=1, row=i, sticky="w")
+
+showButton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
+quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
+
+f1.grid(column=1, row=1, sticky="ne", padx=6, pady=6)
+f2.grid(column=2, row=1, sticky="ne", padx=6, pady=6)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/46_toplevel_menu_other_gui.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+popup = tkinter.Menu(root, tearoff=0)
+
+popup.add_command(label="Open")
+popup.add_command(label="Save")
+popup.add_separator()
+popup.add_command(label="Exit", command=root.quit)
+
+
+def on_popup(event):
+    popup.post(event.x_root-5, event.y_root-5)
+
+
+root.bind("<Button-3>", on_popup)
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/47_popup_menu.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+filemenu = tkinter.Menu(menubar)
+filemenu.add_command(label="Open")
+filemenu.add_command(label="Save")
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+
+editmenu = tkinter.Menu(menubar)
+editmenu.add_command(label="Undo")
+editmenu.add_separator()
+editmenu.add_command(label="Cut")
+editmenu.add_command(label="Copy")
+editmenu.add_command(label="Paste")
+editmenu.add_command(label="Delete")
+editmenu.add_separator()
+editmenu.add_command(label="Select All")
+menubar.add_cascade(label="Edit", menu=editmenu)
+
+helpmenu = tkinter.Menu(menubar)
+helpmenu.add_command(label="About", command=test)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/48_pulldown_menu.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+root.option_add('*tearOff', False)
+
+filemenu = tkinter.Menu(menubar)
+filemenu.add_command(label="Open")
+filemenu.add_command(label="Save")
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+
+editmenu = tkinter.Menu(menubar)
+editmenu.add_command(label="Undo")
+editmenu.add_separator()
+editmenu.add_command(label="Cut")
+editmenu.add_command(label="Copy")
+editmenu.add_command(label="Paste")
+editmenu.add_command(label="Delete")
+editmenu.add_separator()
+editmenu.add_command(label="Select All")
+menubar.add_cascade(label="Edit", menu=editmenu)
+
+helpmenu = tkinter.Menu(menubar)
+helpmenu.add_command(label="About", command=test)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/49_pulldown_menu_no_tearoff.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+filemenu.add_command(label="Open")
+filemenu.add_command(label="Save")
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+
+editmenu = tkinter.Menu(menubar)
+editmenu.add_command(label="Undo")
+editmenu.add_separator()
+editmenu.add_command(label="Cut")
+editmenu.add_command(label="Copy")
+editmenu.add_command(label="Paste")
+editmenu.add_command(label="Delete")
+editmenu.add_separator()
+editmenu.add_command(label="Select All")
+menubar.add_cascade(label="Edit", menu=editmenu)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/50_pulldown_menu_no_tearoff.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+filemenu.add_command(label="Open")
+filemenu.add_command(label="Save")
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+editmenu.add_command(label="Undo")
+editmenu.add_separator()
+editmenu.add_command(label="Cut")
+editmenu.add_command(label="Copy")
+editmenu.add_command(label="Paste")
+editmenu.add_command(label="Delete")
+editmenu.add_separator()
+editmenu.add_command(label="Select All")
+menubar.add_cascade(label="Edit", menu=editmenu)
+
+colors = ("white", "yellow", "orange", "red", "magenta",
+          "blue", "cyan", "green")
+colormenu = tkinter.Menu(menubar, tearoff=0)
+
+for color in colors:
+    colormenu.add_command(label=color, background=color)
+
+menubar.add_cascade(label="Colors", menu=colormenu)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/51_menu_colors.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+filemenu.add_command(label="Open", underline=0)
+filemenu.add_command(label="Save", underline=0)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", underline=1, command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+editmenu.add_command(label="Undo", underline=0)
+editmenu.add_separator()
+editmenu.add_command(label="Cut", underline=2)
+editmenu.add_command(label="Copy", underline=0)
+editmenu.add_command(label="Paste", underline=0)
+editmenu.add_command(label="Delete", underline=2)
+editmenu.add_separator()
+editmenu.add_command(label="Select All", underline=7)
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+colors = ("white", "yellow", "orange", "red", "magenta",
+          "blue", "cyan", "green")
+colormenu = tkinter.Menu(menubar, tearoff=0)
+
+for color in colors:
+    colormenu.add_command(label=color, background=color)
+
+menubar.add_cascade(label="Colors", menu=colormenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test, underline=0)
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/52_menu_keys.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+open_image = tkinter.PhotoImage(file="icons/document-open.gif")
+save_image = tkinter.PhotoImage(file="icons/document-save.gif")
+exit_image = tkinter.PhotoImage(file="icons/application-exit.gif")
+undo_image = tkinter.PhotoImage(file="icons/edit-undo.gif")
+cut_image = tkinter.PhotoImage(file="icons/edit-cut.gif")
+copy_image = tkinter.PhotoImage(file="icons/edit-copy.gif")
+paste_image = tkinter.PhotoImage(file="icons/edit-paste.gif")
+delete_image = tkinter.PhotoImage(file="icons/edit-delete.gif")
+select_all_image = tkinter.PhotoImage(file="icons/edit-select-all.gif")
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+
+filemenu.add_command(label="Open", underline=0, image=open_image,
+                     compound="left")
+
+filemenu.add_command(label="Save", underline=0, image=save_image,
+                     compound="left")
+
+filemenu.add_separator()
+
+filemenu.add_command(label="Exit", underline=1, image=exit_image,
+                     compound="left", command=root.quit)
+
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+
+editmenu.add_command(label="Undo", underline=0, image=undo_image,
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Cut", underline=2, image=cut_image,
+                     compound="left")
+
+editmenu.add_command(label="Copy", underline=0, image=copy_image,
+                     compound="left")
+
+editmenu.add_command(label="Paste", underline=0, image=paste_image,
+                     compound="left")
+
+editmenu.add_command(label="Delete", underline=2, image=delete_image,
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Select All", underline=7, image=select_all_image,
+                     compound="left")
+
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+
+colors = ("white", "yellow", "orange", "red", "magenta",
+          "blue", "cyan", "green")
+colormenu = tkinter.Menu(menubar, tearoff=0)
+
+for color in colors:
+    colormenu.add_command(label=color, background=color)
+
+menubar.add_cascade(label="Colors", menu=colormenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test, underline=0)
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/53_menu_images.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+image_names = [
+    "document-open",
+    "document-save",
+    "application-exit",
+    "edit-undo",
+    "edit-cut",
+    "edit-copy",
+    "edit-paste",
+    "edit-delete",
+    "edit-select-all"]
+
+images = {}
+for image_name in image_names:
+    images[image_name] = tkinter.PhotoImage(file="icons/%s.gif" % image_name)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+
+filemenu.add_command(label="Open", underline=0, image=images["document-open"],
+                     compound="left")
+
+filemenu.add_command(label="Save", underline=0, image=images["document-save"],
+                     compound="left")
+
+filemenu.add_separator()
+
+filemenu.add_command(label="Exit", underline=1,
+                     image=images["application-exit"], compound="left",
+                     command=root.quit)
+
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+
+editmenu.add_command(label="Undo", underline=0, image=images["edit-undo"],
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Cut", underline=2, image=images["edit-cut"],
+                     compound="left")
+
+editmenu.add_command(label="Copy", underline=0, image=images["edit-copy"],
+                     compound="left")
+
+editmenu.add_command(label="Paste", underline=0, image=images["edit-paste"],
+                     compound="left")
+
+editmenu.add_command(label="Delete", underline=2, image=images["edit-delete"],
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Select All", underline=7,
+                     image=images["edit-select-all"], compound="left")
+
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+
+colors = ("white", "yellow", "orange", "red", "magenta",
+          "blue", "cyan", "green")
+colormenu = tkinter.Menu(menubar, tearoff=0)
+
+for color in colors:
+    colormenu.add_command(label=color, background=color)
+
+menubar.add_cascade(label="Colors", menu=colormenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test, underline=0)
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/54_menu_images2.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+image_names = [
+    "document-open",
+    "document-save",
+    "application-exit",
+    "edit-undo",
+    "edit-cut",
+    "edit-copy",
+    "edit-paste",
+    "edit-delete",
+    "edit-select-all"]
+
+images = {}
+for image_name in image_names:
+    images[image_name] = tkinter.PhotoImage(file="icons/%s.gif" % image_name)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+
+filemenu.add_command(label="Open", underline=0, image=images["document-open"],
+                     compound="left")
+
+filemenu.add_command(label="Save", underline=0, image=images["document-save"],
+                     compound="left")
+
+filemenu.add_separator()
+
+filemenu.add_command(label="Exit", underline=1,
+                     image=images["application-exit"], compound="left",
+                     command=root.quit)
+
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+
+editmenu.add_command(label="Undo", underline=0, image=images["edit-undo"],
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Cut", underline=2, image=images["edit-cut"],
+                     compound="left")
+
+editmenu.add_command(label="Copy", underline=0, image=images["edit-copy"],
+                     compound="left")
+
+editmenu.add_command(label="Paste", underline=0, image=images["edit-paste"],
+                     compound="left")
+
+editmenu.add_command(label="Delete", underline=2, image=images["edit-delete"],
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Select All", underline=7,
+                     image=images["edit-select-all"], compound="left")
+
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+
+word_wrap = tkinter.BooleanVar()
+show_all = tkinter.BooleanVar()
+show_all.set(True)
+
+optionmenu = tkinter.Menu(menubar, tearoff=0)
+optionmenu.add_checkbutton(label="Word wrap", onvalue=True, offvalue=False,
+                           variable=word_wrap)
+optionmenu.add_checkbutton(label="Show all", onvalue=True, offvalue=False,
+                           variable=show_all)
+
+menubar.add_cascade(label="Options", menu=optionmenu, underline=0)
+
+
+colors = ("white", "yellow", "orange", "red", "magenta",
+          "blue", "cyan", "green")
+colormenu = tkinter.Menu(menubar, tearoff=0)
+
+for color in colors:
+    colormenu.add_command(label=color, background=color)
+
+menubar.add_cascade(label="Colors", menu=colormenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test, underline=0)
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+root.geometry("320x200")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/55_checkbuttons_in_menu.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def test():
+    print("Test!")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+image_names = [
+    "document-open",
+    "document-save",
+    "application-exit",
+    "edit-undo",
+    "edit-cut",
+    "edit-copy",
+    "edit-paste",
+    "edit-delete",
+    "edit-select-all"]
+
+images = {}
+for image_name in image_names:
+    images[image_name] = tkinter.PhotoImage(file="icons/%s.gif" % image_name)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+
+filemenu.add_command(label="Open", underline=0, image=images["document-open"],
+                     compound="left")
+
+filemenu.add_command(label="Save", underline=0, image=images["document-save"],
+                     compound="left")
+
+filemenu.add_separator()
+
+filemenu.add_command(label="Exit", underline=1,
+                     image=images["application-exit"], compound="left",
+                     command=root.quit)
+
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+
+editmenu.add_command(label="Undo", underline=0, image=images["edit-undo"],
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Cut", underline=2, image=images["edit-cut"],
+                     compound="left")
+
+editmenu.add_command(label="Copy", underline=0, image=images["edit-copy"],
+                     compound="left")
+
+editmenu.add_command(label="Paste", underline=0, image=images["edit-paste"],
+                     compound="left")
+
+editmenu.add_command(label="Delete", underline=2, image=images["edit-delete"],
+                     compound="left")
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Select All", underline=7,
+                     image=images["edit-select-all"], compound="left")
+
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+
+word_wrap = tkinter.BooleanVar()
+show_all = tkinter.BooleanVar()
+show_all.set(True)
+
+optionmenu = tkinter.Menu(menubar, tearoff=0)
+optionmenu.add_checkbutton(label="Word wrap", onvalue=True, offvalue=False,
+                           variable=word_wrap)
+optionmenu.add_checkbutton(label="Show all", onvalue=True, offvalue=False,
+                           variable=show_all)
+
+menubar.add_cascade(label="Options", menu=optionmenu, underline=0)
+
+
+colors = ("white", "yellow", "orange", "red", "magenta",
+          "blue", "cyan", "green")
+colormenu = tkinter.Menu(menubar, tearoff=0)
+
+for color in colors:
+    colormenu.add_radiobutton(label=color, background=color)
+
+menubar.add_cascade(label="Colors", menu=colormenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", command=test, underline=0)
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+root.geometry("320x200")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/56_radiobuttons_in_menu.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+filemenu.add_command(label="Open", underline=0, accelerator="Ctrl+O",
+                     command=lambda: print("Open"))
+filemenu.add_command(label="Save", underline=0, accelerator="Ctrl+S",
+                     command=lambda: print("Save"))
+filemenu.add_separator()
+filemenu.add_command(label="Exit", underline=1, accelerator="Ctrl+Q",
+                     command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+editmenu.add_command(label="Undo", underline=0, accelerator="Ctrl+U",
+                     command=lambda: print("Undo"))
+editmenu.add_separator()
+editmenu.add_command(label="Cut", underline=2, accelerator="Ctrl+X",
+                     command=lambda: print("Cut"))
+editmenu.add_command(label="Copy", underline=0, accelerator="Ctrl+C",
+                     command=lambda: print("Copy"))
+editmenu.add_command(label="Paste", underline=0, accelerator="Ctrl+V",
+                     command=lambda: print("Paste"))
+editmenu.add_command(label="Delete", underline=2,
+                     command=lambda: print("Delete"))
+editmenu.add_separator()
+editmenu.add_command(label="Select All", underline=7, accelerator="Ctrl+A",
+                     command=lambda: print("Select All"))
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", underline=0, accelerator="F1",
+                     command=lambda: print("About"))
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/57_menu_accelerators.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+def cmd_open():
+    print("Open")
+
+
+def cmd_save():
+    print("Save")
+
+
+def cmd_undo():
+    print("Undo")
+
+
+def cmd_help():
+    print("Help")
+
+
+root = tkinter.Tk()
+
+menubar = tkinter.Menu(root)
+
+filemenu = tkinter.Menu(menubar, tearoff=0)
+filemenu.add_command(label="Open", underline=0, accelerator="Ctrl+O",
+                     command=cmd_open)
+filemenu.add_command(label="Save", underline=0, accelerator="Ctrl+S",
+                     command=cmd_save)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", underline=1, accelerator="Ctrl+Q",
+                     command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu, underline=0)
+
+editmenu = tkinter.Menu(menubar, tearoff=0)
+editmenu.add_command(label="Undo", underline=0, accelerator="Ctrl+U",
+                     command=cmd_undo)
+editmenu.add_separator()
+editmenu.add_command(label="Cut", underline=2, accelerator="Ctrl+X",
+                     command=lambda: print("Cut"))
+editmenu.add_command(label="Copy", underline=0, accelerator="Ctrl+C",
+                     command=lambda: print("Copy"))
+editmenu.add_command(label="Paste", underline=0, accelerator="Ctrl+V",
+                     command=lambda: print("Paste"))
+editmenu.add_command(label="Delete", underline=2,
+                     command=lambda: print("Delete"))
+editmenu.add_separator()
+editmenu.add_command(label="Select All", underline=7, accelerator="Ctrl+A",
+                     command=lambda: print("Select All"))
+menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
+
+helpmenu = tkinter.Menu(menubar, tearoff=0)
+helpmenu.add_command(label="About", underline=0, accelerator="F1",
+                     command=cmd_help)
+menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
+
+root.config(menu=menubar)
+
+root.bind('<Control-o>', lambda event: cmd_open())
+root.bind('<Control-s>', lambda event: cmd_save())
+root.bind('<Control-u>', lambda event: cmd_undo())
+root.bind('<F1>', lambda event: cmd_help())
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/58_bind_accelerators.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+root = tkinter.Tk()
+
+canvas = tkinter.Canvas(root, width=256, height=256)
+canvas.pack()
+
+canvas.create_oval(10, 10, 100, 100)
+canvas.create_line(0, 0, 255, 255)
+canvas.create_line(0, 255, 255, 0)
+
+canvas.create_text(50, 120, text="Hello world!")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/59_basic_canvas.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+
+
+root = tkinter.Tk()
+
+canvas = tkinter.Canvas(root, width=256, height=256)
+canvas.pack()
+
+canvas.create_oval(10, 10, 100, 100, fill="red", outline="blue", width=3)
+canvas.create_line(0, 0, 255, 255, width=5)
+canvas.create_line(0, 255, 255, 0, dash=123)
+
+canvas.create_text(150, 120, text="Hello world!", fill="white",
+                   font="Helvetica 20")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/60_canvas_style.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+import sys
+
+
+WIDTH = 400
+HEIGHT = 400
+GRID_SIZE = 100
+
+
+def exit():
+    sys.exit(0)
+
+
+def basic_canvas(root, width, height, grid_size):
+    canvas = tkinter.Canvas(root, width=width, height=height,
+                            background='#ccffcc')
+    canvas.pack()
+
+    draw_grid(canvas, width, height, grid_size)
+    return canvas
+
+
+def draw_grid(canvas, width, height, grid_size):
+    for x in range(0, width, grid_size):
+        canvas.create_line(x, 0, x, height, dash=7, fill="gray")
+    for y in range(0, height, grid_size):
+        canvas.create_line(0, y, width, y, dash=7, fill="gray")
+
+
+root = tkinter.Tk()
+
+canvas = basic_canvas(root, WIDTH, HEIGHT, GRID_SIZE)
+
+canvas.create_line(0, 0, 100, 100, fill='red', width=2, dash=8)
+
+canvas.create_arc(100, 1, 200, 100, outline='blue', start=45,
+                  extent=180, style=tkinter.ARC, width=2)
+
+canvas.create_oval(200, 1, 300, 100)
+
+canvas.create_oval(325, 25, 375, 75, fill="#a0a0ff")
+
+canvas.create_rectangle(50, 125, 150, 175, fill="#a0a0ff")
+
+canvas.create_text(300, 150, text="Hello world!", font="Helvetica 20")
+
+canvas.create_polygon(50, 225, 200, 300, 50, 375, fill="#80ff80")
+
+canvas.create_polygon(250, 225, 400, 300, 250, 375, fill="black",
+                      outline="red", width="5")
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/67_objects_on_canvas.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+from tkinter import messagebox
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+root = tkinter.Tk()
+
+
+infoButton = tkinter.Button(root, text="Info box",
+                            command=lambda: messagebox.showinfo(
+                                "Title",
+                                "Text"))
+
+warningButton = tkinter.Button(root, text="Warning box",
+                               command=lambda: messagebox.showwarning(
+                                   "Title",
+                                   "Text"))
+
+errorButton = tkinter.Button(root, text="Error box",
+                             command=lambda: messagebox.showerror(
+                                 "Title",
+                                 "Text"))
+
+quitButton = tkinter.Button(root, text="Exit", command=exit)
+
+infoButton.pack(fill=tkinter.BOTH)
+warningButton.pack(fill=tkinter.BOTH)
+errorButton.pack(fill=tkinter.BOTH)
+
+tkinter.Label(text="").pack()
+
+quitButton.pack(fill=tkinter.BOTH)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/98_tkdialog.py)
+
+```python
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8
+
+import tkinter
+from tkinter import ttk
+from tkinter import messagebox
+import sys
+
+
+def exit():
+    sys.exit(0)
+
+
+def showOkCancelMessageBox():
+    print(messagebox.askokcancel("Otázečka na závěr",
+                                 "Skutečně, ale skutečně ukončit program?"))
+
+
+def showRetryCancelMessageBox():
+    print(messagebox.askretrycancel("Chyba při tisku",
+                                    "Opakovat tisk?"))
+
+
+def showYesNoMessageBox():
+    print(messagebox.askyesno("Otázečka na závěr",
+                              "Skutečně, ale skutečně ukončit program?"))
+
+
+def showQuestionMessageBox():
+    print(messagebox.askquestion("Otázečka na závěr",
+                                 "Provést zálohu?"))
+
+
+root = tkinter.Tk()
+
+showOkCancelButton = tkinter.Button(root, text="Show Ok/Cancel message box",
+                                    command=showOkCancelMessageBox)
+
+showRetryCancelButton = tkinter.Button(root, text="Show Retry/Cancel box",
+                                       command=showRetryCancelMessageBox)
+
+showYesNoButton = tkinter.Button(root, text="Show Yes.No box",
+                                 command=showYesNoMessageBox)
+
+showQuestionButton = tkinter.Button(root, text="Show question box",
+                                    command=showQuestionMessageBox)
+
+quitButton = tkinter.Button(root, text="Exit", command=exit)
+
+showOkCancelButton.pack(fill=tkinter.BOTH)
+showRetryCancelButton.pack(fill=tkinter.BOTH)
+showYesNoButton.pack(fill=tkinter.BOTH)
+showQuestionButton.pack(fill=tkinter.BOTH)
+
+tkinter.Label(text="").pack()
+
+quitButton.pack(fill=tkinter.BOTH)
+
+root.mainloop()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/99_ask_dialogs.py)
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import tkinter
+import time
+
+# width of the animation window
+animation_window_width = 800
+
+# height of the animation window
+animation_window_height = 600
+
+# initial x position of the ball
+animation_ball_start_xpos = 50
+
+# initial y position of the ball
+animation_ball_start_ypos = 50
+
+# radius of the ball
+animation_ball_radius = 30
+
+# the pixel movement of ball for each iteration
+animation_ball_min_movement = 5
+
+# delay between successive frames in seconds
+animation_refresh_seconds = 0.01
+
+
+# The main window of the animation
+def create_animation_window():
+    window = tkinter.Tk()
+    window.title('Tkinter Animation Demo')
+
+    # Uses python 3.6+ string interpolation
+    window.geometry(f'{animation_window_width}x{animation_window_height}')
+    return window
+
+
+# Create a canvas for animation and add it to main window
+def create_animation_canvas(window):
+    canvas = tkinter.Canvas(window)
+    canvas.configure(bg='white')
+    canvas.pack(fill='both', expand=True)
+    return canvas
+
+
+# Create and animate ball in an infinite loop
+def animate_ball(window, canvas, xinc, yinc):
+    ball = canvas.create_oval(
+        animation_ball_start_xpos - animation_ball_radius,
+        animation_ball_start_ypos - animation_ball_radius,
+        animation_ball_start_xpos + animation_ball_radius,
+        animation_ball_start_ypos + animation_ball_radius,
+        fill='darkblue',
+        outline='blue',
+        width=4,
+        )
+    while True:
+        canvas.move(ball, xinc, yinc)
+        window.update()
+        time.sleep(animation_refresh_seconds)
+        ball_pos = canvas.coords(ball)
+
+    # unpack array to variables
+
+        (xl, yl, xr, yr) = ball_pos
+        if xl < abs(xinc) or xr > animation_window_width - abs(xinc):
+            xinc = -xinc
+        if yl < abs(yinc) or yr > animation_window_height - abs(yinc):
+            yinc = -yinc
+
+
+# The actual execution starts here
+
+animation_window = create_animation_window()
+animation_canvas = create_animation_canvas(animation_window)
+animate_ball(animation_window, animation_canvas,
+             animation_ball_min_movement, animation_ball_min_movement)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/animation.py)
+
 
 
 --
