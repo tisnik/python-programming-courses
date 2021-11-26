@@ -1323,25 +1323,25 @@ cdef calc(int width, int height, int maxiter, palette):
 * Velké množství testovacích frameworků
 
 ```
-1 	unittest
-2 	doctest
-3 	pytest
-4 	nose
-5 	testify
-6 	Trial
-7 	Twisted
-8 	subunit
-9 	testresources
-10 	reahl.tofu
-11 	unit testing
-12 	testtools
-13 	Sancho
-14 	zope.testing
-15 	pry
-16 	pythoscope
-17 	testlib
-18 	pytest
-19 	dutest
+1                   unittest
+2                   doctest
+3                   pytest
+4                   nose
+5                   testify
+6                   Trial
+7                   Twisted
+8                   subunit
+9                   testresources
+10                  reahl.tofu
+11                  unit testing
+12                  testtools
+13                  Sancho
+14                  zope.testing
+15                  pry
+16                  pythoscope
+17                  testlib
+18                  pytest
+19                  dutest
 ```
 
 
@@ -1542,6 +1542,219 @@ cdef calc(int width, int height, int maxiter, palette):
     - VSCode atd.
 * transpilace Pythonu do JavaScriptu
 --
+
+## Tkinter
+
+* Výchozí GUI knihovna pro Python
+* Založeno na TCL/Tk
+* Základní koncepty
+    - Widgety
+    - Kontejnery
+    - Správci umístění (geometrie) widget§
+    - Události
+    - Handlery událostí
+
+### Widgety
+
+```
+Jméno widgetu     Význam a funkce
+---------------------------------
+label             widget, který zobrazuje v okně či dialogu měnitelný text
+button            graficky zobrazené tlačítko, které implicitně reaguje na levé tlačítko myši
+checkbutton       dvoustavový přepínač, který implicitně reaguje na levé tlačítko myši
+radiobutton       widget, jichž může být sdruženo větší množství, vždy pouze jeden je vybraný
+scale             dnes nazýván pojmem slider atd., jedná se o widget s posuvnou částí a přidruženým textem, kde se zobrazuje hodnota v závislosti na poloze posuvné části
+entry             widget, do kterého je možné zapisovat text, k tomu má přidruženo mnoho klávesových zkratek (jde o kombinaci staršího a novějšího standardu)
+spinbox           widget určený pro zadávání číselných hodnot kombinací klávesnice a myši (i s kontrolou mezí)
+menu              vertikální menu, které se skládá z více položek
+menubutton        používá se spolu s menu pro vytváření jednotlivých položek
+listbox           widget, jež nabízí na výběr libovolné množství řádků s textem
+scrollbar         podobné widgetu scale s tím rozdílem, že zobrazuje posuvné šipky a naopak nezobrazuje přidruženou číselnou hodnotu
+frame             jeden z několika nabízených kontejnerů; tento má tvar obdélníka (může být také neviditelný nebo může mít 3D rámeček)
+toplevel          další z kontejnerů, tento se chová jako samostatné okno či dialog
+bitmap            bitmapa, tj. rastrový obrázek
+photo/photoimage  rastrový obrázek, jež může být načten z externího souboru v mnoha různých formátech
+canvas            widget, na který lze programově vkládat další grafické komponenty (úsečky, oblouky, kružnice, polyčáry, text atd.)
+```
+
+### Vlastnosti widgetů
+
+```
+Jméno vlastnosti   Popis vlastnosti
+------------------------------------
+background         barva pozadí widgetu v případě, že widget není aktivní (vybraný)
+foreground         barva popředí widgetu (například zobrazeného textu) v případě, že widget není aktivní (vybraný)
+borderwidth        šířka okraje widgetu, která je zadaná v pixelech
+activebackground   barva pozadí widgetu v případě, že je widget vybrán (typicky kurzorem myši)
+activeforeground   barva popředí widgetu v případě, že je widget vybrán
+disabledforeground barva popředí widgetu v případě, že je ovládání widgetu zakázáno
+relief             způsob prostorového zobrazení widgetu
+compound           způsob umístění bitmapy či obrázku na widgetu
+bitmap             bitmapa, která má být ve widgetu zobrazena
+image              obrázek, který má být ve widgetu zobrazen (více o bitmapách a obrázcích bude uvedeno v dalších dílech)
+font               jméno fontu, který je použit pro text uvnitř widgetu (font lze specifikovat platformově nezávislým způsobem)
+text               text, který má být ve widgetu (tlačítko, položka menu atd.) zobrazen
+cursor             jméno kurzoru myši, který bude použit v případě, že se kurzor nachází nad widgetem
+textvariable       jméno proměnné, která je nastavována podle uživatelových manipulací s widgetem (StringVar v Tkinteru)
+justify            zarovnání textu ve widgetu v případě, že se zobrazuje více řádků
+anchor             způsob umístění textu či obrázku ve widgetu
+```
+
+### Témata
+
+* clam
+* alt
+* default
+* classic
+
+### Dialogy
+
+* `showinfo()`
+* `showwarning()`
+* `showerror()`
+* `askokcancel()`
+* `askretrycancel()`
+* `askyesno()`
+* `askquestion()`
+
+```python
+messagebox.showinfo("Title", "Text"))
+ 
+messagebox.showwarning("Title", "Text"))
+ 
+messagebox.showerror("Title", "Text"))
+```
+
+### Demonstrační příklady
+
+! examples/tkinter/01_label.py
+
+! examples/tkinter/02_button.py
+
+! examples/tkinter/03_button_and_lambda.py
+
+! examples/tkinter/04_buttons_in_regular_grid.py
+
+! examples/tkinter/05_buttons_in_regular_grid_cmd.py
+
+! examples/tkinter/06_buttons_and_pack_manager.py
+
+! examples/tkinter/07_buttons_in_grid.py
+
+! examples/tkinter/08_buttons_in_grid_cmd.py
+
+! examples/tkinter/09_columnspan.py
+
+! examples/tkinter/10_no_sticky_buttons.py
+
+! examples/tkinter/11_sticky_buttons_west.py
+
+! examples/tkinter/12_sticky_buttons_east.py
+
+! examples/tkinter/13_sticky_buttons_west_east.py
+
+! examples/tkinter/14_sticky_buttons_north_south.py
+
+! examples/tkinter/15_button_styles.py
+
+! examples/tkinter/16_ttk_styles.py
+
+! examples/tkinter/17_themes.py
+
+! examples/tkinter/18_theme_selection.py
+
+! examples/tkinter/19_theme_settings_and_selection.py
+
+! examples/tkinter/20_button_styles.py
+
+! examples/tkinter/21_button_styles_2.py
+
+! examples/tkinter/22_grid_padding.py
+
+! examples/tkinter/23_border_width.py
+
+! examples/tkinter/24_pack_manager.py
+
+! examples/tkinter/25_checkbutton.py
+
+! examples/tkinter/26_checkbutton_alt_theme.py
+
+! examples/tkinter/27_checkbox_variable.py
+
+! examples/tkinter/28_checkbox_specific_values.py
+
+! examples/tkinter/29_entry.py
+
+! examples/tkinter/30_entry_variable.py
+
+! examples/tkinter/31_radio_button.py
+
+! examples/tkinter/32_radio_button_align.py
+
+! examples/tkinter/33_radio_button_default_value.py
+
+! examples/tkinter/34_ttk_radio_button.py
+
+! examples/tkinter/35_ttk_button_groups.py
+
+! examples/tkinter/36_ttk_button_pack.py
+
+! examples/tkinter/37_listbox.py
+
+! examples/tkinter/38_listbox_bind.py
+
+! examples/tkinter/39_listbox_scroll.py
+
+! examples/tkinter/40_listbox_scroll_linked.py
+
+! examples/tkinter/41_spinbox.py
+
+! examples/tkinter/42_spinbox_values.py
+
+! examples/tkinter/43_frame.py
+
+! examples/tkinter/44_labelframe.py
+
+! examples/tkinter/45_toplevel_menu.py
+
+! examples/tkinter/46_toplevel_menu_other_gui.py
+
+! examples/tkinter/47_popup_menu.py
+
+! examples/tkinter/48_pulldown_menu.py
+
+! examples/tkinter/49_pulldown_menu_no_tearoff.py
+
+! examples/tkinter/50_pulldown_menu_no_tearoff.py
+
+! examples/tkinter/51_menu_colors.py
+
+! examples/tkinter/52_menu_keys.py
+
+! examples/tkinter/53_menu_images.py
+
+! examples/tkinter/54_menu_images2.py
+
+! examples/tkinter/55_checkbuttons_in_menu.py
+
+! examples/tkinter/56_radiobuttons_in_menu.py
+
+! examples/tkinter/57_menu_accelerators.py
+
+! examples/tkinter/58_bind_accelerators.py
+
+! examples/tkinter/59_basic_canvas.py
+
+! examples/tkinter/60_canvas_style.py
+
+! examples/tkinter/67_objects_on_canvas.py
+
+! examples/tkinter/98_tkdialog.py
+
+! examples/tkinter/99_ask_dialogs.py
+
+! examples/tkinter/animation.py
+
 
 
 --
