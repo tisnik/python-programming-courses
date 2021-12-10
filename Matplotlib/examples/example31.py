@@ -14,7 +14,7 @@ x = np.linspace(0.0, 10.0, 1000)
 y = 2 ** x
 
 # vykreslit průběh funkce
-plt.plot(x, y,  color='blue', label='exp(x)')
+plt.plot(x, y, color="blue", label="exp(x)")
 
 # povolení zobrazení mřížky
 plt.grid(True)
