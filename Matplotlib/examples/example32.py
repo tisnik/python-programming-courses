@@ -15,10 +15,10 @@ x = np.linspace(0.0, 10.0, 1000)
 y = 2 ** x
 
 # vykreslit průběh funkce
-plt.plot(x, y,  color='blue', label='exp(x)')
+plt.plot(x, y, color="blue", label="exp(x)")
 
 # logaritmické měřítko v ose y
-plt.yscale('log')
+plt.yscale("log")
 
 # povolení zobrazení mřížky
 plt.grid(True)
