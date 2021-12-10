@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_subplot(111, projection="3d")
 
 delta = 0.1
 
@@ -23,10 +23,10 @@ y = np.arange(-10.0, 10.0, delta)
 X, Y = np.meshgrid(x, y)
 
 # vzdálenost od bodu [0,0]
-R = np.sqrt(X*X+Y*Y)
+R = np.sqrt(X * X + Y * Y)
 
 # výpočet funkce, kterou použijeme při vykreslování grafu
-Z = np.sin(R)/R
+Z = np.sin(R) / R
 
 # zobrazení 3D grafu
 ax.plot_wireframe(X, Y, Z, rstride=7, cstride=7)
