@@ -8,7 +8,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.linspace(0+0j, 1+0j, 10)
+a = numpy.linspace(0 + 0j, 1 + 0j, 10)
 
 # tisk obsahu pole na standardní výstup
 print(a)
