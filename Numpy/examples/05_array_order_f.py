@@ -9,7 +9,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.array(range(10), order='F')
+a = numpy.array(range(10), order="F")
 
 # tisk obsahu pole na standardní výstup
 print(a)
