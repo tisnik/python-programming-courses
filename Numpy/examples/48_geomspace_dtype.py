@@ -8,7 +8,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.geomspace(1, 100000, 6, dtype='I')
+a = numpy.geomspace(1, 100000, 6, dtype="I")
 
 # tisk obsahu pole na standardní výstup
 print(a)
