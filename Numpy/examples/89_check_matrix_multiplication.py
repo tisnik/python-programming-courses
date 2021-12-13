@@ -16,7 +16,7 @@ a2 = numpy.eye(3)
 a2[1][1] = -1
 
 # tisk výsledku operace
-print(a1@a2)
+print(a1 @ a2)
 
 # maticový součin
 c = a1 @ a2
