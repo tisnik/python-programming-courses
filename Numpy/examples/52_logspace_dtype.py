@@ -8,7 +8,7 @@
 import numpy
 
 # konstrukce pole
-a = numpy.logspace(1, 3, 5, dtype='I')
+a = numpy.logspace(1, 3, 5, dtype="I")
 
 # tisk obsahu pole na standardní výstup
 print(a)
