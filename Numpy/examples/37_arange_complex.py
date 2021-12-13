@@ -9,7 +9,7 @@
 import numpy
 
 # konstrukce pole - pozor na krok v reálné složce
-a = numpy.arange(0+0j, 10+10j, 0+2j)
+a = numpy.arange(0 + 0j, 10 + 10j, 0 + 2j)
 
 # tisk obsahu pole na standardní výstup
 print(a)
