@@ -273,6 +273,7 @@ from numpy import *
 
 # Základní kontrola, jestli se import podařil
 import sys
+
 if "numpy" not in sys.modules:
     raise Exception("Modul numpy nebyl naimportován")
 
@@ -327,7 +328,7 @@ print(a)
 # (nemá velký význam pro 1D pole=vektory)
 
 # konstrukce pole
-a = array(range(10), order='C')
+a = array(range(10), order="C")
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -337,7 +338,7 @@ print(a)
 # (nemá velký význam pro 1D pole=vektory)
 
 # konstrukce pole
-a = array(range(10), order='F')
+a = array(range(10), order="F")
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -586,7 +587,7 @@ print(a)
 # ### Použití komplexních čísel
 
 # konstrukce pole
-a = arange(0+0j, 10+10j, 2+0j)
+a = arange(0 + 0j, 10 + 10j, 2 + 0j)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -651,7 +652,7 @@ print(a)
 # ### Použít je možné i komplexní čísla
 
 # konstrukce pole
-a = linspace(0+0j, 1+0j, 10)
+a = linspace(0 + 0j, 1 + 0j, 10)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -660,7 +661,7 @@ print(a)
 # ### Použít je možné i komplexní čísla
 
 # konstrukce pole
-a = linspace(0+0j, 0+1j, 10)
+a = linspace(0 + 0j, 0 + 1j, 10)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -669,7 +670,7 @@ print(a)
 # ### Další možnost použití komplexních čísel
 
 # konstrukce pole
-a = linspace(0+0j, 1+1j, 10)
+a = linspace(0 + 0j, 1 + 1j, 10)
 
 # tisk typu a obsahu vytvořeného pole
 print(type(a))
@@ -1339,7 +1340,7 @@ a2 = eye(3)
 a2[1][1] = -1
 
 # tisk výsledku operace
-print(a1@a2)
+print(a1 @ a2)
 
 # maticový součin
 c = a1 @ a2
@@ -1418,7 +1419,7 @@ print(a < b)
 a = arange(24)
 
 # konstrukce matice
-b = reshape(a, (6, 4), order='F')
+b = reshape(a, (6, 4), order="F")
 
 # tisk výsledku operace
 print(b < 10)
@@ -1485,7 +1486,7 @@ print(a1.sum(axis=1))
 a = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 
 # původní pole
-b = abs(a-5)
+b = abs(a - 5)
 
 # tisk výsledku operace
 print(b)
@@ -1493,7 +1494,7 @@ print(b)
 # ## Univerzální funkce a operátory
 
 # Padesát hodnot v zadaném intervalu
-a = linspace(0, pi/2)
+a = linspace(0, pi / 2)
 
 # Výpočet sinů těchto hodnot
 b = sin(a)
