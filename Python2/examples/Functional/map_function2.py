@@ -3,8 +3,10 @@
 
 """Funkce vyššího řádu map."""
 
+
 def inc(x):
-    return x+1
+    return x + 1
+
 
 x = range(10)
 
