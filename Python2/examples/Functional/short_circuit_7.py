@@ -3,13 +3,16 @@
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return False
 
+
 def y():
     print("y() called")
     return True
+
 
 if x() and y():
     print("if branch")
