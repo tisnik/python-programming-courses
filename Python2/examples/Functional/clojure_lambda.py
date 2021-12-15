@@ -1,10 +1,11 @@
 def increment_by(n):
 
-    return lambda x: x+n
+    return lambda x: x + n
 
 
 def add(x):
-    return x+x
+    return x + x
+
 
 i1 = increment_by(2)
 print(i1(1))
@@ -17,4 +18,3 @@ print(i2(10))
 print(add)
 print(i1)
 print(i2)
-
