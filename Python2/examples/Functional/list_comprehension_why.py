@@ -5,6 +5,6 @@ print(seznam)
 seznam2 = []
 
 for item in seznam:
-    seznam2.append(item*2)
+    seznam2.append(item * 2)
 
 print(seznam2)
