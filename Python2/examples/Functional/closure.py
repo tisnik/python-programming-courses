@@ -1,5 +1,4 @@
 def increment_by(n):
-
     def add(x):
         return x + n
 
