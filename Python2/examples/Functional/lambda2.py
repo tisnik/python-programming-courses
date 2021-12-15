@@ -1,2 +1,2 @@
-f = lambda : "hello"
+f = lambda: "hello"
 print(f())
