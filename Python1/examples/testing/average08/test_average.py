@@ -6,19 +6,23 @@ from average import average
 
 
 testdata = [
-        ((1, 1), 1),
-        ((1, 2), 1.5),
-        ((0, 1), 0.5),
-        ((1, 2, 3), 2.0),
-        ((0, 10), 0.5),
+    ((1, 1), 1),
+    ((1, 2), 1.5),
+    ((0, 1), 0.5),
+    ((1, 2, 3), 2.0),
+    ((0, 10), 0.5),
 ]
 
 
-@pytest.mark.parametrize("values,expected", testdata, ids=["1,1", "1,2", "0,1", "1,2,3", "0,10"])
+@pytest.mark.parametrize(
+    "values,expected", testdata, ids=["1,1", "1,2", "0,1", "1,2,3", "0,10"]
+)
 def test_average_basic_2(values, expected):
     """Otestování výpočtu průměru."""
     result = average(values)
-    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(expected, result)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
 
 
 def test_average_empty_list_1():
