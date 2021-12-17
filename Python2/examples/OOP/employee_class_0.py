@@ -3,4 +3,5 @@
 
 class Employee:
     """Kostra třídy reprezentující zaměstnance."""
+
     pass
