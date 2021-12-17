@@ -16,9 +16,8 @@ class Employee:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 # vytvoření dvou instancí třídy
