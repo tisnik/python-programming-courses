@@ -5,7 +5,6 @@
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
@@ -50,6 +49,6 @@ print(c1 == c5)
 print(c2 == c5)
 print(c3 == c5)
 
-c6 = - c1
+c6 = -c1
 print(c1)
 print(c6)
