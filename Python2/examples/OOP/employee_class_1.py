@@ -3,7 +3,9 @@
 
 class Employee:
     """Kostra třídy reprezentující zaměstnance."""
+
     pass
+
 
 # vytvoření dvou instancí třídy
 employee1 = Employee()
