@@ -5,7 +5,6 @@
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
