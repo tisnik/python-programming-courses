@@ -17,10 +17,12 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
-                                                                               surname=self._surname,
-                                                                               salary=self._salary,
-                                                                               age=self._age)
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(
+            name=self._first_name,
+            surname=self._surname,
+            salary=self._salary,
+            age=self._age,
+        )
 
     @property
     def age(self):
@@ -29,7 +31,7 @@ class Employee:
     @age.setter
     def age(self, age):
         if age <= 0:
-            raise ValueError('The age must be positive')
+            raise ValueError("The age must be positive")
         self._age = age
 
 
