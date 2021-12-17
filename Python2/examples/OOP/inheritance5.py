@@ -5,7 +5,6 @@
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -15,8 +14,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -28,8 +27,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Employee(Person):
@@ -42,9 +41,8 @@ class Employee(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 # vytvoření dvou instancí třídy
