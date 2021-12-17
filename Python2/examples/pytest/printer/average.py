@@ -23,4 +23,4 @@ def f3(x):
 
 def f4(x):
     """Část špagetového kódu testovaného modulu."""
-    return sum(x)/float(len(x))
+    return sum(x) / float(len(x))
