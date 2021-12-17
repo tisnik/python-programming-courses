@@ -24,6 +24,7 @@ def test_destructor():
     employee1 = Employee("Eda", "Wasserfall", 10000)
     employee2 = Employee("Přemysl", "Hájek", 25001)
 
+
 test_destructor()
 
 employee3 = Employee("x", "y", 0)
