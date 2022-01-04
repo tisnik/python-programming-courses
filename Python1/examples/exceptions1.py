@@ -1,7 +1,11 @@
 def function(level):
     if level < 1:
         raise ValueError("Invalid level!", level)
-    print("ok - function was called with parameter level set to {level}".format(level=level))
+    print(
+        "ok - function was called with parameter level set to {level}".format(
+            level=level
+        )
+    )
 
 
 try:
