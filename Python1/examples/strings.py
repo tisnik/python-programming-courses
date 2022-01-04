@@ -17,9 +17,11 @@ print("abc\ndef")
 print(r"abc\ndef")
 
 # víceřádkový řetězec
-print("""A
+print(
+    """A
 B
 C
 D
 E
-F""")
+F"""
+)
