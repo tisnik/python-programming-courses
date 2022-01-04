@@ -2,7 +2,7 @@ from microbit import *
 
 
 while True:
-    display.scroll('TEST')
+    display.scroll("TEST")
     display.show(Image.TRIANGLE)
     sleep(1000)
     display.show(Image.CHESSBOARD)
