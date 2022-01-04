@@ -12,6 +12,6 @@ print(3e-3)
 print(-3e-3)
 
 # complex
-print(2+3j)
-print(1.5+2.8j)
-print(1e10+3e-5j)
+print(2 + 3j)
+print(1.5 + 2.8j)
+print(1e10 + 3e-5j)
