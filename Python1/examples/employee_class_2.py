@@ -13,10 +13,11 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: {name} {surname}   Salary: {salary}".format(
-            name=self._first_name,
-            surname=self._surname,
-            salary=self._salary))
+        print(
+            "Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name, surname=self._surname, salary=self._salary
+            )
+        )
 
 
 # vytvoření dvou instancí třídy
