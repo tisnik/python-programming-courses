@@ -1,6 +1,4 @@
-d = {"id": 1,
-     "name": "Eda",
-     "surname": "Wasserfall"}
+d = {"id": 1, "name": "Eda", "surname": "Wasserfall"}
 
 print(d)
 
