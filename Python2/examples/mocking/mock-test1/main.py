@@ -5,6 +5,6 @@
 from application import *
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # pouze zavoláme funkci, která se bude v testech mockovat
     print(function1())
