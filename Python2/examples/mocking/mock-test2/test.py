@@ -10,7 +10,7 @@ def test1():
     print(application.function1())
 
 
-@patch('application.function1', return_value=42)
+@patch("application.function1", return_value=42)
 def test2(mocked_function):
     """Druhý test používá fake test double - náhradu volané funkce."""
     print(application.function1())
@@ -22,13 +22,13 @@ def side_effect_handler():
     return -1
 
 
-@patch('application.function1', side_effect=side_effect_handler)
+@patch("application.function1", side_effect=side_effect_handler)
 def test3(mocked_function):
     """Třetí test používá stub test double - náhradu volané funkce."""
     print(application.function1())
 
 
-@patch('application.function1', return_value=42, side_effect=side_effect_handler)
+@patch("application.function1", return_value=42, side_effect=side_effect_handler)
 def test4(mocked_function):
     """Čtvrtý test se snaží zkombinovat fake a stub."""
     print(application.function1())
@@ -40,13 +40,13 @@ def side_effect_handler_2():
     return DEFAULT
 
 
-@patch('application.function1', return_value=42, side_effect=side_effect_handler_2)
+@patch("application.function1", return_value=42, side_effect=side_effect_handler_2)
 def test5(mocked_function):
     """Pátý test se opět snaží zkombinovat fake a stub."""
     print(application.function1())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("*** test1 ***")
     test1()
     print()
