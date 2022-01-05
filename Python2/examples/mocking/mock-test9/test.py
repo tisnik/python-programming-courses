@@ -40,7 +40,7 @@ def test5():
         print("function1 returns: {v}".format(v=value))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test1()
     print()
 
