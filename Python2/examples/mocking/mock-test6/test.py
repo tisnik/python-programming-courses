@@ -10,7 +10,7 @@ def test1():
     print("method1 returns: {v}".format(v=app.method1()))
 
 
-@patch('application.Application.method2', return_value=42)
+@patch("application.Application.method2", return_value=42)
 def test2(mocked_method):
     app = Application()
     # vytiskneme informaci o tom, zda se mockovaná metoda zavolala
@@ -25,7 +25,7 @@ def side_effect_handler():
     return -1
 
 
-@patch('application.Application.method2', side_effect=side_effect_handler)
+@patch("application.Application.method2", side_effect=side_effect_handler)
 def test3(mocked_method):
     app = Application()
     # vytiskneme informaci o tom, zda se mockovaná metoda zavolala
@@ -35,7 +35,7 @@ def test3(mocked_method):
     print("mocked method called: {c}".format(c=mocked_method.called))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test1()
     print()
 
