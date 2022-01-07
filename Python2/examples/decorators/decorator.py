@@ -1,5 +1,4 @@
 def function_caller(function):
-
     def inner_function():
         print("Calling function...")
         function()
