@@ -1,6 +1,7 @@
 import subprocess
 import re
 
+
 def get_framebuffer_resolution(framebuffer_device):
     fbset_output = subprocess.check_output(["fbset", "-s", "-fb", framebuffer_device])
 
@@ -13,5 +14,5 @@ def get_framebuffer_resolution(framebuffer_device):
             parsed = regexp.match(line)
             return (parsed.group(1), parsed.group(2))
 
-print(get_framebuffer_resolution("/dev/fb0"))
 
+print(get_framebuffer_resolution("/dev/fb0"))
