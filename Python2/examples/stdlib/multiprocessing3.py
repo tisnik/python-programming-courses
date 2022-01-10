@@ -9,7 +9,9 @@ def worker(name):
 
 
 def main():
-    ps = [Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")]
+    ps = [
+        Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")
+    ]
 
     for p in ps:
         p.start()
@@ -18,6 +20,6 @@ def main():
         p.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Running main")
     main()
