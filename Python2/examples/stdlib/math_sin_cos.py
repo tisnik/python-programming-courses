@@ -7,4 +7,4 @@ for i in range(1, 90, 5):
     x = radius * math.sin(math.radians(i))
     y = radius * math.cos(math.radians(i))
     # vykreslení jedné úsečky
-    pygame.draw.line(display, WHITE, (WIDTH-1, 0), (WIDTH-x, y))
+    pygame.draw.line(display, WHITE, (WIDTH - 1, 0), (WIDTH - x, y))
