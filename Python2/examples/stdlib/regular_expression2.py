@@ -5,6 +5,7 @@ HTTP_RE = re.compile(
     r"X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=[^/]+$"
 )
 
+
 def get(self, src):
     """Download a file from HTTP server and store it in a temporary file."""
     if src is None or not HTTP_RE.fullmatch(src):
