@@ -6,7 +6,9 @@
 input_file = "Python2.md"
 output_file = "../docs/python2/Python2.md"
 
-source_prefix = "https://github.com/tisnik/python-programming-courses/blob/master/Python2"
+source_prefix = (
+    "https://github.com/tisnik/python-programming-courses/blob/master/Python2"
+)
 
 with open(input_file, "r") as fin:
     with open(output_file, "w") as fout:
