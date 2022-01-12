@@ -7,6 +7,7 @@ def fn1():
     def fn2():
         x = 2
         print(x)
+
     fn2()
     print(x)
 
