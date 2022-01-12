@@ -5,7 +5,7 @@ seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 g1 = (item for item in seznam)
 
-g2 = (item*2 for item in seznam)
+g2 = (item * 2 for item in seznam)
 
 g3 = (item for item in seznam if item % 3 == 0)
 
