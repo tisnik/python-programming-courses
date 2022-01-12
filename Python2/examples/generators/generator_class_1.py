@@ -1,5 +1,4 @@
-class generator():
-
+class generator:
     def __init__(self, max_n):
         self.max_n = max_n
         self.n = 0
@@ -9,7 +8,7 @@ class generator():
 
     def __next__(self):
         if self.n < self.max_n:
-            current, self.n = self.n, self.n+1
+            current, self.n = self.n, self.n + 1
             return current
         raise StopIteration()
 
