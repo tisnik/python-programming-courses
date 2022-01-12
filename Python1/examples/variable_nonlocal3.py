@@ -8,6 +8,7 @@ def fn1():
         global x
         x = 2
         print(x)
+
     fn2()
     print(x)
 
