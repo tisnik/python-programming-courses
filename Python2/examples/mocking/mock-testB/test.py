@@ -36,7 +36,7 @@ def test2():
         mocked_function.assert_called_with(1, 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test1()
     print()
 
