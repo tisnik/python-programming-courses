@@ -13,8 +13,11 @@ def test1():
 
 
 def mock_call_info(mocked_function):
-    print("mocked function '{n}' called: {c}".format(n=mocked_function._mock_name,
-                                                     c=mocked_function.called))
+    print(
+        "mocked function '{n}' called: {c}".format(
+            n=mocked_function._mock_name, c=mocked_function.called
+        )
+    )
     print("calls: ", mocked_function.mock_calls)
     print()
 
@@ -57,7 +60,7 @@ def test4(mocked_f4, mocked_f3, mocked_f2, mocked_f1):
     mock_call_info(mocked_f4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test1()
     print()
 
