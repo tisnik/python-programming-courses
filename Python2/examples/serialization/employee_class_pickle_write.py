@@ -18,16 +18,18 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
-                                                                  surname=self._surname,
-                                                                  salary=self._salary)
+        return "name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
     def __eq__(self, other):
         if other is None:
             return False
-        return self._first_name == other._first_name and \
-            self._surname == other._surname and \
-            self._salary == other._salary
+        return (
+            self._first_name == other._first_name
+            and self._surname == other._surname
+            and self._salary == other._salary
+        )
 
 
 # vytvoření tří instancí třídy
