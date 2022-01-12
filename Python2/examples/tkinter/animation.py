@@ -28,18 +28,18 @@ animation_refresh_seconds = 0.01
 # The main window of the animation
 def create_animation_window():
     window = tkinter.Tk()
-    window.title('Tkinter Animation Demo')
+    window.title("Tkinter Animation Demo")
 
     # Uses python 3.6+ string interpolation
-    window.geometry(f'{animation_window_width}x{animation_window_height}')
+    window.geometry(f"{animation_window_width}x{animation_window_height}")
     return window
 
 
 # Create a canvas for animation and add it to main window
 def create_animation_canvas(window):
     canvas = tkinter.Canvas(window)
-    canvas.configure(bg='white')
-    canvas.pack(fill='both', expand=True)
+    canvas.configure(bg="white")
+    canvas.pack(fill="both", expand=True)
     return canvas
 
 
@@ -50,17 +50,17 @@ def animate_ball(window, canvas, xinc, yinc):
         animation_ball_start_ypos - animation_ball_radius,
         animation_ball_start_xpos + animation_ball_radius,
         animation_ball_start_ypos + animation_ball_radius,
-        fill='darkblue',
-        outline='blue',
+        fill="darkblue",
+        outline="blue",
         width=4,
-        )
+    )
     while True:
         canvas.move(ball, xinc, yinc)
         window.update()
         time.sleep(animation_refresh_seconds)
         ball_pos = canvas.coords(ball)
 
-    # unpack array to variables
+        # unpack array to variables
 
         (xl, yl, xr, yr) = ball_pos
         if xl < abs(xinc) or xr > animation_window_width - abs(xinc):
@@ -73,5 +73,9 @@ def animate_ball(window, canvas, xinc, yinc):
 
 animation_window = create_animation_window()
 animation_canvas = create_animation_canvas(animation_window)
-animate_ball(animation_window, animation_canvas,
-             animation_ball_min_movement, animation_ball_min_movement)
+animate_ball(
+    animation_window,
+    animation_canvas,
+    animation_ball_min_movement,
+    animation_ball_min_movement,
+)
