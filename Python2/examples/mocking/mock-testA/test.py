@@ -55,7 +55,7 @@ def test5():
         print("mocked function called: {c}".format(c=mocked_function.called))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test1()
     print()
 
