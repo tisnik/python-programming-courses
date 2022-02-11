@@ -12,3 +12,4 @@ layout: default
 * [Kurz použití knihovny NumPy](numpy/numpy_in_action.html)
 * [Kurz použití knihovny Matplotlib](matplotlib/matplotlib_in_action.html)
 * [Kurz použití knihovny Pandas](pandas/Pandas.md)
+* [Kurz testování v Pythonu](testing/Testing.md)
