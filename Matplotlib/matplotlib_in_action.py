@@ -55,6 +55,7 @@ import numpy as np
 
 # Základní kontrola, jestli se import podařil
 import sys
+
 if "matplotlib" not in sys.modules:
     raise Exception("Modul matplotlib nebyl naimportován")
 if "numpy" not in sys.modules:
@@ -69,7 +70,7 @@ if "numpy" not in sys.modules:
 # - vykreslení průběhu funkce sin
 
 # hodnoty na x-ové ose
-x = np.linspace(0, 2*np.pi, 100)
+x = np.linspace(0, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose
 y = np.sin(x)
@@ -101,7 +102,7 @@ plt.savefig("sinus.svg")
 # - vykreslení průběhů funkcí sin a cos do jediného grafu
 
 # hodnoty na x-ové ose
-x = np.linspace(0, 2*np.pi, 100)
+x = np.linspace(0, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose: první funkce
 y1 = np.sin(x)
@@ -126,7 +127,7 @@ plt.show()
 # - změna stylu vykreslování průběhů funkcí
 
 # hodnoty na x-ové ose
-x = np.linspace(0.01, 2*np.pi, 100)
+x = np.linspace(0.01, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose: první funkce
 y1 = np.sin(x)
@@ -135,7 +136,7 @@ y1 = np.sin(x)
 y2 = np.cos(x)
 
 # hodnoty na y-ové ose: třetí funkce
-y3 = np.sin(x)/x
+y3 = np.sin(x) / x
 
 # vykreslit průběh všech tří funkcí
 # se změnou stylu vykreslování
@@ -159,13 +160,13 @@ plt.show()
 # - vykreslení průběhů funkcí sin a sinc do jediného grafu s vyplněním plochy pod průběhu
 
 # hodnoty na x-ové ose
-x = np.linspace(0, 2*np.pi, 100)
+x = np.linspace(0, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose: první funkce
 y1 = np.sin(x)
 
 # hodnoty na y-ové ose: druhá funkce
-y2 = np.sin(3*x)/(x+1)
+y2 = np.sin(3 * x) / (x + 1)
 
 # vykreslit průběh obou funkcí
 # se změnou stylu vykreslování
@@ -185,16 +186,16 @@ plt.show()
 # - kombinace různých stylů vykreslení
 
 # hodnoty na x-ové ose
-x = np.linspace(0.001, 2*np.pi, 100)
+x = np.linspace(0.001, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose: první funkce
-y1 = np.sin(5*x)
+y1 = np.sin(5 * x)
 
 # hodnoty na y-ové ose: druhá funkce
-y2 = np.sin(5*x)/(x+1/2)
+y2 = np.sin(5 * x) / (x + 1 / 2)
 
 # hodnoty na y-ové ose: třetí čtvrtá funkce
-y3 = 1/(x+1/2)
+y3 = 1 / (x + 1 / 2)
 y4 = -y3
 
 # vykreslit průběh obou funkcí
@@ -222,7 +223,7 @@ plt.show()
 # - nastavení rozsahů na obou osách
 
 # hodnoty na x-ové ose
-x = np.linspace(0, 2*np.pi, 100)
+x = np.linspace(0, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose: první funkce
 y1 = np.sin(x)
@@ -260,7 +261,7 @@ plt.show()
 # - přidání popisku přímo do grafu
 
 # hodnoty na x-ové ose
-x = np.linspace(0, 2*np.pi, 100)
+x = np.linspace(0, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose: první funkce
 y1 = np.sin(x)
@@ -287,16 +288,20 @@ plt.xlabel("x")
 plt.ylabel("sin(x) a cos(x)")
 
 # vložit první popisek do grafu
-plt.annotate("maximální hodnota sin(x)",
-             xy=(np.pi/2, 1.0),
-             xytext=(1, 1.3),
-             arrowprops=dict(arrowstyle="->"))
+plt.annotate(
+    "maximální hodnota sin(x)",
+    xy=(np.pi / 2, 1.0),
+    xytext=(1, 1.3),
+    arrowprops=dict(arrowstyle="->"),
+)
 
 # vložit druhý popisek do grafu
-plt.annotate("minimální hodnota cos(x)",
-             xy=(np.pi, -1.0),
-             xytext=(2, -1.3),
-             arrowprops=dict(arrowstyle="->"))
+plt.annotate(
+    "minimální hodnota cos(x)",
+    xy=(np.pi, -1.0),
+    xytext=(2, -1.3),
+    arrowprops=dict(arrowstyle="->"),
+)
 
 # zobrazení grafu
 plt.show()
@@ -307,7 +312,7 @@ plt.show()
 # - základní polární graf
 
 # úhel v polárním grafu
-theta = np.linspace(0.01, 2*np.pi, 150)
+theta = np.linspace(0.01, 2 * np.pi, 150)
 
 # vzdálenost od středu
 radius = np.log(theta)
@@ -328,16 +333,16 @@ plt.show()
 # - do polárního grafu
 
 # úhel v polárním grafu
-theta = np.linspace(0.01, 2*np.pi, 150)
+theta = np.linspace(0.01, 2 * np.pi, 150)
 
 # první funkce: vzdálenost od středu
 radius1 = theta
 
 # druhá funkce: vzdálenost od středu
-radius2 = 2*np.abs(theta-np.pi)
+radius2 = 2 * np.abs(theta - np.pi)
 
 # třetí funkce: vzdálenost od středu
-radius3 = 2*np.log(theta)
+radius3 = 2 * np.log(theta)
 
 ax = plt.subplot(111, projection="polar")
 
@@ -366,13 +371,13 @@ plt.show()
 # - do polárního grafu
 
 # úhel v polárním grafu
-theta = np.linspace(0.01, 4*np.pi, 150)
+theta = np.linspace(0.01, 4 * np.pi, 150)
 
 # první funkce: vzdálenost od středu
 radius1 = theta
 
 # druhá funkce: vzdálenost od středu
-radius2 = 3*np.abs(theta-2*np.pi)
+radius2 = 3 * np.abs(theta - 2 * np.pi)
 
 ax = plt.subplot(111, projection="polar")
 
@@ -397,17 +402,17 @@ plt.show()
 # - při vykreslování se jednotlivé body spojí úsečkami
 
 # hodnoty na x-ové ose
-x = np.linspace(0.2, 2*np.pi, 100)
+x = np.linspace(0.2, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose
-y = np.sin(5*x)/x
-y2 = 1/x
+y = np.sin(5 * x) / x
+y2 = 1 / x
 y3 = -y2
 
 # vykreslit průběh funkce
-plt.plot(x, y2, color='red',  label='obalka sinc')
-plt.plot(x, y3, color='red',  label='obalka sinc')
-plt.plot(x, y,  color='blue', label='sinc(x)')
+plt.plot(x, y2, color="red", label="obalka sinc")
+plt.plot(x, y3, color="red", label="obalka sinc")
+plt.plot(x, y, color="blue", label="sinc(x)")
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -429,17 +434,17 @@ plt.show()
 # - při vykreslování se použijí "schodky"
 
 # hodnoty na x-ové ose
-x = np.linspace(0.2, 2*np.pi, 100)
+x = np.linspace(0.2, 2 * np.pi, 100)
 
 # hodnoty na y-ové ose
-y = np.sin(5*x)/x
-y2 = 1/x
+y = np.sin(5 * x) / x
+y2 = 1 / x
 y3 = -y2
 
 # vykreslit průběh funkce
-plt.plot(x, y2, color='red',  label='obalka sinc', drawstyle='default')
-plt.plot(x, y3, color='red',  label='obalka sinc', drawstyle='default')
-plt.plot(x, y,  color='blue', label='sinc(x)',     drawstyle='steps')
+plt.plot(x, y2, color="red", label="obalka sinc", drawstyle="default")
+plt.plot(x, y3, color="red", label="obalka sinc", drawstyle="default")
+plt.plot(x, y, color="blue", label="sinc(x)", drawstyle="steps")
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -461,10 +466,47 @@ plt.show()
 
 # historické ceny ropy
 cena_ropy = [
-    46.68, 44.68, 46.90, 47.15, 44.59, 44.00, 44.63, 45.92, 44.15, 45.94,
-    46.05, 46.75, 46.25, 45.41, 49.20, 45.22, 42.56, 38.60, 39.31, 38.24,
-    40.45, 41.32, 40.80, 42.62, 41.87, 42.50, 42.23, 43.30, 43.08, 44.96,
-    43.87, 44.66, 45.15, 47.12, 48.52, 48.79, 47.98, 47.39, 48.14, 48.45]
+    46.68,
+    44.68,
+    46.90,
+    47.15,
+    44.59,
+    44.00,
+    44.63,
+    45.92,
+    44.15,
+    45.94,
+    46.05,
+    46.75,
+    46.25,
+    45.41,
+    49.20,
+    45.22,
+    42.56,
+    38.60,
+    39.31,
+    38.24,
+    40.45,
+    41.32,
+    40.80,
+    42.62,
+    41.87,
+    42.50,
+    42.23,
+    43.30,
+    43.08,
+    44.96,
+    43.87,
+    44.66,
+    45.15,
+    47.12,
+    48.52,
+    48.79,
+    47.98,
+    47.39,
+    48.14,
+    48.45,
+]
 
 # počet prvků
 N = len(cena_ropy)
@@ -476,8 +518,7 @@ indexes = np.arange(N)
 width = 1.00
 
 # sloupcový graf
-plt.bar(indexes, cena_ropy, width, color='yellow', edgecolor='black',
-        label='Cena ropy')
+plt.bar(indexes, cena_ropy, width, color="yellow", edgecolor="black", label="Cena ropy")
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -497,7 +538,7 @@ plt.show()
 vals1 = [10, 15, 20, 12, 14, 8]
 
 # druhé pole hodnot
-vals2 = [19, 18,  6, 11,  6, 14]
+vals2 = [19, 18, 6, 11, 6, 14]
 
 # počet prvků
 N = len(vals1)
@@ -509,10 +550,9 @@ indexes = np.arange(N)
 width = 0.30
 
 # sloupcový graf se dvěma skupinami sloupců
-plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1')
+plt.bar(indexes, vals1, width, color="gray", edgecolor="black", label="CPU#1")
 # posunuté sloupce
-plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
-        label='CPU#2')
+plt.bar(indexes + width, vals2, width, color="red", edgecolor="black", label="CPU#2")
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -552,13 +592,13 @@ plt.title("Scripting languages")
 ax.title.set_fontsize(30)
 
 # popisky jednotlivých výřezů
-labels = ['Perl', 'Python', 'Ruby']
+labels = ["Perl", "Python", "Ruby"]
 
 # šířky jednotlivých výřezů
 fracs = [90, 150, 70]
 
 # vytvoření koláčového grafu
-ax.pie(fracs, labels=labels, autopct='%1.1f%%', shadow=True)
+ax.pie(fracs, labels=labels, autopct="%1.1f%%", shadow=True)
 
 # zobrazení grafu
 plt.show()
@@ -576,7 +616,7 @@ plt.title("Scripting languages")
 ax.title.set_fontsize(30)
 
 # popisky jednotlivých výřezů
-labels = ['Perl', 'Python', 'Ruby']
+labels = ["Perl", "Python", "Ruby"]
 
 # šířky jednotlivých výřezů
 fracs = [90, 150, 70]
@@ -585,16 +625,16 @@ fracs = [90, 150, 70]
 explode = (0.0, 0.0, 0.15)
 
 # barvy
-colors = ('yellow', '#60ff60', 'red')
+colors = ("yellow", "#60ff60", "red")
 
 # vytvoření koláčového grafu
-patches, texts, autotexts = ax.pie(fracs, explode=explode, colors=colors,
-                                   labels=labels, autopct='%1.1f%%',
-                                   shadow=True)
+patches, texts, autotexts = ax.pie(
+    fracs, explode=explode, colors=colors, labels=labels, autopct="%1.1f%%", shadow=True
+)
 
 # změna stylu písma
 proptease = fm.FontProperties()
-proptease.set_size('xx-large')
+proptease.set_size("xx-large")
 plt.setp(autotexts, fontproperties=proptease)
 plt.setp(texts, fontproperties=proptease)
 
@@ -612,7 +652,7 @@ vals1 = [10, 15, 20, 12, 14, 8]
 delta1 = [1, 2, 3, 4, 5, 0]
 
 # druhé pole hodnot a pole odchylek
-vals2 = [19, 18,  6, 11,  6, 14]
+vals2 = [19, 18, 6, 11, 6, 14]
 delta2 = [4, 2, 3, 2, 2, 4]
 
 # počet prvků
@@ -625,12 +665,20 @@ indexes = np.arange(N)
 width = 0.30
 
 # sloupcový graf se dvěma skupinami sloupců
-plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1',
-        yerr=delta1)
+plt.bar(
+    indexes, vals1, width, color="gray", edgecolor="black", label="CPU#1", yerr=delta1
+)
 
 # posunuté sloupce
-plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
-        label='CPU#2', yerr=delta2)
+plt.bar(
+    indexes + width,
+    vals2,
+    width,
+    color="red",
+    edgecolor="black",
+    label="CPU#2",
+    yerr=delta2,
+)
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -652,7 +700,7 @@ vals1 = [10, 15, 20, 12, 14, 8]
 delta1 = [1, 2, 3, 4, 5, 0]
 
 # druhé pole hodnot a pole odchylek
-vals2 = [19, 18,  6, 11,  6, 14]
+vals2 = [19, 18, 6, 11, 6, 14]
 delta2 = [4, 2, 3, 2, 2, 4]
 
 # počet prvků
@@ -665,13 +713,28 @@ indexes = np.arange(N)
 width = 0.30
 
 # sloupcový graf se dvěma skupinami sloupců
-plt.bar(indexes, vals1, width, color='gray', edgecolor='black', label='CPU#1',
-        yerr=delta1, error_kw=dict(elinewidth=2, ecolor='red'))
+plt.bar(
+    indexes,
+    vals1,
+    width,
+    color="gray",
+    edgecolor="black",
+    label="CPU#1",
+    yerr=delta1,
+    error_kw=dict(elinewidth=2, ecolor="red"),
+)
 
 # posunuté sloupce
-plt.bar(indexes+width, vals2, width, color='red', edgecolor='black',
-        label='CPU#2',
-        yerr=delta2, error_kw=dict(elinewidth=2, ecolor='black'))
+plt.bar(
+    indexes + width,
+    vals2,
+    width,
+    color="red",
+    edgecolor="black",
+    label="CPU#2",
+    yerr=delta2,
+    error_kw=dict(elinewidth=2, ecolor="black"),
+)
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -704,13 +767,13 @@ y = np.arange(-10.0, 10.0, delta)
 X, Y = np.meshgrid(x, y)
 
 # vzdálenost od bodu [0,0]
-R1 = np.sqrt(X*X+Y*Y)
+R1 = np.sqrt(X * X + Y * Y)
 
 # vzdálenost od bodu [3,3]
-R2 = np.sqrt((X-3)*(X-3)+(Y-3)*(Y-3))
+R2 = np.sqrt((X - 3) * (X - 3) + (Y - 3) * (Y - 3))
 
 # výpočet funkce, kterou použijeme při vykreslování grafu
-Z = np.sin(R1)-np.cos(R2)
+Z = np.sin(R1) - np.cos(R2)
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -740,13 +803,13 @@ y = np.arange(-10.0, 10.0, delta)
 X, Y = np.meshgrid(x, y)
 
 # vzdálenost od bodu [0,0]
-R1 = np.sqrt(X*X+Y*Y)
+R1 = np.sqrt(X * X + Y * Y)
 
 # vzdálenost od bodu [3,3]
-R2 = np.sqrt((X-3)*(X-3)+(Y-3)*(Y-3))
+R2 = np.sqrt((X - 3) * (X - 3) + (Y - 3) * (Y - 3))
 
 # výpočet funkce, kterou použijeme při vykreslování grafu
-Z = np.sin(R1)-np.cos(R2)
+Z = np.sin(R1) - np.cos(R2)
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -780,13 +843,13 @@ y = np.arange(-10.0, 10.0, delta)
 X, Y = np.meshgrid(x, y)
 
 # vzdálenost od bodu [0,0]
-R1 = np.sqrt(X*X+Y*Y)
+R1 = np.sqrt(X * X + Y * Y)
 
 # vzdálenost od bodu [3,3]
-R2 = np.sqrt((X-3)*(X-3)+(Y-3)*(Y-3))
+R2 = np.sqrt((X - 3) * (X - 3) + (Y - 3) * (Y - 3))
 
 # výpočet funkce, kterou použijeme při vykreslování grafu
-Z = np.sin(R1)-np.cos(R2)
+Z = np.sin(R1) - np.cos(R2)
 
 # povolení zobrazení mřížky
 plt.grid(True)
@@ -795,7 +858,7 @@ plt.grid(True)
 CS = plt.contour(X, Y, Z)
 
 # přidání legendy (colorbar)
-CB = plt.colorbar(CS, shrink=0.7, extend='both')
+CB = plt.colorbar(CS, shrink=0.7, extend="both")
 
 # popisky "vrstevnic"
 plt.clabel(CS, inline=1, fontsize=10)
