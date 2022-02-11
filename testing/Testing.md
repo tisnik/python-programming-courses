@@ -158,4 +158,41 @@
 
 
 ### Testy chování
+
+* (BDD: behavior-driven development)
+
+* Na pomezí mezi
+    - integračními testy
+    - API testy
+    - akceptačními testy
+
+* Popis očekávaného chování systému z pohledu zákazníka/uživatele
+    - samotný systém je z pohledu BDD většinou černá skříňka
+
+* Lze použít pro backend i pro frontend
+    - na systém se pohlíží jako na černou skříňku
+
+* Testovací scénáře může psát i poučený zákazník
+    - specializovaný jazyk Gherkin
+
+* Mají i dokumentační funkci
+    - poměrně mnoho systémů popsaných právě pomocí BDD
+
+
+
 ### Testy uživatelského rozhraní
+
+* Na jednu stranu nejjednodušší na pochopení
+    - zákazníkem
+    - vedením projektu
+
+* Ovšem chování UI se velmi často mění
+    - zastaralé testy
+    - testy testující něco jiného, než vidí uživatel
+    - mnohdy se situace řeší "zakomentováním" testů
+
+* Skutečné UI testy simulující práci uživatele
+    - nástroje umožňující "záznam" práce uživatele
+
+* Testy na úrovni webové stránky (manipulace s DOM)
+    - Selenium
