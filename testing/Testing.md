@@ -24,6 +24,24 @@
 
 # Testování
 
+## Úvod
+
+* Problematika testování stále složitějších aplikací a systémů
+* CI/CD
+* Základní problém
+    - čím později je chyba odhalena, tím dražší je její oprava
+    - z jiného oboru:
+        - triviální úprava ventilu při návrhu motoru
+        - vs svolávání aut do servisu
+        - vs případné žaloby v případě, že chyba způsobí nehody
+* Další časté problémy dnešních aplikací
+    - velký vývojářský tým
+    - používá se větší množství jazyků (jak se domluvit?)
+    - zákazník a jeho role při vývoji
+    - někdy nejasné role (vývojář či tester?)
+
+
+
 ## Základní technologie testování
 
 * Velké množství testovacích frameworků
@@ -50,6 +68,21 @@
 19                  dutest
 ```
 
+
+## Pyramida typů testů
+
+* Business část
+    - Beta testy
+    - Alfa testy
+    - Akceptační testy
+* Technologická část
+    - UI testy
+    - API testy
+    - Integrační testy
+    - Testy komponent
+    - Unit testy
+* Další typy testů
+    - Benchmarky
 
 ## Pyramida typů testů
 
