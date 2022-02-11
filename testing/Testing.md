@@ -79,6 +79,10 @@
 
 * Jednotkové testy
 * Testy komponent
+* Systémové testy
+* Akceptační testy
+* Testy chování
+* Testy uživatelského rozhraní
 
 
 
@@ -104,3 +108,21 @@
 
 
 
+### Systémové testy, akceptační testy
+
+* Systémové testy se většinou rozdělují do dalších podkategorií
+    - smoke testy (původ jména)
+    - pouze velmi rychle zjišťují, zda je zajištěna alespoň minimální míra funkčnosti aplikace předtím, než se spustí složitější a časově mnohem náročnější testy
+    - pokud smoke testy zhavarují, vrací se aplikace zpět k vývojářům a popř. k devops týmu
+
+* Po úspěšném provedení smoke testů se mohou spouštět systémové testy
+    - primárním účelem je ověření, jestli aplikace (služba) sestavená do jednoho celku pracuje korektně
+    - tvorbou těchto testů již může být pověřen samostatný tým
+
+* Testy akceptační jsou ještě zajímavější
+    - na jejich vytváření se může podílet i zákazník
+
+
+
+### Testy chování
+### Testy uživatelského rozhraní
