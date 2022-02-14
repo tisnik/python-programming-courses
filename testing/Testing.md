@@ -322,6 +322,44 @@ pytest
 
 
 
+### Testy pro funkce, které mohou vyhodit výjimku
+
+* Test, zda dochází k vyhození výjimky
+
+! examples/pytest/average05/test_average.py
+
+* Větší množství testovacích scénárů
+    - nedoporučovaný způsob
+
+! examples/pytest/average06/test_avegate_no_params.py
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average06](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average06)
+
+
+
+### Rozšíření testů o tabulky s daty
+
+* Testovací data deklarovaná vně testu
+    - doporučovaný způsob
+
+! examples/pytest/average07/test_average.py
+
+* Explicitní identifikátory testů
+
+! examples/pytest/average08/test_average.py
+
+* Další varianta zápisu
+    - data přímo součástí dekorátoru
+
+! examples/pytest/average09/test_average.py
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average07](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average07)
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average08](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average08)
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average09](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average09)
+
+
 
 ### Benchmarky
 
