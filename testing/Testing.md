@@ -84,6 +84,8 @@
 * Další typy testů
     - Benchmarky
 
+
+
 ## Pyramida typů testů
 
 * Různé podoby testovací pyramidy
@@ -108,13 +110,14 @@
 - [Kornout](https://www.root.cz/obrazek/408773/)
 
 
+
 ## Typy testů
 
-* Jednotkové testy
+* Jednotkové testy (unit tests)
 * Testy komponent
 * Systémové testy
 * Akceptační testy
-* Testy chování
+* Testy chování (BDD)
 * Testy uživatelského rozhraní
 
 
@@ -127,6 +130,7 @@
     - čím složitější kód, tím hůře se testuje!
 * Lze zjistit pokrytí kódu testy
     - code coverage
+
 
 
 ### Testy komponent
@@ -196,3 +200,74 @@
 
 * Testy na úrovni webové stránky (manipulace s DOM)
     - Selenium
+
+
+## Praktická část
+
+### Jednotkové testy
+
+### Pokrytí kódu jednotkovými testy
+
+### Mocking
+
+* "Falešný" blok kódu je možné rozdělit do několika kategorií:
+   - fake – vrací jedinou programátorem zvolenou hodnotu. Příkladem funkce nahrazující čtení z databáze, která vždy vrátí jediný záznam.
+   - stub – již obsahuje jednoduchou logiku, například dokáže reagovat na špatný vstup podobně, jako nahrazovaný blok.
+   - spy – dokáže zaznamenat předávané parametry či dokonce celý stav (nebo podstav) aplikace.
+   - mock – mnohdy se jedná o blok s vlastnostmi, které se přibližují reálnému (nahrazovanému) kódu. Vylepšená verze stub.
+
+
+```
+# 	Nástroj
+1 	Ludibrio
+2 	Python Mock
+3 	PyMock
+4 	mock
+5 	pMock
+6 	minimock
+7 	svnmock
+8 	Mocker
+9 	Stubble
+10 	Mox
+11 	MockTest
+12 	Fudge
+13 	Mockito for Python
+14 	CaptureMock
+15 	flexmock
+16 	doublex
+17
+```
+
+### Benchmarky
+
+### BDD: behavior-driven development
+
+### Jazyk Gherkin
+
+* Založen na použití několika klíčových slov a běžných vět
+* V určitém ohledu podobný způsob zápisu jako v Pythonu
+    - odsazení
+    - klíčová slova, nikoli speciální znaky
+* Existuje i možnost překladu klíčových slov do jiných jazyků
+* Není pevně spojen s žádným konkrétním programovacím jazykem
+* Výsledek: mohou ho používat i neprogramátoři
+
+---
+
+### Ukázka jednoduchého testovacího scénáře
+
+```gherkin
+Given the customer has logged into their current account
+  And the balance is shown to be 100 euros
+ When the customer transfers 75 euros to their savings account
+ Then the new current account balance should be 25 euros
+```
+
+Části testovacího scénáře:
+
+* Klíčová slova Given, And, When, Then
+* Následuje část věty v libovolném jazyce (praktická je angličtina)
+* Ve větě se mohou objevovat proměnné části: 100, 75, 25
+
+---
+
