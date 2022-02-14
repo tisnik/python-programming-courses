@@ -7,7 +7,7 @@ input_file = "Testing.md"
 output_file = "../docs/testing/Testing.md"
 
 source_prefix = (
-    "https://github.com/tisnik/python-programming-courses/blob/master/Python2"
+    "https://github.com/tisnik/python-programming-courses/blob/master/testing"
 )
 
 with open(input_file, "r") as fin:
