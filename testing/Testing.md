@@ -202,11 +202,16 @@
     - Selenium
 
 
+
 ## Praktická část
+
+
 
 ### Jednotkové testy
 
 * Nástroj Pytest
+
+
 
 ### Pytest
 
@@ -221,6 +226,47 @@
     - tzv. fixtures
 * Doplňkové moduly
     - https://docs.pytest.org/en/latest/reference/plugin_list.html
+
+
+
+### Instalace
+
+* https://docs.pytest.org/en/6.2.x/getting-started.html
+
+
+
+### Příklad - výpočet průměru
+
+* Testovaný zdrojový kód
+
+! examples/pytest/average01/average.py
+
+* Vlastní jednotkový test
+
+! examples/pytest/average01/test_average.py
+
+* Spuštění jednotkových testů
+
+```
+pytest
+```
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average01](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average01)
+
+
+
+### Testování kódu obsahujícího chybu
+
+* Schválně výpočet poškodíme
+
+! examples/pytest/average02/average.py
+
+* Nové spuštění jednotkových testů
+
+```
+pytest
+```
 
 ### Pokrytí kódu jednotkovými testy
 
