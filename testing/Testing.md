@@ -206,6 +206,22 @@
 
 ### Jednotkové testy
 
+* Nástroj Pytest
+
+### Pytest
+
+* Základní operace
+    - samotné spouštění jednotkových testů
+    - vyhodnocení výsledků jednotkových testů
+    - zjištění pokrytí zdrojového kódu testy
+    - spouštění benchmarků
+* Další vlastnosti
+    - označení testů
+    - tabulky s daty
+    - tzv. fixtures
+* Doplňkové moduly
+    - https://docs.pytest.org/en/latest/reference/plugin_list.html
+
 ### Pokrytí kódu jednotkovými testy
 
 ### Mocking
