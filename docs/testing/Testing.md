@@ -281,7 +281,7 @@ def average(x):
     return sum(x) / float(len(x))
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average01/average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average01/average.py)
 
 * Vlastní jednotkový test
 
@@ -297,7 +297,7 @@ def test_average_basic():
     assert result == 1.5
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average01/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average01/test_average.py)
 
 * Spuštění jednotkových testů
 
@@ -323,7 +323,7 @@ def average(x):
     return sum(x) / float(1 + len(x))
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average02/average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average02/average.py)
 
 * Nové spuštění jednotkových testů
 
@@ -355,7 +355,7 @@ def test_average_basic():
     )
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average03/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average03/test_average.py)
 
 * Přidání dalšího testu pro mezní případ
 
@@ -383,7 +383,7 @@ def test_average_empty_list():
     )
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average04/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average04/test_average.py)
 
 * Adresář s celým projektem
     - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average03](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average03)
@@ -424,7 +424,7 @@ def test_average_exception_not_raised():
         result = average([1, 2])
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average05/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average05/test_average.py)
 
 * Větší množství testovacích scénárů
     - nedoporučovaný způsob
@@ -449,7 +449,7 @@ def test_average_basic_more_checks():
         )
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average06/test_avegate_no_params.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average06/test_avegate_no_params.py)
 
 * Adresář s celým projektem
     - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average06](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average06)
@@ -502,7 +502,7 @@ def test_average_empty_list_2():
     assert str(excinfo.value) == "float division by zero"
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average07/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average07/test_average.py)
 
 * Explicitní identifikátory testů
 
@@ -549,7 +549,7 @@ def test_average_empty_list_2():
     assert str(excinfo.value) == "float division by zero"
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average08/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average08/test_average.py)
 
 * Další varianta zápisu
     - data přímo součástí dekorátoru
@@ -595,7 +595,7 @@ def test_average_empty_list_2():
     assert str(excinfo.value) == "float division by zero"
 ```
 
-[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Testing/examples/pytest/average09/test_average.py)
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average09/test_average.py)
 
 * Adresář s celým projektem
     - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average07](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average07)
