@@ -235,6 +235,39 @@
 
 
 
+### Pokrytí kódu jednotkovými testy
+
+### Mocking
+
+* "Falešný" blok kódu je možné rozdělit do několika kategorií:
+   - fake – vrací jedinou programátorem zvolenou hodnotu. Příkladem funkce nahrazující čtení z databáze, která vždy vrátí jediný záznam.
+   - stub – již obsahuje jednoduchou logiku, například dokáže reagovat na špatný vstup podobně, jako nahrazovaný blok.
+   - spy – dokáže zaznamenat předávané parametry či dokonce celý stav (nebo podstav) aplikace.
+   - mock – mnohdy se jedná o blok s vlastnostmi, které se přibližují reálnému (nahrazovanému) kódu. Vylepšená verze stub.
+
+
+```
+# 	Nástroj
+1 	Ludibrio
+2 	Python Mock
+3 	PyMock
+4 	mock
+5 	pMock
+6 	minimock
+7 	svnmock
+8 	Mocker
+9 	Stubble
+10 	Mox
+11 	MockTest
+12 	Fudge
+13 	Mockito for Python
+14 	CaptureMock
+15 	flexmock
+16 	doublex
+17
+```
+
+
 ### Příklad - výpočet průměru
 
 * Testovaný zdrojový kód
@@ -268,37 +301,27 @@ pytest
 pytest
 ```
 
-### Pokrytí kódu jednotkovými testy
-
-### Mocking
-
-* "Falešný" blok kódu je možné rozdělit do několika kategorií:
-   - fake – vrací jedinou programátorem zvolenou hodnotu. Příkladem funkce nahrazující čtení z databáze, která vždy vrátí jediný záznam.
-   - stub – již obsahuje jednoduchou logiku, například dokáže reagovat na špatný vstup podobně, jako nahrazovaný blok.
-   - spy – dokáže zaznamenat předávané parametry či dokonce celý stav (nebo podstav) aplikace.
-   - mock – mnohdy se jedná o blok s vlastnostmi, které se přibližují reálnému (nahrazovanému) kódu. Vylepšená verze stub.
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average02](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average02)
 
 
-```
-# 	Nástroj
-1 	Ludibrio
-2 	Python Mock
-3 	PyMock
-4 	mock
-5 	pMock
-6 	minimock
-7 	svnmock
-8 	Mocker
-9 	Stubble
-10 	Mox
-11 	MockTest
-12 	Fudge
-13 	Mockito for Python
-14 	CaptureMock
-15 	flexmock
-16 	doublex
-17
-```
+
+### Další rozšíření a vylepšení testů
+
+* Vylepšení konstrukce assert
+
+! examples/pytest/average03/test_average.py
+
+* Přidání dalšího testu pro mezní případ
+
+! examples/pytest/average04/test_average.py
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average03](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average03)
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average04](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average04)
+
+
+
 
 ### Benchmarky
 
