@@ -604,6 +604,378 @@ def test_average_empty_list_2():
 
 
 
+### Spuštění pouze vybraných testů
+
+* Označení testů (tagy)
+
+```python
+"""Implementace jednotkových testů."""
+
+import pytest
+
+from average import average
+
+
+def pytest_configure(config):
+    """Konfigurace jednotkových testů."""
+    config.addinivalue_line(
+        "markers", "smoketest: mark test that are performed very smoketest"
+    )
+
+
+testdata = [
+    ((1, 1), 1),
+    ((1, 2), 1.5),
+    ((0, 1), 0.5),
+    ((1, 2, 3), 2.0),
+    ((0, 10), 0.5),
+]
+
+
+@pytest.mark.smoketest
+@pytest.mark.parametrize("values,expected", testdata)
+def test_average_basic_1(values, expected):
+    """Otestování výpočtu průměru."""
+    result = average(values)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+
+
+@pytest.mark.smoketest
+@pytest.mark.parametrize(
+    "values,expected", testdata, ids=["1,1", "1,2", "0,1", "1,2,3", "0,10"]
+)
+def test_average_basic_2(values, expected):
+    """Otestování výpočtu průměru."""
+    result = average(values)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+
+
+@pytest.mark.smoketest
+@pytest.mark.parametrize(
+    "values,expected",
+    [
+        pytest.param((1, 1), 1),
+        pytest.param((1, 2), 1.5),
+        pytest.param((0, 1), 0.5),
+        pytest.param((1, 2, 3), 2.0),
+        pytest.param((0, 10), 0.5),
+        pytest.param((), 0),
+    ],
+)
+def test_average_basic_3(values, expected):
+    """Otestování výpočtu průměru."""
+    result = average(values)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+
+
+@pytest.mark.thorough
+def test_average_empty_list_1():
+    """Otestování výpočtu průměru pro prázdný vstup."""
+    with pytest.raises(ZeroDivisionError) as excinfo:
+        result = average([])
+
+
+@pytest.mark.thorough
+def test_average_empty_list_2():
+    """Otestování výpočtu průměru pro prázdný vstup."""
+    with pytest.raises(Exception) as excinfo:
+        result = average([])
+    # poměrně křehký způsob testování!
+    assert excinfo.type == ZeroDivisionError
+    assert str(excinfo.value) == "float division by zero"
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average11/test_average.py)
+
+* Spuštění testů podle tagů
+
+```
+pytest -v -m smoketest
+pytest -v -m thorough
+pytest -v -m other
+```
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average11](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average11)
+
+
+
+### Fixtures
+
+* Využití "fixtures"
+
+```python
+"""Implementace jednotkových testů."""
+
+import pytest
+
+from average import average
+
+
+def pytest_configure(config):
+    """Konfigurace jednotkových testů."""
+    config.addinivalue_line(
+        "markers", "smoketest: mark test that are performed very smoketest"
+    )
+
+
+testdata = [
+    ((1, 1), 1),
+    ((1, 2), 1.5),
+    ((0, 1), 0.5),
+    ((1, 2, 3), 2.0),
+    ((0, 10), 0.5),
+]
+
+
+@pytest.mark.smoketest
+@pytest.mark.parametrize("values,expected", testdata)
+def test_average_basic_1(values, expected):
+    """Otestování výpočtu průměru."""
+    result = average(values)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+
+
+@pytest.mark.smoketest
+@pytest.mark.parametrize(
+    "values,expected", testdata, ids=["1,1", "1,2", "0,1", "1,2,3", "0,10"]
+)
+def test_average_basic_2(values, expected):
+    """Otestování výpočtu průměru."""
+    result = average(values)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+
+
+@pytest.mark.smoketest
+@pytest.mark.parametrize(
+    "values,expected",
+    [
+        pytest.param((1, 1), 1),
+        pytest.param((1, 2), 1.5),
+        pytest.param((0, 1), 0.5),
+        pytest.param((1, 2, 3), 2.0),
+        pytest.param((0, 10), 0.5),
+        pytest.param((), 0),
+    ],
+)
+def test_average_basic_3(values, expected):
+    """Otestování výpočtu průměru."""
+    result = average(values)
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+
+
+@pytest.mark.thorough
+def test_average_empty_list_1():
+    """Otestování výpočtu průměru pro prázdný vstup."""
+    with pytest.raises(ZeroDivisionError) as excinfo:
+        result = average([])
+
+
+@pytest.mark.thorough
+def test_average_empty_list_2():
+    """Otestování výpočtu průměru pro prázdný vstup."""
+    with pytest.raises(Exception) as excinfo:
+        result = average([])
+    # poměrně křehký způsob testování!
+    assert excinfo.type == ZeroDivisionError
+    assert str(excinfo.value) == "float division by zero"
+
+
+@pytest.fixture
+def input_values():
+    """Vygenerování vstupních hodnot pro jednotkový test."""
+    return (1, 2, 3, 4, 5)
+
+
+def test_average_five_values(input_values):
+    """Otestování výpočtu průměru."""
+    result = average(input_values)
+    expected = 3
+    assert result == expected, "Očekávaná hodnota {}, vráceno {}".format(
+        expected, result
+    )
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average13/test_average.py)
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average13](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average14)
+
+
+
+### Složitější příklad - výpočet prvočísel
+
+* Testovaný zdrojový kód
+
+```python
+"""Výpočet seznamu prvočísel až do zadaného limitu."""
+
+# originální kód lze nalézt na adrese:
+# http://www.rosettacode.org/wiki/Sieve_of_Eratosthenes#Odds-only_version_of_the_array_sieve_above
+
+
+def primes2(limit):
+    """Výpočet seznamu prvočísel až do zadaného limitu."""
+    # okrajový případ
+    if limit < 2:
+        return []
+
+    # druhý případ - 2 je speciálním prvočíslem
+    if limit < 3:
+        return [2]
+
+    lmtbf = (limit - 3) // 2
+
+    # naplnění tabulky, která se bude prosívat
+    buf = [True] * (lmtbf + 1)
+
+    # vlastní prosívání
+    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
+        if buf[i]:
+            p = i + i + 3
+            s = p * (i + 1) + i
+            buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+
+    # vytvoření seznamu prvočísel
+    return [2] + [i + i + 3 for i, v in enumerate(buf) if v]
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes1/primes.py)
+
+* Vlastní jednotkový test
+
+```python
+"""Implementace jednotkových testů."""
+
+from primes import primes2
+
+
+def test_primes_10():
+    """Otestování výpočtu seznamu prvočísel až do limitu 10."""
+    # získat seznam prvočísel až do limitu 10
+    p = primes2(10)
+    # testy lze dále rozšiřovat
+    assert 2 in p
+    assert 10 not in p
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes1/test_primes.py)
+
+* Spuštění jednotkových testů
+
+```
+pytest
+```
+
+```
+pytest -v
+```
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes1](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes1)
+
+
+
+* Rozšíření testů o mezní případ
+
+```python
+"""Implementace jednotkových testů."""
+
+from primes import primes2
+
+
+def test_primes_10():
+    """Otestování výpočtu seznamu prvočísel až do limitu 10."""
+    # získat seznam prvočísel až do limitu 10
+    p = primes2(10)
+    # testy lze dále rozšiřovat
+    assert 2 in p
+    assert 10 not in p
+
+
+def test_primes_0():
+    """Otestování výpočtu seznamu prvočísel do limitu 0."""
+    p = primes2(0)
+    # otestujeme, zda je sekvence prázdná (není zcela přesné)
+    assert not p
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes2/test_primes.py)
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes2](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes2)
+
+
+
+### Zjištění pokrytí kódu testy
+
+```
+pytest --cov=. > cov_all.txt
+
+# specifikace balíčku
+pytest --cov=primes > cov_primes.txt
+
+# řádky nepokryté jednotkovými testy
+pytest --cov=primes --cov-report term-missing > cov_missing.txt
+
+# export do HTML
+pytest --cov=primes --cov-report html
+```
+
+### Pragma no cover
+
+```python
+"""Výpočet seznamu prvočísel až do zadaného limitu."""
+
+# originální kód lze nalézt na adrese:
+# http://www.rosettacode.org/wiki/Sieve_of_Eratosthenes#Odds-only_version_of_the_array_sieve_above
+
+
+def primes2(limit):
+    """Výpočet seznamu prvočísel až do zadaného limitu."""
+    # okrajový případ
+    if limit < 2:  # pragma: no cover
+        return []
+
+    # druhý případ - 2 je speciálním prvočíslem
+    if limit < 3:  # pragma: no cover
+        return [2]
+
+    lmtbf = (limit - 3) // 2
+
+    # naplnění tabulky, která se bude prosívat
+    buf = [True] * (lmtbf + 1)
+
+    # vlastní prosívání
+    for i in range((int(limit ** 0.5) - 3) // 2 + 1):
+        if buf[i]:
+            p = i + i + 3
+            s = p * (i + 1) + i
+            buf[s::p] = [False] * ((lmtbf - s) // p + 1)
+
+    # vytvoření seznamu prvočísel
+    return [2] + [i + i + 3 for i, v in enumerate(buf) if v]
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3/primes.py)
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3)
+
+
+
 ### Benchmarky
 
 ### BDD: behavior-driven development
@@ -637,3 +1009,172 @@ Given the customer has logged into their current account
 
 ---
 
+### Víceřádkový text
+
+```gherkin
+Feature: Count words function test
+
+  Scenario: Check the function count_words()
+    Given a sample text
+       """
+       Velmi kratka veta.
+       """
+    When I count all words in text
+    Then I should get 3 as a result
+
+  Scenario: Check the function count_words()
+    Given a sample text
+       """
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+       eiusmod tempor incididunt ut labore et dolore magna aliqua.
+       """
+    When I count all words in text
+    Then I should get 19 as a result
+```
+
+---
+
+### Tabulky (druhý příklad)
+
+```
+  Scenario: Check the exchange rate calculation
+    Given the following exchange rate table
+      | currency |  rate  |
+      | CZK      |  1.000 |
+      | CAD      | 16.172 |
+      | HRK      |  3.407 |
+      | USD      | 20.655 |
+    When I sell 10 CAD
+    Then I should receive 161.72 CZK
+```
+
+### Tabulky použité pro specifikaci několika běhů testů
+
+```gherkin
+  Scenario Outline: Check the user search feature, perform the search for more users
+    Given GitHub is accessible
+    When I search for user with nick <nick>
+    Then I should receive 200 status code
+     And I should receive proper JSON response
+     And I should find the user with full name <fullname>
+     And I should find that the user works for company <company>
+
+     Examples: users
+     |nick|fullname|company|
+     |torvalds|Linus Torvalds|Linux Foundation|
+     |brammool|Bram Moolenaar|Zimbu Labs|
+     |tisnik|Pavel Tišnovský|Red Hat, Inc.|
+```
+
+### Tabulky použité pro specifikaci několika běhů testů
+
+```gherkin
+  Scenario Outline: Check the exchange rate calculation
+    Given the following exchange rate table
+      | currency |  rate  |
+      | CZK      |  1.000 |
+      | CAD      | 16.172 |
+      | HRK      |  3.407 |
+      | USD      | 20.655 |
+    When I sell <sold> <currency>
+    Then I should receive <amount> CZK
+
+    Examples: sold
+        | sold | currency | amount |
+        | 1    |   CZK    |    1.000 |
+        | 10   |   CZK    |   10.000 |
+        | 1    |   CAD    |   16.172 |
+        | 100  |   CAD    | 1617.200 |
+        | 2    |   HRK    |    6.814 |
+```
+
+---
+
+---
+
+### Tabulky
+
+```gherkin
+Feature: Sum function test 1
+
+  Scenario: Check the function sum()
+    Given a list of integers
+      |value |
+      | 1    |
+      | 10   |
+      | 100  |
+      | 1000 |
+    When I summarize all those integers
+    Then I should get 1111 as a result
+```
+
+---
+
+## Robot framework
+
+## Hypothesis
+
+## Odkazy
+
+* Použití Pythonu pro tvorbu testů: od jednotkových testů až po testy UI
+    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)
+
+* Použití Pythonu pro tvorbu testů: použití třídy Mock z knihovny unittest.mock
+    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-pouziti-tridy-mock-z-knihovny-unittest-mock/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-pouziti-tridy-mock-z-knihovny-unittest-mock/)
+
+* Použití nástroje pytest pro tvorbu jednotkových testů a benchmarků
+    - [https://www.root.cz/clanky/pouziti-nastroje-pytest-pro-tvorbu-jednotkovych-testu-a-benchmarku/](https://www.root.cz/clanky/pouziti-nastroje-pytest-pro-tvorbu-jednotkovych-testu-a-benchmarku/)
+
+* Nástroj pytest a jednotkové testy: fixtures, výjimky, parametrizace testů
+    - [https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-fixtures-vyjimky-parametrizace-testu/](https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-fixtures-vyjimky-parametrizace-testu/)
+
+* Nástroj pytest a jednotkové testy: životní cyklus testů, užitečné tipy a triky
+    - [https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-zivotni-cyklus-testu-uzitecne-tipy-a-triky/](https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-zivotni-cyklus-testu-uzitecne-tipy-a-triky/)
+
+* Struktura projektů s jednotkovými testy, využití Travis CI
+    - [https://www.root.cz/clanky/struktura-projektu-s-jednotkovymi-testy-vyuziti-travis-ci/](https://www.root.cz/clanky/struktura-projektu-s-jednotkovymi-testy-vyuziti-travis-ci/)
+
+* Omezení stavového prostoru testovaných funkcí a metod
+    - [https://www.root.cz/clanky/omezeni-stavoveho-prostoru-testovanych-funkci-a-metod/](https://www.root.cz/clanky/omezeni-stavoveho-prostoru-testovanych-funkci-a-metod/)
+
+* Testování aplikací s využitím nástroje Hypothesis
+    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)
+
+* Testování aplikací s využitím nástroje Hypothesis (dokončení)
+    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis-dokonceni/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis-dokonceni/)
+
+* Testování webových aplikací s REST API z Pythonu
+    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/)
+
+* Testování webových aplikací s REST API z Pythonu (2)
+    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu-2/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu-2/)
+
+* Behavior-driven development v Pythonu s využitím knihovny Behave
+    - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave/)
+
+* Behavior-driven development v Pythonu s využitím knihovny Behave (druhá část)
+    - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-druha-cast/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-druha-cast/)
+
+* Behavior-driven development v Pythonu s využitím knihovny Behave (závěrečná část)
+    - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-zaverecna-cast/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-zaverecna-cast/)
+
+* Validace datových struktur v Pythonu pomocí knihoven Schemagic a Schema
+    - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-pomoci-knihoven-schemagic-a-schema/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-pomoci-knihoven-schemagic-a-schema/)
+
+* Validace datových struktur v Pythonu (2. část)
+    - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-2-cast/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-2-cast/)
+
+* Validace datových struktur v Pythonu (dokončení)
+    - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-dokonceni/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-dokonceni/)
+
+* Univerzální testovací nástroj Robot Framework
+    - [https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework/](https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework/)
+
+* Univerzální testovací nástroj Robot Framework a BDD testy
+    - [https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework-a-bdd-testy/](https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework-a-bdd-testy/)
+
+* Úvod do problematiky fuzzingu a fuzz testování
+    - [https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani/](https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani/)
+
+* Úvod do problematiky fuzzingu a fuzz testování – složení vlastního fuzzeru
+    - [https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani-slozeni-vlastniho-fuzzeru/](https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani-slozeni-vlastniho-fuzzeru/)
