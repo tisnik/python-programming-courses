@@ -481,3 +481,21 @@ Given the customer has logged into their current account
 
 ---
 
+## Robot framework
+
+## Hypothesis
+
+## Odkazy
+
+* Použití Pythonu pro tvorbu testů: od jednotkových testů až po testy UI
+    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-od-jednotkovych-testu-az-po-testy-ui/)
+
+* Použití Pythonu pro tvorbu testů: použití třídy Mock z knihovny unittest.mock
+    - [https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-pouziti-tridy-mock-z-knihovny-unittest-mock/](https://www.root.cz/clanky/pouziti-pythonu-pro-tvorbu-testu-pouziti-tridy-mock-z-knihovny-unittest-mock/)
+
+* Použití nástroje pytest pro tvorbu jednotkových testů a benchmarků
+    - [https://www.root.cz/clanky/pouziti-nastroje-pytest-pro-tvorbu-jednotkovych-testu-a-benchmarku/](https://www.root.cz/clanky/pouziti-nastroje-pytest-pro-tvorbu-jednotkovych-testu-a-benchmarku/)
+
+* Nástroj pytest a jednotkové testy: fixtures, výjimky, parametrizace testů
+    - [https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-fixtures-vyjimky-parametrizace-testu/](https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-fixtures-vyjimky-parametrizace-testu/)
+
