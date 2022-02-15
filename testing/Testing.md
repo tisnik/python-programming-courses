@@ -379,6 +379,75 @@ pytest -v -m other
 
 
 
+### Fixtures
+
+* Využití "fixtures"
+
+! examples/pytest/average13/test_average.py
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average13](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average14)
+
+
+
+### Složitější příklad - výpočet prvočísel
+
+* Testovaný zdrojový kód
+
+! examples/pytest/primes1/primes.py
+
+* Vlastní jednotkový test
+
+! examples/pytest/primes1/test_primes.py
+
+* Spuštění jednotkových testů
+
+```
+pytest
+```
+
+```
+pytest -v
+```
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes1](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes1)
+
+
+
+* Rozšíření testů o mezní případ
+
+! examples/pytest/primes2/test_primes.py
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes2](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes2)
+
+
+
+### Zjištění pokrytí kódu testy
+
+```
+pytest --cov=. > cov_all.txt
+
+# specifikace balíčku
+pytest --cov=primes > cov_primes.txt
+
+# řádky nepokryté jednotkovými testy
+pytest --cov=primes --cov-report term-missing > cov_missing.txt
+
+# export do HTML
+pytest --cov=primes --cov-report html
+```
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3)
+
+
+
+### Pragma no cover
+
+! examples/pytest/primes3/primes.py
+
 ### Benchmarky
 
 ### BDD: behavior-driven development
