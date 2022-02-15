@@ -361,6 +361,24 @@ pytest
 
 
 
+### Spuštění pouze vybraných testů
+* Označení testů (tagy)
+
+! examples/pytest/average11/test_average.py
+
+* Spuštění testů podle tagů
+
+```
+pytest -v -m smoketest
+pytest -v -m thorough
+pytest -v -m other
+```
+
+* Adresář s celým projektem
+    - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average11](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/average11)
+
+
+
 ### Benchmarky
 
 ### BDD: behavior-driven development
