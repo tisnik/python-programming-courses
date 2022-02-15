@@ -529,3 +529,9 @@ Given the customer has logged into their current account
 * Behavior-driven development v Pythonu s využitím knihovny Behave (závěrečná část)
     - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-zaverecna-cast/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-zaverecna-cast/)
 
+* Validace datových struktur v Pythonu pomocí knihoven Schemagic a Schema
+    - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-pomoci-knihoven-schemagic-a-schema/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-pomoci-knihoven-schemagic-a-schema/)
+
+* Validace datových struktur v Pythonu (2. část)
+    - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-2-cast/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-2-cast/)
+
