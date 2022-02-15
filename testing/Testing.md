@@ -499,3 +499,15 @@ Given the customer has logged into their current account
 * Nástroj pytest a jednotkové testy: fixtures, výjimky, parametrizace testů
     - [https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-fixtures-vyjimky-parametrizace-testu/](https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-fixtures-vyjimky-parametrizace-testu/)
 
+* Nástroj pytest a jednotkové testy: životní cyklus testů, užitečné tipy a triky
+    - [https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-zivotni-cyklus-testu-uzitecne-tipy-a-triky/](https://www.root.cz/clanky/nastroj-pytest-a-jednotkove-testy-zivotni-cyklus-testu-uzitecne-tipy-a-triky/)
+
+* Struktura projektů s jednotkovými testy, využití Travis CI
+    - [https://www.root.cz/clanky/struktura-projektu-s-jednotkovymi-testy-vyuziti-travis-ci/](https://www.root.cz/clanky/struktura-projektu-s-jednotkovymi-testy-vyuziti-travis-ci/)
+
+* Omezení stavového prostoru testovaných funkcí a metod
+    - [https://www.root.cz/clanky/omezeni-stavoveho-prostoru-testovanych-funkci-a-metod/](https://www.root.cz/clanky/omezeni-stavoveho-prostoru-testovanych-funkci-a-metod/)
+
+* Testování aplikací s využitím nástroje Hypothesis
+    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)
+
