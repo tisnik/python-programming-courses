@@ -535,3 +535,17 @@ Given the customer has logged into their current account
 * Validace datových struktur v Pythonu (2. část)
     - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-2-cast/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-2-cast/)
 
+* Validace datových struktur v Pythonu (dokončení)
+    - [https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-dokonceni/](https://www.root.cz/clanky/validace-datovych-struktur-v-pythonu-dokonceni/)
+
+* Univerzální testovací nástroj Robot Framework
+    - [https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework/](https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework/)
+
+* Univerzální testovací nástroj Robot Framework a BDD testy
+    - [https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework-a-bdd-testy/](https://www.root.cz/clanky/univerzalni-testovaci-nastroj-robot-framework-a-bdd-testy/)
+
+* Úvod do problematiky fuzzingu a fuzz testování
+    - [https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani/](https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani/)
+
+* Úvod do problematiky fuzzingu a fuzz testování – složení vlastního fuzzeru
+    - [https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani-slozeni-vlastniho-fuzzeru/](https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani-slozeni-vlastniho-fuzzeru/)
