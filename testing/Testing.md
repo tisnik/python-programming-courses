@@ -362,6 +362,7 @@ pytest
 
 
 ### Spuštění pouze vybraných testů
+
 * Označení testů (tagy)
 
 ! examples/pytest/average11/test_average.py
@@ -439,14 +440,14 @@ pytest --cov=primes --cov-report term-missing > cov_missing.txt
 pytest --cov=primes --cov-report html
 ```
 
+### Pragma no cover
+
+! examples/pytest/primes3/primes.py
+
 * Adresář s celým projektem
     - [https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3](https://github.com/tisnik/python-programming-courses/blob/master/testing/examples/pytest/primes3)
 
 
-
-### Pragma no cover
-
-! examples/pytest/primes3/primes.py
 
 ### Benchmarky
 
@@ -478,6 +479,49 @@ Given the customer has logged into their current account
 * Klíčová slova Given, And, When, Then
 * Následuje část věty v libovolném jazyce (praktická je angličtina)
 * Ve větě se mohou objevovat proměnné části: 100, 75, 25
+
+---
+
+### Víceřádkový text
+
+```gherkin
+Feature: Count words function test
+
+  Scenario: Check the function count_words()
+    Given a sample text
+       """
+       Velmi kratka veta.
+       """
+    When I count all words in text
+    Then I should get 3 as a result
+
+  Scenario: Check the function count_words()
+    Given a sample text
+       """
+       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+       eiusmod tempor incididunt ut labore et dolore magna aliqua.
+       """
+    When I count all words in text
+    Then I should get 19 as a result
+```
+
+---
+
+### Tabulky
+
+```gherkin
+Feature: Sum function test 1
+
+  Scenario: Check the function sum()
+    Given a list of integers
+      |value |
+      | 1    |
+      | 10   |
+      | 100  |
+      | 1000 |
+    When I summarize all those integers
+    Then I should get 1111 as a result
+```
 
 ---
 
