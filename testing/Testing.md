@@ -514,3 +514,18 @@ Given the customer has logged into their current account
 * Testování aplikací s využitím nástroje Hypothesis (dokončení)
     - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis-dokonceni/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis-dokonceni/)
 
+* Testování webových aplikací s REST API z Pythonu
+    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu/)
+
+* Testování webových aplikací s REST API z Pythonu (2)
+    - [https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu-2/](https://www.root.cz/clanky/testovani-webovych-aplikaci-s-rest-api-z-pythonu-2/)
+
+* Behavior-driven development v Pythonu s využitím knihovny Behave
+    - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave/)
+
+* Behavior-driven development v Pythonu s využitím knihovny Behave (druhá část)
+    - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-druha-cast/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-druha-cast/)
+
+* Behavior-driven development v Pythonu s využitím knihovny Behave (závěrečná část)
+    - [https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-zaverecna-cast/](https://www.root.cz/clanky/behavior-driven-development-v-pythonu-s-vyuzitim-knihovny-behave-zaverecna-cast/)
+
