@@ -507,6 +507,64 @@ Feature: Count words function test
 
 ---
 
+### Tabulky (druhý příklad)
+
+```
+  Scenario: Check the exchange rate calculation
+    Given the following exchange rate table
+      | currency |  rate  |
+      | CZK      |  1.000 |
+      | CAD      | 16.172 |
+      | HRK      |  3.407 |
+      | USD      | 20.655 |
+    When I sell 10 CAD
+    Then I should receive 161.72 CZK
+```
+
+### Tabulky použité pro specifikaci několika běhů testů
+
+```gherkin
+  Scenario Outline: Check the user search feature, perform the search for more users
+    Given GitHub is accessible
+    When I search for user with nick <nick>
+    Then I should receive 200 status code
+     And I should receive proper JSON response
+     And I should find the user with full name <fullname>
+     And I should find that the user works for company <company>
+
+     Examples: users
+     |nick|fullname|company|
+     |torvalds|Linus Torvalds|Linux Foundation|
+     |brammool|Bram Moolenaar|Zimbu Labs|
+     |tisnik|Pavel Tišnovský|Red Hat, Inc.|
+```
+
+### Tabulky použité pro specifikaci několika běhů testů
+
+```gherkin
+  Scenario Outline: Check the exchange rate calculation
+    Given the following exchange rate table
+      | currency |  rate  |
+      | CZK      |  1.000 |
+      | CAD      | 16.172 |
+      | HRK      |  3.407 |
+      | USD      | 20.655 |
+    When I sell <sold> <currency>
+    Then I should receive <amount> CZK
+
+    Examples: sold
+        | sold | currency | amount |
+        | 1    |   CZK    |    1.000 |
+        | 10   |   CZK    |   10.000 |
+        | 1    |   CAD    |   16.172 |
+        | 100  |   CAD    | 1617.200 |
+        | 2    |   HRK    |    6.814 |
+```
+
+---
+
+---
+
 ### Tabulky
 
 ```gherkin
