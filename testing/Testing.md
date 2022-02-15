@@ -511,3 +511,6 @@ Given the customer has logged into their current account
 * Testování aplikací s využitím nástroje Hypothesis
     - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis/)
 
+* Testování aplikací s využitím nástroje Hypothesis (dokončení)
+    - [https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis-dokonceni/](https://www.root.cz/clanky/testovani-aplikaci-s-vyuzitim-nastroje-hypothesis-dokonceni/)
+
