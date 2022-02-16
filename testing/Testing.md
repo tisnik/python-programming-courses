@@ -582,23 +582,86 @@ Feature: Sum function test 1
 
 ---
 
+## Praktická část
+
+* Knihovna Behave
+* Struktura projektu s BDD testy
+    - testovaný modul
+    - testovací scénář
+    - implementace testovacího scénáře
+    - specifikace prostředí testů
+
 ---
 
-### Tabulky
+### Repositář s demonstračními příklady
+
+* https://github.com/tisnik/python-behave-demos
+
+```
+git clone https://github.com/tisnik/python-behave-demos
+```
+
+---
+
+### Knihovna Behave
+
+* Knihovna Behave
+    - určena pro Python 2.x i Python 3.x
+    - implementuje většinu funkcionality jazyka Gherkin
+    - snadné napojení popisu testů na jejich implementaci
+    - používají se dekorátory
+    - automatické odvození parametrů z textu dekorátoru
+
+---
+
+### Struktura projektu s BDD testy
+
+```
+├── feature_list.txt
+├── features
+│   ├── adder.feature
+│   └── steps
+│       └── common.py
+├── requirements.in
+├── requirements.txt
+├── run_tests.sh
+└── src
+    └── adder.py
+```
+
+Význam souborů v projektu:
+
+```
+src/adder.py                     vlastní modul, který budeme chtít otestovat
+requirements.in/requirements.txt soubory pro pip (instalátor balíčků)
+feature_list.txt                 seznam testovacích scénářů, které se mají spustit
+features/                        adresář obsahující testovací scénáře i implementaci jednotlivých kroků testů
+run_tests.sh	                 pomocný skript pro spuštění testovacích scénářů
+```
+
+---
+
+### Testovaný modul
+
+```python
+def add(x, y):
+    return x + y
+```
+
+---
+
+### Popis testovacího scénáře
 
 ```gherkin
-Feature: Sum function test 1
-
-  Scenario: Check the function sum()
-    Given a list of integers
-      |value |
-      | 1    |
-      | 10   |
-      | 100  |
-      | 1000 |
-    When I summarize all those integers
-    Then I should get 1111 as a result
+Feature: Adder test
+ 
+  Scenario: Check the function add()
+    Given The function add is callable
+    When I call function add with arguments 1 and 2
+    Then I should get 3 as a result
 ```
+
+
 
 ---
 
