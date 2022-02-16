@@ -1019,3 +1019,57 @@ def check_company(context, company):
 
 * Úvod do problematiky fuzzingu a fuzz testování – složení vlastního fuzzeru
     - [https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani-slozeni-vlastniho-fuzzeru/](https://www.root.cz/clanky/uvod-do-problematiky-fuzzingu-a-fuzz-testovani-slozeni-vlastniho-fuzzeru/)
+
+* Knihovna behave 1.2.6
+    - [https://pypi.org/project/behave/](https://pypi.org/project/behave/)
+
+* Welcome to behave!
+    - [https://behave.readthedocs.io/en/latest/](https://behave.readthedocs.io/en/latest/)
+
+* Getting Started with Behavior Testing in Python with Behave https
+    - [/semaphoreci.com/community/tutorials/getting-started-with-behavior-testing-in-python-with-behave](/semaphoreci.com/community/tutorials/getting-started-with-behavior-testing-in-python-with-behave)
+
+* What is Gherkin – BDD Language? http
+    - [/toolsqa.com/cucumber/gherkin/](/toolsqa.com/cucumber/gherkin/)
+
+* Python Quick Reference
+    - [http://rgruet.free.fr/#QuickRef](http://rgruet.free.fr/#QuickRef)
+
+* Python docs
+    - [http://www.python.org/doc/](http://www.python.org/doc/)
+
+* PEP 8
+    - [http://www.python.org/dev/peps/pep-0008/](http://www.python.org/dev/peps/pep-0008/)
+
+* pep8.py
+    - [http://pypi.python.org/pypi/pep8/](http://pypi.python.org/pypi/pep8/)
+
+* pylint
+    - [http://www.logilab.org/project/pylint](http://www.logilab.org/project/pylint)
+
+* Epydoc
+    - [http://epydoc.sourceforge.net/](http://epydoc.sourceforge.net/)
+
+* Sphinx
+    - [http://sphinx-doc.org/](http://sphinx-doc.org/)
+
+* Python in Python
+    - [http://pypy.org/](http://pypy.org/)
+
+* The key differences between Python 2.7.x and Python 3.x with examples
+    - [http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
+
+* Language differences and workarounds
+    - [http://python3porting.com/differences.html](http://python3porting.com/differences.html)
+
+* Everything you did not want to know about Unicode in Python 3
+    - [http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/](http://lucumr.pocoo.org/2014/5/12/everything-about-unicode/)
+
+* Unicode (Wikipedia)
+    - [https://en.wikipedia.org/wiki/Unicode](https://en.wikipedia.org/wiki/Unicode)
+
+* Dive Into Python
+    - [http://www.diveintopython.net/](http://www.diveintopython.net/)
+
+* Dive into Python 3
+    - [http://www.diveintopython3.net/](http://www.diveintopython3.net/)
