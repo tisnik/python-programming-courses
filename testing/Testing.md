@@ -84,6 +84,7 @@
 * Další typy testů
     - Benchmarky
 
+---
 
 
 ## Pyramida typů testů
@@ -503,6 +504,24 @@ Feature: Count words function test
        """
     When I count all words in text
     Then I should get 19 as a result
+```
+
+---
+
+### Tabulky
+
+```gherkin
+Feature: Sum function test 1
+
+  Scenario: Check the function sum()
+    Given a list of integers
+      |value |
+      | 1    |
+      | 10   |
+      | 100  |
+      | 1000 |
+    When I summarize all those integers
+    Then I should get 1111 as a result
 ```
 
 ---
