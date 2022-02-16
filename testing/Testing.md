@@ -688,9 +688,64 @@ def check_integer_result(context, expected):
         "Wrong result: {r} != {e}".format(r=context.result, e=expected)
 ```
 
+---
+
+### Prostředí testů
+
+* Příklad implementace prostředí ve chvíli, kdy se testuje nativní knihovna
+
+```
+from behave.log_capture import capture
+import ctypes
+
+
+def _load_library(context, library_name):
+    if context.tested_library is None:
+        context.tested_library = ctypes.CDLL(library_name)
+
+
+def before_all(context):
+    """Perform setup before the first event."""
+    context.tested_library = None
+    context.load_library = _load_library
+```
 
 ---
 
+### Skript pro spuštění testů
+
+```shell
+#!/bin/bash -ex
+ 
+export NOVENV=1
+function prepare_venv() {
+    virtualenv -p python3 venv && source venv/bin/activate && python3 `which pip3` install -r requirements.txt
+}
+ 
+[ "$NOVENV" == "1" ] || prepare_venv || exit 1
+ 
+PYTHONDONTWRITEBYTECODE=1 python3 `which behave` --tags=-skip -D dump_errors=true @feature_list.txt $@
+```
+
+---
+
+### Vlastní spuštění textu
+
+```
+Feature: Adder test # features/adder.feature:1
+
+  Scenario: Check the function add()                # features/adder.feature:3
+    Given The function add is callable              # features/steps/common.py:20 0.000s
+    When I call function add with arguments 1 and 2 # features/steps/common.py:25 0.000s
+    Then I should get 3 as a result                 # features/steps/common.py:30 0.000s
+
+1 feature passed, 0 failed, 0 skipped
+1 scenario passed, 0 failed, 0 skipped
+3 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.000s
+```
+
+---
 ## Robot framework
 
 ## Hypothesis
