@@ -820,6 +820,75 @@ def check_integer_result(context, result):
 ```
 
 ---
+
+### Testování REST API
+
+* Použití knihovny *requests*
+
+#### Testovací scénář
+
+```
+  @smoketest
+  Scenario: Check the GitHub API entry point
+    Given GitHub is accessible
+    When I access the API endpoint /
+    Then I should receive 200 status code
+
+  Scenario: Check the user search feature
+    Given GitHub is accessible
+    When I search for user with nick torvalds
+    Then I should receive 200 status code
+     And I should receive proper JSON response
+     And I should find the user with full name Linus Torvalds
+     And I should find that the user works for company Linux Foundation
+```
+
+#### Prostředí testů
+
+```python
+import json
+import os.path
+
+from behave.log_capture import capture
+import requests
+
+
+def _is_accessible(context, accepted_codes=None):
+    accepted_codes = accepted_codes or {200, 401}
+    url = context.api_url
+    try:
+        res = requests.get(url)
+        return res.status_code in accepted_codes
+    except requests.exceptions.ConnectionError as e:
+        print("Connection error: {e}".format(e=e))
+    return False
+
+
+def before_all(context):
+    """Perform setup before the first event."""
+    context.is_accessible = _is_accessible
+    context.api_url = "https://api.github.com"
+
+
+@capture
+def before_scenario(context, scenario):
+    """Perform setup before each scenario is run."""
+    pass
+
+
+@capture
+def after_scenario(context, scenario):
+    """Perform cleanup after each scenario is run."""
+    pass
+
+
+@capture
+def after_all(context):
+    """Perform cleanup after the last event."""
+    pass
+```
+---
+
 ## Robot framework
 
 ## Hypothesis
