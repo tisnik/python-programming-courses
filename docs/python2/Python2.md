@@ -119,6 +119,7 @@
 
 class Employee:
     """Kostra třídy reprezentující zaměstnance."""
+
     pass
 ```
 
@@ -141,7 +142,9 @@ class Employee:
 
 class Employee:
     """Kostra třídy reprezentující zaměstnance."""
+
     pass
+
 
 # vytvoření dvou instancí třídy
 employee1 = Employee()
@@ -175,6 +178,7 @@ print(employee2)
 class CLS:
     x = 10
 
+
 c1 = CLS()
 print(CLS.x)
 print(c1.x)
@@ -203,10 +207,11 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: {name} {surname}   Salary: {salary}".format(
-            name=self._first_name,
-            surname=self._surname,
-            salary=self._salary))
+        print(
+            "Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name, surname=self._surname, salary=self._salary
+            )
+        )
 
     @classmethod
     def inc_counter(cls):
@@ -372,6 +377,7 @@ def test_destructor():
     employee1 = Employee("Eda", "Wasserfall", 10000)
     employee2 = Employee("Přemysl", "Hájek", 25001)
 
+
 test_destructor()
 
 employee3 = Employee("x", "y", 0)
@@ -418,7 +424,9 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: ", self._first_name, self._surname, "   Salary: ", self._salary)
+        print(
+            "Full name: ", self._first_name, self._surname, "   Salary: ", self._salary
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -452,10 +460,11 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: {name} {surname}   Salary: {salary}".format(
-            name=self._first_name,
-            surname=self._surname,
-            salary=self._salary))
+        print(
+            "Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name, surname=self._surname, salary=self._salary
+            )
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -591,9 +600,8 @@ class Employee:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -632,16 +640,18 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
-                                                                  surname=self._surname,
-                                                                  salary=self._salary)
+        return "name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
     def __eq__(self, other):
         if other is None:
             return False
-        return self._first_name == other._first_name and \
-            self._surname == other._surname and \
-            self._salary == other._salary
+        return (
+            self._first_name == other._first_name
+            and self._surname == other._surname
+            and self._salary == other._salary
+        )
 
 
 # vytvoření tří instancí třídy
@@ -703,7 +713,6 @@ print(c4)
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
@@ -736,7 +745,6 @@ print(c4)
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
@@ -776,7 +784,6 @@ print(c3 == c5)
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
@@ -824,7 +831,6 @@ print(c3 == c5)
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
@@ -877,7 +883,6 @@ print(c3 == c5)
 
 
 class Complex:
-
     def __init__(self, real=0, imag=0):
         self._real = real
         self._imag = imag
@@ -922,7 +927,7 @@ print(c1 == c5)
 print(c2 == c5)
 print(c3 == c5)
 
-c6 = - c1
+c6 = -c1
 print(c1)
 print(c6)
 ```
@@ -1004,7 +1009,6 @@ print(c3.__repr__())
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         self._first_name = first_name
@@ -1013,12 +1017,13 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
     pass
+
 
 # vytvoření dvou instancí třídy
 p1 = Person("Eda", "Wasserfall")
@@ -1044,7 +1049,6 @@ print(s1)
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         self._first_name = first_name
@@ -1053,17 +1057,16 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
-
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -1090,7 +1093,6 @@ print(s1)
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         self._first_name = first_name
@@ -1099,8 +1101,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1111,8 +1113,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -1139,7 +1141,6 @@ print(s1)
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -1149,8 +1150,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1162,8 +1163,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -1190,7 +1191,6 @@ print(s1)
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -1200,8 +1200,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1213,8 +1213,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Employee(Person):
@@ -1227,9 +1227,8 @@ class Employee(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 # vytvoření dvou instancí třídy
@@ -1264,7 +1263,6 @@ print(e1)
 
 
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -1274,8 +1272,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1287,8 +1285,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Employee(Person):
@@ -1301,16 +1299,15 @@ class Employee(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 people = [
     Person("Eda", "Wasserfall"),
     Person("Přemysl", "Hájek"),
     Student("John", "Doe"),
-    Employee("Eric", "Iverson", 10000)
+    Employee("Eric", "Iverson", 10000),
 ]
 
 for p in people:
@@ -1328,14 +1325,12 @@ for p in people:
 """Ukázka polymorfismu (třída jako rozhraní)."""
 
 
-
 class Printable:
     def display(self):
         print(self)
 
 
 class Person(Printable):
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -1345,8 +1340,8 @@ class Person(Printable):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1358,8 +1353,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Employee(Person):
@@ -1372,16 +1367,15 @@ class Employee(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 people = [
     Person("Eda", "Wasserfall"),
     Person("Přemysl", "Hájek"),
     Student("John", "Doe"),
-    Employee("Eric", "Iverson", 10000)
+    Employee("Eric", "Iverson", 10000),
 ]
 
 for p in people:
@@ -1394,7 +1388,6 @@ for p in people:
 
 ```python
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -1407,8 +1400,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1423,8 +1416,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Employee(Person):
@@ -1440,16 +1433,15 @@ class Employee(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 people = [
     Person("Eda", "Wasserfall"),
     Person("Přemysl", "Hájek"),
     Student("John", "Doe"),
-    Employee("Eric", "Iverson", 10000)
+    Employee("Eric", "Iverson", 10000),
 ]
 
 for p in people:
@@ -1460,7 +1452,6 @@ for p in people:
 
 ```python
 class Person:
-
     def __init__(self, first_name, surname):
         """Konstruktor objektu."""
         print("Person.__init__")
@@ -1473,8 +1464,8 @@ class Person:
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Person** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Student(Person):
@@ -1489,8 +1480,8 @@ class Student(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Student** Full name: {name} {surname}".format(
-                name=self._first_name,
-                surname=self._surname)
+            name=self._first_name, surname=self._surname
+        )
 
 
 class Employee(Person):
@@ -1509,9 +1500,8 @@ class Employee(Person):
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
         return "**Employee** Full name: {name} {surname}   Salary: {salary}".format(
-                name=self._first_name,
-                surname=self._surname,
-                salary=self._salary)
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
 
 class Manager(Employee):
@@ -1549,6 +1539,7 @@ print(m1.calc_bonus())
 class CLS:
     x = 10
 
+
 c1 = CLS()
 print(CLS.x)
 print(c1.x)
@@ -1583,10 +1574,11 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: {name} {surname}   Salary: {salary}".format(
-            name=self._first_name,
-            surname=self._surname,
-            salary=self._salary))
+        print(
+            "Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name, surname=self._surname, salary=self._salary
+            )
+        )
 
     @classmethod
     def inc_counter(cls):
@@ -1646,10 +1638,11 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: {name} {surname}   Salary: {salary}".format(
-            name=self._first_name,
-            surname=self._surname,
-            salary=self._salary))
+        print(
+            "Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name, surname=self._surname, salary=self._salary
+            )
+        )
 
     @classmethod
     def inc_counter(cls):
@@ -1663,7 +1656,6 @@ class Employee:
     @classmethod
     def num_employees(cls):
         return cls.counter
-
 
 
 # vytvoření dvou instancí třídy
@@ -1704,10 +1696,11 @@ class Employee:
 
     def display_employee(self):
         """Metoda pro výpis hodnoty objektu."""
-        print("Full name: {name} {surname}   Salary: {salary}".format(
-            name=self._first_name,
-            surname=self._surname,
-            salary=self._salary))
+        print(
+            "Full name: {name} {surname}   Salary: {salary}".format(
+                name=self._first_name, surname=self._surname, salary=self._salary
+            )
+        )
 
     @classmethod
     def inc_counter(cls):
@@ -1722,7 +1715,6 @@ class Employee:
     @classmethod
     def num_employees(cls):
         return cls.counter
-
 
 
 # vytvoření dvou instancí třídy
@@ -1770,8 +1762,8 @@ e4 = Employee("Foo", "Baz", 0)
 * Lambda výraz s parametry
 
 ```python
-f = lambda x, y : x + y
-print(f(1,2))
+f = lambda x, y: x + y
+print(f(1, 2))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/lambda1.py)
@@ -1779,7 +1771,7 @@ print(f(1,2))
 * Lambda výraz bez parametrů
 
 ```python
-f = lambda : "hello"
+f = lambda: "hello"
 print(f())
 ```
 
@@ -1856,7 +1848,6 @@ print(result)
 
 ```python
 def increment_by(n):
-
     def add(x):
         return x + n
 
@@ -1904,7 +1895,6 @@ print(c1())
 print(c1())
 
 print(c2())
-
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/counter.py)
@@ -1916,11 +1906,12 @@ print(c2())
 ```python
 def increment_by(n):
 
-    return lambda x: x+n
+    return lambda x: x + n
 
 
 def add(x):
-    return x+x
+    return x + x
+
 
 i1 = increment_by(2)
 print(i1(1))
@@ -1933,7 +1924,6 @@ print(i2(10))
 print(add)
 print(i1)
 print(i2)
-
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/Functional/clojure_lambda.py)
@@ -1986,7 +1976,7 @@ seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 seznam1 = [item for item in seznam]
 
-seznam2 = [item*2 for item in seznam]
+seznam2 = [item * 2 for item in seznam]
 
 seznam3 = [item for item in seznam if item % 3 == 0]
 
@@ -2010,7 +2000,7 @@ print(seznam)
 seznam2 = []
 
 for item in seznam:
-    seznam2.append(item*2)
+    seznam2.append(item * 2)
 
 print(seznam2)
 ```
@@ -2064,7 +2054,7 @@ x = range(10)
 
 print(x)
 
-y = map(lambda value: value*2, x)
+y = map(lambda value: value * 2, x)
 print(list(y))
 ```
 
@@ -2078,8 +2068,10 @@ print(list(y))
 
 """Funkce vyššího řádu map."""
 
+
 def inc(x):
-    return x+1
+    return x + 1
+
 
 x = range(10)
 
@@ -2126,7 +2118,7 @@ x = range(1, 11)
 
 print(x)
 
-y = reduce(lambda a, b: a*b, x)
+y = reduce(lambda a, b: a * b, x)
 print(y)
 ```
 
@@ -2144,7 +2136,7 @@ x = range(1, 101)
 
 print(x)
 
-y = reduce(lambda a, b: a+b, x)
+y = reduce(lambda a, b: a + b, x)
 print(y)
 ```
 
@@ -2192,13 +2184,16 @@ for n in range(1, 11):
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return False
 
+
 def y():
     print("y() called")
     return False
+
 
 if x() or y():
     print("if branch")
@@ -2214,13 +2209,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return True
 
+
 def y():
     print("y() called")
     return False
+
 
 if x() or y():
     print("if branch")
@@ -2236,13 +2234,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return False
 
+
 def y():
     print("y() called")
     return True
+
 
 if x() or y():
     print("if branch")
@@ -2258,13 +2259,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return True
 
+
 def y():
     print("y() called")
     return True
+
 
 if x() or y():
     print("if branch")
@@ -2280,13 +2284,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return False
 
+
 def y():
     print("y() called")
     return False
+
 
 if x() and y():
     print("if branch")
@@ -2302,13 +2309,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return True
 
+
 def y():
     print("y() called")
     return False
+
 
 if x() and y():
     print("if branch")
@@ -2324,13 +2334,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return False
 
+
 def y():
     print("y() called")
     return True
+
 
 if x() and y():
     print("if branch")
@@ -2346,13 +2359,16 @@ else:
 
 """Zkrácené vyhodnocení logických operátorů."""
 
+
 def x():
     print("x() called")
     return True
 
+
 def y():
     print("y() called")
     return True
+
 
 if x() and y():
     print("if branch")
@@ -2431,8 +2447,7 @@ for i in infinite_generator():
 * Generátor konečného seznamu implementovaný jako třída
 
 ```python
-class generator():
-
+class generator:
     def __init__(self, max_n):
         self.max_n = max_n
         self.n = 0
@@ -2442,7 +2457,7 @@ class generator():
 
     def __next__(self):
         if self.n < self.max_n:
-            current, self.n = self.n, self.n+1
+            current, self.n = self.n, self.n + 1
             return current
         raise StopIteration()
 
@@ -2458,8 +2473,7 @@ for i in generator(10000):
 * Generátor nekonečného seznamu implementovaný jako třída
 
 ```python
-class infinite_generator():
-
+class infinite_generator:
     def __init__(self):
         self.n = 0
 
@@ -2467,7 +2481,7 @@ class infinite_generator():
         return self
 
     def __next__(self):
-        current, self.n = self.n, self.n+1
+        current, self.n = self.n, self.n + 1
         return current
 
 
@@ -2475,7 +2489,6 @@ for i in infinite_generator():
     print(i)
     if i >= 10:
         break
-
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/generators/generator_class_2.py)
@@ -2490,7 +2503,7 @@ seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 g1 = (item for item in seznam)
 
-g2 = (item*2 for item in seznam)
+g2 = (item * 2 for item in seznam)
 
 g3 = (item for item in seznam if item % 3 == 0)
 
@@ -2510,7 +2523,7 @@ seznam = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 g1 = list(item for item in seznam)
 
-g2 = list(item*2 for item in seznam)
+g2 = list(item * 2 for item in seznam)
 
 g3 = list(item for item in seznam if item % 3 == 0)
 
@@ -2533,7 +2546,6 @@ print(g3)
 
 ```python
 def function_caller(function):
-
     def inner_function():
         print("Calling function...")
         function()
@@ -2556,7 +2568,6 @@ f()
 
 ```python
 def function_caller(function):
-
     def inner_function():
         print("Calling function...")
         function()
@@ -2586,11 +2597,10 @@ import time
 
 
 def measure_time(func):
-
     def wrapper(*arg):
         t = time.time()
         res = func(*arg)
-        print("Function took " + str(time.time()-t) + " seconds to run")
+        print("Function took " + str(time.time() - t) + " seconds to run")
         return res
 
     return wrapper
@@ -2627,11 +2637,10 @@ hello()
     
 ```python
 def wrapper1(function):
-
     def inner_function():
-        print("-"*40)
+        print("-" * 40)
         function()
-        print("-"*40)
+        print("-" * 40)
 
     return inner_function
 
@@ -2650,21 +2659,19 @@ hello()
 
 ```python
 def wrapper1(function):
-
     def inner_function():
-        print("-"*40)
+        print("-" * 40)
         function()
-        print("-"*40)
+        print("-" * 40)
 
     return inner_function
 
 
 def wrapper2(function):
-
     def inner_function():
-        print("="*40)
+        print("=" * 40)
         function()
-        print("="*40)
+        print("=" * 40)
 
     return inner_function
 
@@ -2703,14 +2710,16 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
-                                                                               surname=self._surname,
-                                                                               salary=self._salary,
-                                                                               age=self._age)
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(
+            name=self._first_name,
+            surname=self._surname,
+            salary=self._salary,
+            age=self._age,
+        )
 
     def set_age(self, age):
         if age <= 0:
-            raise ValueError('The age must be positive')
+            raise ValueError("The age must be positive")
         self._age = age
 
     def get_age(self):
@@ -2751,14 +2760,16 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
-                                                                               surname=self._surname,
-                                                                               salary=self._salary,
-                                                                               age=self._age)
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(
+            name=self._first_name,
+            surname=self._surname,
+            salary=self._salary,
+            age=self._age,
+        )
 
     def set_age(self, age):
         if age <= 0:
-            raise ValueError('The age must be positive')
+            raise ValueError("The age must be positive")
         self._age = age
 
     def get_age(self):
@@ -2801,10 +2812,12 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(name=self._first_name,
-                                                                               surname=self._surname,
-                                                                               salary=self._salary,
-                                                                               age=self._age)
+        return "name: {name} {surname}   Salary: {salary}   Age: {age}".format(
+            name=self._first_name,
+            surname=self._surname,
+            salary=self._salary,
+            age=self._age,
+        )
 
     @property
     def age(self):
@@ -2813,7 +2826,7 @@ class Employee:
     @age.setter
     def age(self, age):
         if age <= 0:
-            raise ValueError('The age must be positive')
+            raise ValueError("The age must be positive")
         self._age = age
 
 
@@ -2893,6 +2906,7 @@ if __name__ == "__main__":
 
 from argparse import ArgumentParser
 
+
 def cli_arguments():
     """Retrieve all CLI arguments provided by user."""
     # First of all, we need to specify all command line flags that are
@@ -2900,28 +2914,67 @@ def cli_arguments():
     parser = ArgumentParser()
 
     # All supported command line arguments and flags
-    parser.add_argument("-a", "--address", dest="address", required=False,
-                        help="Address of REST API for external data pipeline")
+    parser.add_argument(
+        "-a",
+        "--address",
+        dest="address",
+        required=False,
+        help="Address of REST API for external data pipeline",
+    )
 
-    parser.add_argument("-u", "--user", dest="user", required=False,
-                        help="User name for basic authentication")
+    parser.add_argument(
+        "-u",
+        "--user",
+        dest="user",
+        required=False,
+        help="User name for basic authentication",
+    )
 
-    parser.add_argument("-p", "--password", dest="password", required=False,
-                        help="Password for basic authentication")
+    parser.add_argument(
+        "-p",
+        "--password",
+        dest="password",
+        required=False,
+        help="Password for basic authentication",
+    )
 
-    parser.add_argument("-i", "--input", dest="input", default=None, required=False,
-                        help="Specification of input file (with list of clusters, for example)")
+    parser.add_argument(
+        "-i",
+        "--input",
+        dest="input",
+        default=None,
+        required=False,
+        help="Specification of input file (with list of clusters, for example)",
+    )
 
-    parser.add_argument("-c", "--compare-results", dest="compare_results", action="store_true",
-                        default=None, required=False,
-                        help="Compare two sets of results, each set stored in its own directory")
+    parser.add_argument(
+        "-c",
+        "--compare-results",
+        dest="compare_results",
+        action="store_true",
+        default=None,
+        required=False,
+        help="Compare two sets of results, each set stored in its own directory",
+    )
 
-    parser.add_argument("-e", "--export", dest="export_file_name", required=False,
-                        default="report.csv",
-                        help="Name of CSV file with exported comparison results")
+    parser.add_argument(
+        "-e",
+        "--export",
+        dest="export_file_name",
+        required=False,
+        default="report.csv",
+        help="Name of CSV file with exported comparison results",
+    )
 
-    parser.add_argument("-v", "--verbose", dest="verbose", action="store_true", default=None,
-                        help="Make messages verbose", required=False)
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        dest="verbose",
+        action="store_true",
+        default=None,
+        help="Make messages verbose",
+        required=False,
+    )
 
     # Now it is time to parse flags, check the actual content of command line
     # and fill-in the object named `args`.
@@ -3103,6 +3156,7 @@ x = ",".join(l)
 import subprocess
 import re
 
+
 def get_framebuffer_resolution(framebuffer_device):
     fbset_output = subprocess.check_output(["fbset", "-s", "-fb", framebuffer_device])
 
@@ -3113,8 +3167,8 @@ def get_framebuffer_resolution(framebuffer_device):
             parsed = re.match(r"geometry (\d+) (\d+)", line)
             return (parsed.group(1), parsed.group(2))
 
-print(get_framebuffer_resolution("/dev/fb0"))
 
+print(get_framebuffer_resolution("/dev/fb0"))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution.py)
@@ -3124,6 +3178,7 @@ print(get_framebuffer_resolution("/dev/fb0"))
 ```python
 import subprocess
 import re
+
 
 def get_framebuffer_resolution(framebuffer_device):
     fbset_output = subprocess.check_output(["fbset", "-s", "-fb", framebuffer_device])
@@ -3137,8 +3192,8 @@ def get_framebuffer_resolution(framebuffer_device):
             parsed = regexp.match(line)
             return (parsed.group(1), parsed.group(2))
 
-print(get_framebuffer_resolution("/dev/fb0"))
 
+print(get_framebuffer_resolution("/dev/fb0"))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution2.py)
@@ -3152,6 +3207,7 @@ HTTP_RE = re.compile(
     r"http://minio:9000/insights-upload-perma/[0-9a-zA-Z\.\-]+/[0-9a-zA-Z\-]+)\?"
     r"X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=[^/]+$"
 )
+
 
 def get(self, src):
     """Download a file from HTTP server and store it in a temporary file."""
@@ -3262,10 +3318,10 @@ print(dt)
 
 from array import array
 
-a1 = array('l')
-a2 = array('u', 'hello \u2567')
-a3 = array('l', [1, 2, 3, 4, 5])
-a4 = array('d', [1.0, 2.0, 3.14])
+a1 = array("l")
+a2 = array("u", "hello \u2567")
+a3 = array("l", [1, 2, 3, 4, 5])
+a4 = array("d", [1.0, 2.0, 3.14])
 
 print(a1)
 print(a2)
@@ -3287,14 +3343,14 @@ from array import array
 
 input_data = [i for i in range(0, 10)]
 
-a1 = array('b', input_data)
-a2 = array('B', input_data)
-a3 = array('h', input_data)
-a4 = array('H', input_data)
-a5 = array('i', input_data)
-a6 = array('I', input_data)
-a7 = array('l', input_data)
-a8 = array('L', input_data)
+a1 = array("b", input_data)
+a2 = array("B", input_data)
+a3 = array("h", input_data)
+a4 = array("H", input_data)
+a5 = array("i", input_data)
+a6 = array("I", input_data)
+a7 = array("l", input_data)
+a8 = array("L", input_data)
 
 print(a1)
 print(a2)
@@ -3305,14 +3361,14 @@ print(a6)
 print(a7)
 print(a8)
 
-print(a1.buffer_info()[1]*a1.itemsize)
-print(a2.buffer_info()[1]*a2.itemsize)
-print(a3.buffer_info()[1]*a3.itemsize)
-print(a4.buffer_info()[1]*a4.itemsize)
-print(a5.buffer_info()[1]*a5.itemsize)
-print(a6.buffer_info()[1]*a6.itemsize)
-print(a7.buffer_info()[1]*a7.itemsize)
-print(a8.buffer_info()[1]*a8.itemsize)
+print(a1.buffer_info()[1] * a1.itemsize)
+print(a2.buffer_info()[1] * a2.itemsize)
+print(a3.buffer_info()[1] * a3.itemsize)
+print(a4.buffer_info()[1] * a4.itemsize)
+print(a5.buffer_info()[1] * a5.itemsize)
+print(a6.buffer_info()[1] * a6.itemsize)
+print(a7.buffer_info()[1] * a7.itemsize)
+print(a8.buffer_info()[1] * a8.itemsize)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/arrays2.py)
@@ -3324,10 +3380,10 @@ print(a8.buffer_info()[1]*a8.itemsize)
 
 from array import array
 
-a1 = array('l')
-a2 = array('u', 'hello \u2567')
-a3 = array('l', [1, 2, 3, 4, 5])
-a4 = array('d', [1.0, 2.0, 3.14])
+a1 = array("l")
+a2 = array("u", "hello \u2567")
+a3 = array("l", [1, 2, 3, 4, 5])
+a4 = array("d", [1.0, 2.0, 3.14])
 
 with open("a1", "wb") as fout:
     a1.tofile(fout)
@@ -3351,10 +3407,10 @@ with open("a4", "wb") as fout:
 
 from array import array
 
-a1 = array('l')
-a2 = array('u')
-a3 = array('l')
-a4 = array('d')
+a1 = array("l")
+a2 = array("u")
+a3 = array("l")
+a4 = array("d")
 
 
 with open("a1", "rb") as fin:
@@ -3374,10 +3430,10 @@ print(a2)
 print(a3)
 print(a4)
 
-print(a1.buffer_info()[1]*a1.itemsize)
-print(a2.buffer_info()[1]*a2.itemsize)
-print(a3.buffer_info()[1]*a3.itemsize)
-print(a4.buffer_info()[1]*a4.itemsize)
+print(a1.buffer_info()[1] * a1.itemsize)
+print(a2.buffer_info()[1] * a2.itemsize)
+print(a3.buffer_info()[1] * a3.itemsize)
+print(a4.buffer_info()[1] * a4.itemsize)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/arrays4.py)
@@ -3503,9 +3559,9 @@ q = queue.Queue()
 def consumer():
     while True:
         job = q.get()
-        print(f'Starting consuming {job}')
+        print(f"Starting consuming {job}")
         time.sleep(0.4)
-        print(f'Consumed {job}')
+        print(f"Consumed {job}")
         q.task_done()
 
 
@@ -3514,12 +3570,12 @@ threading.Thread(target=consumer, daemon=True, name="první").start()
 
 # vytvoření úloh v producentovi
 for job in range(10):
-    print(f'Producing {job}')
+    print(f"Producing {job}")
     q.put(job)
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues1.py)
@@ -3539,9 +3595,9 @@ def consumer():
     name = threading.current_thread().name
     while True:
         job = q.get()
-        print(f'{name} thread: Starting consuming {job}')
+        print(f"{name} thread: Starting consuming {job}")
         time.sleep(0.4)
-        print(f'{name} thread: Consumed {job}')
+        print(f"{name} thread: Consumed {job}")
         q.task_done()
 
 
@@ -3552,12 +3608,12 @@ threading.Thread(target=consumer, daemon=True, name="3rd").start()
 
 # vytvoření úloh v producentovi
 for job in range(10):
-    print(f'Producing {job}')
+    print(f"Producing {job}")
     q.put(job)
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues2.py)
@@ -3576,10 +3632,10 @@ q = queue.Queue()
 def producer():
     name = threading.current_thread().name
     for job in range(10):
-        print(f'{name} thread: Starting producing {job}')
+        print(f"{name} thread: Starting producing {job}")
         q.put(job)
         time.sleep(0.3)
-        print(f'{name} thread: Produced {job}')
+        print(f"{name} thread: Produced {job}")
 
 
 # simulace konzumenta
@@ -3587,9 +3643,9 @@ def consumer():
     name = threading.current_thread().name
     while True:
         job = q.get()
-        print(f'{name} thread: Starting consuming {job}')
+        print(f"{name} thread: Starting consuming {job}")
         time.sleep(0.4)
-        print(f'{name} thread: Consumed {job}')
+        print(f"{name} thread: Consumed {job}")
         q.task_done()
 
 
@@ -3606,7 +3662,7 @@ threading.Thread(target=producer, daemon=True, name="3rd").start()
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues3.py)
@@ -3625,10 +3681,10 @@ q = queue.Queue()
 def producer():
     name = threading.current_thread().name
     for job in range(1000):
-        print(f'{name} thread: Starting producing {job}')
+        print(f"{name} thread: Starting producing {job}")
         q.put(job)
         time.sleep(0.3)
-        print(f'{name} thread: Produced {job}')
+        print(f"{name} thread: Produced {job}")
 
 
 # simulace konzumenta
@@ -3636,9 +3692,9 @@ def consumer():
     name = threading.current_thread().name
     while True:
         job = q.get()
-        print(f'{name} thread: Starting consuming {job}')
+        print(f"{name} thread: Starting consuming {job}")
         time.sleep(0.4)
-        print(f'{name} thread: Consumed {job}')
+        print(f"{name} thread: Consumed {job}")
         q.task_done()
 
 
@@ -3655,7 +3711,7 @@ threading.Thread(target=producer, daemon=True, name="3rd").start()
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues4.py)
@@ -3676,7 +3732,7 @@ for i in range(1, 90, 5):
     x = radius * math.sin(math.radians(i))
     y = radius * math.cos(math.radians(i))
     # vykreslení jedné úsečky
-    pygame.draw.line(display, WHITE, (WIDTH-1, 0), (WIDTH-x, y))
+    pygame.draw.line(display, WHITE, (WIDTH - 1, 0), (WIDTH - x, y))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/math_sin_cos.py)
@@ -3689,10 +3745,13 @@ for i in range(1, 90, 5):
 
 ```python
 class Bounds:
-
-    def __init__(self,
-                 xmin=sys.float_info.max, ymin=sys.float_info.max,
-                 xmax=-sys.float_info.max, ymax=-sys.float_info.max):
+    def __init__(
+        self,
+        xmin=sys.float_info.max,
+        ymin=sys.float_info.max,
+        xmax=-sys.float_info.max,
+        ymax=-sys.float_info.max,
+    ):
         """Construct new bounds using given coordinates or default values."""
         self.xmin = xmin
         self.ymin = ymin
@@ -3710,6 +3769,7 @@ class Bounds:
 
 ```python
 import os
+
 
 def get_event_level():
     """Get level of events to monitor (errors only, or error and warnings)."""
@@ -3731,6 +3791,7 @@ def get_event_level():
 import subprocess
 import re
 
+
 def get_framebuffer_resolution(framebuffer_device):
     fbset_output = subprocess.check_output(["fbset", "-s", "-fb", framebuffer_device])
 
@@ -3741,8 +3802,8 @@ def get_framebuffer_resolution(framebuffer_device):
             parsed = re.match(r"geometry (\d+) (\d+)", line)
             return (parsed.group(1), parsed.group(2))
 
-print(get_framebuffer_resolution("/dev/fb0"))
 
+print(get_framebuffer_resolution("/dev/fb0"))
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/get_framebuffer_resolution.py)
@@ -3768,12 +3829,7 @@ print(get_framebuffer_resolution("/dev/fb0"))
 
 import json
 
-data = {
-        "x": 42,
-        "y": [1, 2, 3, 4],
-        "z": (1, 2, 3, 4),
-        "w": "foobar"
-        }
+data = {"x": 42, "y": [1, 2, 3, 4], "z": (1, 2, 3, 4), "w": "foobar"}
 
 with open("test.json", "w") as fout:
     json.dump(data, fout)
@@ -3788,12 +3844,7 @@ with open("test.json", "w") as fout:
 
 import json
 
-data = {
-        "x": 42,
-        "y": [1, 2, 3, 4],
-        "z": (1, 2, 3, 4),
-        "w": "foobar"
-        }
+data = {"x": 42, "y": [1, 2, 3, 4], "z": (1, 2, 3, 4), "w": "foobar"}
 
 with open("test.json", "w") as fout:
     json.dump(data, fout, indent=4)
@@ -3860,7 +3911,7 @@ def worker():
     threadName = threading.current_thread().name
     delay = 1
     n = 10
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -3885,7 +3936,7 @@ import time
 
 
 def worker(threadName, delay, n):
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -3912,7 +3963,7 @@ import time
 
 
 def worker(threadName, delay, n):
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -3955,9 +4006,9 @@ q = queue.Queue()
 def consumer():
     while True:
         job = q.get()
-        print(f'Starting consuming {job}')
+        print(f"Starting consuming {job}")
         time.sleep(0.4)
-        print(f'Consumed {job}')
+        print(f"Consumed {job}")
         q.task_done()
 
 
@@ -3966,12 +4017,12 @@ threading.Thread(target=consumer, daemon=True, name="první").start()
 
 # vytvoření úloh v producentovi
 for job in range(10):
-    print(f'Producing {job}')
+    print(f"Producing {job}")
     q.put(job)
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues1.py)
@@ -3991,9 +4042,9 @@ def consumer():
     name = threading.current_thread().name
     while True:
         job = q.get()
-        print(f'{name} thread: Starting consuming {job}')
+        print(f"{name} thread: Starting consuming {job}")
         time.sleep(0.4)
-        print(f'{name} thread: Consumed {job}')
+        print(f"{name} thread: Consumed {job}")
         q.task_done()
 
 
@@ -4004,12 +4055,12 @@ threading.Thread(target=consumer, daemon=True, name="3rd").start()
 
 # vytvoření úloh v producentovi
 for job in range(10):
-    print(f'Producing {job}')
+    print(f"Producing {job}")
     q.put(job)
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues2.py)
@@ -4028,10 +4079,10 @@ q = queue.Queue()
 def producer():
     name = threading.current_thread().name
     for job in range(10):
-        print(f'{name} thread: Starting producing {job}')
+        print(f"{name} thread: Starting producing {job}")
         q.put(job)
         time.sleep(0.3)
-        print(f'{name} thread: Produced {job}')
+        print(f"{name} thread: Produced {job}")
 
 
 # simulace konzumenta
@@ -4039,9 +4090,9 @@ def consumer():
     name = threading.current_thread().name
     while True:
         job = q.get()
-        print(f'{name} thread: Starting consuming {job}')
+        print(f"{name} thread: Starting consuming {job}")
         time.sleep(0.4)
-        print(f'{name} thread: Consumed {job}')
+        print(f"{name} thread: Consumed {job}")
         q.task_done()
 
 
@@ -4058,7 +4109,7 @@ threading.Thread(target=producer, daemon=True, name="3rd").start()
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues3.py)
@@ -4077,10 +4128,10 @@ q = queue.Queue()
 def producer():
     name = threading.current_thread().name
     for job in range(1000):
-        print(f'{name} thread: Starting producing {job}')
+        print(f"{name} thread: Starting producing {job}")
         q.put(job)
         time.sleep(0.3)
-        print(f'{name} thread: Produced {job}')
+        print(f"{name} thread: Produced {job}")
 
 
 # simulace konzumenta
@@ -4088,9 +4139,9 @@ def consumer():
     name = threading.current_thread().name
     while True:
         job = q.get()
-        print(f'{name} thread: Starting consuming {job}')
+        print(f"{name} thread: Starting consuming {job}")
         time.sleep(0.4)
-        print(f'{name} thread: Consumed {job}')
+        print(f"{name} thread: Consumed {job}")
         q.task_done()
 
 
@@ -4107,7 +4158,7 @@ threading.Thread(target=producer, daemon=True, name="3rd").start()
 
 # čekání na zpracování všech zpráv ve frontě
 q.join()
-print('Done')
+print("Done")
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/stdlib/queues4.py)
@@ -4124,7 +4175,7 @@ def worker():
     threadName = threading.current_thread().name
     delay = 1
     n = 10
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -4148,7 +4199,7 @@ def worker():
     threadName = threading.current_thread().name
     delay = 1
     n = 10
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -4172,7 +4223,7 @@ def worker():
     threadName = threading.current_thread().name
     delay = 1
     n = 10
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -4199,7 +4250,7 @@ import time
 
 
 def worker(threadName, delay, n):
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
 
@@ -4245,10 +4296,9 @@ import time
 
 
 def worker(threadName, delay, n):
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
-
 
 
 with ThreadPoolExecutor(max_workers=3) as executor:
@@ -4268,18 +4318,17 @@ import time
 
 
 def worker(threadName, delay, n):
-    for counter in range(1, n+1):
+    for counter in range(1, n + 1):
         time.sleep(delay)
         print("{}: {}/{} - {}".format(threadName, counter, n, time.ctime(time.time())))
     print("{}: DONE!".format(threadName))
-
 
 
 workers = 10
 
 with ThreadPoolExecutor(max_workers=workers) as executor:
     for w in range(workers):
-        executor.submit(worker, "Thread-{}".format(w+1), 0.5 + w/10.0, 10)
+        executor.submit(worker, "Thread-{}".format(w + 1), 0.5 + w / 10.0, 10)
 
 
 print("Done!")
@@ -4305,7 +4354,7 @@ def main():
     p.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Running main")
     main()
 ```
@@ -4335,7 +4384,7 @@ def main():
         p.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Running main")
     main()
 ```
@@ -4354,7 +4403,9 @@ def worker(name):
 
 
 def main():
-    ps = [Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")]
+    ps = [
+        Process(target=worker, args=(name,)) for name in ("foo", "bar", "baz", "other")
+    ]
 
     for p in ps:
         p.start()
@@ -4363,7 +4414,7 @@ def main():
         p.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Running main")
     main()
 ```
@@ -4403,7 +4454,7 @@ def main():
         p.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("Running main")
     main()
 ```
@@ -4441,7 +4492,7 @@ def main():
     p.join()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```
 
@@ -4591,11 +4642,7 @@ cdef calc(int width, int height, int maxiter, palette):
 
 import pickle
 
-data = {
-        "x": "Hello",
-        "y": "world",
-        "z": [1, 2, 3, 4],
-        "w": (1, 2, 3, 4)}
+data = {"x": "Hello", "y": "world", "z": [1, 2, 3, 4], "w": (1, 2, 3, 4)}
 
 with open("test", "wb") as fout:
     pickle.dump(data, fout)
@@ -4611,11 +4658,7 @@ with open("test", "wb") as fout:
 
 import pickle
 
-data = {
-        "x": "Hello",
-        "y": "world",
-        "z": [1, 2, 3, 4],
-        "w": (1, 2, 3, 4)}
+data = {"x": "Hello", "y": "world", "z": [1, 2, 3, 4], "w": (1, 2, 3, 4)}
 
 with open("test", "wb") as fout:
     pickle.dump(data, fout, pickle.HIGHEST_PROTOCOL)
@@ -4663,16 +4706,18 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
-                                                                  surname=self._surname,
-                                                                  salary=self._salary)
+        return "name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
     def __eq__(self, other):
         if other is None:
             return False
-        return self._first_name == other._first_name and \
-            self._surname == other._surname and \
-            self._salary == other._salary
+        return (
+            self._first_name == other._first_name
+            and self._surname == other._surname
+            and self._salary == other._salary
+        )
 
 
 # vytvoření tří instancí třídy
@@ -4709,16 +4754,18 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
-                                                                  surname=self._surname,
-                                                                  salary=self._salary)
+        return "name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
     def __eq__(self, other):
         if other is None:
             return False
-        return self._first_name == other._first_name and \
-            self._surname == other._surname and \
-            self._salary == other._salary
+        return (
+            self._first_name == other._first_name
+            and self._surname == other._surname
+            and self._salary == other._salary
+        )
 
 
 with open("test", "rb") as fin:
@@ -4792,16 +4839,18 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
-                                                                  surname=self._surname,
-                                                                  salary=self._salary)
+        return "name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
     def __eq__(self, other):
         if other is None:
             return False
-        return self._first_name == other._first_name and \
-            self._surname == other._surname and \
-            self._salary == other._salary
+        return (
+            self._first_name == other._first_name
+            and self._surname == other._surname
+            and self._salary == other._salary
+        )
 
 
 # vytvoření tří instancí třídy
@@ -4839,16 +4888,18 @@ class Employee:
 
     def __str__(self):
         """Speciální metoda pro převod objektu na řetězec."""
-        return "name: {name} {surname}   Salary: {salary}".format(name=self._first_name,
-                                                                  surname=self._surname,
-                                                                  salary=self._salary)
+        return "name: {name} {surname}   Salary: {salary}".format(
+            name=self._first_name, surname=self._surname, salary=self._salary
+        )
 
     def __eq__(self, other):
         if other is None:
             return False
-        return self._first_name == other._first_name and \
-            self._surname == other._surname and \
-            self._salary == other._salary
+        return (
+            self._first_name == other._first_name
+            and self._surname == other._surname
+            and self._salary == other._salary
+        )
 
 
 with shelve.open("test") as db:
@@ -4869,16 +4920,17 @@ from kafka import KafkaProducer
 from time import sleep
 from json import dumps
 
-server = 'localhost:9092'
-topic = 'upload'
+server = "localhost:9092"
+topic = "upload"
 
-print('Connecting to Kafka')
-producer = KafkaProducer(bootstrap_servers=[server],
-                         value_serializer=lambda x: dumps(x).encode('utf-8'))
-print('Connected to Kafka')
+print("Connecting to Kafka")
+producer = KafkaProducer(
+    bootstrap_servers=[server], value_serializer=lambda x: dumps(x).encode("utf-8")
+)
+print("Connected to Kafka")
 
 for i in range(1000):
-    data = {'counter': i}
+    data = {"counter": i}
     producer.send(topic, value=data)
     sleep(5)
 ```
@@ -4891,21 +4943,28 @@ for i in range(1000):
 import sys
 from kafka import KafkaConsumer
 
-server = 'localhost:9092'
-topic = 'upload'
-group_id = 'group1'
+server = "localhost:9092"
+topic = "upload"
+group_id = "group1"
 
-print('Connecting to Kafka')
-consumer = KafkaConsumer(topic,
-                         group_id=group_id,
-                         bootstrap_servers=[server],
-                         auto_offset_reset='earliest')
-print('Connected to Kafka')
+print("Connecting to Kafka")
+consumer = KafkaConsumer(
+    topic, group_id=group_id, bootstrap_servers=[server], auto_offset_reset="earliest"
+)
+print("Connected to Kafka")
 
 try:
     for message in consumer:
-        print("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
-                                             message.offset, message.key, message.value))
+        print(
+            "%s:%d:%d: key=%s value=%s"
+            % (
+                message.topic,
+                message.partition,
+                message.offset,
+                message.key,
+                message.value,
+            )
+        )
 except KeyboardInterrupt:
     sys.exit()
 ```
@@ -4918,14 +4977,13 @@ except KeyboardInterrupt:
 import sys
 from kafka import KafkaConsumer, TopicPartition
 
-server = 'localhost:9092'
-topic = 'upload'
-group_id = 'group1'
+server = "localhost:9092"
+topic = "upload"
+group_id = "group1"
 
-print('Connecting to Kafka')
-consumer = KafkaConsumer(group_id=group_id,
-                         bootstrap_servers=[server])
-print('Connected to Kafka')
+print("Connecting to Kafka")
+consumer = KafkaConsumer(group_id=group_id, bootstrap_servers=[server])
+print("Connected to Kafka")
 
 tp = TopicPartition(topic=topic, partition=0)
 consumer.assign([tp])
@@ -4933,8 +4991,16 @@ consumer.seek(tp, 0)
 
 try:
     for message in consumer:
-        print("%s:%d:%d: key=%s value=%s" % (message.topic, message.partition,
-                                             message.offset, message.key, message.value))
+        print(
+            "%s:%d:%d: key=%s value=%s"
+            % (
+                message.topic,
+                message.partition,
+                message.offset,
+                message.key,
+                message.value,
+            )
+        )
 except KeyboardInterrupt:
     sys.exit()
 ```
@@ -5127,7 +5193,8 @@ app.go()
 
 ```python
 import pygtk
-pygtk.require('2.0')
+
+pygtk.require("2.0")
 import gtk
 
 
@@ -5157,7 +5224,8 @@ gtk.main()
 
 ```python
 import pygtk
-pygtk.require('2.0')
+
+pygtk.require("2.0")
 import gtk
 
 
@@ -5202,19 +5270,19 @@ import sys
 # zajisteni importu noveho rozhrani
 import sip
 
-sip.setapi('QDate', 2)
-sip.setapi('QDateTime', 2)
-sip.setapi('QString', 2)
-sip.setapi('QTextStream', 2)
-sip.setapi('QTime', 2)
-sip.setapi('QUrl', 2)
-sip.setapi('QVariant', 2)
+sip.setapi("QDate", 2)
+sip.setapi("QDateTime", 2)
+sip.setapi("QString", 2)
+sip.setapi("QTextStream", 2)
+sip.setapi("QTime", 2)
+sip.setapi("QUrl", 2)
+sip.setapi("QVariant", 2)
 
 from PyQt4.Qt import *
 
 qt_application = QApplication(sys.argv)
 
-label = QLabel('Hello world!')
+label = QLabel("Hello world!")
 
 label.show()
 
@@ -5239,7 +5307,7 @@ from PySide.QtGui import *
 
 qt_application = QApplication(sys.argv)
 
-label = QLabel('Hello world!')
+label = QLabel("Hello world!")
 
 label.show()
 
@@ -5263,7 +5331,7 @@ class HelloWorldLabel(QLabel):
 
         self.setMinimumSize(QSize(600, 400))
         self.setAlignment(Qt.AlignCenter)
-        self.setWindowTitle('Hello world!')
+        self.setWindowTitle("Hello world!")
 
     def run(self):
         self.show()
@@ -5320,7 +5388,7 @@ from kivy.uix.label import Label
 
 class TestApp(App):
     def build(self):
-        return Label(text='Hello World')
+        return Label(text="Hello World")
 
 
 TestApp().run()
@@ -5668,8 +5736,9 @@ root = Tk()
 button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
 button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
 button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
-button4 = ttk.Button(root, text="This is fourth button, the last one",
-                     command=lambda: sys.exit(0))
+button4 = ttk.Button(
+    root, text="This is fourth button, the last one", command=lambda: sys.exit(0)
+)
 
 button1.grid(column=1, row=1)
 button2.grid(column=2, row=1)
@@ -5695,8 +5764,9 @@ root = Tk()
 button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
 button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
 button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
-button4 = ttk.Button(root, text="This is fourth button, the last one",
-                     command=lambda: sys.exit(0))
+button4 = ttk.Button(
+    root, text="This is fourth button, the last one", command=lambda: sys.exit(0)
+)
 
 button1.grid(column=1, row=1, sticky="w")
 button2.grid(column=2, row=1, sticky="w")
@@ -5722,8 +5792,9 @@ root = Tk()
 button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
 button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
 button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
-button4 = ttk.Button(root, text="This is fourth button, the last one",
-                     command=lambda: sys.exit(0))
+button4 = ttk.Button(
+    root, text="This is fourth button, the last one", command=lambda: sys.exit(0)
+)
 
 button1.grid(column=1, row=1, sticky="e")
 button2.grid(column=2, row=1, sticky="e")
@@ -5749,8 +5820,9 @@ root = Tk()
 button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
 button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
 button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
-button4 = ttk.Button(root, text="This is fourth button, the last one",
-                     command=lambda: sys.exit(0))
+button4 = ttk.Button(
+    root, text="This is fourth button, the last one", command=lambda: sys.exit(0)
+)
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=2, row=1, sticky="we")
@@ -5776,8 +5848,9 @@ root = Tk()
 button1 = ttk.Button(root, text="1st btn", command=lambda: sys.exit(0))
 button2 = ttk.Button(root, text="Second button", command=lambda: sys.exit(0))
 button3 = ttk.Button(root, text="Third button", command=lambda: sys.exit(0))
-button4 = ttk.Button(root, text="This is fourth button, the last one",
-                     command=lambda: sys.exit(0))
+button4 = ttk.Button(
+    root, text="This is fourth button, the last one", command=lambda: sys.exit(0)
+)
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=2, row=2, sticky="we")
@@ -5799,17 +5872,19 @@ import sys
 
 root = tkinter.Tk()
 
-button1 = tkinter.Button(root, background='yellow', text="1st btn",
-                         command=lambda: sys.exit(0))
-button2 = tkinter.Button(root, background='#ff8080', text="Second button",
-                         command=lambda: sys.exit(0))
-button3 = tkinter.Button(root, text="Third button",
-                         command=lambda: sys.exit(0))
-button4 = tkinter.Button(root, text="This is fourth button, the last one",
-                         command=lambda: sys.exit(0))
+button1 = tkinter.Button(
+    root, background="yellow", text="1st btn", command=lambda: sys.exit(0)
+)
+button2 = tkinter.Button(
+    root, background="#ff8080", text="Second button", command=lambda: sys.exit(0)
+)
+button3 = tkinter.Button(root, text="Third button", command=lambda: sys.exit(0))
+button4 = tkinter.Button(
+    root, text="This is fourth button, the last one", command=lambda: sys.exit(0)
+)
 
-button3.configure(background='#8080ff')
-button4['background'] = '#80ff80'
+button3.configure(background="#8080ff")
+button4["background"] = "#80ff80"
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=2, row=1, sticky="we")
@@ -5838,23 +5913,19 @@ def exit():
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Yellow.TButton', background='yellow')
-style.configure('Red.TButton', background='#ff8080')
-style.configure('Blue.TButton', background='#8080ff')
-style.configure('Green.TButton', background='#80ff80')
+style.configure("Yellow.TButton", background="yellow")
+style.configure("Red.TButton", background="#ff8080")
+style.configure("Blue.TButton", background="#8080ff")
+style.configure("Green.TButton", background="#80ff80")
 
-button1 = ttk.Button(root, text="1st btn", style='Yellow.TButton',
-                     command=exit)
-button2 = ttk.Button(root, text="Second button", style='Red.TButton',
-                     command=exit)
-button3 = ttk.Button(root, text="Third button",
-                     command=exit)
-button4 = ttk.Button(root, text="This is fourth button, the last one",
-                     command=exit)
+button1 = ttk.Button(root, text="1st btn", style="Yellow.TButton", command=exit)
+button2 = ttk.Button(root, text="Second button", style="Red.TButton", command=exit)
+button3 = ttk.Button(root, text="Third button", command=exit)
+button4 = ttk.Button(root, text="This is fourth button, the last one", command=exit)
 
-button3.configure(style='Green.TButton')
+button3.configure(style="Green.TButton")
 
-button4["style"] = 'Blue.TButton'
+button4["style"] = "Blue.TButton"
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=2, row=1, sticky="we")
@@ -5900,19 +5971,14 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
-button1 = ttk.Button(root, text="clam",
-                     command=lambda: style.theme_use("clam"))
-button2 = ttk.Button(root, text="alt",
-                     command=lambda: style.theme_use("alt"))
-button3 = ttk.Button(root, text="default",
-                     command=lambda: style.theme_use("default"))
-button4 = ttk.Button(root, text="classic",
-                     command=lambda: style.theme_use("classic"))
+button1 = ttk.Button(root, text="clam", command=lambda: style.theme_use("clam"))
+button2 = ttk.Button(root, text="alt", command=lambda: style.theme_use("alt"))
+button3 = ttk.Button(root, text="default", command=lambda: style.theme_use("default"))
+button4 = ttk.Button(root, text="classic", command=lambda: style.theme_use("classic"))
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=2, row=1, sticky="we")
@@ -5921,9 +5987,9 @@ button4.grid(column=2, row=2, sticky="we")
 
 quitButton.grid(column=2, row=5, sticky="we")
 
-label = tkinter.Label(root, text='Hello world')
+label = tkinter.Label(root, text="Hello world")
 entry = tkinter.Entry(root)
-checkbutton = tkinter.Checkbutton(text='Do you like Tkinter?')
+checkbutton = tkinter.Checkbutton(text="Do you like Tkinter?")
 
 checkbutton.grid(column=1, row=3, columnspan=2, sticky="w")
 label.grid(column=1, row=4)
@@ -5952,21 +6018,16 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 
-for style_name in ('clam', 'alt', 'default', 'classic'):
+for style_name in ("clam", "alt", "default", "classic"):
     style.theme_use(style_name)
-    style.configure('Red.TButton', background='#ff8080')
+    style.configure("Red.TButton", background="#ff8080")
 
-button1 = ttk.Button(root, text="clam",
-                     command=lambda: style.theme_use("clam"))
-button2 = ttk.Button(root, text="alt",
-                     command=lambda: style.theme_use("alt"))
-button3 = ttk.Button(root, text="default",
-                     command=lambda: style.theme_use("default"))
-button4 = ttk.Button(root, text="classic",
-                     command=lambda: style.theme_use("classic"))
+button1 = ttk.Button(root, text="clam", command=lambda: style.theme_use("clam"))
+button2 = ttk.Button(root, text="alt", command=lambda: style.theme_use("alt"))
+button3 = ttk.Button(root, text="default", command=lambda: style.theme_use("default"))
+button4 = ttk.Button(root, text="classic", command=lambda: style.theme_use("classic"))
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=2, row=1, sticky="we")
@@ -5975,9 +6036,9 @@ button4.grid(column=2, row=2, sticky="we")
 
 quitButton.grid(column=2, row=5, sticky="we")
 
-label = tkinter.Label(root, text='Hello world')
+label = tkinter.Label(root, text="Hello world")
 entry = tkinter.Entry(root)
-checkbutton = tkinter.Checkbutton(text='Do you like Tkinter?')
+checkbutton = tkinter.Checkbutton(text="Do you like Tkinter?")
 
 checkbutton.grid(column=1, row=3, columnspan=2, sticky="w")
 label.grid(column=1, row=4)
@@ -6005,7 +6066,7 @@ def exit():
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 button1 = tkinter.Button(root, text="sunken", relief="sunken")
 button2 = tkinter.Button(root, text="solid", relief="solid")
@@ -6014,8 +6075,7 @@ button4 = tkinter.Button(root, text="groove", relief="groove")
 button5 = tkinter.Button(root, text="raised", relief="raised")
 button6 = tkinter.Button(root, text="ridge", relief="ridge")
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 button1.grid(column=1, row=1, sticky="we")
 button2.grid(column=1, row=2, sticky="we")
@@ -6048,15 +6108,16 @@ def exit():
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 buttonStyles = ("sunken", "solid", "flat", "groove", "raised", "ridge")
 
-buttons = (tkinter.Button(root, text=buttonStyle, relief=buttonStyle)
-           for buttonStyle in buttonStyles)
+buttons = (
+    tkinter.Button(root, text=buttonStyle, relief=buttonStyle)
+    for buttonStyle in buttonStyles
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 for i, button in enumerate(buttons):
     button.grid(column=1, row=i, sticky="we")
@@ -6085,15 +6146,16 @@ def exit():
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 buttonStyles = ("sunken", "solid", "flat", "groove", "raised", "ridge")
 
-buttons = (tkinter.Button(root, text=buttonStyle, relief=buttonStyle)
-           for buttonStyle in buttonStyles)
+buttons = (
+    tkinter.Button(root, text=buttonStyle, relief=buttonStyle)
+    for buttonStyle in buttonStyles
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 for i, button in enumerate(buttons):
     button.grid(column=1, row=i, sticky="we", padx=6, pady=6)
@@ -6122,15 +6184,16 @@ def exit():
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 buttonStyles = ("sunken", "solid", "flat", "groove", "raised", "ridge")
 
-buttons = (Button(root, text=buttonStyle, relief=buttonStyle, borderwidth=2)
-           for buttonStyle in buttonStyles)
+buttons = (
+    Button(root, text=buttonStyle, relief=buttonStyle, borderwidth=2)
+    for buttonStyle in buttonStyles
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 for i, button in enumerate(buttons):
     button.grid(column=1, row=i, sticky="we", padx=6, pady=6)
@@ -6159,24 +6222,23 @@ def exit():
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 button1 = ttk.Button(root, text="1s button", command=exit)
 button2 = ttk.Button(root, text="2nd button with long text", command=exit)
 button3 = ttk.Button(root, text="3rd button", command=exit)
 button4 = ttk.Button(root, text="4th button", command=exit)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 button1.pack()
 button2.pack()
 button3.pack()
 button4.pack()
 
-label = tkinter.Label(root, text='Hello world')
+label = tkinter.Label(root, text="Hello world")
 entry = tkinter.Entry(root)
-checkbutton = tkinter.Checkbutton(text='Do you like Tkinter?')
+checkbutton = tkinter.Checkbutton(text="Do you like Tkinter?")
 
 checkbutton.pack()
 label.pack()
@@ -6201,13 +6263,13 @@ import sys
 root = tkinter.Tk()
 
 style = ttk.Style()
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
-checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
-                              command=lambda: print("changed"))
+checkbutton = ttk.Checkbutton(
+    root, text="Delete Internet?", command=lambda: print("changed")
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
 quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
@@ -6230,13 +6292,13 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
-checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
-                              command=lambda: print("changed"))
+checkbutton = ttk.Checkbutton(
+    root, text="Delete Internet?", command=lambda: print("changed")
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
 quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
@@ -6259,16 +6321,18 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 delete_internet = tkinter.IntVar()
 
-checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
-                              variable=delete_internet,
-                              command=lambda: print(delete_internet.get()))
+checkbutton = ttk.Checkbutton(
+    root,
+    text="Delete Internet?",
+    variable=delete_internet,
+    command=lambda: print(delete_internet.get()),
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
 quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
@@ -6291,18 +6355,20 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 delete_internet = tkinter.StringVar()
 
-checkbutton = ttk.Checkbutton(root, text="Delete Internet?",
-                              variable=delete_internet,
-                              onvalue="yes",
-                              offvalue="no",
-                              command=lambda: print(delete_internet.get()))
+checkbutton = ttk.Checkbutton(
+    root,
+    text="Delete Internet?",
+    variable=delete_internet,
+    onvalue="yes",
+    offvalue="no",
+    command=lambda: print(delete_internet.get()),
+)
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 checkbutton.grid(column=1, row=1, sticky="we", padx=6, pady=6)
 quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
@@ -6325,13 +6391,12 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 entry = ttk.Entry(root)
 entry.insert(0, "xyzzy")
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 entry.grid(column=1, row=1, sticky="we", padx=6, pady=6)
 quitButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
@@ -6354,18 +6419,16 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 value = tkinter.StringVar()
 
 entry = ttk.Entry(root, textvariable=value)
 entry.insert(0, "xyzzy")
 
-showButton = ttk.Button(root, text="Show var",
-                        command=lambda: print(value.get()))
+showButton = ttk.Button(root, text="Show var", command=lambda: print(value.get()))
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 entry.grid(column=1, row=1, sticky="we", padx=6, pady=6)
 showButton.grid(column=1, row=2, sticky="we", padx=6, pady=6)
@@ -6388,26 +6451,25 @@ root = tkinter.Tk()
 
 radio_var = tkinter.StringVar()
 
-radio1 = tkinter.Radiobutton(root, variable=radio_var, value="Assembler",
-                             text="Assembler")
+radio1 = tkinter.Radiobutton(
+    root, variable=radio_var, value="Assembler", text="Assembler"
+)
 
-radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic",
-                             text="Basic")
+radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic", text="Basic")
 
-radio3 = tkinter.Radiobutton(root, variable=radio_var, value="Brainfuck",
-                             text="Brainfuck")
+radio3 = tkinter.Radiobutton(
+    root, variable=radio_var, value="Brainfuck", text="Brainfuck"
+)
 
-radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C",
-                             text="C")
+radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C", text="C")
 
-radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python",
-                             text="Python")
+radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python", text="Python")
 
-showButton = tkinter.Button(root, text="Show var",
-                            command=lambda: print(radio_var.get()))
+showButton = tkinter.Button(
+    root, text="Show var", command=lambda: print(radio_var.get())
+)
 
-quitButton = tkinter.Button(root, text="Exit", background='#ff8080',
-                            command=exit)
+quitButton = tkinter.Button(root, text="Exit", background="#ff8080", command=exit)
 
 radio1.grid(column=1, row=1)
 radio2.grid(column=1, row=2)
@@ -6435,26 +6497,25 @@ root = tkinter.Tk()
 
 radio_var = tkinter.StringVar()
 
-radio1 = tkinter.Radiobutton(root, variable=radio_var, value="Assembler",
-                             text="Assembler")
+radio1 = tkinter.Radiobutton(
+    root, variable=radio_var, value="Assembler", text="Assembler"
+)
 
-radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic",
-                             text="Basic")
+radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic", text="Basic")
 
-radio3 = tkinter.Radiobutton(root, variable=radio_var, value="Brainfuck",
-                             text="Brainfuck")
+radio3 = tkinter.Radiobutton(
+    root, variable=radio_var, value="Brainfuck", text="Brainfuck"
+)
 
-radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C",
-                             text="C")
+radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C", text="C")
 
-radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python",
-                             text="Python")
+radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python", text="Python")
 
-showButton = tkinter.Button(root, text="Show var",
-                            command=lambda: print(radio_var.get()))
+showButton = tkinter.Button(
+    root, text="Show var", command=lambda: print(radio_var.get())
+)
 
-quitButton = tkinter.Button(root, text="Exit", background='#ff8080',
-                            command=exit)
+quitButton = tkinter.Button(root, text="Exit", background="#ff8080", command=exit)
 
 radio1.grid(column=1, row=1, sticky="w")
 radio2.grid(column=1, row=2, sticky="w")
@@ -6484,26 +6545,25 @@ radio_var = tkinter.StringVar()
 
 radio_var.set("C")
 
-radio1 = tkinter.Radiobutton(root, variable=radio_var, value="Assembler",
-                             text="Assembler")
+radio1 = tkinter.Radiobutton(
+    root, variable=radio_var, value="Assembler", text="Assembler"
+)
 
-radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic",
-                             text="Basic")
+radio2 = tkinter.Radiobutton(root, variable=radio_var, value="Basic", text="Basic")
 
-radio3 = tkinter.Radiobutton(root, variable=radio_var, value="Brainfuck",
-                             text="Brainfuck")
+radio3 = tkinter.Radiobutton(
+    root, variable=radio_var, value="Brainfuck", text="Brainfuck"
+)
 
-radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C",
-                             text="C")
+radio4 = tkinter.Radiobutton(root, variable=radio_var, value="C", text="C")
 
-radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python",
-                             text="Python")
+radio5 = tkinter.Radiobutton(root, variable=radio_var, value="Python", text="Python")
 
-showButton = tkinter.Button(root, text="Show var",
-                            command=lambda: print(radio_var.get()))
+showButton = tkinter.Button(
+    root, text="Show var", command=lambda: print(radio_var.get())
+)
 
-quitButton = tkinter.Button(root, text="Exit", background='#ff8080',
-                            command=exit)
+quitButton = tkinter.Button(root, text="Exit", background="#ff8080", command=exit)
 
 radio1.grid(column=1, row=1, sticky="w")
 radio2.grid(column=1, row=2, sticky="w")
@@ -6532,31 +6592,24 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 radio_var = tkinter.StringVar()
 radio_var.set("Python")
 
-radio1 = ttk.Radiobutton(root, variable=radio_var, value="Assembler",
-                         text="Assembler")
+radio1 = ttk.Radiobutton(root, variable=radio_var, value="Assembler", text="Assembler")
 
-radio2 = ttk.Radiobutton(root, variable=radio_var, value="Basic",
-                         text="Basic")
+radio2 = ttk.Radiobutton(root, variable=radio_var, value="Basic", text="Basic")
 
-radio3 = ttk.Radiobutton(root, variable=radio_var, value="Brainfuck",
-                         text="Brainfuck")
+radio3 = ttk.Radiobutton(root, variable=radio_var, value="Brainfuck", text="Brainfuck")
 
-radio4 = ttk.Radiobutton(root, variable=radio_var, value="C",
-                         text="C")
+radio4 = ttk.Radiobutton(root, variable=radio_var, value="C", text="C")
 
-radio5 = ttk.Radiobutton(root, variable=radio_var, value="Python",
-                         text="Python")
+radio5 = ttk.Radiobutton(root, variable=radio_var, value="Python", text="Python")
 
-showButton = ttk.Button(root, text="Show var",
-                        command=lambda: print(radio_var.get()))
+showButton = ttk.Button(root, text="Show var", command=lambda: print(radio_var.get()))
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 radio1.grid(column=1, row=1, sticky="w")
 radio2.grid(column=1, row=2, sticky="w")
@@ -6585,22 +6638,20 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 radio_var = tkinter.StringVar()
 radio_var.set("Python")
 
 langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
 
-radio_buttons = (ttk.Radiobutton(root, text=lang, value=lang,
-                                 variable=radio_var)
-                 for lang in langs)
+radio_buttons = (
+    ttk.Radiobutton(root, text=lang, value=lang, variable=radio_var) for lang in langs
+)
 
-showButton = ttk.Button(root, text="Show var",
-                        command=lambda: print(radio_var.get()))
+showButton = ttk.Button(root, text="Show var", command=lambda: print(radio_var.get()))
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 for i, radio_button in enumerate(radio_buttons):
     radio_button.grid(column=1, row=i, sticky="w")
@@ -6626,22 +6677,20 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 radio_var = tkinter.StringVar()
 radio_var.set("Python")
 
 langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
 
-radio_buttons = (ttk.Radiobutton(root, text=lang, value=lang,
-                                 variable=radio_var)
-                 for lang in langs)
+radio_buttons = (
+    ttk.Radiobutton(root, text=lang, value=lang, variable=radio_var) for lang in langs
+)
 
-showButton = ttk.Button(root, text="Show var",
-                        command=lambda: print(radio_var.get()))
+showButton = ttk.Button(root, text="Show var", command=lambda: print(radio_var.get()))
 
-quitButton = ttk.Button(root, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(root, text="Exit", style="Red.TButton", command=exit)
 
 for radio_button in radio_buttons:
     radio_button.pack(fill="x")
@@ -6735,8 +6784,17 @@ root = tkinter.Tk()
 
 scrollbar = tkinter.Scrollbar(root)
 
-langs = ("Assembler", "Basic", "Brainfuck", "C", "C++", "Java", "Julia",
-         "Perl", "Python")
+langs = (
+    "Assembler",
+    "Basic",
+    "Brainfuck",
+    "C",
+    "C++",
+    "Java",
+    "Julia",
+    "Perl",
+    "Python",
+)
 
 listbox = tkinter.Listbox(root, height=4)
 
@@ -6777,8 +6835,17 @@ root = tkinter.Tk()
 
 scrollbar = ttk.Scrollbar(root)
 
-langs = ("Assembler", "Basic", "Brainfuck", "C", "C++", "Java", "Julia",
-         "Perl", "Python")
+langs = (
+    "Assembler",
+    "Basic",
+    "Brainfuck",
+    "C",
+    "C++",
+    "Java",
+    "Julia",
+    "Perl",
+    "Python",
+)
 
 listbox = tkinter.Listbox(root, yscrollcommand=scrollbar.set, height=4)
 
@@ -6821,11 +6888,9 @@ root = tkinter.Tk()
 
 number = tkinter.IntVar()
 
-spinbox = tkinter.Spinbox(root, from_=100, to=120, width=10,
-                          textvariable=number)
+spinbox = tkinter.Spinbox(root, from_=100, to=120, width=10, textvariable=number)
 
-showButton = ttk.Button(root, text="Show var",
-                        command=lambda: print(number.get()))
+showButton = ttk.Button(root, text="Show var", command=lambda: print(number.get()))
 
 quitButton = ttk.Button(root, text="Exit", command=exit)
 
@@ -6851,14 +6916,25 @@ root = tkinter.Tk()
 
 selected_lang = tkinter.StringVar()
 
-langs = ("Assembler", "Basic", "Brainfuck", "C", "C++", "Java", "Julia",
-         "Perl", "Python")
+langs = (
+    "Assembler",
+    "Basic",
+    "Brainfuck",
+    "C",
+    "C++",
+    "Java",
+    "Julia",
+    "Perl",
+    "Python",
+)
 
-spinbox = tkinter.Spinbox(root, values=langs, width=10,
-                          textvariable=selected_lang, wrap=True)
+spinbox = tkinter.Spinbox(
+    root, values=langs, width=10, textvariable=selected_lang, wrap=True
+)
 
-showButton = ttk.Button(root, text="Show var",
-                        command=lambda: print(selected_lang.get()))
+showButton = ttk.Button(
+    root, text="Show var", command=lambda: print(selected_lang.get())
+)
 
 quitButton = ttk.Button(root, text="Exit", command=exit)
 
@@ -6884,7 +6960,7 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 radio_var = tkinter.StringVar()
 radio_var.set("Python")
@@ -6894,15 +6970,13 @@ langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
 f1 = ttk.Frame(root)
 f2 = ttk.Frame(root)
 
-radio_buttons = (ttk.Radiobutton(f1, text=lang, value=lang,
-                                 variable=radio_var)
-                 for lang in langs)
+radio_buttons = (
+    ttk.Radiobutton(f1, text=lang, value=lang, variable=radio_var) for lang in langs
+)
 
-showButton = ttk.Button(f2, text="Show var",
-                        command=lambda: print(radio_var.get()))
+showButton = ttk.Button(f2, text="Show var", command=lambda: print(radio_var.get()))
 
-quitButton = ttk.Button(f2, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(f2, text="Exit", style="Red.TButton", command=exit)
 
 for i, radio_button in enumerate(radio_buttons):
     radio_button.grid(column=1, row=i, sticky="w")
@@ -6931,7 +7005,7 @@ root = tkinter.Tk()
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 radio_var = tkinter.StringVar()
 radio_var.set("Python")
@@ -6941,15 +7015,13 @@ langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
 f1 = ttk.LabelFrame(root, text="Languages")
 f2 = ttk.LabelFrame(root, text="Commands")
 
-radio_buttons = (ttk.Radiobutton(f1, text=lang, value=lang,
-                                 variable=radio_var)
-                 for lang in langs)
+radio_buttons = (
+    ttk.Radiobutton(f1, text=lang, value=lang, variable=radio_var) for lang in langs
+)
 
-showButton = ttk.Button(f2, text="Show var",
-                        command=lambda: print(radio_var.get()))
+showButton = ttk.Button(f2, text="Show var", command=lambda: print(radio_var.get()))
 
-quitButton = ttk.Button(f2, text="Exit", style='Red.TButton',
-                        command=exit)
+quitButton = ttk.Button(f2, text="Exit", style="Red.TButton", command=exit)
 
 for i, radio_button in enumerate(radio_buttons):
     radio_button.grid(column=1, row=i, sticky="w")
@@ -7012,7 +7084,7 @@ root.config(menu=menubar)
 
 style = ttk.Style()
 style.theme_use("alt")
-style.configure('Red.TButton', background='#ff8080')
+style.configure("Red.TButton", background="#ff8080")
 
 radio_var = tkinter.StringVar()
 radio_var.set("Python")
@@ -7022,15 +7094,13 @@ langs = ("Assembler", "Basic", "Brainfuck", "C", "Python")
 f1 = ttk.LabelFrame(root, text="Languages")
 f2 = ttk.LabelFrame(root, text="Commands")
 
-radio_buttons = (ttk.Radiobutton(f1, text=lang, value=lang,
-                                 variable=radio_var)
-                 for lang in langs)
+radio_buttons = (
+    ttk.Radiobutton(f1, text=lang, value=lang, variable=radio_var) for lang in langs
+)
 
-showButton = ttk.Button(f2, text="Show var",
-                        command=lambda: print(radio_var.get()))
+showButton = ttk.Button(f2, text="Show var", command=lambda: print(radio_var.get()))
 
-quitButton = ttk.Button(f2, text="Exit", style='Red.TButton',
-                        command=root.quit)
+quitButton = ttk.Button(f2, text="Exit", style="Red.TButton", command=root.quit)
 
 for i, radio_button in enumerate(radio_buttons):
     radio_button.grid(column=1, row=i, sticky="w")
@@ -7069,7 +7139,7 @@ popup.add_command(label="Exit", command=root.quit)
 
 
 def on_popup(event):
-    popup.post(event.x_root-5, event.y_root-5)
+    popup.post(event.x_root - 5, event.y_root - 5)
 
 
 root.bind("<Button-3>", on_popup)
@@ -7139,7 +7209,7 @@ root = tkinter.Tk()
 
 menubar = tkinter.Menu(root)
 
-root.option_add('*tearOff', False)
+root.option_add("*tearOff", False)
 
 filemenu = tkinter.Menu(menubar)
 filemenu.add_command(label="Open")
@@ -7249,8 +7319,7 @@ editmenu.add_separator()
 editmenu.add_command(label="Select All")
 menubar.add_cascade(label="Edit", menu=editmenu)
 
-colors = ("white", "yellow", "orange", "red", "magenta",
-          "blue", "cyan", "green")
+colors = ("white", "yellow", "orange", "red", "magenta", "blue", "cyan", "green")
 colormenu = tkinter.Menu(menubar, tearoff=0)
 
 for color in colors:
@@ -7303,8 +7372,7 @@ editmenu.add_separator()
 editmenu.add_command(label="Select All", underline=7)
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
-colors = ("white", "yellow", "orange", "red", "magenta",
-          "blue", "cyan", "green")
+colors = ("white", "yellow", "orange", "red", "magenta", "blue", "cyan", "green")
 colormenu = tkinter.Menu(menubar, tearoff=0)
 
 for color in colors:
@@ -7351,49 +7419,43 @@ select_all_image = tkinter.PhotoImage(file="icons/edit-select-all.gif")
 
 filemenu = tkinter.Menu(menubar, tearoff=0)
 
-filemenu.add_command(label="Open", underline=0, image=open_image,
-                     compound="left")
+filemenu.add_command(label="Open", underline=0, image=open_image, compound="left")
 
-filemenu.add_command(label="Save", underline=0, image=save_image,
-                     compound="left")
+filemenu.add_command(label="Save", underline=0, image=save_image, compound="left")
 
 filemenu.add_separator()
 
-filemenu.add_command(label="Exit", underline=1, image=exit_image,
-                     compound="left", command=root.quit)
+filemenu.add_command(
+    label="Exit", underline=1, image=exit_image, compound="left", command=root.quit
+)
 
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 
 
 editmenu = tkinter.Menu(menubar, tearoff=0)
 
-editmenu.add_command(label="Undo", underline=0, image=undo_image,
-                     compound="left")
+editmenu.add_command(label="Undo", underline=0, image=undo_image, compound="left")
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Cut", underline=2, image=cut_image,
-                     compound="left")
+editmenu.add_command(label="Cut", underline=2, image=cut_image, compound="left")
 
-editmenu.add_command(label="Copy", underline=0, image=copy_image,
-                     compound="left")
+editmenu.add_command(label="Copy", underline=0, image=copy_image, compound="left")
 
-editmenu.add_command(label="Paste", underline=0, image=paste_image,
-                     compound="left")
+editmenu.add_command(label="Paste", underline=0, image=paste_image, compound="left")
 
-editmenu.add_command(label="Delete", underline=2, image=delete_image,
-                     compound="left")
+editmenu.add_command(label="Delete", underline=2, image=delete_image, compound="left")
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Select All", underline=7, image=select_all_image,
-                     compound="left")
+editmenu.add_command(
+    label="Select All", underline=7, image=select_all_image, compound="left"
+)
 
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
 
-colors = ("white", "yellow", "orange", "red", "magenta",
-          "blue", "cyan", "green")
+colors = ("white", "yellow", "orange", "red", "magenta", "blue", "cyan", "green")
 colormenu = tkinter.Menu(menubar, tearoff=0)
 
 for color in colors:
@@ -7437,7 +7499,8 @@ image_names = [
     "edit-copy",
     "edit-paste",
     "edit-delete",
-    "edit-select-all"]
+    "edit-select-all",
+]
 
 images = {}
 for image_name in image_names:
@@ -7445,50 +7508,61 @@ for image_name in image_names:
 
 filemenu = tkinter.Menu(menubar, tearoff=0)
 
-filemenu.add_command(label="Open", underline=0, image=images["document-open"],
-                     compound="left")
+filemenu.add_command(
+    label="Open", underline=0, image=images["document-open"], compound="left"
+)
 
-filemenu.add_command(label="Save", underline=0, image=images["document-save"],
-                     compound="left")
+filemenu.add_command(
+    label="Save", underline=0, image=images["document-save"], compound="left"
+)
 
 filemenu.add_separator()
 
-filemenu.add_command(label="Exit", underline=1,
-                     image=images["application-exit"], compound="left",
-                     command=root.quit)
+filemenu.add_command(
+    label="Exit",
+    underline=1,
+    image=images["application-exit"],
+    compound="left",
+    command=root.quit,
+)
 
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 
 
 editmenu = tkinter.Menu(menubar, tearoff=0)
 
-editmenu.add_command(label="Undo", underline=0, image=images["edit-undo"],
-                     compound="left")
+editmenu.add_command(
+    label="Undo", underline=0, image=images["edit-undo"], compound="left"
+)
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Cut", underline=2, image=images["edit-cut"],
-                     compound="left")
+editmenu.add_command(
+    label="Cut", underline=2, image=images["edit-cut"], compound="left"
+)
 
-editmenu.add_command(label="Copy", underline=0, image=images["edit-copy"],
-                     compound="left")
+editmenu.add_command(
+    label="Copy", underline=0, image=images["edit-copy"], compound="left"
+)
 
-editmenu.add_command(label="Paste", underline=0, image=images["edit-paste"],
-                     compound="left")
+editmenu.add_command(
+    label="Paste", underline=0, image=images["edit-paste"], compound="left"
+)
 
-editmenu.add_command(label="Delete", underline=2, image=images["edit-delete"],
-                     compound="left")
+editmenu.add_command(
+    label="Delete", underline=2, image=images["edit-delete"], compound="left"
+)
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Select All", underline=7,
-                     image=images["edit-select-all"], compound="left")
+editmenu.add_command(
+    label="Select All", underline=7, image=images["edit-select-all"], compound="left"
+)
 
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
 
-colors = ("white", "yellow", "orange", "red", "magenta",
-          "blue", "cyan", "green")
+colors = ("white", "yellow", "orange", "red", "magenta", "blue", "cyan", "green")
 colormenu = tkinter.Menu(menubar, tearoff=0)
 
 for color in colors:
@@ -7532,7 +7606,8 @@ image_names = [
     "edit-copy",
     "edit-paste",
     "edit-delete",
-    "edit-select-all"]
+    "edit-select-all",
+]
 
 images = {}
 for image_name in image_names:
@@ -7540,44 +7615,56 @@ for image_name in image_names:
 
 filemenu = tkinter.Menu(menubar, tearoff=0)
 
-filemenu.add_command(label="Open", underline=0, image=images["document-open"],
-                     compound="left")
+filemenu.add_command(
+    label="Open", underline=0, image=images["document-open"], compound="left"
+)
 
-filemenu.add_command(label="Save", underline=0, image=images["document-save"],
-                     compound="left")
+filemenu.add_command(
+    label="Save", underline=0, image=images["document-save"], compound="left"
+)
 
 filemenu.add_separator()
 
-filemenu.add_command(label="Exit", underline=1,
-                     image=images["application-exit"], compound="left",
-                     command=root.quit)
+filemenu.add_command(
+    label="Exit",
+    underline=1,
+    image=images["application-exit"],
+    compound="left",
+    command=root.quit,
+)
 
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 
 
 editmenu = tkinter.Menu(menubar, tearoff=0)
 
-editmenu.add_command(label="Undo", underline=0, image=images["edit-undo"],
-                     compound="left")
+editmenu.add_command(
+    label="Undo", underline=0, image=images["edit-undo"], compound="left"
+)
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Cut", underline=2, image=images["edit-cut"],
-                     compound="left")
+editmenu.add_command(
+    label="Cut", underline=2, image=images["edit-cut"], compound="left"
+)
 
-editmenu.add_command(label="Copy", underline=0, image=images["edit-copy"],
-                     compound="left")
+editmenu.add_command(
+    label="Copy", underline=0, image=images["edit-copy"], compound="left"
+)
 
-editmenu.add_command(label="Paste", underline=0, image=images["edit-paste"],
-                     compound="left")
+editmenu.add_command(
+    label="Paste", underline=0, image=images["edit-paste"], compound="left"
+)
 
-editmenu.add_command(label="Delete", underline=2, image=images["edit-delete"],
-                     compound="left")
+editmenu.add_command(
+    label="Delete", underline=2, image=images["edit-delete"], compound="left"
+)
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Select All", underline=7,
-                     image=images["edit-select-all"], compound="left")
+editmenu.add_command(
+    label="Select All", underline=7, image=images["edit-select-all"], compound="left"
+)
 
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
@@ -7587,16 +7674,17 @@ show_all = tkinter.BooleanVar()
 show_all.set(True)
 
 optionmenu = tkinter.Menu(menubar, tearoff=0)
-optionmenu.add_checkbutton(label="Word wrap", onvalue=True, offvalue=False,
-                           variable=word_wrap)
-optionmenu.add_checkbutton(label="Show all", onvalue=True, offvalue=False,
-                           variable=show_all)
+optionmenu.add_checkbutton(
+    label="Word wrap", onvalue=True, offvalue=False, variable=word_wrap
+)
+optionmenu.add_checkbutton(
+    label="Show all", onvalue=True, offvalue=False, variable=show_all
+)
 
 menubar.add_cascade(label="Options", menu=optionmenu, underline=0)
 
 
-colors = ("white", "yellow", "orange", "red", "magenta",
-          "blue", "cyan", "green")
+colors = ("white", "yellow", "orange", "red", "magenta", "blue", "cyan", "green")
 colormenu = tkinter.Menu(menubar, tearoff=0)
 
 for color in colors:
@@ -7641,7 +7729,8 @@ image_names = [
     "edit-copy",
     "edit-paste",
     "edit-delete",
-    "edit-select-all"]
+    "edit-select-all",
+]
 
 images = {}
 for image_name in image_names:
@@ -7649,44 +7738,56 @@ for image_name in image_names:
 
 filemenu = tkinter.Menu(menubar, tearoff=0)
 
-filemenu.add_command(label="Open", underline=0, image=images["document-open"],
-                     compound="left")
+filemenu.add_command(
+    label="Open", underline=0, image=images["document-open"], compound="left"
+)
 
-filemenu.add_command(label="Save", underline=0, image=images["document-save"],
-                     compound="left")
+filemenu.add_command(
+    label="Save", underline=0, image=images["document-save"], compound="left"
+)
 
 filemenu.add_separator()
 
-filemenu.add_command(label="Exit", underline=1,
-                     image=images["application-exit"], compound="left",
-                     command=root.quit)
+filemenu.add_command(
+    label="Exit",
+    underline=1,
+    image=images["application-exit"],
+    compound="left",
+    command=root.quit,
+)
 
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 
 
 editmenu = tkinter.Menu(menubar, tearoff=0)
 
-editmenu.add_command(label="Undo", underline=0, image=images["edit-undo"],
-                     compound="left")
+editmenu.add_command(
+    label="Undo", underline=0, image=images["edit-undo"], compound="left"
+)
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Cut", underline=2, image=images["edit-cut"],
-                     compound="left")
+editmenu.add_command(
+    label="Cut", underline=2, image=images["edit-cut"], compound="left"
+)
 
-editmenu.add_command(label="Copy", underline=0, image=images["edit-copy"],
-                     compound="left")
+editmenu.add_command(
+    label="Copy", underline=0, image=images["edit-copy"], compound="left"
+)
 
-editmenu.add_command(label="Paste", underline=0, image=images["edit-paste"],
-                     compound="left")
+editmenu.add_command(
+    label="Paste", underline=0, image=images["edit-paste"], compound="left"
+)
 
-editmenu.add_command(label="Delete", underline=2, image=images["edit-delete"],
-                     compound="left")
+editmenu.add_command(
+    label="Delete", underline=2, image=images["edit-delete"], compound="left"
+)
 
 editmenu.add_separator()
 
-editmenu.add_command(label="Select All", underline=7,
-                     image=images["edit-select-all"], compound="left")
+editmenu.add_command(
+    label="Select All", underline=7, image=images["edit-select-all"], compound="left"
+)
 
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
@@ -7696,16 +7797,17 @@ show_all = tkinter.BooleanVar()
 show_all.set(True)
 
 optionmenu = tkinter.Menu(menubar, tearoff=0)
-optionmenu.add_checkbutton(label="Word wrap", onvalue=True, offvalue=False,
-                           variable=word_wrap)
-optionmenu.add_checkbutton(label="Show all", onvalue=True, offvalue=False,
-                           variable=show_all)
+optionmenu.add_checkbutton(
+    label="Word wrap", onvalue=True, offvalue=False, variable=word_wrap
+)
+optionmenu.add_checkbutton(
+    label="Show all", onvalue=True, offvalue=False, variable=show_all
+)
 
 menubar.add_cascade(label="Options", menu=optionmenu, underline=0)
 
 
-colors = ("white", "yellow", "orange", "red", "magenta",
-          "blue", "cyan", "green")
+colors = ("white", "yellow", "orange", "red", "magenta", "blue", "cyan", "green")
 colormenu = tkinter.Menu(menubar, tearoff=0)
 
 for color in colors:
@@ -7738,35 +7840,44 @@ root = tkinter.Tk()
 menubar = tkinter.Menu(root)
 
 filemenu = tkinter.Menu(menubar, tearoff=0)
-filemenu.add_command(label="Open", underline=0, accelerator="Ctrl+O",
-                     command=lambda: print("Open"))
-filemenu.add_command(label="Save", underline=0, accelerator="Ctrl+S",
-                     command=lambda: print("Save"))
+filemenu.add_command(
+    label="Open", underline=0, accelerator="Ctrl+O", command=lambda: print("Open")
+)
+filemenu.add_command(
+    label="Save", underline=0, accelerator="Ctrl+S", command=lambda: print("Save")
+)
 filemenu.add_separator()
-filemenu.add_command(label="Exit", underline=1, accelerator="Ctrl+Q",
-                     command=root.quit)
+filemenu.add_command(label="Exit", underline=1, accelerator="Ctrl+Q", command=root.quit)
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 
 editmenu = tkinter.Menu(menubar, tearoff=0)
-editmenu.add_command(label="Undo", underline=0, accelerator="Ctrl+U",
-                     command=lambda: print("Undo"))
+editmenu.add_command(
+    label="Undo", underline=0, accelerator="Ctrl+U", command=lambda: print("Undo")
+)
 editmenu.add_separator()
-editmenu.add_command(label="Cut", underline=2, accelerator="Ctrl+X",
-                     command=lambda: print("Cut"))
-editmenu.add_command(label="Copy", underline=0, accelerator="Ctrl+C",
-                     command=lambda: print("Copy"))
-editmenu.add_command(label="Paste", underline=0, accelerator="Ctrl+V",
-                     command=lambda: print("Paste"))
-editmenu.add_command(label="Delete", underline=2,
-                     command=lambda: print("Delete"))
+editmenu.add_command(
+    label="Cut", underline=2, accelerator="Ctrl+X", command=lambda: print("Cut")
+)
+editmenu.add_command(
+    label="Copy", underline=0, accelerator="Ctrl+C", command=lambda: print("Copy")
+)
+editmenu.add_command(
+    label="Paste", underline=0, accelerator="Ctrl+V", command=lambda: print("Paste")
+)
+editmenu.add_command(label="Delete", underline=2, command=lambda: print("Delete"))
 editmenu.add_separator()
-editmenu.add_command(label="Select All", underline=7, accelerator="Ctrl+A",
-                     command=lambda: print("Select All"))
+editmenu.add_command(
+    label="Select All",
+    underline=7,
+    accelerator="Ctrl+A",
+    command=lambda: print("Select All"),
+)
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
 helpmenu = tkinter.Menu(menubar, tearoff=0)
-helpmenu.add_command(label="About", underline=0, accelerator="F1",
-                     command=lambda: print("About"))
+helpmenu.add_command(
+    label="About", underline=0, accelerator="F1", command=lambda: print("About")
+)
 menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
 
 root.config(menu=menubar)
@@ -7805,43 +7916,44 @@ root = tkinter.Tk()
 menubar = tkinter.Menu(root)
 
 filemenu = tkinter.Menu(menubar, tearoff=0)
-filemenu.add_command(label="Open", underline=0, accelerator="Ctrl+O",
-                     command=cmd_open)
-filemenu.add_command(label="Save", underline=0, accelerator="Ctrl+S",
-                     command=cmd_save)
+filemenu.add_command(label="Open", underline=0, accelerator="Ctrl+O", command=cmd_open)
+filemenu.add_command(label="Save", underline=0, accelerator="Ctrl+S", command=cmd_save)
 filemenu.add_separator()
-filemenu.add_command(label="Exit", underline=1, accelerator="Ctrl+Q",
-                     command=root.quit)
+filemenu.add_command(label="Exit", underline=1, accelerator="Ctrl+Q", command=root.quit)
 menubar.add_cascade(label="File", menu=filemenu, underline=0)
 
 editmenu = tkinter.Menu(menubar, tearoff=0)
-editmenu.add_command(label="Undo", underline=0, accelerator="Ctrl+U",
-                     command=cmd_undo)
+editmenu.add_command(label="Undo", underline=0, accelerator="Ctrl+U", command=cmd_undo)
 editmenu.add_separator()
-editmenu.add_command(label="Cut", underline=2, accelerator="Ctrl+X",
-                     command=lambda: print("Cut"))
-editmenu.add_command(label="Copy", underline=0, accelerator="Ctrl+C",
-                     command=lambda: print("Copy"))
-editmenu.add_command(label="Paste", underline=0, accelerator="Ctrl+V",
-                     command=lambda: print("Paste"))
-editmenu.add_command(label="Delete", underline=2,
-                     command=lambda: print("Delete"))
+editmenu.add_command(
+    label="Cut", underline=2, accelerator="Ctrl+X", command=lambda: print("Cut")
+)
+editmenu.add_command(
+    label="Copy", underline=0, accelerator="Ctrl+C", command=lambda: print("Copy")
+)
+editmenu.add_command(
+    label="Paste", underline=0, accelerator="Ctrl+V", command=lambda: print("Paste")
+)
+editmenu.add_command(label="Delete", underline=2, command=lambda: print("Delete"))
 editmenu.add_separator()
-editmenu.add_command(label="Select All", underline=7, accelerator="Ctrl+A",
-                     command=lambda: print("Select All"))
+editmenu.add_command(
+    label="Select All",
+    underline=7,
+    accelerator="Ctrl+A",
+    command=lambda: print("Select All"),
+)
 menubar.add_cascade(label="Edit", menu=editmenu, underline=0)
 
 helpmenu = tkinter.Menu(menubar, tearoff=0)
-helpmenu.add_command(label="About", underline=0, accelerator="F1",
-                     command=cmd_help)
+helpmenu.add_command(label="About", underline=0, accelerator="F1", command=cmd_help)
 menubar.add_cascade(label="Help", menu=helpmenu, underline=0)
 
 root.config(menu=menubar)
 
-root.bind('<Control-o>', lambda event: cmd_open())
-root.bind('<Control-s>', lambda event: cmd_save())
-root.bind('<Control-u>', lambda event: cmd_undo())
-root.bind('<F1>', lambda event: cmd_help())
+root.bind("<Control-o>", lambda event: cmd_open())
+root.bind("<Control-s>", lambda event: cmd_save())
+root.bind("<Control-u>", lambda event: cmd_undo())
+root.bind("<F1>", lambda event: cmd_help())
 
 root.mainloop()
 ```
@@ -7889,8 +8001,7 @@ canvas.create_oval(10, 10, 100, 100, fill="red", outline="blue", width=3)
 canvas.create_line(0, 0, 255, 255, width=5)
 canvas.create_line(0, 255, 255, 0, dash=123)
 
-canvas.create_text(150, 120, text="Hello world!", fill="white",
-                   font="Helvetica 20")
+canvas.create_text(150, 120, text="Hello world!", fill="white", font="Helvetica 20")
 
 root.mainloop()
 ```
@@ -7916,8 +8027,7 @@ def exit():
 
 
 def basic_canvas(root, width, height, grid_size):
-    canvas = tkinter.Canvas(root, width=width, height=height,
-                            background='#ccffcc')
+    canvas = tkinter.Canvas(root, width=width, height=height, background="#ccffcc")
     canvas.pack()
 
     draw_grid(canvas, width, height, grid_size)
@@ -7935,10 +8045,11 @@ root = tkinter.Tk()
 
 canvas = basic_canvas(root, WIDTH, HEIGHT, GRID_SIZE)
 
-canvas.create_line(0, 0, 100, 100, fill='red', width=2, dash=8)
+canvas.create_line(0, 0, 100, 100, fill="red", width=2, dash=8)
 
-canvas.create_arc(100, 1, 200, 100, outline='blue', start=45,
-                  extent=180, style=tkinter.ARC, width=2)
+canvas.create_arc(
+    100, 1, 200, 100, outline="blue", start=45, extent=180, style=tkinter.ARC, width=2
+)
 
 canvas.create_oval(200, 1, 300, 100)
 
@@ -7950,8 +8061,9 @@ canvas.create_text(300, 150, text="Hello world!", font="Helvetica 20")
 
 canvas.create_polygon(50, 225, 200, 300, 50, 375, fill="#80ff80")
 
-canvas.create_polygon(250, 225, 400, 300, 250, 375, fill="black",
-                      outline="red", width="5")
+canvas.create_polygon(
+    250, 225, 400, 300, 250, 375, fill="black", outline="red", width="5"
+)
 
 root.mainloop()
 ```
@@ -7975,20 +8087,17 @@ def exit():
 root = tkinter.Tk()
 
 
-infoButton = tkinter.Button(root, text="Info box",
-                            command=lambda: messagebox.showinfo(
-                                "Title",
-                                "Text"))
+infoButton = tkinter.Button(
+    root, text="Info box", command=lambda: messagebox.showinfo("Title", "Text")
+)
 
-warningButton = tkinter.Button(root, text="Warning box",
-                               command=lambda: messagebox.showwarning(
-                                   "Title",
-                                   "Text"))
+warningButton = tkinter.Button(
+    root, text="Warning box", command=lambda: messagebox.showwarning("Title", "Text")
+)
 
-errorButton = tkinter.Button(root, text="Error box",
-                             command=lambda: messagebox.showerror(
-                                 "Title",
-                                 "Text"))
+errorButton = tkinter.Button(
+    root, text="Error box", command=lambda: messagebox.showerror("Title", "Text")
+)
 
 quitButton = tkinter.Button(root, text="Exit", command=exit)
 
@@ -8020,38 +8129,46 @@ def exit():
 
 
 def showOkCancelMessageBox():
-    print(messagebox.askokcancel("Otázečka na závěr",
-                                 "Skutečně, ale skutečně ukončit program?"))
+    print(
+        messagebox.askokcancel(
+            "Otázečka na závěr", "Skutečně, ale skutečně ukončit program?"
+        )
+    )
 
 
 def showRetryCancelMessageBox():
-    print(messagebox.askretrycancel("Chyba při tisku",
-                                    "Opakovat tisk?"))
+    print(messagebox.askretrycancel("Chyba při tisku", "Opakovat tisk?"))
 
 
 def showYesNoMessageBox():
-    print(messagebox.askyesno("Otázečka na závěr",
-                              "Skutečně, ale skutečně ukončit program?"))
+    print(
+        messagebox.askyesno(
+            "Otázečka na závěr", "Skutečně, ale skutečně ukončit program?"
+        )
+    )
 
 
 def showQuestionMessageBox():
-    print(messagebox.askquestion("Otázečka na závěr",
-                                 "Provést zálohu?"))
+    print(messagebox.askquestion("Otázečka na závěr", "Provést zálohu?"))
 
 
 root = tkinter.Tk()
 
-showOkCancelButton = tkinter.Button(root, text="Show Ok/Cancel message box",
-                                    command=showOkCancelMessageBox)
+showOkCancelButton = tkinter.Button(
+    root, text="Show Ok/Cancel message box", command=showOkCancelMessageBox
+)
 
-showRetryCancelButton = tkinter.Button(root, text="Show Retry/Cancel box",
-                                       command=showRetryCancelMessageBox)
+showRetryCancelButton = tkinter.Button(
+    root, text="Show Retry/Cancel box", command=showRetryCancelMessageBox
+)
 
-showYesNoButton = tkinter.Button(root, text="Show Yes.No box",
-                                 command=showYesNoMessageBox)
+showYesNoButton = tkinter.Button(
+    root, text="Show Yes.No box", command=showYesNoMessageBox
+)
 
-showQuestionButton = tkinter.Button(root, text="Show question box",
-                                    command=showQuestionMessageBox)
+showQuestionButton = tkinter.Button(
+    root, text="Show question box", command=showQuestionMessageBox
+)
 
 quitButton = tkinter.Button(root, text="Exit", command=exit)
 
@@ -8100,18 +8217,18 @@ animation_refresh_seconds = 0.01
 # The main window of the animation
 def create_animation_window():
     window = tkinter.Tk()
-    window.title('Tkinter Animation Demo')
+    window.title("Tkinter Animation Demo")
 
     # Uses python 3.6+ string interpolation
-    window.geometry(f'{animation_window_width}x{animation_window_height}')
+    window.geometry(f"{animation_window_width}x{animation_window_height}")
     return window
 
 
 # Create a canvas for animation and add it to main window
 def create_animation_canvas(window):
     canvas = tkinter.Canvas(window)
-    canvas.configure(bg='white')
-    canvas.pack(fill='both', expand=True)
+    canvas.configure(bg="white")
+    canvas.pack(fill="both", expand=True)
     return canvas
 
 
@@ -8122,17 +8239,17 @@ def animate_ball(window, canvas, xinc, yinc):
         animation_ball_start_ypos - animation_ball_radius,
         animation_ball_start_xpos + animation_ball_radius,
         animation_ball_start_ypos + animation_ball_radius,
-        fill='darkblue',
-        outline='blue',
+        fill="darkblue",
+        outline="blue",
         width=4,
-        )
+    )
     while True:
         canvas.move(ball, xinc, yinc)
         window.update()
         time.sleep(animation_refresh_seconds)
         ball_pos = canvas.coords(ball)
 
-    # unpack array to variables
+        # unpack array to variables
 
         (xl, yl, xr, yr) = ball_pos
         if xl < abs(xinc) or xr > animation_window_width - abs(xinc):
@@ -8145,13 +8262,201 @@ def animate_ball(window, canvas, xinc, yinc):
 
 animation_window = create_animation_window()
 animation_canvas = create_animation_canvas(animation_window)
-animate_ball(animation_window, animation_canvas,
-             animation_ball_min_movement, animation_ball_min_movement)
+animate_ball(
+    animation_window,
+    animation_canvas,
+    animation_ball_min_movement,
+    animation_ball_min_movement,
+)
 ```
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/tkinter/animation.py)
 
+--
 
+## Časté problémy
+
+```python
+# Třídní atributy jsou de facto uloženy ve slovníku
+# Ve skutečnosti B a C nemají vlastní hodnoty atributů
+# pouze reference do A
+
+class A(object):
+    attribute = "foo"
+
+
+class B(A):
+    pass
+
+
+class C(A):
+    pass
+
+
+print(A.attribute, B.attribute, C.attribute)
+
+A.attribute = "baz"
+
+print(A.attribute, B.attribute, C.attribute)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/classes.py)
+
+```python
+# výchozí hodnota funkce je vyhodnocena pouze jedenkrát
+# a to ve chvíli definici funkce
+
+def foo(bar=[]):
+    bar.append("baz")
+    return bar
+
+print(foo())
+
+print(foo())
+
+print(foo())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/default_argument_1.py)
+
+```python
+# výchozí hodnota funkce je vyhodnocena pouze jedenkrát
+# a to ve chvíli definici funkce
+
+def foo(bar=None):
+    if bar is None:
+        bar = []
+    bar.append("baz")
+    return bar
+
+print(foo())
+
+print(foo())
+
+print(foo())
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/default_argument_2.py)
+
+```python
+x = 1
+
+def foo():
+    x += 1
+    print(x)
+
+foo()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/scoping1.py)
+
+```python
+x = 1
+
+def foo():
+    global x
+    x += 1
+    print(x)
+
+foo()
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/scoping2.py)
+
+```python
+seznam = []
+
+def foo(x):
+    seznam.append(x)
+
+print(seznam)
+foo(1)
+print(seznam)
+foo(2)
+print(seznam)
+
+def bar(x):
+    seznam += [x]
+
+print(seznam)
+bar(3)
+print(seznam)
+bar(4)
+print(seznam)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/scoping3.py)
+
+```python
+seznam = []
+
+def foo(x):
+    seznam.append(x)
+
+print(seznam)
+foo(1)
+print(seznam)
+foo(2)
+print(seznam)
+
+def bar(x):
+    global seznam
+    seznam += [x]
+
+print(seznam)
+bar(3)
+print(seznam)
+bar(4)
+print(seznam)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/scoping4.py)
+
+```python
+y = 10
+
+def adder(x):
+    return y + x
+
+print(adder(1))
+
+y = 20
+
+print(adder(1))
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/closures.py)
+
+```python
+# Python 2 vs Python 3
+
+x = 0.2
+
+x += 0.1
+
+print(x)
+
+print(repr(x))
+
+print(str(x))
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/floats.py)
+
+```python
+numbers = [n for n in range(10)]
+
+print(numbers)
+
+for i in range(len(numbers)):
+    print(i)
+    if numbers[i] % 2 == 0:
+        del numbers[i]
+
+print(numbers)
+```
+
+[Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/mutating_list.py)
 
 --
 
