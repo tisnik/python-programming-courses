@@ -167,6 +167,9 @@ print(repr(x))
 print(str(x))
 ```
 
+Bližší informace o formátu float/double:
+[https://www.h-schmidt.net/FloatConverter/IEEE754.html](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/pitfalls/floats.py)
 
 ```python
