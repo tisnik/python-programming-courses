@@ -20,4 +20,7 @@
 
 ! examples/pitfalls/floats.py
 
+Bližší informace o formátu float/double:
+[https://www.h-schmidt.net/FloatConverter/IEEE754.html](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
+
 ! examples/pitfalls/mutating_list.py
