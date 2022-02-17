@@ -7,3 +7,4 @@
 * [Jazyk Python - tvorba testů s využitím knihovny Behave](BDD/BDD.md)
 * [Jazyk Python - knihovna Pandas](Pandas/Pandas.md)
 * [Kurz testování v Pythonu](testing/Testing.md)
+* [Časté problémy](Python2/problemy.md)
