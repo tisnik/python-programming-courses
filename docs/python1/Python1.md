@@ -68,6 +68,7 @@
     - klávesové zkratky
 * Použití debuggeru
 * MicroPython
+* Užitečné nástroje pro Python
 
 ---
 
@@ -642,6 +643,12 @@ F""")
 
 ---
 
+### Funkce pro práci s řetězci
+
+* `len` - vrací počet znaků řetězce
+
+---
+
 ### Seznamy (pole)
 
 * základní složený datový typ Pythonu
@@ -655,6 +662,23 @@ F""")
     - k prvkům se přistupuje pomocí celočíselného indexu
     - záporný index - výběr prvků od konce seznamu
     - lze získat i podseznam (tzv. výsek seznamu)
+
+---
+
+### Funkce pro práci se seznamy
+
+* `len` - vrací délku seznamu
+
+---
+
+### Metody pro práci se seznamy
+
+* `clear`
+* `append`
+* `insert`
+* `count`
+* `reverse`
+* `sort`
 
 ---
 
@@ -850,6 +874,12 @@ Eda
     - prvky by neměly být měnitelné (jinak nelze zaručit unikátnost)
     - do množiny je možné prvky přidávat
     - prvky lze i odstraňovat
+
+---
+
+### Funkce pro práci s množinami
+
+* `len` - vrací počet prvků množiny
 
 ---
 
@@ -1119,6 +1149,7 @@ False
 
 * aritmetické operátory
     - `+`
+    - `-`
     - `*`
     - `/`
     - `//`
@@ -1184,6 +1215,12 @@ False
     - `is not`
 
 ---
+
+### Rozhodovací konstrukce ve výrazu
+
+```python
+x = 1 if y > 10 else 0
+```
 
 ### Výrazy, operátory: ukázky použití
 
@@ -2451,6 +2488,16 @@ pin.value(1)
     - Online editor: http://python.microbit.org/v/1
     - převod zdrojového kódu do Intel hex formátu
     - upload v Intel hex formátu
+
+---
+
+## Užitečné nástroje pro Python
+
+* pydocstyle
+    - testuje, zda jsou správně zapsány komentáře
+* pycodestyle (pep8)
+    - kontroluje styl zápisu programů
+    - udržuje štábní kulturu
 
 ---
 

@@ -1149,6 +1149,7 @@ False
 
 * aritmetické operátory
     - `+`
+    - `-`
     - `*`
     - `/`
     - `//`
@@ -1214,6 +1215,12 @@ False
     - `is not`
 
 ---
+
+### Rozhodovací konstrukce ve výrazu
+
+```python
+x = 1 if y > 10 else 0
+```
 
 ### Výrazy, operátory: ukázky použití
 
