@@ -64,7 +64,7 @@ def set_cookie(session, name, value):
     URL = "http://httpbin.org/cookies/set/{name}/{value}".format(name=name, value=value)
 
     # hlavicka posilana v dotazu
-    headers = {'accept': 'application/json'}
+    headers = {"accept": "application/json"}
 
     # poslani HTTP dotazu typu GET
     return session.get(URL, headers=headers)
@@ -75,7 +75,7 @@ def delete_cookie(session, name):
     URL = "http://httpbin.org/cookies/delete?{name}=".format(name=name)
 
     # hlavicka posilana v dotazu
-    headers = {'accept': 'application/json'}
+    headers = {"accept": "application/json"}
 
     # poslani HTTP dotazu typu GET
     return session.get(URL, headers=headers)
