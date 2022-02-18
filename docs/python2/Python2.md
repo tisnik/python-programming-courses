@@ -315,7 +315,7 @@ test_destructor()
 
 [Zdrojový kód](https://github.com/tisnik/python-programming-courses/blob/master/Python2/examples/OOP/employee_class_destructor1.py)
 
-* Volání konstruktoru může přijít "pozdě" - po ukončení skriptu
+* K volání destruktoru může přijít "pozdě" - po ukončení skriptu
 
 ```python
 #!/usr/bin/env python3
