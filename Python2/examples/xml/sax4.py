@@ -2,7 +2,6 @@ import xml.sax
 
 
 class XmlHandler(xml.sax.ContentHandler):
-
     def __init__(self):
         self.in_table = False
 
@@ -13,7 +12,7 @@ class XmlHandler(xml.sax.ContentHandler):
 
         if self.in_table and name == "column":
             print("\tColumn:", attributes["name"])
-            for (k,v) in attributes.items():
+            for (k, v) in attributes.items():
                 print("\t\t", k, v)
 
     def endElement(self, name):
