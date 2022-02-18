@@ -26,11 +26,7 @@ def test_post_method_for_existing_endpoint():
     URL = "http://httpbin.org/post"
 
     # data posilana serveru
-    payload = {
-        "klic": "hodnota",
-        "answer": 42,
-        "question": None,
-        "correct": True}
+    payload = {"klic": "hodnota", "answer": 42, "question": None, "correct": True}
 
     # poslani HTTP dotazu typu POST s telem
     response = requests.post(URL, json=payload)
