@@ -2,6 +2,7 @@
 # Ve skutečnosti B a C nemají vlastní hodnoty atributů
 # pouze reference do A
 
+
 class A(object):
     attribute = "foo"
 
