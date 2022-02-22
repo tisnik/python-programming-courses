@@ -10,11 +10,10 @@ y = reduce(lambda x, y: x + y, seznam)
 print(y)
 
 
-
 def add(x, y):
     print(x, y)
-    return x+y
+    return x + y
+
 
 z = reduce(add, seznam)
 print(z)
-
