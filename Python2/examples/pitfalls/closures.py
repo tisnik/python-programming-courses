@@ -1,7 +1,9 @@
 y = 10
 
+
 def adder(x):
     return y + x
+
 
 print(adder(1))
 
