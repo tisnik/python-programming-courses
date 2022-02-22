@@ -1,7 +1,9 @@
 seznam = []
 
+
 def foo(x):
     seznam.append(x)
+
 
 print(seznam)
 foo(1)
@@ -9,8 +11,10 @@ print(seznam)
 foo(2)
 print(seznam)
 
+
 def bar(x):
     seznam += [x]
+
 
 print(seznam)
 bar(3)
