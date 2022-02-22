@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-class Dvojice:
 
+class Dvojice:
     def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
@@ -10,7 +10,7 @@ class Dvojice:
         return "Dvojice: {} {}".format(self.x, self.y)
 
     def __add__(self, other):
-        return Dvojice(self.x+other.x, self.y+other.y)
+        return Dvojice(self.x + other.x, self.y + other.y)
 
 
 d1 = Dvojice(10, 10)
