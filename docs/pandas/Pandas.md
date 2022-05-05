@@ -2023,7 +2023,7 @@ print(results)
 
 ### Výběr prvků metodou `Series.filter`
 
-```
+```python
 import pandas
  
 # přečtení zdrojových dat
@@ -2050,7 +2050,7 @@ results = s.filter(regex="C.*")
 print(results)
 ```
 
-## Spojování datových rámců s využitím append, concat, merge a join
+## Další často používané operace s rámci
 
 ### Přidání nového datového sloupce odvozeného z existujícího sloupce
 
@@ -2139,6 +2139,15 @@ print(df.info())
 print()
 ```
 
+## Spojování datových rámců s využitím append, concat, merge a join
+
+Různé způsoby spojení rámců:
+
+* pod sebou
+    - co s neexistujícími sloupci?
+* vedle sebe
+    - co s neexistujícími řádky?
+
 ### Spojení datových rámců metodou `append`
 
 ```python
@@ -2165,7 +2174,7 @@ concatenated = df1.append(df2)
 print(concatenated)
 ```
 
-### Spojení rámců po sloupcích nebo po řádcích funkcí concat
+### Spojení rámců po sloupcích nebo po řádcích funkcí `concat`
 
 * Alternativní možnost spojení dvou datových rámců nabízí funkce nazvaná `concat`
 * Je aplikovatelná pro libovolný počet instancí třídy `DataFrame`
@@ -2200,7 +2209,7 @@ print(concatenated)
 
 #### Spojení rámců po řádcích
 
-```python```
+```python
 import pandas
  
 # přečtení zdrojových dat
