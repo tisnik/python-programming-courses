@@ -4,8 +4,8 @@
 
 # # Knihovna Matplotlib
 # ![matplotlib_logo.png](matplotlib_logo.png)
-# ### Autor Pavel Tišnovský, Red Hat
-# ### Email ptisnovs@redhat.com
+# ### Autor Pavel Tišnovský
+# ### Email kurzy.python@centrum.cz
 
 # ## Knihovna NumPy
 # - numerické výpočty
