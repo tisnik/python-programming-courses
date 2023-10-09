@@ -4,8 +4,8 @@
 
 # # Knihovna NumPy
 # ![numpy_logo.png](numpy_logo.png)
-# ### Autor Pavel Tišnovský, Red Hat
-# ### Email ptisnovs@redhat.com
+# ### Autor Pavel Tišnovský
+# ### Email kurzy.python@centrum.cz
 
 # # Obsah přednášky
 # 1. Programovací jazyk Python
