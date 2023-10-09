@@ -1,7 +1,7 @@
 # Behavior-driven development (BDD) & Behavior-driven testing (BDT)
 
 * Pavel Tišnovský
-    - `ptisnovs@redhat.com`
+    - `kurzy.python@centrum.cz`
 * Slides:
     - `https://github.com/tisnik/python-programming-courses`
 * Examples:
