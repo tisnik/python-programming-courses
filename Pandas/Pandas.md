@@ -2,8 +2,8 @@
 
 ![pandas_logo.png](pandas_logo.png)
 
-### Autor Pavel Tišnovský, Red Hat
-### Email ptisnovs@redhat.com
+### Autor Pavel Tišnovský
+### Email kurzy.python@centrum.cz
 
 
 
