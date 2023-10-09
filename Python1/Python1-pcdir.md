@@ -7,7 +7,7 @@
 # Jazyk Python - základy programování
 
 * Pavel Tišnovský
-    - `ptisnovs@redhat.com`
+    - `kurzy.python@centrum.cz`
 * Slajdy a demonstrační příklady:
     - `https://github.com/tisnik/python-programming-courses`
 
